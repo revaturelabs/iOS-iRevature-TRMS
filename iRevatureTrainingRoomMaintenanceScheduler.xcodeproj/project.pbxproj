@@ -64,7 +64,6 @@
 				094DF34223F353B300D012C3 /* Storyboard */,
 				094DF34123F353A200D012C3 /* Resources */,
 				094DF33F23F352D500D012C3 /* Account */,
-				094DF33923F34B4500D012C3 /* Info.plist */,
 			);
 			path = iRevatureTrainingRoomMaintenanceScheduler;
 			sourceTree = "<group>";
@@ -255,6 +254,7 @@
 		094DF35723F3557300D012C3 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				094DF33923F34B4500D012C3 /* Info.plist */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -509,7 +509,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = iRevatureTrainingRoomMaintenanceScheduler/Info.plist;
+				INFOPLIST_FILE = iRevatureTrainingRoomMaintenanceScheduler/Application/Configuration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -526,7 +526,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = iRevatureTrainingRoomMaintenanceScheduler/Info.plist;
+				INFOPLIST_FILE = iRevatureTrainingRoomMaintenanceScheduler/Application/Configuration/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

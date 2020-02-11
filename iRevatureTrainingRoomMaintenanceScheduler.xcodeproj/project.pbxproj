@@ -56,15 +56,239 @@
 		094DF32A23F34B4300D012C3 /* iRevatureTrainingRoomMaintenanceScheduler */ = {
 			isa = PBXGroup;
 			children = (
-				094DF32B23F34B4300D012C3 /* AppDelegate.swift */,
-				094DF32D23F34B4300D012C3 /* SceneDelegate.swift */,
-				094DF32F23F34B4300D012C3 /* ViewController.swift */,
-				094DF33123F34B4300D012C3 /* Main.storyboard */,
-				094DF33423F34B4500D012C3 /* Assets.xcassets */,
-				094DF33623F34B4500D012C3 /* LaunchScreen.storyboard */,
+				094DF35323F3554E00D012C3 /* Application */,
+				094DF34623F3544400D012C3 /* Business */,
+				094DF34523F3542900D012C3 /* Persistence */,
+				094DF34423F353D800D012C3 /* Services */,
+				094DF34323F353C600D012C3 /* Global-Common */,
+				094DF34223F353B300D012C3 /* Storyboard */,
+				094DF34123F353A200D012C3 /* Resources */,
+				094DF33F23F352D500D012C3 /* Account */,
 				094DF33923F34B4500D012C3 /* Info.plist */,
 			);
 			path = iRevatureTrainingRoomMaintenanceScheduler;
+			sourceTree = "<group>";
+		};
+		094DF33F23F352D500D012C3 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		094DF34123F353A200D012C3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				094DF33423F34B4500D012C3 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		094DF34223F353B300D012C3 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				094DF35B23F355B500D012C3 /* LaunchScreen */,
+				094DF35A23F355A800D012C3 /* Main */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		094DF34323F353C600D012C3 /* Global-Common */ = {
+			isa = PBXGroup;
+			children = (
+				094DF34A23F354BE00D012C3 /* Constants */,
+				094DF34923F354A600D012C3 /* UI-Elements */,
+				094DF34823F3548300D012C3 /* Utilities */,
+				094DF34723F3547100D012C3 /* Extensions */,
+			);
+			path = "Global-Common";
+			sourceTree = "<group>";
+		};
+		094DF34423F353D800D012C3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		094DF34523F3542900D012C3 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				094DF34E23F354F700D012C3 /* Entities */,
+				094DF34D23F354E600D012C3 /* Data-Access */,
+				094DF34C23F354DA00D012C3 /* Common */,
+				094DF34B23F354CF00D012C3 /* Repository */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		094DF34623F3544400D012C3 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				094DF35223F3553500D012C3 /* Entities */,
+				094DF35123F3552600D012C3 /* Logic */,
+				094DF35023F3550C00D012C3 /* Services */,
+				094DF34F23F3550400D012C3 /* Common */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		094DF34723F3547100D012C3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		094DF34823F3548300D012C3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		094DF34923F354A600D012C3 /* UI-Elements */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "UI-Elements";
+			sourceTree = "<group>";
+		};
+		094DF34A23F354BE00D012C3 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		094DF34B23F354CF00D012C3 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		094DF34C23F354DA00D012C3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		094DF34D23F354E600D012C3 /* Data-Access */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Data-Access";
+			sourceTree = "<group>";
+		};
+		094DF34E23F354F700D012C3 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		094DF34F23F3550400D012C3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		094DF35023F3550C00D012C3 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		094DF35123F3552600D012C3 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		094DF35223F3553500D012C3 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		094DF35323F3554E00D012C3 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				094DF35923F3558700D012C3 /* Delegates */,
+				094DF35823F3557D00D012C3 /* Protocols */,
+				094DF35723F3557300D012C3 /* Configuration */,
+				094DF35423F3555700D012C3 /* Modules */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		094DF35423F3555700D012C3 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				094DF35623F3556900D012C3 /* Views */,
+				094DF35523F3555E00D012C3 /* View-Controllers */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		094DF35523F3555E00D012C3 /* View-Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				094DF32F23F34B4300D012C3 /* ViewController.swift */,
+			);
+			path = "View-Controllers";
+			sourceTree = "<group>";
+		};
+		094DF35623F3556900D012C3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		094DF35723F3557300D012C3 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		094DF35823F3557D00D012C3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		094DF35923F3558700D012C3 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				094DF32B23F34B4300D012C3 /* AppDelegate.swift */,
+				094DF32D23F34B4300D012C3 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		094DF35A23F355A800D012C3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				094DF33123F34B4300D012C3 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		094DF35B23F355B500D012C3 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				094DF33623F34B4500D012C3 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

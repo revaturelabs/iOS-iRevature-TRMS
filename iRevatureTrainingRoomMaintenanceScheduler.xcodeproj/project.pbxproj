@@ -58,8 +58,8 @@
 			children = (
 				094DF35323F3554E00D012C3 /* Application */,
 				094DF34623F3544400D012C3 /* Business */,
+				094DF35023F3550C00D012C3 /* Services */,
 				094DF34523F3542900D012C3 /* Persistence */,
-				094DF34423F353D800D012C3 /* Services */,
 				094DF34323F353C600D012C3 /* Global-Common */,
 				094DF34223F353B300D012C3 /* Storyboard */,
 				094DF34123F353A200D012C3 /* Resources */,
@@ -107,7 +107,8 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = Services;
+			name = Services;
+			path = ../Services;
 			sourceTree = "<group>";
 		};
 		094DF34523F3542900D012C3 /* Persistence */ = {
@@ -124,9 +125,9 @@
 		094DF34623F3544400D012C3 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				094DF34423F353D800D012C3 /* Services */,
 				094DF35223F3553500D012C3 /* Entities */,
 				094DF35123F3552600D012C3 /* Logic */,
-				094DF35023F3550C00D012C3 /* Services */,
 				094DF34F23F3550400D012C3 /* Common */,
 			);
 			path = Business;
@@ -199,7 +200,8 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = Services;
+			name = Services;
+			path = Business/Services;
 			sourceTree = "<group>";
 		};
 		094DF35123F3552600D012C3 /* Logic */ = {

@@ -9,6 +9,7 @@
 import Foundation
 
 struct MaintenanceChart {
+    var id: Int
     var date: Date
     var inspectedBy: String
     var taskList: [Task]

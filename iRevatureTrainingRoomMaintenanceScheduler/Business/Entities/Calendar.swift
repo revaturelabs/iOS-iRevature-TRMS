@@ -9,6 +9,7 @@
 import Foundation
 
 struct RoomCalendar {
+    var id: Int
     var room: Room
     var dateStart: Date
     var dateEnd: Date

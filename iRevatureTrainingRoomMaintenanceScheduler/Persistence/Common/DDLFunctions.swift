@@ -37,37 +37,42 @@ extension DatabaseAccess {
     }
     
 //-----------------------------------------------------------------------------------------------
-    private func makeCreateStatement (tableName: SQLTable.Type, tableColumns: [Column]) -> String {
-        var columns: String = ""
+    private func makeCreateStatement (tableName: SQLTable.Type, tableColumns: [String: Column]) -> String {
+        var columnString: String = ""
         
-        //Make table columns in proper format
-        for i in 0 ..< tableColumns.count {
-
-            //Assign column name
-            columns += tableColumns[i].name
-            
-            //Assign datatype formatting
-            switch tableColumns[i].dataType {
-            case .CHAR:
-                columns += " \(tableColumns[i].dataType.rawValue)(255)"
-            default:
-                columns += " \(tableColumns[i].dataType.rawValue)"
-            }
-
-            //Assign column constraints
-            if tableColumns[i].constraints != nil {
-                for k in 0 ..< tableColumns[i].constraints!.count {
-                    columns += " \(tableColumns[i].constraints![k].rawValue)"
-                }
+        var columnIterator = tableColumns.makeIterator()
+        
+        while (true) {
+            guard let column = columnIterator.next() else {
+                break
             }
             
             //Apply comma for new column
-            if (i != tableColumns.count - 1) {
-                columns += ", "
+            if (column.key != tableColumns.first?.key) {
+                columnString += ", "
             }
+            
+            //Assign column name
+            columnString += column.key
+            
+            //Assign datatype formatting
+            switch column.value.dataType {
+            case .CHAR:
+                columnString += " \(column.value.dataType.rawValue)(255)"
+            default:
+                columnString += " \(column.value.dataType.rawValue)"
+            }
+
+            //Assign column constraints
+            if column.value.constraints != nil {
+                for i in 0 ..< column.value.constraints!.count {
+                    columnString += " \(column.value.constraints![i].rawValue)"
+                }
+            }
+
         }
         
-        return "\(SQLiteKeyword.CREATE) \(SQLiteKeyword.TABLE) \(tableName) (\(columns));"
+        return "\(SQLiteKeyword.CREATE) \(SQLiteKeyword.TABLE) \(tableName) (\(columnString));"
     }
     
 }

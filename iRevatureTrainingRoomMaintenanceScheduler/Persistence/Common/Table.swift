@@ -9,20 +9,20 @@
 import Foundation
 
 protocol SQLTable {
-    static var columns: [Column] {get}
+    typealias columnName = String
+    static var columns: [columnName : Column] {get}
 }
 
 struct Column {
-    var name: String
     var dataType: SQLiteDataType
     var constraints: [SQLiteConstraints]?
 }
 
 
 struct TestTable: SQLTable {
-    static var columns: [Column] {
-        return [Column.init(name: "id", dataType: .INT, constraints: [.PRIMARYKEY, .NOTNULL]),
-                Column.init(name: "trainer",dataType: .CHAR ,constraints: nil)]
+    static var columns: [Self.columnName : Column] {
+        return ["id" : Column.init(dataType: .INT, constraints: [.PRIMARYKEY, .NOTNULL]),
+                "trainer" : Column.init(dataType: .CHAR ,constraints: nil)]
     }
     
 }

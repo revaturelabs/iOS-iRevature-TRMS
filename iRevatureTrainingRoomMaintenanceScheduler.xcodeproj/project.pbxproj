@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		091B7EFC23F733E6009D7A77 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 091B7EF423F733E6009D7A77 /* Resources */; };
 		091B7EFD23F733E6009D7A77 /* Business in Resources */ = {isa = PBXBuildFile; fileRef = 091B7EF523F733E6009D7A77 /* Business */; };
 		091B7EFE23F733E6009D7A77 /* Storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 091B7EF623F733E6009D7A77 /* Storyboard */; };
 		091B7EFF23F733E6009D7A77 /* Account in Resources */ = {isa = PBXBuildFile; fileRef = 091B7EF723F733E6009D7A77 /* Account */; };
@@ -15,6 +14,7 @@
 		091B7F0123F733E6009D7A77 /* Global-Common in Resources */ = {isa = PBXBuildFile; fileRef = 091B7EF923F733E6009D7A77 /* Global-Common */; };
 		091B7F0223F733E6009D7A77 /* Services in Resources */ = {isa = PBXBuildFile; fileRef = 091B7EFA23F733E6009D7A77 /* Services */; };
 		091B7F0323F733E6009D7A77 /* Persistence in Resources */ = {isa = PBXBuildFile; fileRef = 091B7EFB23F733E6009D7A77 /* Persistence */; };
+		091B7F0723F73651009D7A77 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 091B7EF423F733E6009D7A77 /* Resources */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,12 +129,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				091B7F0723F73651009D7A77 /* Resources in Resources */,
 				091B7F0323F733E6009D7A77 /* Persistence in Resources */,
 				091B7F0123F733E6009D7A77 /* Global-Common in Resources */,
 				091B7EFF23F733E6009D7A77 /* Account in Resources */,
 				091B7EFD23F733E6009D7A77 /* Business in Resources */,
 				091B7F0023F733E6009D7A77 /* Application in Resources */,
-				091B7EFC23F733E6009D7A77 /* Resources in Resources */,
 				091B7EFE23F733E6009D7A77 /* Storyboard in Resources */,
 				091B7F0223F733E6009D7A77 /* Services in Resources */,
 			);

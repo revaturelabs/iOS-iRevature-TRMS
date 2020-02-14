@@ -12,5 +12,5 @@ struct MaintenanceChart {
     var id: Int
     var date: Date
     var inspectedBy: String
-    var taskList: [Task]
+    var taskList: [MaintenanceTask]
 }

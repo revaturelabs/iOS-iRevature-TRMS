@@ -14,5 +14,5 @@ struct Room {
     var campus: String
     var location: String
     var assignedTo: String
-    var assignedTasks: [Task]
+    var assignedTasks: [RoomTask]
 }

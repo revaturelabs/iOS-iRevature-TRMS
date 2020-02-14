@@ -16,7 +16,6 @@
 		091B7F4023F73831009D7A77 /* MaintenanceChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F1E23F73831009D7A77 /* MaintenanceChart.swift */; };
 		091B7F4123F73831009D7A77 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F1F23F73831009D7A77 /* Task.swift */; };
 		091B7F4223F73831009D7A77 /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F2023F73831009D7A77 /* Calendar.swift */; };
-		091B7F4323F73831009D7A77 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 091B7F2323F73831009D7A77 /* Info.plist */; };
 		091B7F4423F73831009D7A77 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F2523F73831009D7A77 /* AppDelegate.swift */; };
 		091B7F4523F73831009D7A77 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F2623F73831009D7A77 /* SceneDelegate.swift */; };
 		091B7F4623F73831009D7A77 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F2923F73831009D7A77 /* ViewController.swift */; };
@@ -387,7 +386,6 @@
 				091B7F3A23F73831009D7A77 /* LaunchScreen.storyboard in Resources */,
 				091B7F3D23F73831009D7A77 /* Main.storyboard in Resources */,
 				091B7F4E23F73831009D7A77 /* Assets.xcassets in Resources */,
-				091B7F4323F73831009D7A77 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

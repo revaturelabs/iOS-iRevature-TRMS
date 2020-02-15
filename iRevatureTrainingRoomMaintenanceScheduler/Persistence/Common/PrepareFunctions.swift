@@ -88,21 +88,9 @@ enum Statement {
 extension DatabaseAccess {
     
     func prepareStatement(sqlStatement: String, statementType: Statement) throws -> OpaquePointer? {
-        return try statementType.makeStatement(database: self.getDBPointer()!, sqlStatement: sqlStatement)
+        return try statementType.makeStatement(database: getDBPointer()!, sqlStatement: sqlStatement)
     }
     
     
 }
 
-class test {
-    func test () {
-        
-        do {
-            let db = try DatabaseAccess.openDatabase(path: "")
-            let stmt = try db?.prepareStatement(sqlStatement: "Your Statement", statementType: .prepare_v2)
-            try db?.createTable(table: TestTable.self)
-        } catch {
-            
-        }
-    }
-}

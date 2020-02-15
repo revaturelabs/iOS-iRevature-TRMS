@@ -16,7 +16,7 @@ extension DatabaseAccess {
 //===============================================================================================
     func createTable(table: SQLTable.Type) throws {
         //Create table creation string
-        let statement = makeCreateStatement(tableName: table, tableColumns: table.columns)
+        let statement = makeCreateStatement(table: table)
         
         //Create prepared statement
         let createTableStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
@@ -30,49 +30,51 @@ extension DatabaseAccess {
         guard sqlite3_step(createTableStatement) == SQLITE_DONE
             else {
                 os_log(SQLiteErrorMessage.tableCreationError, log: OSLog.default, type: .error)
-                throw SQLiteError.Step(message: SQLiteErrorMessage.tableCreationError)
+                throw SQLiteError.Step(message: String(cString: sqlite3_errmsg(createTableStatement)))
         }
-        print("\(table) table created")
-        os_log("%{table} table created", log: OSLog.default, type: .info)
+        
+        os_log(SQLiteSuccessMessage.tableCreationSuccess, log: OSLog.default, type: .info)
     }
     
 //-----------------------------------------------------------------------------------------------
-    private func makeCreateStatement (tableName: SQLTable.Type, tableColumns: [String: Column]) -> String {
+    //Make Create Table Statement
+//-----------------------------------------------------------------------------------------------
+    fileprivate func makeCreateStatement (table: SQLTable.Type) -> String {
         var columnString: String = ""
+        var hasComma: Bool = false
         
-        var columnIterator = tableColumns.makeIterator()
-        
-        while (true) {
-            guard let column = columnIterator.next() else {
-                break
-            }
-            
+        for (key, value) in table.columns {
             //Apply comma for new column
-            if (column.key != tableColumns.first?.key) {
+            if hasComma {
                 columnString += ", "
+            }
+            else {
+                columnString += "("
+                hasComma = true
             }
             
             //Assign column name
-            columnString += column.key
+            columnString += key
             
             //Assign datatype formatting
-            switch column.value.dataType {
+            switch value.dataType {
             case .CHAR:
-                columnString += " \(column.value.dataType.rawValue)(255)"
+                columnString += " \(value.dataType.rawValue)(255)"
             default:
-                columnString += " \(column.value.dataType.rawValue)"
+                columnString += " \(value.dataType.rawValue)"
             }
-
+            
             //Assign column constraints
-            if column.value.constraints != nil {
-                for i in 0 ..< column.value.constraints!.count {
-                    columnString += " \(column.value.constraints![i].rawValue)"
+            if value.constraints != nil {
+                for i in 0 ..< value.constraints!.count {
+                    columnString += " \(value.constraints![i].rawValue)"
                 }
             }
-
         }
         
-        return "\(SQLiteKeyword.CREATE) \(SQLiteKeyword.TABLE) \(tableName) (\(columnString));"
+        columnString += ");"
+        
+        return "\(SQLiteKeyword.CREATE) \(SQLiteKeyword.TABLE) \(table) \(columnString)"
     }
     
 }

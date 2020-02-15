@@ -9,8 +9,8 @@
 import Foundation
 
 protocol SQLTable {
-    typealias columnName = String
-    static var columns: [columnName : Column] {get}
+    typealias columnNameString = String
+    static var columns: [columnNameString : Column] {get}
 }
 
 struct Column {
@@ -20,7 +20,7 @@ struct Column {
 
 
 struct TestTable: SQLTable {
-    static var columns: [Self.columnName : Column] {
+    static var columns: [Self.columnNameString : Column] {
         return ["id" : Column.init(dataType: .INT, constraints: [.PRIMARYKEY, .NOTNULL]),
                 "trainer" : Column.init(dataType: .CHAR ,constraints: nil)]
     }

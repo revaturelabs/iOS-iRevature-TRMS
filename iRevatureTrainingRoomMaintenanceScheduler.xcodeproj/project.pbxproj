@@ -27,6 +27,7 @@
 		091B7F4C23F73831009D7A77 /* PrepareFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F3323F73831009D7A77 /* PrepareFunctions.swift */; };
 		091B7F4D23F73831009D7A77 /* DatabaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F3423F73831009D7A77 /* DatabaseAccess.swift */; };
 		091B7F4E23F73831009D7A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 091B7F3823F73831009D7A77 /* Assets.xcassets */; };
+		5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		091B7F3423F73831009D7A77 /* DatabaseAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAccess.swift; sourceTree = "<group>"; };
 		091B7F3823F73831009D7A77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		094DF32823F34B4300D012C3 /* iRevatureTrainingRoomMaintenanceScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRevatureTrainingRoomMaintenanceScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevatureOrangeButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 		091B7F0C23F73831009D7A77 /* UI-Elements */ = {
 			isa = PBXGroup;
 			children = (
+				5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */,
 			);
 			path = "UI-Elements";
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				091B7F4523F73831009D7A77 /* SceneDelegate.swift in Sources */,
 				091B7F3B23F73831009D7A77 /* StoryboardList.swift in Sources */,
 				091B7F4723F73831009D7A77 /* DMLFunctions.swift in Sources */,
+				5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */,
 				091B7F3F23F73831009D7A77 /* Room.swift in Sources */,
 				091B7F4B23F73831009D7A77 /* SQLError.swift in Sources */,
 				091B7F4C23F73831009D7A77 /* PrepareFunctions.swift in Sources */,

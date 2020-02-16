@@ -17,17 +17,17 @@ extension MaintenanceCheckController: UITableViewDataSource {
         
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskSelectionCell", for: indexPath) as! TaskSelectionCell
         let task = data[indexPath.row]
                
-        cell.label.text = task.0
+        cell.label.text = task.name
 
-
-        cell.check.isOn = task.1
-//        switchSelector.tag = indexPath.row
-//        switchSelector.addTarget(self, action: #selector(toggle), for: .valueChanged)
+        cell.check.isOn = task.completed
+        cell.check.tag = indexPath.row
+        cell.check.addTarget(self, action: #selector(toggle), for: .valueChanged)
         
         return cell
                
@@ -37,4 +37,27 @@ extension MaintenanceCheckController: UITableViewDataSource {
 
 extension MaintenanceCheckController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let cell = tableView.cellForRow(at: indexPath) as! TaskSelectionCell
+        
+        data[indexPath.row].completed = !data[indexPath.row].completed
+        
+        cell.check.isOn = data[indexPath.row].completed
+    }
+    
+    
+    @objc func toggle(_ sender: UISwitch) {
+        data[sender.tag].completed = sender.isOn
+    }
+    
 }
+
+

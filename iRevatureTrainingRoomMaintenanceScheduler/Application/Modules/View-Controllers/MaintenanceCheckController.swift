@@ -15,10 +15,12 @@ class MaintenanceCheckController: UIViewController {
     @IBOutlet weak var taskTable: UITableView!
     
     var roomList = ["NEC 107", "NEC 200", "NEC 300", "NEC 320", "NEC 338", "NEC 107", "NEC 200", "NEC 300", "NEC 320", "NEC 338"]
-    var data = [("Clean whiteboards", false), ("Arrange desks", false), ("Clean desks", false), ("Push in chairs", false), ("Unplug power strips", false), ("Vacuum carpets", false), ("Turn off computer", false), ("Turn off projector", false), ("Turn off lights", false)]
+    var data:[MaintenanceTask] = [MaintenanceTask]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setTasks()
         
         let date = Date()
         let format = DateFormatter()
@@ -30,18 +32,17 @@ class MaintenanceCheckController: UIViewController {
         
         self.taskTable.register(TaskSelectionCell.self, forCellReuseIdentifier: "TaskSelectionCell")
         self.taskTable.separatorStyle = UITableViewCell.SeparatorStyle.none
+        
         taskTable.dataSource = self
+        taskTable.delegate = self
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setTasks() {
+        for i in 1...10 {
+            let name = "Task\(i)"
+            let task = MaintenanceTask(id: i, name: name, completed: false)
+            data.append(task)
+        }
     }
-    */
 
 }

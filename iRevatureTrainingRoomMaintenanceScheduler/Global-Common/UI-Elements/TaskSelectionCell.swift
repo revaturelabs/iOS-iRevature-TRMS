@@ -39,12 +39,13 @@ class TaskSelectionCell: UITableViewCell {
             self.check = check
 
             NSLayoutConstraint.activate([
-
-                self.contentView.leadingAnchor.constraint(equalTo: self.label.leadingAnchor, constant: -20),
-                self.contentView.centerYAnchor.constraint(equalTo: self.label.centerYAnchor),
                 
-                self.contentView.trailingAnchor.constraint(equalTo: self.check.trailingAnchor, constant: 20),
-                self.contentView.centerYAnchor.constraint(equalTo: self.check.centerYAnchor)
+                self.label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+                self.label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+                
+                self.check.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+                self.check.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+                
             ])
             
             self.label.font = UIFont(name:"Helvetica", size: 18.0)

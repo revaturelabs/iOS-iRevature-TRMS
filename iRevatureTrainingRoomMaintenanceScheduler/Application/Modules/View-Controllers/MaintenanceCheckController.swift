@@ -37,6 +37,7 @@ class MaintenanceCheckController: UIViewController {
         taskTable.delegate = self
     }
     
+//add dummy data for testing functionality
     func setTasks() {
         for i in 1...10 {
             let name = "Task\(i)"

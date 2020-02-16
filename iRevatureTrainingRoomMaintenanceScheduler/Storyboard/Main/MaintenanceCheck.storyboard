@@ -35,6 +35,10 @@
                                 <rect key="frame" x="0.0" y="178" width="414" height="484"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNe-WR-8qi" customClass="RevatureButton" customModule="iRevatureTrainingRoomMaintenanceScheduler" customModuleProvider="target">
+                                <rect key="frame" x="184" y="812" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -42,9 +46,11 @@
                             <constraint firstItem="o94-w0-GaP" firstAttribute="top" secondItem="jUI-cL-9AQ" secondAttribute="bottom" constant="50" id="Cow-Dy-Zgb"/>
                             <constraint firstItem="Mo3-X2-rlN" firstAttribute="trailing" secondItem="o94-w0-GaP" secondAttribute="trailing" id="JMr-Ub-Fht"/>
                             <constraint firstItem="jUI-cL-9AQ" firstAttribute="top" secondItem="Mo3-X2-rlN" secondAttribute="top" constant="50" id="LEJ-6e-Abc"/>
+                            <constraint firstItem="eNe-WR-8qi" firstAttribute="centerX" secondItem="YQw-kS-mDt" secondAttribute="centerX" id="R4p-Uh-LEW"/>
                             <constraint firstItem="Mo3-X2-rlN" firstAttribute="trailing" secondItem="jUI-cL-9AQ" secondAttribute="trailing" constant="20" id="YVn-BL-lb9"/>
                             <constraint firstItem="jUI-cL-9AQ" firstAttribute="leading" secondItem="Mo3-X2-rlN" secondAttribute="leading" constant="20" id="bJu-hJ-zzB"/>
                             <constraint firstItem="o94-w0-GaP" firstAttribute="leading" secondItem="Mo3-X2-rlN" secondAttribute="leading" id="rrz-G3-SAs"/>
+                            <constraint firstItem="Mo3-X2-rlN" firstAttribute="bottom" secondItem="eNe-WR-8qi" secondAttribute="bottom" constant="20" id="xiB-7d-Xwe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mo3-X2-rlN"/>
                     </view>

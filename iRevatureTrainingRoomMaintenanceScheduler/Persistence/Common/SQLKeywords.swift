@@ -12,10 +12,31 @@ enum SQLiteKeyword: String {
     case CREATE
     case TABLE
     case INSERT
+    case UPDATE
+    case DELETE
     case INTO
     case WHERE
     case SET
     case VALUES
+    case FROM
+    case DROP
+}
+
+enum SQLiteExpression: String {
+    case LESSTHAN = "<"
+    case GREATERTHAN = ">"
+    case EQUALS = "="
+    case LESSTHANEQUALS = "<="
+    case GREATERTHANEQUALS = ">="
+    case BETWEEN
+    case IN
+    case NOTIN = "NOT IN"
+}
+
+enum SQLiteStatement: String {
+    case AND
+    case OR
+    case NONE
 }
 
 enum SQLiteDataType: String {
@@ -26,4 +47,6 @@ enum SQLiteDataType: String {
 enum SQLiteConstraints: String {
     case PRIMARYKEY = "PRIMARY KEY"
     case NOTNULL = "NOT NULL"
+    case UNIQUE
+    case AUTOINCREMENT
 }

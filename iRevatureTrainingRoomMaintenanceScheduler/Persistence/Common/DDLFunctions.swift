@@ -6,9 +6,7 @@
 //  Copyright © 2020 revature. All rights reserved.
 //
 
-import Foundation
 import SQLite3
-import os.log
 
 extension DatabaseAccess {
 //===============================================================================================
@@ -29,17 +27,15 @@ extension DatabaseAccess {
         //Attempt to execture Prepared Statement
         guard sqlite3_step(createTableStatement) == SQLITE_DONE
             else {
-                os_log(SQLiteErrorMessage.tableCreationError, log: OSLog.default, type: .error)
                 throw SQLiteError.Step(message: String(cString: sqlite3_errmsg(createTableStatement)))
         }
-        
-        os_log(SQLiteSuccessMessage.tableCreationSuccess, log: OSLog.default, type: .info)
+
     }
     
 //-----------------------------------------------------------------------------------------------
     //Make Create Table Statement
 //-----------------------------------------------------------------------------------------------
-    fileprivate func makeCreateStatement (table: SQLTable.Type) -> String {
+    private func makeCreateStatement (table: SQLTable.Type) -> String {
         var columnString: String = ""
         var hasComma: Bool = false
         
@@ -77,4 +73,26 @@ extension DatabaseAccess {
         return "\(SQLiteKeyword.CREATE) \(SQLiteKeyword.TABLE) \(table) \(columnString)"
     }
     
+//===============================================================================================
+    //Create Table
+//===============================================================================================
+    func dropTable(table: SQLTable.Type) throws {
+        let statement = makeDropTableStatement(table: table)
+        let dropStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
+        
+        defer {
+            sqlite3_finalize(dropStatement)
+        }
+        
+        guard sqlite3_step(dropStatement) == SQLITE_DONE else {
+            throw SQLiteError.Drop(message: "Failed to drop table from database")
+        }
+    }
+    
+//-----------------------------------------------------------------------------------------------
+    //Make Drop Table Statement
+//-----------------------------------------------------------------------------------------------
+    private func makeDropTableStatement(table: SQLTable.Type) -> String{
+        return "\(SQLiteKeyword.DROP) \(SQLiteKeyword.TABLE) \(table)"
+    }
 }

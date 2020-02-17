@@ -6,24 +6,25 @@
 //  Copyright © 2020 revature. All rights reserved.
 //
 
-import Foundation
 import SQLite3
 
 //Used for throwing errors
 enum SQLiteError: Error {
-    case OpenDatabase(message: StaticString)
+    case OpenDatabase(message: String)
     
     case Prepare(message: String)
     case Step(message: String)
-    case Bind(message: StaticString)
+    case Bind(message: String)
     
-    case Create(message: StaticString)
-    case Insert(message: StaticString)
-    case Update(message: StaticString)
-    case Delete(message: StaticString)
-    case Query(message: StaticString)
-    case Drop(message: StaticString)
-    case Truncate(message: StaticString)
+    case Create(message: String)
+    case Insert(message: String)
+    case Update(message: String)
+    case Delete(message: String)
+    case Query(message: String)
+    case Drop(message: String)
+    case Truncate(message: String)
+    
+    case DataType(message: String)
 }
 
 //Strings for specific errors
@@ -47,19 +48,19 @@ struct SQLiteErrorMessage {
 
 //Used for throwing errors
 enum SQLiteSuccess {
-    case OpenDatabase(message: StaticString)
+    case OpenDatabase(message: String)
     
     case Prepare(message: String)
-    case Step(message: StaticString)
-    case Bind(message: StaticString)
+    case Step(message: String)
+    case Bind(message: String)
     
-    case Create(message: StaticString)
-    case Insert(message: StaticString)
-    case Update(message: StaticString)
-    case Delete(message: StaticString)
-    case Query(message: StaticString)
-    case Drop(message: StaticString)
-    case Truncate(message: StaticString)
+    case Create(message: String)
+    case Insert(message: String)
+    case Update(message: String)
+    case Delete(message: String)
+    case Query(message: String)
+    case Drop(message: String)
+    case Truncate(message: String)
 }
 
 struct SQLiteSuccessMessage {

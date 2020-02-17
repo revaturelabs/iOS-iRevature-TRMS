@@ -16,7 +16,14 @@ class ViewController: UIViewController {
         
     }
 
-
+    @IBAction func openCheck(_ sender: Any) {
+        let storyboard:UIStoryboard = UIStoryboard(name: "MaintenanceCheck", bundle: nil)
+        let view = storyboard.instantiateInitialViewController()!
+        view.modalPresentationStyle = .fullScreen
+        self.present(view, animated:true, completion: nil)
+        
+    }
+    
 }
 
 

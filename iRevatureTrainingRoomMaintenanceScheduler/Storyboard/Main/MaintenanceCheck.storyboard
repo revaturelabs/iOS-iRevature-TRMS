@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UIh-9u-zRX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Maintenance Check Controller-->
+        <scene sceneID="edG-2G-fek">
+            <objects>
+                <viewController storyboardIdentifier="MaintenanceCheck" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UIh-9u-zRX" customClass="MaintenanceCheckController" customModule="iRevatureTrainingRoomMaintenanceScheduler" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YQw-kS-mDt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jUI-cL-9AQ">
+                                <rect key="frame" x="20" y="94" width="374" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yzZ-p1-MnO">
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I0t-Kn-T07">
+                                        <rect key="frame" x="192" y="0.0" width="182" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o94-w0-GaP">
+                                <rect key="frame" x="0.0" y="178" width="414" height="484"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNe-WR-8qi" customClass="RevatureButton" customModule="iRevatureTrainingRoomMaintenanceScheduler" customModuleProvider="target">
+                                <rect key="frame" x="184" y="812" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="submitCheck:" destination="UIh-9u-zRX" eventType="touchDown" id="2Fk-Ck-X8z"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Mo3-X2-rlN" firstAttribute="bottom" secondItem="o94-w0-GaP" secondAttribute="bottom" constant="200" id="5cZ-wY-udF"/>
+                            <constraint firstItem="o94-w0-GaP" firstAttribute="top" secondItem="jUI-cL-9AQ" secondAttribute="bottom" constant="50" id="Cow-Dy-Zgb"/>
+                            <constraint firstItem="Mo3-X2-rlN" firstAttribute="trailing" secondItem="o94-w0-GaP" secondAttribute="trailing" id="JMr-Ub-Fht"/>
+                            <constraint firstItem="jUI-cL-9AQ" firstAttribute="top" secondItem="Mo3-X2-rlN" secondAttribute="top" constant="50" id="LEJ-6e-Abc"/>
+                            <constraint firstItem="eNe-WR-8qi" firstAttribute="centerX" secondItem="YQw-kS-mDt" secondAttribute="centerX" id="R4p-Uh-LEW"/>
+                            <constraint firstItem="Mo3-X2-rlN" firstAttribute="trailing" secondItem="jUI-cL-9AQ" secondAttribute="trailing" constant="20" id="YVn-BL-lb9"/>
+                            <constraint firstItem="jUI-cL-9AQ" firstAttribute="leading" secondItem="Mo3-X2-rlN" secondAttribute="leading" constant="20" id="bJu-hJ-zzB"/>
+                            <constraint firstItem="o94-w0-GaP" firstAttribute="leading" secondItem="Mo3-X2-rlN" secondAttribute="leading" id="rrz-G3-SAs"/>
+                            <constraint firstItem="Mo3-X2-rlN" firstAttribute="bottom" secondItem="eNe-WR-8qi" secondAttribute="bottom" constant="20" id="xiB-7d-Xwe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Mo3-X2-rlN"/>
+                    </view>
+                    <connections>
+                        <outlet property="currentDate" destination="yzZ-p1-MnO" id="VD6-hK-3WG"/>
+                        <outlet property="selectorTextField" destination="I0t-Kn-T07" id="efd-vb-I9D"/>
+                        <outlet property="taskTable" destination="o94-w0-GaP" id="jo4-1e-ZIR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="85d-WE-nQ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-78.260869565217391" y="57.589285714285708"/>
+        </scene>
+    </scenes>
+</document>

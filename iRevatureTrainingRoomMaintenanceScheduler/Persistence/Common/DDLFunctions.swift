@@ -13,10 +13,11 @@ extension DatabaseAccess {
     //Create Table
 //===============================================================================================
     func createTable(table: SQLTable.Type) throws {
-        //Create table creation string
-        let statement = makeCreateStatement(table: table)
         
         //Create prepared statement
+        let tableStatement = SQLUtility.makeTableStatement(table: table)
+        let statement = "\(SQLiteKeyword.CREATE) \(tableStatement)"
+        
         let createTableStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
         
         //Delete Prepared Statement
@@ -32,52 +33,11 @@ extension DatabaseAccess {
 
     }
     
-//-----------------------------------------------------------------------------------------------
-    //Make Create Table Statement
-//-----------------------------------------------------------------------------------------------
-    private func makeCreateStatement (table: SQLTable.Type) -> String {
-        var columnString: String = ""
-        var hasComma: Bool = false
-        
-        for (key, value) in table.columns {
-            //Apply comma for new column
-            if hasComma {
-                columnString += ", "
-            }
-            else {
-                columnString += "("
-                hasComma = true
-            }
-            
-            //Assign column name
-            columnString += key
-            
-            //Assign datatype formatting
-            switch value.dataType {
-            case .CHAR:
-                columnString += " \(value.dataType.rawValue)(255)"
-            default:
-                columnString += " \(value.dataType.rawValue)"
-            }
-            
-            //Assign column constraints
-            if value.constraints != nil {
-                for i in 0 ..< value.constraints!.count {
-                    columnString += " \(value.constraints![i].rawValue)"
-                }
-            }
-        }
-        
-        columnString += ");"
-        
-        return "\(SQLiteKeyword.CREATE) \(SQLiteKeyword.TABLE) \(table) \(columnString)"
-    }
-    
 //===============================================================================================
-    //Create Table
+    //Drop Table
 //===============================================================================================
     func dropTable(table: SQLTable.Type) throws {
-        let statement = makeDropTableStatement(table: table)
+        let statement = "\(SQLiteKeyword.DROP) \(SQLiteKeyword.TABLE) \(table)"
         let dropStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
         
         defer {
@@ -89,10 +49,4 @@ extension DatabaseAccess {
         }
     }
     
-//-----------------------------------------------------------------------------------------------
-    //Make Drop Table Statement
-//-----------------------------------------------------------------------------------------------
-    private func makeDropTableStatement(table: SQLTable.Type) -> String{
-        return "\(SQLiteKeyword.DROP) \(SQLiteKeyword.TABLE) \(table)"
-    }
 }

@@ -20,6 +20,7 @@ enum SQLiteKeyword: String {
     case VALUES
     case FROM
     case DROP
+    case SELECT
 }
 
 enum SQLiteExpression: String {

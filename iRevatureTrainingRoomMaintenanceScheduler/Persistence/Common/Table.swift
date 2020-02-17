@@ -41,11 +41,11 @@ extension ViewController {
         
         let db = DatabaseAccess.openDatabase(path: filePath, createIfDoesNotExist: true)
         
-        do {
-            try db?.dropTable(table: TestTable.self)
-        } catch {
-            
-        }
+//        do {
+//            try db?.dropTable(table: TestTable.self)
+//        } catch {
+//
+//        }
 //        do {
 //            try db?.createTable(table: TestTable.self)
 //        } catch {
@@ -53,13 +53,13 @@ extension ViewController {
 //        }
 //
 //        do {
-//            try db?.insertRow(table: TestTable.self, values: 99, "Mark")
+//            try db?.insertRow(table: TestTable.self, values: 5387, "Katelyn")
 //        } catch {
 //            print("failed insert row")
 //        }
-//
+
 //        do {
-//            try db?.updateRow(table: TestTable.self, set: ["trainer": "BOOPY"], at: ["trainer": (.NONE, "ME", .EQUALS), "id": (.OR, [35, 53, 76, 102], .IN)])
+//            try db?.updateRow(table: TestTable.self, set: ["trainer": "BOOPY"], at: ["trainer": (.NONE, "Mark", .EQUALS), "id": (.OR, [35, 53, 76, 102], .IN)])
 //        } catch {
 //            print("failed update row")
 //        }
@@ -70,6 +70,16 @@ extension ViewController {
 //            print("failed delete row")
 //        }
         
-        
+        do {
+            let result = try db?.selectData(table: TestTable.self, columnNames: ["id", "trainer"], at: nil)
+            
+            for r in result! {
+                let id = r["id"]! as! Int
+                let trainer = r["trainer"] as! String
+                print("\(id) \(trainer)")
+            }
+        } catch {
+            
+        }
     }
 }

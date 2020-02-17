@@ -15,7 +15,7 @@ class MaintenanceCheckController: UIViewController {
     @IBOutlet weak var taskTable: UITableView!
     
     var roomList = ["NEC 107", "NEC 200", "NEC 300", "NEC 320", "NEC 338", "NEC 107", "NEC 200", "NEC 300", "NEC 320", "NEC 338"]
-    var data:[MaintenanceTask] = [MaintenanceTask]()
+    var tasks:[MaintenanceTask] = [MaintenanceTask]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +39,20 @@ class MaintenanceCheckController: UIViewController {
     
 //add dummy data for testing functionality
     func setTasks() {
-        for i in 1...10 {
+        for i in 1...5 {
             let name = "Task\(i)"
             let task = MaintenanceTask(id: i, name: name, completed: false)
-            data.append(task)
+            tasks.append(task)
         }
     }
+    
+    @IBAction func submitCheck(_ sender: Any) {
+        
+        for task in tasks {
+            print("\(task.name) is completed: \(task.completed)")
+        }
+    
+    }
+    
 
 }

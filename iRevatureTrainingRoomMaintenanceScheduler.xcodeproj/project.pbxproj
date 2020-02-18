@@ -34,6 +34,9 @@
 		5FB2B57A23F98BFD003CD345 /* MaintenanceCheckDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B57923F98BFD003CD345 /* MaintenanceCheckDelegate.swift */; };
 		5FB2B57C23F99028003CD345 /* TaskSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B57B23F99028003CD345 /* TaskSelectionCell.swift */; };
 		5FB2B57E23F993B8003CD345 /* MaintenanceCheck.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FB2B57D23F993B8003CD345 /* MaintenanceCheck.storyboard */; };
+		5FB2B58423FB32F1003CD345 /* UserDefaultDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58323FB32F1003CD345 /* UserDefaultDAO.swift */; };
+		5FB2B58623FB566B003CD345 /* UserInfoBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */; };
+		5FB2B58823FB56BB003CD345 /* UserInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		5FB2B57923F98BFD003CD345 /* MaintenanceCheckDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceCheckDelegate.swift; sourceTree = "<group>"; };
 		5FB2B57B23F99028003CD345 /* TaskSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionCell.swift; sourceTree = "<group>"; };
 		5FB2B57D23F993B8003CD345 /* MaintenanceCheck.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MaintenanceCheck.storyboard; sourceTree = "<group>"; };
+		5FB2B58323FB32F1003CD345 /* UserDefaultDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultDAO.swift; sourceTree = "<group>"; };
+		5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoBusinessService.swift; sourceTree = "<group>"; };
+		5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +191,7 @@
 		091B7F1A23F73831009D7A77 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -251,6 +258,7 @@
 		091B7F2A23F73831009D7A77 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -297,6 +305,7 @@
 		091B7F3623F73831009D7A77 /* Data-Access */ = {
 			isa = PBXGroup;
 			children = (
+				5FB2B58323FB32F1003CD345 /* UserDefaultDAO.swift */,
 			);
 			path = "Data-Access";
 			sourceTree = "<group>";
@@ -432,11 +441,13 @@
 				091B7F4823F73831009D7A77 /* DDLFunctions.swift in Sources */,
 				091B7F3C23F73831009D7A77 /* VIewControllerInstantiator.swift in Sources */,
 				5FB2B57C23F99028003CD345 /* TaskSelectionCell.swift in Sources */,
+				5FB2B58623FB566B003CD345 /* UserInfoBusinessService.swift in Sources */,
 				091B7F4523F73831009D7A77 /* SceneDelegate.swift in Sources */,
 				091B7F3B23F73831009D7A77 /* StoryboardList.swift in Sources */,
 				091B7F4723F73831009D7A77 /* DMLFunctions.swift in Sources */,
 				5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */,
 				091B7F3F23F73831009D7A77 /* Room.swift in Sources */,
+				5FB2B58423FB32F1003CD345 /* UserDefaultDAO.swift in Sources */,
 				091B7F4B23F73831009D7A77 /* SQLError.swift in Sources */,
 				091B7F4C23F73831009D7A77 /* PrepareFunctions.swift in Sources */,
 				091B7F4D23F73831009D7A77 /* DatabaseAccess.swift in Sources */,
@@ -448,6 +459,7 @@
 				5FB2B57323F8E78C003CD345 /* MaintenanceCheckController.swift in Sources */,
 				091B7F3E23F73831009D7A77 /* User.swift in Sources */,
 				091B7F4223F73831009D7A77 /* Calendar.swift in Sources */,
+				5FB2B58823FB56BB003CD345 /* UserInfoProtocol.swift in Sources */,
 				091B7F4923F73831009D7A77 /* SQLKeywords.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

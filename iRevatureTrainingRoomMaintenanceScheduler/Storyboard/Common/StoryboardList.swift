@@ -11,4 +11,5 @@ import Foundation
 enum AppStoryboard: String {
     case Main
     case Login
+    case MaintenanceCheck
 }

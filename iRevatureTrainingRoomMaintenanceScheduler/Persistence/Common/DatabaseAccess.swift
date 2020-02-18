@@ -8,7 +8,6 @@
 
 import Foundation
 import SQLite3
-import os.log
 
 class DatabaseAccess {
     
@@ -32,14 +31,13 @@ class DatabaseAccess {
     //Open Database
 //===============================================================================================
     //Open database at given path location or create one
-    static func openDatabase(path: String?, createIfDoesNotExist: Bool) throws -> DatabaseAccess! {
+    static func openDatabase(path: String?, createIfDoesNotExist: Bool) -> DatabaseAccess? {
         //Create a reference pointer to hold access to file
         var db: OpaquePointer?
         
         //Attempt to open the databse file
         if createIfDoesNotExist {
             if sqlite3_open(path, &db) == SQLITE_OK {
-                os_log(SQLiteSuccessMessage.openDatabaseSuccess, log: OSLog.default, type: .info)
                 return DatabaseAccess(dbPointer: db)
             }
             else {
@@ -50,13 +48,11 @@ class DatabaseAccess {
                     }
                 }
                 
-                os_log(SQLiteErrorMessage.openDatabaseError, log: OSLog.default, type: .error)
-                throw SQLiteError.OpenDatabase(message: SQLiteErrorMessage.openDatabaseError)
+                return nil
             }
         }
         else {
             if sqlite3_open_v2(path, &db, SQLITE_OPEN_READWRITE, nil) == SQLITE_OK {
-                os_log(SQLiteSuccessMessage.openDatabaseSuccess, log: OSLog.default, type: .info)
                 return DatabaseAccess(dbPointer: db)
             }
             else {
@@ -66,9 +62,7 @@ class DatabaseAccess {
                         sqlite3_close(db)
                     }
                 }
-                
-                os_log(SQLiteErrorMessage.openDatabaseError, log: OSLog.default, type: .error)
-                throw SQLiteError.OpenDatabase(message: SQLiteErrorMessage.openDatabaseError)
+                return nil
             }
         }
         
@@ -90,4 +84,3 @@ class DatabaseAccess {
         return nil
     }
 }
-

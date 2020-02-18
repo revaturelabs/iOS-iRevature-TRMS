@@ -10,12 +10,7 @@ import UIKit
 
 class OrangeToolbar: UIToolbar {
     
-    var textField:UITextField!
-    
-    init(textField: UITextField){
-        super.init(frame: .infinite)
-        
-        self.textField = textField
+    init(){
         
         self.sizeToFit()
         
@@ -23,18 +18,25 @@ class OrangeToolbar: UIToolbar {
         button.tintColor = UIColor.white
         button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Helvetica-Bold", size: 18)!], for: .normal)
         
-        self.setItems([button], animated: true)
-        self.isUserInteractionEnabled = true
-        self.barTintColor = UIColor(red: 242/255, green: 133/255, blue: 0, alpha: 1)
         
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+
+    func setToolBar() -> UIToolbar {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        let button = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(endEdit))
+        button.tintColor = UIColor.white
+        button.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Helvetica-Bold", size: 18)!], for: .normal)
+
+        toolbar.setItems([button], animated: true)
+        toolbar.isUserInteractionEnabled = true
+        toolbar.barTintColor = UIColor(red: 242/255, green: 133/255, blue: 0, alpha: 1)
+        
+        return toolbar
     }
     
     @objc func endEdit(){
-        textField.endEditing(true)
+        pickerTextField.endEditing(true)
     }
 
 }

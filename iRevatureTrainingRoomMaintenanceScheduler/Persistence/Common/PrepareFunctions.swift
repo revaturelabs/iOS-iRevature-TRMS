@@ -78,7 +78,9 @@ enum Statement {
 }
 
 extension DatabaseAccess {
-    
+//===============================================================================================
+    //Make A Prepared Statement
+//===============================================================================================
     func prepareStatement(sqlStatement: String, statementType: Statement) throws -> OpaquePointer? {
         return try statementType.makeStatement(database: getDBPointer()!, sqlStatement: sqlStatement)
     }

@@ -37,6 +37,8 @@
 		5FB2B58423FB32F1003CD345 /* UserDefaultDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58323FB32F1003CD345 /* UserDefaultDAO.swift */; };
 		5FB2B58623FB566B003CD345 /* UserInfoBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */; };
 		5FB2B58823FB56BB003CD345 /* UserInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */; };
+		5FFA061623FC30A900B04C74 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA061523FC30A900B04C74 /* DatePickerView.swift */; };
+		5FFA061823FC461D00B04C74 /* OrangeToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA061723FC461D00B04C74 /* OrangeToolbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		5FB2B58323FB32F1003CD345 /* UserDefaultDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultDAO.swift; sourceTree = "<group>"; };
 		5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoBusinessService.swift; sourceTree = "<group>"; };
 		5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProtocol.swift; sourceTree = "<group>"; };
+		5FFA061523FC30A900B04C74 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		5FFA061723FC461D00B04C74 /* OrangeToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeToolbar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 			children = (
 				5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */,
 				5FB2B57B23F99028003CD345 /* TaskSelectionCell.swift */,
+				5FFA061723FC461D00B04C74 /* OrangeToolbar.swift */,
 			);
 			path = "UI-Elements";
 			sourceTree = "<group>";
@@ -359,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				5FB2B57423F989A2003CD345 /* SelectionPickerView.swift */,
+				5FFA061523FC30A900B04C74 /* DatePickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -452,10 +458,12 @@
 				091B7F4C23F73831009D7A77 /* PrepareFunctions.swift in Sources */,
 				091B7F4D23F73831009D7A77 /* DatabaseAccess.swift in Sources */,
 				091B7F4A23F73831009D7A77 /* Table.swift in Sources */,
+				5FFA061823FC461D00B04C74 /* OrangeToolbar.swift in Sources */,
 				5FB2B57523F989A2003CD345 /* SelectionPickerView.swift in Sources */,
 				091B7F4023F73831009D7A77 /* MaintenanceChart.swift in Sources */,
 				091B7F4123F73831009D7A77 /* Task.swift in Sources */,
 				5FB2B57823F98A5F003CD345 /* TextFieldExtension.swift in Sources */,
+				5FFA061623FC30A900B04C74 /* DatePickerView.swift in Sources */,
 				5FB2B57323F8E78C003CD345 /* MaintenanceCheckController.swift in Sources */,
 				091B7F3E23F73831009D7A77 /* User.swift in Sources */,
 				091B7F4223F73831009D7A77 /* Calendar.swift in Sources */,

@@ -33,11 +33,11 @@ class UserInfoBusinessService: UserInfoProtocol {
         
         do{
             
-            try? defaults.set(PropertyListEncoder().encode(userObject), forKey: "UserSharedInfo")
+            try defaults.set(PropertyListEncoder().encode(userObject), forKey: "UserSharedInfo")
             
             return true
             
-        } catch(_) {
+        } catch {
             return false
         }
     }

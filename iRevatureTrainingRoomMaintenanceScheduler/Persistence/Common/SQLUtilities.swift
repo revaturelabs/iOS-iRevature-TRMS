@@ -9,6 +9,10 @@
 import SQLite3
 
 class SQLUtility {
+    
+//===============================================================================================
+    //Cast Swift Data Type To SQL Version
+//===============================================================================================
     //Check to see if the value is matching the table type
     static func castToDataType (column: Column?, value: Any) throws -> String {
         
@@ -28,7 +32,9 @@ class SQLUtility {
         }
     }
     
-    //Make a table statement
+//===============================================================================================
+    //Make A Table Statement
+//===============================================================================================
     static func makeTableStatement(table: SQLTable.Type) -> String {
         var columnString: String = "\(SQLiteKeyword.TABLE) \(table) "
         
@@ -65,7 +71,9 @@ class SQLUtility {
         return columnString
     }
     
-    //Make an column name statement
+//===============================================================================================
+    //Make A Statement Of All Column IDs
+//===============================================================================================
     static func makeColumnNameStatement(table: SQLTable.Type) -> String {
         var iDString: String = ""
         
@@ -90,7 +98,9 @@ class SQLUtility {
         return iDString
     }
     
-    //Make a value statement
+//===============================================================================================
+    //Make A Values Statement
+//===============================================================================================
     static func makeValueStatement(table: SQLTable.Type, values: [Any]) throws -> String {
         var insertValueString: String = "\(SQLiteKeyword.VALUES) "
         
@@ -116,7 +126,9 @@ class SQLUtility {
         return insertValueString
     }
     
-    //Make a set statement
+//===============================================================================================
+    //Make A Set Statement
+//===============================================================================================
     static func makeSetStatement(table: SQLTable.Type, set: [String: Any]) throws -> String {
         var setString: String = "\(SQLiteKeyword.SET) "
         
@@ -132,8 +144,10 @@ class SQLUtility {
         
         return setString
     }
-    
-    //Make a where statement
+
+//===============================================================================================
+    //Make A Where Statement
+//===============================================================================================
     static func makeWhereStatement(table: SQLTable.Type, at: [String: (SQLiteStatement, Any, SQLiteExpression)]) throws -> String {
         var whereString: String = "\(SQLiteKeyword.WHERE) "
         

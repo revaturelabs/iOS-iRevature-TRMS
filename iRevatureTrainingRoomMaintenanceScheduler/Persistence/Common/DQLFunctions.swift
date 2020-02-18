@@ -10,6 +10,9 @@ import Foundation
 import SQLite3
 
 extension DatabaseAccess {
+//===============================================================================================
+    //Select Data From Table
+//===============================================================================================
     func selectData(table: SQLTable.Type, columnNames: [String], at: [String: (SQLiteStatement, Any, SQLiteExpression)]?) throws -> [[String: Any]]? {
         
         var idString = ""

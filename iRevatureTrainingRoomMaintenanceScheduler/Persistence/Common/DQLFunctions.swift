@@ -13,24 +13,22 @@ extension DatabaseAccess {
 //===============================================================================================
     //Select Data From Table
 //===============================================================================================
-    func selectData(table: SQLTable.Type, columnNames: [String], at: [String: (SQLiteStatement, Any, SQLiteExpression)]?) throws -> [[String: Any]]? {
+    func selectSingleTable(select: SelectStatement) throws -> [[String: Any]]? {
         
         var idString = ""
         var atString = ""
         
-        for (index, s) in columnNames.enumerated() {
-            idString += s
-            
-            if index < columnNames.count - 1 {
-                idString += ", "
-            }
+        
+        //Compile Table IDs
+        idString = SQLUtility.makeIDStatement(columnNames: select.columnNames)
+        
+        //Compile where statement
+        if let at = select.whereAt {
+            atString = try SQLUtility.makeWhereStatement(table: select.table, at: at)
         }
         
-        if at != nil {
-            atString = try SQLUtility.makeWhereStatement(table: table, at: at!)
-        }
-        
-        let statement = "\(SQLiteKeyword.SELECT) \(idString) \(SQLiteKeyword.FROM) \(table) \(atString);"
+        //Prepare full SQL string
+        let statement = "\(SQLiteKeyword.SELECT) \(idString) \(SQLiteKeyword.FROM) \(select.table) \(atString);"
         let selectStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
         
         defer {
@@ -42,19 +40,19 @@ extension DatabaseAccess {
         while sqlite3_step(selectStatement) == SQLITE_ROW {
             queryArray.append([String : Any]())
             
-            for (index, s) in columnNames.enumerated() {
-                switch table.columns[s]?.dataType {
+            for (index, s) in select.columnNames!.enumerated() {
+                switch select.table.columns[s]?.dataType {
                 case .CHAR:
-                    let tempText = String(cString: sqlite3_column_text(selectStatement, Int32(index))) as NSString
+                    let tempText = String(cString: sqlite3_column_text(selectStatement, Int32(index)))
                     queryArray[queryArray.count - 1][s] = tempText
                 case .INT:
-                    queryArray[queryArray.count - 1][s] = Int(sqlite3_column_int(selectStatement, Int32(index))) as NSInteger
+                    let tempInt = Int(sqlite3_column_int(selectStatement, Int32(index)))
+                    queryArray[queryArray.count - 1][s] = tempInt
                 default:
                     break
                 }
             }
         }
-        
         
         if queryArray.count == 0 {
             return nil
@@ -62,4 +60,12 @@ extension DatabaseAccess {
         
         return queryArray
     }
+    
+//===============================================================================================
+    //Select Data From Table
+//===============================================================================================
+    func selectJoinTable (table: [(joinType: SQLiteJoin, String, String, SQLTable.Type)], values: [String] ) {
+        
+    }
+    
 }

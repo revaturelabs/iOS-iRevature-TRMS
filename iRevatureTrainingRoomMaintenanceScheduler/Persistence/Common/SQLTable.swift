@@ -16,10 +16,6 @@ struct Column {
     var constraints: [SQLiteConstraints]?
 }
 
-struct WhereExpression {
-    
-}
-
 
 struct TestTable: SQLTable {
     static var columns: [Self.columnNameString : Column] {
@@ -29,15 +25,9 @@ struct TestTable: SQLTable {
     
 }
 
-struct InsertTest {
-    var t1: Int
-    var t2: String
-    var t3: Bool
-}
-
 extension ViewController {
     func testStuff() {
-        let filePath = DatabaseAccess.getDatabaseFilePath(name: "TestDB", pathDirectory: .documentDirectory, domainMask: .userDomainMask)
+        let filePath = DatabaseAccess.getDatabaseFilePath(name: "MyDatabase", pathDirectory: .documentDirectory, domainMask: .userDomainMask)
         
         let db = DatabaseAccess.openDatabase(path: filePath, createIfDoesNotExist: true)
         
@@ -53,7 +43,7 @@ extension ViewController {
 //        }
 //
 //        do {
-//            try db?.insertRow(table: TestTable.self, values: 5387, "Katelyn")
+//            try db?.insertRow(insert: InsertStatement(table: TestTable.self, columnValues: [5387, "Katelyn"]))
 //        } catch {
 //            print("failed insert row")
 //        }
@@ -71,7 +61,15 @@ extension ViewController {
 //        }
         
         do {
-            let result = try db?.selectData(table: TestTable.self, columnNames: ["id", "trainer"], at: nil)
+            
+            var testStatement = SelectStatement(table: TestTable.self)
+            testStatement.columnNames = ["id", "trainer"]
+            testStatement.whereAt =
+                ["id" : WhereStatement(clause: .NONE, columnValue: 5387, expression: .EQUALS),
+                 "trainer" : WhereStatement(clause: .OR, columnValue: "Mark", expression: .EQUALS)]
+            
+            let result = try db?.selectSingleTable(select: testStatement)
+            let result2 = try db?.selectSingleTable(select: SelectStatement(table: TestTable.self, columnNames: ["trainer"], whereAt: nil))
             
             for r in result! {
                 let id = r["id"]! as! Int

@@ -34,9 +34,16 @@ enum SQLiteExpression: String {
     case NOTIN = "NOT IN"
 }
 
-enum SQLiteStatement: String {
+enum SQLiteClause: String {
     case AND
     case OR
+    case NONE
+}
+
+enum SQLiteJoin: String {
+    case INNER
+    case OUTTER
+    case CROSS
     case NONE
 }
 

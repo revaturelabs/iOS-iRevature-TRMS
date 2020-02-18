@@ -8,6 +8,34 @@
 
 import SQLite3
 
+struct SelectStatement {
+    var table: SQLTable.Type
+    var columnNames: [String]?
+    var whereAt: [String : WhereStatement]?
+}
+
+struct DeleteStatement {
+    var table: SQLTable.Type
+    var whereAt: [String : WhereStatement]?
+}
+
+struct UpdateStatement {
+    var table: SQLTable.Type
+    var set: [String : Any]
+    var whereAt: [String : WhereStatement]?
+}
+
+struct InsertStatement {
+    var table: SQLTable.Type
+    var columnValues: [Any]
+}
+
+struct WhereStatement {
+    var clause: SQLiteClause
+    var columnValue: Any
+    var expression: SQLiteExpression
+}
+
 class SQLUtility {
     
 //===============================================================================================
@@ -69,6 +97,29 @@ class SQLUtility {
         columnString += ")"
         
         return columnString
+    }
+
+//===============================================================================================
+    //Make A Statement Of All Column IDs
+//===============================================================================================
+    static func makeIDStatement(columnNames: [String]?) -> String {
+        var idString: String = ""
+        
+        //Assign values to select
+        if let columnNames = columnNames {
+            for (index, s) in columnNames.enumerated() {
+                idString += s
+                
+                if index < columnNames.count - 1 {
+                    idString += ", "
+                }
+            }
+        }
+        else {
+            idString += "*"
+        }
+        
+        return idString
     }
     
 //===============================================================================================
@@ -148,21 +199,21 @@ class SQLUtility {
 //===============================================================================================
     //Make A Where Statement
 //===============================================================================================
-    static func makeWhereStatement(table: SQLTable.Type, at: [String: (SQLiteStatement, Any, SQLiteExpression)]) throws -> String {
+    static func makeWhereStatement(table: SQLTable.Type, at: [String : WhereStatement]) throws -> String {
         var whereString: String = "\(SQLiteKeyword.WHERE) "
         
         //Iterate though the Values to check at certain columns
         for (index, atHolder) in at.enumerated() {
-            let conjunctionStatement = atHolder.value.0
-            let expression = atHolder.value.2
-            let value = atHolder.value.1
+            let clause = atHolder.value.clause
+            let expression = atHolder.value.expression
+            let value = atHolder.value.columnValue
             
             //Add to where information
-            switch conjunctionStatement {
+            switch clause {
             case .NONE:
                 break
             default:
-                whereString += "\(conjunctionStatement) "
+                whereString += "\(clause) "
             }
             
             whereString += "\(atHolder.key)"
@@ -176,7 +227,7 @@ class SQLUtility {
                 if tempArray.count != 2 {
                     throw SQLiteError.Update(message: "Error assigning BETWEEN expression")
                 }
-                whereString += " \(expression.rawValue) \(try castToDataType(column: table.columns[atHolder.key], value: tempArray[0])) \(SQLiteStatement.AND) \(try castToDataType(column: table.columns[atHolder.key], value: tempArray[1]))"
+                whereString += " \(expression.rawValue) \(try castToDataType(column: table.columns[atHolder.key], value: tempArray[0])) \(SQLiteClause.AND) \(try castToDataType(column: table.columns[atHolder.key], value: tempArray[1]))"
                 
             case .IN, .NOTIN:
                 let tempArray = value as! [Any]

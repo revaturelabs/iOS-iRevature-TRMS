@@ -12,16 +12,16 @@ extension DatabaseAccess {
 //===============================================================================================
     //Insert into table
 //===============================================================================================
-    func insertRow (table: SQLTable.Type, values: Any...) throws {
-        if (table.columns.count != values.count) {
+    func insertRow (insert: InsertStatement) throws {
+        if (insert.table.columns.count != insert.columnValues.count) {
             throw SQLiteError.Insert(message: "Incorrect number of values for columns")
         }
 
         //Prepare the SQL statement
-        let tableIdString = SQLUtility.makeColumnNameStatement(table: table)
-        let valueString = try SQLUtility.makeValueStatement(table: table, values: values)
+        let tableIdString = SQLUtility.makeColumnNameStatement(table: insert.table)
+        let valueString = try SQLUtility.makeValueStatement(table: insert.table, values: insert.columnValues)
         
-        let statement = "\(SQLiteKeyword.INSERT) \(SQLiteKeyword.INTO) \(table) \(tableIdString) \(valueString);"
+        let statement = "\(SQLiteKeyword.INSERT) \(SQLiteKeyword.INTO) \(insert.table) \(tableIdString) \(valueString);"
         let insertStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
         
         //Run after function finished to destroy statement
@@ -38,17 +38,21 @@ extension DatabaseAccess {
 //===============================================================================================
     //Update Table Row
 //===============================================================================================
-    func updateRow(table: SQLTable.Type, set: [String: Any], at: [String: (SQLiteStatement, Any, SQLiteExpression)]) throws {
+    func updateRow(update: UpdateStatement) throws {
+        guard update.whereAt != nil && update.table.columns.count < update.whereAt!.count else {
+            throw SQLiteError.Update(message: "Where statement is not valid")
+        }
+        
         //Check to make sure that the amount of data matches the table
-        if (table.columns.count < set.count || table.columns.count < at.count) {
-            throw SQLiteError.Update(message: "More values from set/at than table has")
+        if update.table.columns.count < update.set.count {
+            throw SQLiteError.Update(message: "Set statement is not valid")
         }
         
         //Prepare the SQL statement
-        let setString = try SQLUtility.makeSetStatement(table: table, set: set)
-        let atString = try SQLUtility.makeWhereStatement(table: table, at: at)
+        let setString = try SQLUtility.makeSetStatement(table: update.table, set: update.set)
+        let atString = try SQLUtility.makeWhereStatement(table: update.table, at: update.whereAt!)
         
-        let statement = "\(SQLiteKeyword.UPDATE) \(table) \(setString) \(atString);"
+        let statement = "\(SQLiteKeyword.UPDATE) \(update.table) \(setString) \(atString);"
         let updateStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
         
         //Call after function to destroy statement
@@ -65,16 +69,17 @@ extension DatabaseAccess {
 //===============================================================================================
     //Delete Row From Table
 //===============================================================================================
-    func deleteRow(table: SQLTable.Type, at: [String: (SQLiteStatement, Any, SQLiteExpression)]) throws {
+    func deleteRow(delete: DeleteStatement) throws {
+        
         //Check to make sure that the amount of data matches the table
-        if (table.columns.count < at.count) {
-            throw SQLiteError.Update(message: "More values from at than table has")
+        guard delete.whereAt != nil && delete.table.columns.count < delete.whereAt!.count else {
+            throw SQLiteError.Update(message: "Where statement is not valid")
         }
         
         //Prepare the SQL statement
-        let atString = try SQLUtility.makeWhereStatement(table: table, at: at)
+        let atString = try SQLUtility.makeWhereStatement(table: delete.table, at: delete.whereAt!)
         
-        let statement = "\(SQLiteKeyword.DELETE) \(SQLiteKeyword.FROM) \(table) \(atString);"
+        let statement = "\(SQLiteKeyword.DELETE) \(SQLiteKeyword.FROM) \(delete.table) \(atString);"
         let deleteStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
         
         print(statement)

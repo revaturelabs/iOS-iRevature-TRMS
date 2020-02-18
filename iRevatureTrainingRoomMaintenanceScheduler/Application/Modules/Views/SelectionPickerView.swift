@@ -14,15 +14,17 @@ class DropDownPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDele
     
     var pickerData:[String]!
     var pickerTextField:UITextField!
+    var columnInt:Int {
+        return 1
+    }
     
     init(pickerData: [String], dropDownField: UITextField){
         super.init(frame: CGRect.zero)
         
         self.pickerData = pickerData
         self.pickerTextField = dropDownField
-        self.pickerTextField.inputAccessoryView = setToolBar()
+        self.pickerTextField.inputAccessoryView = OrangeToolbar(textField: pickerTextField)
         self.backgroundColor = UIColor.white
-//        self.backgroundColor = UIColor(red: 233/255, green: 233/255, blue: 235/255, alpha: 1)
         
         self.delegate = self
         self.dataSource = self
@@ -44,7 +46,7 @@ class DropDownPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDele
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return columnInt
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {

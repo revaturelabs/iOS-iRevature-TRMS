@@ -18,8 +18,8 @@ extension DatabaseAccess {
         }
 
         //Prepare the SQL statement
-        let tableIdString = SQLUtility.makeColumnNameStatement(table: insert.table)
-        let valueString = try SQLUtility.makeValueStatement(table: insert.table, values: insert.columnValues)
+        let tableIdString = SQLStatement.makeColumnNameStatement(table: insert.table)
+        let valueString = try SQLStatement.makeValueStatement(table: insert.table, values: insert.columnValues)
         
         let statement = "\(SQLiteKeyword.INSERT) \(SQLiteKeyword.INTO) \(insert.table) \(tableIdString) \(valueString);"
         let insertStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
@@ -49,8 +49,8 @@ extension DatabaseAccess {
         }
         
         //Prepare the SQL statement
-        let setString = try SQLUtility.makeSetStatement(table: update.table, set: update.set)
-        let atString = try SQLUtility.makeWhereStatement(table: update.table, at: update.whereAt!)
+        let setString = try SQLStatement.makeSetStatement(table: update.table, set: update.set)
+        let atString = try SQLStatement.makeWhereStatement(table: update.table, at: update.whereAt!)
         
         let statement = "\(SQLiteKeyword.UPDATE) \(update.table) \(setString) \(atString);"
         let updateStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
@@ -77,7 +77,7 @@ extension DatabaseAccess {
         }
         
         //Prepare the SQL statement
-        let atString = try SQLUtility.makeWhereStatement(table: delete.table, at: delete.whereAt!)
+        let atString = try SQLStatement.makeWhereStatement(table: delete.table, at: delete.whereAt!)
         
         let statement = "\(SQLiteKeyword.DELETE) \(SQLiteKeyword.FROM) \(delete.table) \(atString);"
         let deleteStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)

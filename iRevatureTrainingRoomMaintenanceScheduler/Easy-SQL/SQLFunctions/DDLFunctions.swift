@@ -15,7 +15,7 @@ extension DatabaseAccess {
     func createTable(table: SQLTable.Type) throws {
         
         //Create prepared statement
-        let tableStatement = SQLUtility.makeTableStatement(table: table)
+        let tableStatement = SQLStatement.makeTableStatement(table: table)
         let statement = "\(SQLiteKeyword.CREATE) \(tableStatement)"
         
         let createTableStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)

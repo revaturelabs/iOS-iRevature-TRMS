@@ -20,11 +20,11 @@ extension DatabaseAccess {
         
         
         //Compile Table IDs
-        idString = SQLUtility.makeIDStatement(columnNames: select.columnNames)
+        idString = SQLStatement.makeIDStatement(columnNames: select.columnNames)
         
         //Compile where statement
         if let at = select.whereAt {
-            atString = try SQLUtility.makeWhereStatement(table: select.table, at: at)
+            atString = try SQLStatement.makeWhereStatement(table: select.table, at: at)
         }
         
         //Prepare full SQL string

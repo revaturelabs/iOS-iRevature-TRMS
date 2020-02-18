@@ -16,24 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let userInfoService = UserInfoBusinessService()
-        
-        let user: User? = userInfoService.getUserInfo()
-        
-        if user == nil || !user!.keepLoggedIn {
-            
-            let storyboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let view = storyboard.instantiateInitialViewController()!
-            self.window?.rootViewController = view
-            
-        } else {
-            
-            let storyboard:UIStoryboard = UIStoryboard(name: "MaintenanceCheck", bundle: nil)
-            let view = storyboard.instantiateInitialViewController()!
-            self.window?.rootViewController = view
-            
-        }
-        
         return true
     }
 

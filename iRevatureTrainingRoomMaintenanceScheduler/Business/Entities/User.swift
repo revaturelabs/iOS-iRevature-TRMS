@@ -8,11 +8,9 @@
 
 import Foundation
 
-struct User: Codable {
+struct User {
     var id: Int
     var email: String
     var name: String
     var role: String
-    var token: String?
-    var keepLoggedIn: Bool
 }

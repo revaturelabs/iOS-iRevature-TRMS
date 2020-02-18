@@ -22,6 +22,7 @@
 		091B7F4723F73831009D7A77 /* DMLFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F2E23F73831009D7A77 /* DMLFunctions.swift */; };
 		091B7F4823F73831009D7A77 /* DDLFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F2F23F73831009D7A77 /* DDLFunctions.swift */; };
 		091B7F4923F73831009D7A77 /* SQLKeywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F3023F73831009D7A77 /* SQLKeywords.swift */; };
+<<<<<<< HEAD
 		091B7F4A23F73831009D7A77 /* SQLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F3123F73831009D7A77 /* SQLTable.swift */; };
 		091B7F4B23F73831009D7A77 /* SQLMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F3223F73831009D7A77 /* SQLMessages.swift */; };
 		091B7F4C23F73831009D7A77 /* PrepareFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F3323F73831009D7A77 /* PrepareFunctions.swift */; };
@@ -29,6 +30,13 @@
 		091B7F4E23F73831009D7A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 091B7F3823F73831009D7A77 /* Assets.xcassets */; };
 		091B7F5823FB2530009D7A77 /* DQLFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F5723FB2530009D7A77 /* DQLFunctions.swift */; };
 		091B7F5A23FB2584009D7A77 /* SQLUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F5923FB2584009D7A77 /* SQLUtilities.swift */; };
+=======
+		091B7F4A23F73831009D7A77 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F3123F73831009D7A77 /* Table.swift */; };
+		091B7F4B23F73831009D7A77 /* SQLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F3223F73831009D7A77 /* SQLError.swift */; };
+		091B7F4C23F73831009D7A77 /* PrepareFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F3323F73831009D7A77 /* PrepareFunctions.swift */; };
+		091B7F4D23F73831009D7A77 /* DatabaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B7F3423F73831009D7A77 /* DatabaseAccess.swift */; };
+		091B7F4E23F73831009D7A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 091B7F3823F73831009D7A77 /* Assets.xcassets */; };
+>>>>>>> Revert "Login complete"
 		5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */; };
 		5FB2B57323F8E78C003CD345 /* MaintenanceCheckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B57223F8E78C003CD345 /* MaintenanceCheckController.swift */; };
 		5FB2B57523F989A2003CD345 /* SelectionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B57423F989A2003CD345 /* SelectionPickerView.swift */; };
@@ -36,11 +44,14 @@
 		5FB2B57A23F98BFD003CD345 /* MaintenanceCheckDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B57923F98BFD003CD345 /* MaintenanceCheckDelegate.swift */; };
 		5FB2B57C23F99028003CD345 /* TaskSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B57B23F99028003CD345 /* TaskSelectionCell.swift */; };
 		5FB2B57E23F993B8003CD345 /* MaintenanceCheck.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FB2B57D23F993B8003CD345 /* MaintenanceCheck.storyboard */; };
+<<<<<<< HEAD
 		5FB2B58423FB32F1003CD345 /* UserDefaultDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58323FB32F1003CD345 /* UserDefaultDAO.swift */; };
 		5FB2B58623FB566B003CD345 /* UserInfoBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */; };
 		5FB2B58823FB56BB003CD345 /* UserInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */; };
 		5FFA061623FC30A900B04C74 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA061523FC30A900B04C74 /* DatePickerView.swift */; };
 		5FFA061823FC461D00B04C74 /* OrangeToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA061723FC461D00B04C74 /* OrangeToolbar.swift */; };
+=======
+>>>>>>> Revert "Login complete"
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +71,7 @@
 		091B7F2E23F73831009D7A77 /* DMLFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMLFunctions.swift; sourceTree = "<group>"; };
 		091B7F2F23F73831009D7A77 /* DDLFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLFunctions.swift; sourceTree = "<group>"; };
 		091B7F3023F73831009D7A77 /* SQLKeywords.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLKeywords.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		091B7F3123F73831009D7A77 /* SQLTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLTable.swift; sourceTree = "<group>"; };
 		091B7F3223F73831009D7A77 /* SQLMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLMessages.swift; sourceTree = "<group>"; };
 		091B7F3323F73831009D7A77 /* PrepareFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepareFunctions.swift; sourceTree = "<group>"; };
@@ -67,6 +79,13 @@
 		091B7F3823F73831009D7A77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		091B7F5723FB2530009D7A77 /* DQLFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DQLFunctions.swift; sourceTree = "<group>"; };
 		091B7F5923FB2584009D7A77 /* SQLUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLUtilities.swift; sourceTree = "<group>"; };
+=======
+		091B7F3123F73831009D7A77 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		091B7F3223F73831009D7A77 /* SQLError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLError.swift; sourceTree = "<group>"; };
+		091B7F3323F73831009D7A77 /* PrepareFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepareFunctions.swift; sourceTree = "<group>"; };
+		091B7F3423F73831009D7A77 /* DatabaseAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAccess.swift; sourceTree = "<group>"; };
+		091B7F3823F73831009D7A77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+>>>>>>> Revert "Login complete"
 		094DF32823F34B4300D012C3 /* iRevatureTrainingRoomMaintenanceScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRevatureTrainingRoomMaintenanceScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevatureOrangeButton.swift; sourceTree = "<group>"; };
 		5FB2B57223F8E78C003CD345 /* MaintenanceCheckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceCheckController.swift; sourceTree = "<group>"; };
@@ -75,11 +94,14 @@
 		5FB2B57923F98BFD003CD345 /* MaintenanceCheckDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceCheckDelegate.swift; sourceTree = "<group>"; };
 		5FB2B57B23F99028003CD345 /* TaskSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSelectionCell.swift; sourceTree = "<group>"; };
 		5FB2B57D23F993B8003CD345 /* MaintenanceCheck.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MaintenanceCheck.storyboard; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		5FB2B58323FB32F1003CD345 /* UserDefaultDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultDAO.swift; sourceTree = "<group>"; };
 		5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoBusinessService.swift; sourceTree = "<group>"; };
 		5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProtocol.swift; sourceTree = "<group>"; };
 		5FFA061523FC30A900B04C74 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		5FFA061723FC461D00B04C74 /* OrangeToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeToolbar.swift; sourceTree = "<group>"; };
+=======
+>>>>>>> Revert "Login complete"
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +153,10 @@
 			children = (
 				5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */,
 				5FB2B57B23F99028003CD345 /* TaskSelectionCell.swift */,
+<<<<<<< HEAD
 				5FFA061723FC461D00B04C74 /* OrangeToolbar.swift */,
+=======
+>>>>>>> Revert "Login complete"
 			);
 			path = "UI-Elements";
 			sourceTree = "<group>";
@@ -200,7 +225,10 @@
 		091B7F1A23F73831009D7A77 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */,
+=======
+>>>>>>> Revert "Login complete"
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -267,7 +295,10 @@
 		091B7F2A23F73831009D7A77 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */,
+=======
+>>>>>>> Revert "Login complete"
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -293,6 +324,7 @@
 		091B7F2D23F73831009D7A77 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				091B7F2F23F73831009D7A77 /* DDLFunctions.swift */,
 				091B7F2E23F73831009D7A77 /* DMLFunctions.swift */,
 				091B7F5723FB2530009D7A77 /* DQLFunctions.swift */,
@@ -302,6 +334,15 @@
 				091B7F3323F73831009D7A77 /* PrepareFunctions.swift */,
 				091B7F3423F73831009D7A77 /* DatabaseAccess.swift */,
 				091B7F5923FB2584009D7A77 /* SQLUtilities.swift */,
+=======
+				091B7F2E23F73831009D7A77 /* DMLFunctions.swift */,
+				091B7F2F23F73831009D7A77 /* DDLFunctions.swift */,
+				091B7F3023F73831009D7A77 /* SQLKeywords.swift */,
+				091B7F3123F73831009D7A77 /* Table.swift */,
+				091B7F3223F73831009D7A77 /* SQLError.swift */,
+				091B7F3323F73831009D7A77 /* PrepareFunctions.swift */,
+				091B7F3423F73831009D7A77 /* DatabaseAccess.swift */,
+>>>>>>> Revert "Login complete"
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -316,7 +357,10 @@
 		091B7F3623F73831009D7A77 /* Data-Access */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				5FB2B58323FB32F1003CD345 /* UserDefaultDAO.swift */,
+=======
+>>>>>>> Revert "Login complete"
 			);
 			path = "Data-Access";
 			sourceTree = "<group>";
@@ -370,7 +414,10 @@
 			isa = PBXGroup;
 			children = (
 				5FB2B57423F989A2003CD345 /* SelectionPickerView.swift */,
+<<<<<<< HEAD
 				5FFA061523FC30A900B04C74 /* DatePickerView.swift */,
+=======
+>>>>>>> Revert "Login complete"
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -447,39 +494,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				091B7F5823FB2530009D7A77 /* DQLFunctions.swift in Sources */,
+=======
+>>>>>>> Revert "Login complete"
 				091B7F4623F73831009D7A77 /* ViewController.swift in Sources */,
 				091B7F4423F73831009D7A77 /* AppDelegate.swift in Sources */,
 				5FB2B57A23F98BFD003CD345 /* MaintenanceCheckDelegate.swift in Sources */,
 				091B7F4823F73831009D7A77 /* DDLFunctions.swift in Sources */,
 				091B7F3C23F73831009D7A77 /* VIewControllerInstantiator.swift in Sources */,
 				5FB2B57C23F99028003CD345 /* TaskSelectionCell.swift in Sources */,
+<<<<<<< HEAD
 				5FB2B58623FB566B003CD345 /* UserInfoBusinessService.swift in Sources */,
+=======
+>>>>>>> Revert "Login complete"
 				091B7F4523F73831009D7A77 /* SceneDelegate.swift in Sources */,
 				091B7F3B23F73831009D7A77 /* StoryboardList.swift in Sources */,
 				091B7F4723F73831009D7A77 /* DMLFunctions.swift in Sources */,
 				5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */,
 				091B7F3F23F73831009D7A77 /* Room.swift in Sources */,
+<<<<<<< HEAD
 				091B7F4B23F73831009D7A77 /* SQLMessages.swift in Sources */,
 				091B7F4C23F73831009D7A77 /* PrepareFunctions.swift in Sources */,
 				091B7F4D23F73831009D7A77 /* DatabaseAccess.swift in Sources */,
 				091B7F5A23FB2584009D7A77 /* SQLUtilities.swift in Sources */,
 				091B7F4A23F73831009D7A77 /* SQLTable.swift in Sources */,
 				5FB2B58423FB32F1003CD345 /* UserDefaultDAO.swift in Sources */,
+=======
+>>>>>>> Revert "Login complete"
 				091B7F4B23F73831009D7A77 /* SQLError.swift in Sources */,
 				091B7F4C23F73831009D7A77 /* PrepareFunctions.swift in Sources */,
 				091B7F4D23F73831009D7A77 /* DatabaseAccess.swift in Sources */,
 				091B7F4A23F73831009D7A77 /* Table.swift in Sources */,
+<<<<<<< HEAD
 				5FFA061823FC461D00B04C74 /* OrangeToolbar.swift in Sources */,
+=======
+>>>>>>> Revert "Login complete"
 				5FB2B57523F989A2003CD345 /* SelectionPickerView.swift in Sources */,
 				091B7F4023F73831009D7A77 /* MaintenanceChart.swift in Sources */,
 				091B7F4123F73831009D7A77 /* Task.swift in Sources */,
 				5FB2B57823F98A5F003CD345 /* TextFieldExtension.swift in Sources */,
+<<<<<<< HEAD
 				5FFA061623FC30A900B04C74 /* DatePickerView.swift in Sources */,
 				5FB2B57323F8E78C003CD345 /* MaintenanceCheckController.swift in Sources */,
 				091B7F3E23F73831009D7A77 /* User.swift in Sources */,
 				091B7F4223F73831009D7A77 /* Calendar.swift in Sources */,
 				5FB2B58823FB56BB003CD345 /* UserInfoProtocol.swift in Sources */,
+=======
+				5FB2B57323F8E78C003CD345 /* MaintenanceCheckController.swift in Sources */,
+				091B7F3E23F73831009D7A77 /* User.swift in Sources */,
+				091B7F4223F73831009D7A77 /* Calendar.swift in Sources */,
+>>>>>>> Revert "Login complete"
 				091B7F4923F73831009D7A77 /* SQLKeywords.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

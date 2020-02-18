@@ -6,11 +6,7 @@
 //  Copyright © 2020 revature. All rights reserved.
 //
 
-import Foundation
 import SQLite3
-import os.log
-
-
 
 enum Statement {
     
@@ -46,7 +42,6 @@ enum Statement {
     private func prepareV1(dbPointer: OpaquePointer, sql: String) throws -> OpaquePointer? {
         var statement: OpaquePointer?
         guard sqlite3_prepare(dbPointer, sql, -1, &statement, nil) == SQLITE_OK else {
-            os_log("Error during prepared execution", log: OSLog.default, type: .error)
             throw SQLiteError.Prepare(message: String(cString: sqlite3_errmsg(statement)))
         }
         
@@ -56,7 +51,6 @@ enum Statement {
     private func prepareV2(dbPointer: OpaquePointer, sql: String) throws -> OpaquePointer? {
         var statement: OpaquePointer?
         guard sqlite3_prepare_v2(dbPointer, sql, -1, &statement, nil) == SQLITE_OK else {
-            os_log("Error during prepared execution", log: OSLog.default, type: .error)
             throw SQLiteError.Prepare(message: String(cString: sqlite3_errmsg(statement)))
         }
         
@@ -66,7 +60,6 @@ enum Statement {
     private func prepare16V1(dbPointer: OpaquePointer, sql: String) throws -> OpaquePointer? {
         var statement: OpaquePointer?
         guard sqlite3_prepare16(dbPointer, sql, -1, &statement, nil) == SQLITE_OK else {
-            os_log("Error during prepared execution", log: OSLog.default, type: .error)
             throw SQLiteError.Prepare(message: String(cString: sqlite3_errmsg(statement)))
         }
         
@@ -76,7 +69,6 @@ enum Statement {
     private func prepare16V2(dbPointer: OpaquePointer, sql: String) throws -> OpaquePointer? {
         var statement: OpaquePointer?
         guard sqlite3_prepare16_v2(dbPointer, sql, -1, &statement, nil) == SQLITE_OK else {
-            os_log("Error during prepared execution", log: OSLog.default, type: .error)
             throw SQLiteError.Prepare(message: String(cString: sqlite3_errmsg(statement)))
         }
         
@@ -86,23 +78,13 @@ enum Statement {
 }
 
 extension DatabaseAccess {
-    
+//===============================================================================================
+    //Make A Prepared Statement
+//===============================================================================================
     func prepareStatement(sqlStatement: String, statementType: Statement) throws -> OpaquePointer? {
-        return try statementType.makeStatement(database: self.getDBPointer()!, sqlStatement: sqlStatement)
+        return try statementType.makeStatement(database: getDBPointer()!, sqlStatement: sqlStatement)
     }
     
     
 }
 
-class test {
-    func test () {
-        
-        do {
-            let db = try DatabaseAccess.openDatabase(path: "")
-            let stmt = try db?.prepareStatement(sqlStatement: "Your Statement", statementType: .prepare_v2)
-            try db?.createTable(table: TestTable.self)
-        } catch {
-            
-        }
-    }
-}

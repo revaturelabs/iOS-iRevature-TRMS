@@ -8,7 +8,6 @@
 
 import Foundation
 import SQLite3
-import os.log
 
 class DatabaseAccess {
     
@@ -31,25 +30,57 @@ class DatabaseAccess {
 //===============================================================================================
     //Open Database
 //===============================================================================================
-    static func openDatabase(path: String?) throws -> DatabaseAccess! {
+    //Open database at given path location or create one
+    static func openDatabase(path: String?, createIfDoesNotExist: Bool) -> DatabaseAccess? {
         //Create a reference pointer to hold access to file
         var db: OpaquePointer?
         
-        //Close connection if database connection failed
-        defer {
-            if db != nil {
-                sqlite3_close(db)
+        //Attempt to open the databse file
+        if createIfDoesNotExist {
+            if sqlite3_open(path, &db) == SQLITE_OK {
+                return DatabaseAccess(dbPointer: db)
+            }
+            else {
+                //Close connection if database connection failed
+                defer {
+                    if db != nil {
+                        sqlite3_close(db)
+                    }
+                }
+                
+                return nil
+            }
+        }
+        else {
+            if sqlite3_open_v2(path, &db, SQLITE_OPEN_READWRITE, nil) == SQLITE_OK {
+                return DatabaseAccess(dbPointer: db)
+            }
+            else {
+                //Close connection if database connection failed
+                defer {
+                    if db != nil {
+                        sqlite3_close(db)
+                    }
+                }
+                return nil
             }
         }
         
-        //Attempt to open the databse file
-        //Return database if found or return nil otherwise
-        if sqlite3_open(path, &db) == SQLITE_OK {
-            return DatabaseAccess(dbPointer: db)
+    }
+
+//===============================================================================================
+    //Open Database
+//===============================================================================================
+    //Get the file path for a database
+    static func getDatabaseFilePath(name: String, pathDirectory: FileManager.SearchPathDirectory, domainMask: FileManager.SearchPathDomainMask) -> String? {
+        var filePath:String?
+
+        if let dir = FileManager.default.urls(for: pathDirectory, in: domainMask).first{
+            filePath = dir.appendingPathComponent(name + ".db").absoluteString
+
+            return filePath!
         }
-        else {
-            os_log(SQLiteErrorMessage.openDatabaseError, log: OSLog.default, type: .error)
-            throw SQLiteError.OpenDatabase(message: SQLiteErrorMessage.openDatabaseError)
-        }
+
+        return nil
     }
 }

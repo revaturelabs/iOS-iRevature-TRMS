@@ -6,19 +6,18 @@
 //  Copyright © 2020 revature. All rights reserved.
 //
 
-import Foundation
 import SQLite3
-import os.log
 
 extension DatabaseAccess {
 //===============================================================================================
     //Create Table
 //===============================================================================================
     func createTable(table: SQLTable.Type) throws {
-        //Create table creation string
-        let statement = makeCreateStatement(tableName: table, tableColumns: table.columns)
         
         //Create prepared statement
+        let tableStatement = SQLUtility.makeTableStatement(table: table)
+        let statement = "\(SQLiteKeyword.CREATE) \(tableStatement)"
+        
         let createTableStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
         
         //Delete Prepared Statement
@@ -29,50 +28,25 @@ extension DatabaseAccess {
         //Attempt to execture Prepared Statement
         guard sqlite3_step(createTableStatement) == SQLITE_DONE
             else {
-                os_log(SQLiteErrorMessage.tableCreationError, log: OSLog.default, type: .error)
-                throw SQLiteError.Step(message: SQLiteErrorMessage.tableCreationError)
+                throw SQLiteError.Step(message: String(cString: sqlite3_errmsg(createTableStatement)))
         }
-        print("\(table) table created")
-        os_log("%{table} table created", log: OSLog.default, type: .info)
+
     }
     
-//-----------------------------------------------------------------------------------------------
-    private func makeCreateStatement (tableName: SQLTable.Type, tableColumns: [String: Column]) -> String {
-        var columnString: String = ""
+//===============================================================================================
+    //Drop Table
+//===============================================================================================
+    func dropTable(table: SQLTable.Type) throws {
+        let statement = "\(SQLiteKeyword.DROP) \(SQLiteKeyword.TABLE) \(table)"
+        let dropStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
         
-        var columnIterator = tableColumns.makeIterator()
-        
-        while (true) {
-            guard let column = columnIterator.next() else {
-                break
-            }
-            
-            //Apply comma for new column
-            if (column.key != tableColumns.first?.key) {
-                columnString += ", "
-            }
-            
-            //Assign column name
-            columnString += column.key
-            
-            //Assign datatype formatting
-            switch column.value.dataType {
-            case .CHAR:
-                columnString += " \(column.value.dataType.rawValue)(255)"
-            default:
-                columnString += " \(column.value.dataType.rawValue)"
-            }
-
-            //Assign column constraints
-            if column.value.constraints != nil {
-                for i in 0 ..< column.value.constraints!.count {
-                    columnString += " \(column.value.constraints![i].rawValue)"
-                }
-            }
-
+        defer {
+            sqlite3_finalize(dropStatement)
         }
         
-        return "\(SQLiteKeyword.CREATE) \(SQLiteKeyword.TABLE) \(tableName) (\(columnString));"
+        guard sqlite3_step(dropStatement) == SQLITE_DONE else {
+            throw SQLiteError.Drop(message: "Failed to drop table from database")
+        }
     }
     
 }

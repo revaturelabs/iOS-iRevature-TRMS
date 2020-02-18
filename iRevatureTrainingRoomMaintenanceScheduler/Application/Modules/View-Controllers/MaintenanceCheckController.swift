@@ -10,7 +10,6 @@ import UIKit
 
 class MaintenanceCheckController: UIViewController {
     
-    @IBOutlet weak var dateSelector: UITextField!
     @IBOutlet weak var selectorTextField: UITextField!
     @IBOutlet weak var taskTable: UITableView!
     
@@ -27,7 +26,7 @@ class MaintenanceCheckController: UIViewController {
 //        format.dateFormat = "MMMM dd, yyyy"
 //        let formattedDate = format.string(from: date)
 //        currentDate.text = formattedDate
-        dateSelector.dateDropDown()
+
         selectorTextField.showDropDown(data: roomList)
         
         self.taskTable.register(TaskSelectionCell.self, forCellReuseIdentifier: "TaskSelectionCell")

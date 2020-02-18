@@ -23,7 +23,7 @@ class DropDownPickerView: UIPickerView, UIPickerViewDataSource, UIPickerViewDele
         
         self.pickerData = pickerData
         self.pickerTextField = dropDownField
-        self.pickerTextField.inputAccessoryView = setToolBar()
+        self.pickerTextField.inputAccessoryView = OrangeToolbar(textField: pickerTextField)
         self.backgroundColor = UIColor.white
         
         self.delegate = self

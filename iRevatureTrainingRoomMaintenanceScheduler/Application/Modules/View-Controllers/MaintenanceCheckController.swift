@@ -43,6 +43,7 @@ class MaintenanceCheckController: UIViewController {
         tasks.append(MaintenanceTask(id: 1, name: "Clean Whiteboards", completed: false))
         tasks.append(MaintenanceTask(id: 1, name: "Arrange Desks", completed: false))
         tasks.append(MaintenanceTask(id: 1, name: "Arrange Chairs", completed: false))
+        tasks.append(MaintenanceTask(id: 1, name: "Vacuum", completed: false))
     }
     
     @IBAction func submitCheck(_ sender: Any) {

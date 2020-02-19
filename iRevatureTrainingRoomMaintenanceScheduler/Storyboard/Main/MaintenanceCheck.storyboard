@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UIh-9u-zRX">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bto-ea-NTA">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -8,63 +8,87 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Maintenance Check Controller-->
+        <!--Tasks-->
         <scene sceneID="edG-2G-fek">
             <objects>
                 <viewController storyboardIdentifier="MaintenanceCheck" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UIh-9u-zRX" customClass="MaintenanceCheckController" customModule="iRevatureTrainingRoomMaintenanceScheduler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YQw-kS-mDt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="jUI-cL-9AQ">
-                                <rect key="frame" x="35" y="94" width="344" height="34"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pN4-y9-oba">
-                                        <rect key="frame" x="0.0" y="0.0" width="57" height="34"/>
-                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I0t-Kn-T07">
-                                        <rect key="frame" x="92" y="0.0" width="252" height="34"/>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNe-WR-8qi" customClass="RevatureButton" customModule="iRevatureTrainingRoomMaintenanceScheduler" customModuleProvider="target">
-                                <rect key="frame" x="184" y="812" width="46" height="30"/>
+                                <rect key="frame" x="164.5" y="553" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="submitCheck:" destination="UIh-9u-zRX" eventType="touchDown" id="2Fk-Ck-X8z"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o94-w0-GaP">
-                                <rect key="frame" x="0.0" y="178" width="414" height="484"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N5M-Dg-37y">
-                                <rect key="frame" x="35" y="52" width="57" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="February 20, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQJ-MD-DKh">
+                                <rect key="frame" x="117" y="81" width="147.5" height="21"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I0t-Kn-T07">
+                                <rect key="frame" x="117" y="120.5" width="223" height="34"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Roh-Pu-bzz">
+                                <rect key="frame" x="35" y="127" width="57" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Training Room Tasks:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77O-ts-wOy">
+                                <rect key="frame" x="35" y="183" width="305" height="21"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngJ-Q6-2R6">
+                                <rect key="frame" x="35" y="81" width="51" height="21"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Training Room Check List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwb-r6-uL1">
+                                <rect key="frame" x="51.5" y="20" width="272" height="26"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o94-w0-GaP">
+                                <rect key="frame" x="0.0" y="214" width="375" height="289"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Mo3-X2-rlN" firstAttribute="bottom" secondItem="o94-w0-GaP" secondAttribute="bottom" constant="200" id="5cZ-wY-udF"/>
-                            <constraint firstItem="o94-w0-GaP" firstAttribute="top" secondItem="jUI-cL-9AQ" secondAttribute="bottom" constant="50" id="Cow-Dy-Zgb"/>
+                            <constraint firstItem="ngJ-Q6-2R6" firstAttribute="leading" secondItem="Mo3-X2-rlN" secondAttribute="leading" constant="35" id="0KU-ly-5fI"/>
+                            <constraint firstItem="Mo3-X2-rlN" firstAttribute="trailing" secondItem="I0t-Kn-T07" secondAttribute="trailing" constant="35" id="12z-h4-ZPc"/>
+                            <constraint firstItem="I0t-Kn-T07" firstAttribute="leading" secondItem="Roh-Pu-bzz" secondAttribute="trailing" constant="25" id="A0M-6e-zWW"/>
+                            <constraint firstItem="Jwb-r6-uL1" firstAttribute="top" secondItem="Mo3-X2-rlN" secondAttribute="top" constant="20" id="E4U-7i-AgC"/>
+                            <constraint firstItem="Roh-Pu-bzz" firstAttribute="leading" secondItem="Mo3-X2-rlN" secondAttribute="leading" constant="35" id="EeB-8O-iKo"/>
                             <constraint firstItem="Mo3-X2-rlN" firstAttribute="trailing" secondItem="o94-w0-GaP" secondAttribute="trailing" id="JMr-Ub-Fht"/>
-                            <constraint firstItem="jUI-cL-9AQ" firstAttribute="top" secondItem="Mo3-X2-rlN" secondAttribute="top" constant="50" id="LEJ-6e-Abc"/>
+                            <constraint firstItem="Mo3-X2-rlN" firstAttribute="bottom" secondItem="eNe-WR-8qi" secondAttribute="bottom" constant="35" id="JwT-39-dBg"/>
+                            <constraint firstItem="eNe-WR-8qi" firstAttribute="top" secondItem="o94-w0-GaP" secondAttribute="bottom" constant="50" id="KfS-mp-WMP"/>
+                            <constraint firstItem="ngJ-Q6-2R6" firstAttribute="top" secondItem="Jwb-r6-uL1" secondAttribute="bottom" constant="35" id="Oa3-VC-fzJ"/>
+                            <constraint firstItem="77O-ts-wOy" firstAttribute="leading" secondItem="Mo3-X2-rlN" secondAttribute="leading" constant="35" id="OeL-tN-cvx"/>
+                            <constraint firstItem="I0t-Kn-T07" firstAttribute="centerY" secondItem="Roh-Pu-bzz" secondAttribute="centerY" id="P8k-kC-StK"/>
                             <constraint firstItem="eNe-WR-8qi" firstAttribute="centerX" secondItem="YQw-kS-mDt" secondAttribute="centerX" id="R4p-Uh-LEW"/>
-                            <constraint firstItem="Mo3-X2-rlN" firstAttribute="trailing" secondItem="jUI-cL-9AQ" secondAttribute="trailing" constant="35" id="YVn-BL-lb9"/>
-                            <constraint firstItem="jUI-cL-9AQ" firstAttribute="leading" secondItem="Mo3-X2-rlN" secondAttribute="leading" constant="35" id="bJu-hJ-zzB"/>
+                            <constraint firstItem="Roh-Pu-bzz" firstAttribute="top" secondItem="ngJ-Q6-2R6" secondAttribute="bottom" constant="25" id="b1e-aZ-DSh"/>
+                            <constraint firstItem="77O-ts-wOy" firstAttribute="top" secondItem="Roh-Pu-bzz" secondAttribute="bottom" constant="35" id="gvN-KC-K2p"/>
+                            <constraint firstItem="o94-w0-GaP" firstAttribute="top" secondItem="77O-ts-wOy" secondAttribute="bottom" constant="10" id="lle-uI-XLV"/>
+                            <constraint firstItem="TQJ-MD-DKh" firstAttribute="leading" secondItem="I0t-Kn-T07" secondAttribute="leading" id="mhS-0d-AgJ"/>
+                            <constraint firstItem="Jwb-r6-uL1" firstAttribute="centerX" secondItem="YQw-kS-mDt" secondAttribute="centerX" id="nCE-jL-MTV"/>
+                            <constraint firstItem="TQJ-MD-DKh" firstAttribute="centerY" secondItem="ngJ-Q6-2R6" secondAttribute="centerY" id="p3a-io-F8Z"/>
                             <constraint firstItem="o94-w0-GaP" firstAttribute="leading" secondItem="Mo3-X2-rlN" secondAttribute="leading" id="rrz-G3-SAs"/>
-                            <constraint firstItem="Mo3-X2-rlN" firstAttribute="bottom" secondItem="eNe-WR-8qi" secondAttribute="bottom" constant="20" id="xiB-7d-Xwe"/>
+                            <constraint firstItem="Mo3-X2-rlN" firstAttribute="trailing" secondItem="77O-ts-wOy" secondAttribute="trailing" constant="35" id="vFK-tN-cWY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mo3-X2-rlN"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Tasks" selectedImage="square.and.pencil" catalog="system" id="K6I-0d-DJm"/>
                     <connections>
                         <outlet property="selectorTextField" destination="I0t-Kn-T07" id="efd-vb-I9D"/>
                         <outlet property="taskTable" destination="o94-w0-GaP" id="jo4-1e-ZIR"/>
@@ -72,7 +96,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85d-WE-nQ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-78.260869565217391" y="57.589285714285708"/>
+            <point key="canvasLocation" x="860" y="57.121439280359823"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="06f-UL-5rw">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Bto-ea-NTA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="chp-b6-TQX">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="UIh-9u-zRX" kind="relationship" relationship="viewControllers" id="2Eb-CJ-PVZ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XS7-nF-KXB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-828" y="199.25037481259372"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="square.and.pencil" catalog="system" width="64" height="58"/>
+    </resources>
 </document>

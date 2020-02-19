@@ -14,7 +14,7 @@ class DatePickerView: UIDatePicker{
     
     let format = DateFormatter()
     
-    init(dropDownField: UITextField){
+    init(dropDownField: UITextField, dateFormat: String){
         super.init(frame: CGRect.zero)
         
 
@@ -30,7 +30,7 @@ class DatePickerView: UIDatePicker{
 //        self.maximumDate = maxDate
 //        self.minimumDate = minDate
         
-        self.format.dateFormat = "dd MMMM yy"
+        self.format.dateFormat = dateFormat
         self.pickerTextField = dropDownField
         self.pickerTextField.text = format.string(from:self.date)
         self.pickerTextField.inputAccessoryView = OrangeToolbar(textField: pickerTextField)

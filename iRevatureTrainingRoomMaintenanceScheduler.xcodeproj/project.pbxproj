@@ -31,11 +31,15 @@
 		0922755123FC7B230062950E /* SQLKeywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922754823FC7B230062950E /* SQLKeywords.swift */; };
 		0922755723FC845E0062950E /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922755623FC845E0062950E /* HelperFunctions.swift */; };
 		0922755A23FC84B90062950E /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922755923FC84B90062950E /* Statement.swift */; };
+<<<<<<< HEAD
 		0922755C23FCBEAC0062950E /* MaintenanceReport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0922755B23FCBEAC0062950E /* MaintenanceReport.storyboard */; };
 		0922755E23FCBEC80062950E /* RevatureBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922755D23FCBEC80062950E /* RevatureBaseViewController.swift */; };
 		0922756023FCBF040062950E /* MaintenanceReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922755F23FCBF040062950E /* MaintenanceReportViewController.swift */; };
 		0922756423FCC3240062950E /* RevatureBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922756323FCC3240062950E /* RevatureBaseTableViewCell.swift */; };
 		0922756623FCC3480062950E /* ReportTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922756523FCC3480062950E /* ReportTableCell.swift */; };
+=======
+		5F4A354623FCED5000CFE53F /* DelegateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A354523FCED5000CFE53F /* DelegateTaskViewController.swift */; };
+>>>>>>> trainer_ui
 		5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */; };
 		5FB2B57323F8E78C003CD345 /* MaintenanceCheckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B57223F8E78C003CD345 /* MaintenanceCheckController.swift */; };
 		5FB2B57523F989A2003CD345 /* SelectionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B57423F989A2003CD345 /* SelectionPickerView.swift */; };
@@ -82,6 +86,7 @@
 		0922756323FCC3240062950E /* RevatureBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevatureBaseTableViewCell.swift; sourceTree = "<group>"; };
 		0922756523FCC3480062950E /* ReportTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableCell.swift; sourceTree = "<group>"; };
 		094DF32823F34B4300D012C3 /* iRevatureTrainingRoomMaintenanceScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRevatureTrainingRoomMaintenanceScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F4A354523FCED5000CFE53F /* DelegateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateTaskViewController.swift; sourceTree = "<group>"; };
 		5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevatureOrangeButton.swift; sourceTree = "<group>"; };
 		5FB2B57223F8E78C003CD345 /* MaintenanceCheckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceCheckController.swift; sourceTree = "<group>"; };
 		5FB2B57423F989A2003CD345 /* SelectionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionPickerView.swift; sourceTree = "<group>"; };
@@ -277,8 +282,12 @@
 			children = (
 				091B7F2923F73831009D7A77 /* ViewController.swift */,
 				5FB2B57223F8E78C003CD345 /* MaintenanceCheckController.swift */,
+<<<<<<< HEAD
 				0922755D23FCBEC80062950E /* RevatureBaseViewController.swift */,
 				0922755F23FCBF040062950E /* MaintenanceReportViewController.swift */,
+=======
+				5F4A354523FCED5000CFE53F /* DelegateTaskViewController.swift */,
+>>>>>>> trainer_ui
 			);
 			path = "View-Controllers";
 			sourceTree = "<group>";
@@ -524,6 +533,7 @@
 				091B7F3C23F73831009D7A77 /* VIewControllerInstantiator.swift in Sources */,
 				5FB2B57C23F99028003CD345 /* TaskSelectionCell.swift in Sources */,
 				5FB2B58623FB566B003CD345 /* UserInfoBusinessService.swift in Sources */,
+				5F4A354623FCED5000CFE53F /* DelegateTaskViewController.swift in Sources */,
 				0922754F23FC7B230062950E /* DMLFunctions.swift in Sources */,
 				091B7F4523F73831009D7A77 /* SceneDelegate.swift in Sources */,
 				091B7F3B23F73831009D7A77 /* StoryboardList.swift in Sources */,

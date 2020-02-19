@@ -14,7 +14,8 @@ extension UITextField {
         self.inputView = DropDownPickerView(pickerData: data, dropDownField: self)
     }
     
-    func dateDropDown(){
-        self.inputView = DatePickerView(dropDownField: self)
+    func dateDropDown(dateFormat: String){
+        let datePicker = DatePickerView(dropDownField: self, dateFormat: dateFormat)
+        self.inputView = datePicker
     }
 }

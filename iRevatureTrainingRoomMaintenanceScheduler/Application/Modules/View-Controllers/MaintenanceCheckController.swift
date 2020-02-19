@@ -10,6 +10,7 @@ import UIKit
 
 class MaintenanceCheckController: UIViewController {
     
+    @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var selectorTextField: UITextField!
     @IBOutlet weak var taskTable: UITableView!
     
@@ -21,11 +22,11 @@ class MaintenanceCheckController: UIViewController {
         
         setTasks()
         
-//        let date = Date()
-//        let format = DateFormatter()
-//        format.dateFormat = "MMMM dd, yyyy"
-//        let formattedDate = format.string(from: date)
-//        currentDate.text = formattedDate
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "MMMM dd, yyyy"
+        let formattedDate = format.string(from: date)
+        currentDate.text = formattedDate
 
         selectorTextField.showDropDown(data: roomList)
         
@@ -38,11 +39,10 @@ class MaintenanceCheckController: UIViewController {
     
 //add dummy data for testing functionality
     func setTasks() {
-        for i in 1...5 {
-            let name = "Task\(i)"
-            let task = MaintenanceTask(id: i, name: name, completed: false)
-            tasks.append(task)
-        }
+        tasks.append(MaintenanceTask(id: 1, name: "Clean Desks", completed: false))
+        tasks.append(MaintenanceTask(id: 1, name: "Clean Whiteboards", completed: false))
+        tasks.append(MaintenanceTask(id: 1, name: "Arrange Desks", completed: false))
+        tasks.append(MaintenanceTask(id: 1, name: "Arrange Chairs", completed: false))
     }
     
     @IBAction func submitCheck(_ sender: Any) {

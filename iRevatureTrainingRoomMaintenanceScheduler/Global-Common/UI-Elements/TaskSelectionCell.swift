@@ -40,7 +40,7 @@ class TaskSelectionCell: UITableViewCell {
 
             NSLayoutConstraint.activate([
                 
-                self.label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 35),
+                self.label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 45),
                 self.label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
                 
                 self.check.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -35),

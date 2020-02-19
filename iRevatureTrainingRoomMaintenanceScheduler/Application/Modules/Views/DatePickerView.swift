@@ -12,6 +12,8 @@ class DatePickerView: UIDatePicker{
     
     var pickerTextField:UITextField!
     
+    let format = DateFormatter()
+    
     init(dropDownField: UITextField){
         super.init(frame: CGRect.zero)
         
@@ -28,7 +30,9 @@ class DatePickerView: UIDatePicker{
 //        self.maximumDate = maxDate
 //        self.minimumDate = minDate
         
+        self.format.dateFormat = "dd MMMM yy"
         self.pickerTextField = dropDownField
+        self.pickerTextField.text = format.string(from:self.date)
         self.pickerTextField.inputAccessoryView = OrangeToolbar(textField: pickerTextField)
         self.backgroundColor = UIColor.white
         
@@ -37,8 +41,8 @@ class DatePickerView: UIDatePicker{
     }
     
     @objc func setDateThing() {
-        let format = DateFormatter()
-        format.dateFormat = "dd MMMM yy"
+//        let format = DateFormatter()
+//        format.dateFormat = "dd MMMM yy"
         self.pickerTextField.text = format.string(from:self.date)
     }
     

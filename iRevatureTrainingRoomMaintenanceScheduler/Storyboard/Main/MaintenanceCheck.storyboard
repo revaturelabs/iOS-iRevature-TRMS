@@ -199,15 +199,27 @@
                     <connections>
                         <segue destination="UIh-9u-zRX" kind="relationship" relationship="viewControllers" id="2Eb-CJ-PVZ"/>
                         <segue destination="R0H-h9-kha" kind="relationship" relationship="viewControllers" id="GSS-ce-Hpx"/>
+                        <segue destination="dER-Mp-HLn" kind="relationship" relationship="viewControllers" id="4ad-Nd-Yk6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XS7-nF-KXB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-828" y="199.25037481259372"/>
         </scene>
+        <!--MaintenanceReportViewController_ID-->
+        <scene sceneID="L8f-0t-xcm">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MaintenanceReportViewController_ID" storyboardName="MaintenanceReport" referencedIdentifier="MaintenanceReportViewController_ID" id="dER-Mp-HLn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Reports" image="report" selectedImage="report" id="pvN-mx-xtv"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tUK-nN-CUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6" y="-88"/>
+        </scene>
     </scenes>
     <resources>
         <image name="checkList" width="48" height="48"/>
         <image name="give" width="48" height="48"/>
+        <image name="report" width="48" height="48"/>
     </resources>
 </document>

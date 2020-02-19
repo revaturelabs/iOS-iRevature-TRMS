@@ -22,7 +22,7 @@ class DelegateTaskViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dateSelection.dateDropDown()
+        dateSelection.dateDropDown(dateFormat: "MMM dd, yy")
         roomSelection.showDropDown(data: roomList)
         trainerSelection.showDropDown(data: trainerList)
         

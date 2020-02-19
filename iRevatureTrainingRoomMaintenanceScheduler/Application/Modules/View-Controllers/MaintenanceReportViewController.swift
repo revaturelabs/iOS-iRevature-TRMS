@@ -55,8 +55,8 @@ class MaintenanceReportViewController: RevatureBaseViewController {
         tableHeader.layer.cornerRadius = 8
         tableHeader.layer.masksToBounds = true
         
-        startDate.dateDropDown()
-        endDate.dateDropDown()
+        startDate.dateDropDown(dateFormat: "MMM dd, yy")
+        endDate.dateDropDown(dateFormat: "MMM dd, yy")
         roomID.showDropDown(data: ["NEC 200", "NEC 300", "NEC 320"])
         
         roomID.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .allEditingEvents)
@@ -64,7 +64,7 @@ class MaintenanceReportViewController: RevatureBaseViewController {
         endDate.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .allEditingEvents)
         
         vcDateFormat.dateFormat = "MM-dd-yy"
-        pickerDateFormat.dateFormat = "dd-MM-yy"
+        pickerDateFormat.dateFormat = "MMM dd, yy"
         
         reportTable.dataSource = self
         reportTable.delegate = self
@@ -81,17 +81,10 @@ extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDel
         filteredList.removeAll()
         
         for room in roomList {
-            if let dateBefore = startDate.text, let dateAfter = endDate.text {
-                if dateBefore != "" &&
-                    dateAfter != "" &&
-                    room.roomID == roomID.text &&
-                    vcDateFormat.date(from: room.maintenanceDate)! <= pickerDateFormat.date(from: dateAfter + "-20")! &&
-                    vcDateFormat.date(from: room.maintenanceDate)! >= pickerDateFormat.date(from: dateBefore + "-20")!{
-                    
-                    filteredList.append(room)
-                }
-            }
-            else if room.roomID == roomID.text {
+            if room.roomID == roomID.text &&
+                vcDateFormat.date(from: room.maintenanceDate)! <= pickerDateFormat.date(from: endDate.text!)! &&
+                vcDateFormat.date(from: room.maintenanceDate)! >= pickerDateFormat.date(from: startDate.text!)! {
+                
                 filteredList.append(room)
             }
         }

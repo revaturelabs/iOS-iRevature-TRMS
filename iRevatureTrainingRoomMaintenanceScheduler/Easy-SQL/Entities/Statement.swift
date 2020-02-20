@@ -35,11 +35,3 @@ struct JoinStatement {
 }
 
 
-
-
-struct DeleteStatement {
-    var table: SQLiteTable
-    var whereAt: WhereStatement
-}
-
-

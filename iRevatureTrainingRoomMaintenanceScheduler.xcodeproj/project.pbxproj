@@ -62,6 +62,8 @@
 		5FFD794123FEFABC000BD02E /* ReportBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD794023FEFABC000BD02E /* ReportBusinessService.swift */; };
 		5FFD794323FEFBB3000BD02E /* CheckList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD794223FEFBB3000BD02E /* CheckList.swift */; };
 		5FFD794523FEFBDC000BD02E /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD794423FEFBDC000BD02E /* Status.swift */; };
+		5FFD794723FF2FB1000BD02E /* DelegateTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD794623FF2FB1000BD02E /* DelegateTaskProtocol.swift */; };
+		5FFD794923FF3123000BD02E /* DelegateTaskBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD794823FF3123000BD02E /* DelegateTaskBusinessService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +124,8 @@
 		5FFD794023FEFABC000BD02E /* ReportBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportBusinessService.swift; sourceTree = "<group>"; };
 		5FFD794223FEFBB3000BD02E /* CheckList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckList.swift; sourceTree = "<group>"; };
 		5FFD794423FEFBDC000BD02E /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		5FFD794623FF2FB1000BD02E /* DelegateTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateTaskProtocol.swift; sourceTree = "<group>"; };
+		5FFD794823FF3123000BD02E /* DelegateTaskBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateTaskBusinessService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +256,7 @@
 				5F43914E23FE0A26003A390F /* MaintenanceTaskBusinessService.swift */,
 				5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */,
 				5FFD794023FEFABC000BD02E /* ReportBusinessService.swift */,
+				5FFD794823FF3123000BD02E /* DelegateTaskBusinessService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 				5F43914C23FE0983003A390F /* MaintenanceTaskProtocol.swift */,
 				5F43915223FE1F4F003A390F /* TrainerProtocol.swift */,
 				5FFD793E23FEFA49000BD02E /* ReportProtocol.swift */,
+				5FFD794623FF2FB1000BD02E /* DelegateTaskProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -599,12 +605,14 @@
 				0922755723FC845E0062950E /* HelperFunctions.swift in Sources */,
 				5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */,
 				091B7F3F23F73831009D7A77 /* Room.swift in Sources */,
+				5FFD794723FF2FB1000BD02E /* DelegateTaskProtocol.swift in Sources */,
 				5FB2B58423FB32F1003CD345 /* UserDefaultDAO.swift in Sources */,
 				5FFA061823FC461D00B04C74 /* OrangeToolbar.swift in Sources */,
 				5FB2B57523F989A2003CD345 /* SelectionPickerView.swift in Sources */,
 				091B7F4023F73831009D7A77 /* MaintenanceChart.swift in Sources */,
 				5FFD793F23FEFA49000BD02E /* ReportProtocol.swift in Sources */,
 				091B7F4123F73831009D7A77 /* Task.swift in Sources */,
+				5FFD794923FF3123000BD02E /* DelegateTaskBusinessService.swift in Sources */,
 				0922754E23FC7B230062950E /* PrepareFunctions.swift in Sources */,
 				0922754B23FC7B230062950E /* SQLTable.swift in Sources */,
 				5FB2B57823F98A5F003CD345 /* TextFieldExtension.swift in Sources */,

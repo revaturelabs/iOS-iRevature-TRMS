@@ -9,8 +9,8 @@
 import Foundation
 
 //Constraints as nil or empty does not execute insert
-struct WesTable: SQLTable {
-    static var columns: [Self.columnNameString : Column] {
+struct WesTable {
+    static var columns: [String : Column] {
         return ["id" : Column(dataType: .INT, constraints: [.PRIMARYKEY, .NOTNULL]),
                 "name" : Column(dataType: .CHAR, constraints: [.NOTNULL])]
     }
@@ -27,30 +27,54 @@ extension ViewController {
         
         //Create tabel in database
         do {
-            try db?.createTable(table: WesTable.self)
+            //try db?.createTable(table: WesTable.self)
         } catch {
         }
         
         //Insert row into table
         do {
             
-            let insert = InsertStatement(table: WesTable.self, columnValues: [1, "Wes"])
+            //let insert = InsertStatement(table: WesTable.self, columnValues: [1, "Wes"])
             
-            try db?.insertRow(insert: insert)
+            //try db?.insertRow(insert: insert)
         } catch {
             
         }
         
-        //update row in table
-        do {
-            var update = UpdateStatement(table: WesTable.self, set: ["name" : "Wes"])
-            update.whereAt = ["id" : WhereStatement(clause: .NONE, columnValue: 1, expression: .EQUALS)]
-            
-            try db?.updateRow(update: update)
-            
-        } catch {
-            
+    
+        //New Table creation
+        var wesTable = SQLiteTable(tableName: "WesTable")
+        wesTable.addColumn(columnName: "id", dataType: .INT, constraints: .PRIMARYKEY, .NOTNULL)
+        wesTable.addColumn(columnName: "name", dataType: .CHAR, constraints: nil)
+        
+        if let wesTable = wesTable.makeStatement() {
+            print(wesTable)
         }
+        
+        //New Where statement
+        var whereStatement = WhereStatement(table: wesTable)
+        whereStatement.addStatement(columnName: "name", expression: .EQUALS, columnValue: "Wes")
+        whereStatement.addStatement(clause: .OR, columnName: "name", expression: .EQUALS, columnValue: "Mark")
+        
+        if let whereStatement = whereStatement.makeStatement() {
+            print(whereStatement)
+        }
+        
+        //New Insert statement
+        let insertStatement = InsertStatement(table: wesTable, columnValues: 87, "Katelyn")
+        if let insertStatement = insertStatement.makeStatement() {
+            print(insertStatement)
+        }
+        
+        //New Update statement
+        var updateStatement = UpdateStatement(table: wesTable)
+        updateStatement.addValueChange(columnToUpdate: "name", updatedValue: "Mark")
+        updateStatement.setWhereStatement(statement: whereStatement)
+        
+        if let updateStatement = updateStatement.makeStatement() {
+            print(updateStatement)
+        }
+            
         
         //var tableInfo = TableSelectInfo(table: WesTable.self, ColumnNames: [SelectAlias(columnName: "id", asName: <#T##String?#>)])
         

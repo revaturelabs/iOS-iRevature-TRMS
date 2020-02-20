@@ -37,6 +37,11 @@
 		0922756423FCC3240062950E /* RevatureBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922756323FCC3240062950E /* RevatureBaseTableViewCell.swift */; };
 		0922756623FCC3480062950E /* ReportTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922756523FCC3480062950E /* ReportTableCell.swift */; };
 		5F43914323FDC0BA003A390F /* DelegateTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F43914223FDC0BA003A390F /* DelegateTask.storyboard */; };
+		5F43914923FDF77C003A390F /* RoomBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43914823FDF77C003A390F /* RoomBusinessService.swift */; };
+		5F43914B23FDF841003A390F /* RoomProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43914A23FDF841003A390F /* RoomProtocol.swift */; };
+		5F43914D23FE0983003A390F /* MaintenanceTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43914C23FE0983003A390F /* MaintenanceTaskProtocol.swift */; };
+		5F43914F23FE0A26003A390F /* MaintenanceTaskBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43914E23FE0A26003A390F /* MaintenanceTaskBusinessService.swift */; };
+		5F43915123FE1B45003A390F /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43915023FE1B45003A390F /* DateExtension.swift */; };
 		5F4A354623FCED5000CFE53F /* DelegateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A354523FCED5000CFE53F /* DelegateTaskViewController.swift */; };
 		5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */; };
 		5FB2B57323F8E78C003CD345 /* MaintenanceCheckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B57223F8E78C003CD345 /* MaintenanceCheckController.swift */; };
@@ -85,6 +90,11 @@
 		0922756523FCC3480062950E /* ReportTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableCell.swift; sourceTree = "<group>"; };
 		094DF32823F34B4300D012C3 /* iRevatureTrainingRoomMaintenanceScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRevatureTrainingRoomMaintenanceScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F43914223FDC0BA003A390F /* DelegateTask.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DelegateTask.storyboard; path = iRevatureTrainingRoomMaintenanceScheduler/Storyboard/DelegateTask/DelegateTask.storyboard; sourceTree = SOURCE_ROOT; };
+		5F43914823FDF77C003A390F /* RoomBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomBusinessService.swift; sourceTree = "<group>"; };
+		5F43914A23FDF841003A390F /* RoomProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomProtocol.swift; sourceTree = "<group>"; };
+		5F43914C23FE0983003A390F /* MaintenanceTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceTaskProtocol.swift; sourceTree = "<group>"; };
+		5F43914E23FE0A26003A390F /* MaintenanceTaskBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceTaskBusinessService.swift; sourceTree = "<group>"; };
+		5F43915023FE1B45003A390F /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		5F4A354523FCED5000CFE53F /* DelegateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateTaskViewController.swift; sourceTree = "<group>"; };
 		5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevatureOrangeButton.swift; sourceTree = "<group>"; };
 		5FB2B57223F8E78C003CD345 /* MaintenanceCheckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceCheckController.swift; sourceTree = "<group>"; };
@@ -126,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				5FB2B57723F98A5F003CD345 /* TextFieldExtension.swift */,
+				5F43915023FE1B45003A390F /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -222,6 +233,8 @@
 		091B7F1A23F73831009D7A77 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				5F43914823FDF77C003A390F /* RoomBusinessService.swift */,
+				5F43914E23FE0A26003A390F /* MaintenanceTaskBusinessService.swift */,
 				5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */,
 			);
 			path = Services;
@@ -293,6 +306,8 @@
 			isa = PBXGroup;
 			children = (
 				5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */,
+				5F43914A23FDF841003A390F /* RoomProtocol.swift */,
+				5F43914C23FE0983003A390F /* MaintenanceTaskProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -533,12 +548,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				091B7F4623F73831009D7A77 /* ViewController.swift in Sources */,
+				5F43915123FE1B45003A390F /* DateExtension.swift in Sources */,
 				091B7F4423F73831009D7A77 /* AppDelegate.swift in Sources */,
 				5FB2B57A23F98BFD003CD345 /* MaintenanceCheckDelegate.swift in Sources */,
 				0922754C23FC7B230062950E /* StatementFunctions.swift in Sources */,
 				091B7F3C23F73831009D7A77 /* VIewControllerInstantiator.swift in Sources */,
 				5FB2B57C23F99028003CD345 /* TaskSelectionCell.swift in Sources */,
 				5FB2B58623FB566B003CD345 /* UserInfoBusinessService.swift in Sources */,
+				5F43914B23FDF841003A390F /* RoomProtocol.swift in Sources */,
 				5F4A354623FCED5000CFE53F /* DelegateTaskViewController.swift in Sources */,
 				0922754F23FC7B230062950E /* DMLFunctions.swift in Sources */,
 				091B7F4523F73831009D7A77 /* SceneDelegate.swift in Sources */,
@@ -547,7 +564,10 @@
 				0922756423FCC3240062950E /* RevatureBaseTableViewCell.swift in Sources */,
 				0922754923FC7B230062950E /* DDLFunctions.swift in Sources */,
 				0922754A23FC7B230062950E /* DatabaseAccess.swift in Sources */,
+				5F43914F23FE0A26003A390F /* MaintenanceTaskBusinessService.swift in Sources */,
+				5F43914D23FE0983003A390F /* MaintenanceTaskProtocol.swift in Sources */,
 				0922754D23FC7B230062950E /* DQLFunctions.swift in Sources */,
+				5F43914923FDF77C003A390F /* RoomBusinessService.swift in Sources */,
 				0922755123FC7B230062950E /* SQLKeywords.swift in Sources */,
 				0922755723FC845E0062950E /* HelperFunctions.swift in Sources */,
 				5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */,

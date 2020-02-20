@@ -53,6 +53,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoj-qB-IDe" customClass="RevatureButton" customModule="iRevatureTrainingRoomMaintenanceScheduler" customModuleProvider="target">
                                 <rect key="frame" x="166.5" y="797" width="81" height="30"/>
                                 <state key="normal" title="Assign Task"/>
+                                <connections>
+                                    <action selector="assignTask:" destination="R0H-h9-kha" eventType="touchDown" id="Wul-E5-FYi"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4d-2v-3Ah">
                                 <rect key="frame" x="117" y="305.5" width="262" height="34"/>

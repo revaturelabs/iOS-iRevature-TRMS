@@ -32,4 +32,7 @@ class DelegateTaskViewController: UIViewController {
 
     }
     
+    @IBAction func assignTask(_ sender: Any) {
+        
+    }
 }

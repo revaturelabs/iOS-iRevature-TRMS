@@ -22,16 +22,3 @@ struct RoomName: Codable {
     var id: Int
     var name: String
 }
-
-
-struct RoomStatus {
-    var roomName: String
-    var date: Date
-    var isClean: Bool
-}
-
-
-struct RoomCheckList {
-    var roomName: String
-    var tasks: [MaintenanceTask]
-}

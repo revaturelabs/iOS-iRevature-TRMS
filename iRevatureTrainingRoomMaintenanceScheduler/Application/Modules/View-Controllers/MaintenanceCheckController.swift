@@ -44,11 +44,10 @@ class MaintenanceCheckController: UIViewController {
 //    }
     
     @IBAction func submitCheck(_ sender: Any) {
+        let room = selectorTextField.text!
         
-        for task in tasks {
-            print("\(task.name) is completed: \(task.completed)")
-        }
-    
+        MaintenanceTaskBusinessService.createMaitenanceTask(room: room, date: Date(), taskList: tasks)
+        
     }
     
 

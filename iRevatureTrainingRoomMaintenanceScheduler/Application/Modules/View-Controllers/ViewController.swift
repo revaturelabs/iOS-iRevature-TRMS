@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        if let user = userBusinessService.getUserInfo(){
+        if let user = UserInfoBusinessService.getUserInfo(){
             welcomeLabel.text = "Welcome back"
             emailTextField.text = user.email
         }
@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         
         if(email == "testuser1@revature.com" && password == "test123"){
             let userData = User(id: 0, email: email, name: email, role: "", token: "", keepLoggedIn: keepLoggedIn)
-            userBusinessService.setUserInfo(userObject: userData)
+            UserInfoBusinessService.setUserInfo(userObject: userData)
             
             let storyboard:UIStoryboard = UIStoryboard(name: "MaintenanceCheck", bundle: nil)
             let view = storyboard.instantiateInitialViewController()!

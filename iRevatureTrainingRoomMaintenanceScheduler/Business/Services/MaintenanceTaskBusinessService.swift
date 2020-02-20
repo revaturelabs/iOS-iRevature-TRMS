@@ -10,6 +10,15 @@ import Foundation
 
 class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
     
+    static func createMaitenanceTask(room: String, date: Date, taskList: [MaintenanceTask]) {
+        //code to update MaintenanceTasks
+        print("\(room) status for \(date)")
+        for task in taskList {
+            print("\(task.name): \(task.completed)")
+        }
+    }
+    
+    
     static func getAllMaitenanceTasks() -> [MaintenanceTask] {
         //code to get array of MaintenanceTasks
         
@@ -23,6 +32,11 @@ class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
         ]
         
         return tasks
+    }
+    
+    static func getAllMaintenanceTasksByRoom(room: String) -> [MaintenanceTask] {
+        //code to get all maintenance tasks for a room
+        return []
     }
     
 }

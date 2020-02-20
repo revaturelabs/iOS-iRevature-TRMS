@@ -10,7 +10,7 @@ import Foundation
 
 class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
     
-    static func createMaitenanceTask(room: String, date: Date, taskList: [MaintenanceTask]) {
+    static func createMaintenanceTask(room: String, date: Date, taskList: [MaintenanceTask]) {
         //code to update MaintenanceTasks
         print("\(room) status for \(date)")
         for task in taskList {
@@ -19,7 +19,7 @@ class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
     }
     
     
-    static func getAllMaitenanceTasks() -> [MaintenanceTask] {
+    static func getAllMaintenanceTasks() -> [MaintenanceTask] {
         //code to get array of MaintenanceTasks
         
         //dummy data

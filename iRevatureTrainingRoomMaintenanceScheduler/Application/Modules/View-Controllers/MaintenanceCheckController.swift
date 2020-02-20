@@ -20,7 +20,7 @@ class MaintenanceCheckController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tasks = MaintenanceTaskBusinessService.getAllMaitenanceTasks()
+        tasks = MaintenanceTaskBusinessService.getAllMaintenanceTasks()
         roomList = RoomBusinessService.getAllRoomNames()
         
         currentDate.text = Date().formatDate(by: "MMMM dd, yyyy")
@@ -46,7 +46,7 @@ class MaintenanceCheckController: UIViewController {
     @IBAction func submitCheck(_ sender: Any) {
         let room = selectorTextField.text!
         
-        MaintenanceTaskBusinessService.createMaitenanceTask(room: room, date: Date(), taskList: tasks)
+        MaintenanceTaskBusinessService.createMaintenanceTask(room: room, date: Date(), taskList: tasks)
         
     }
     

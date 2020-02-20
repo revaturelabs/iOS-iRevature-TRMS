@@ -10,9 +10,9 @@ import Foundation
 
 protocol MaintenanceTaskProtocol {
     
-    static func createMaitenanceTask(room: String, date:Date, taskList: [MaintenanceTask])
+    static func createMaintenanceTask(room: String, date:Date, taskList: [MaintenanceTask])
     
-    static func getAllMaitenanceTasks() -> [MaintenanceTask]
+    static func getAllMaintenanceTasks() -> [MaintenanceTask]
     
     static func getAllMaintenanceTasksByRoom(room: String) -> [MaintenanceTask]
 }

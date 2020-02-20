@@ -41,6 +41,8 @@
 		0922756F23FE2F790062950E /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922756E23FE2F790062950E /* Protocols.swift */; };
 		0922757523FE5A090062950E /* InsertStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922757423FE5A090062950E /* InsertStatement.swift */; };
 		0922757723FE5F320062950E /* UpdateStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922757623FE5F320062950E /* UpdateStatement.swift */; };
+		096F2D0A23FECA6A0021D616 /* DeleteStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F2D0923FECA6A0021D616 /* DeleteStatement.swift */; };
+		5F43914323FDC0BA003A390F /* DelegateTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F43914223FDC0BA003A390F /* DelegateTask.storyboard */; };
 		5F4A354623FCED5000CFE53F /* DelegateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A354523FCED5000CFE53F /* DelegateTaskViewController.swift */; };
 		5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */; };
 		5FB2B57323F8E78C003CD345 /* MaintenanceCheckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B57223F8E78C003CD345 /* MaintenanceCheckController.swift */; };
@@ -93,6 +95,8 @@
 		0922757423FE5A090062950E /* InsertStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertStatement.swift; sourceTree = "<group>"; };
 		0922757623FE5F320062950E /* UpdateStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStatement.swift; sourceTree = "<group>"; };
 		094DF32823F34B4300D012C3 /* iRevatureTrainingRoomMaintenanceScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRevatureTrainingRoomMaintenanceScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		096F2D0923FECA6A0021D616 /* DeleteStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteStatement.swift; sourceTree = "<group>"; };
+		5F43914223FDC0BA003A390F /* DelegateTask.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DelegateTask.storyboard; path = iRevatureTrainingRoomMaintenanceScheduler/Storyboard/DelegateTask/DelegateTask.storyboard; sourceTree = SOURCE_ROOT; };
 		5F4A354523FCED5000CFE53F /* DelegateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateTaskViewController.swift; sourceTree = "<group>"; };
 		5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevatureOrangeButton.swift; sourceTree = "<group>"; };
 		5FB2B57223F8E78C003CD345 /* MaintenanceCheckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceCheckController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 		091B7F0D23F73831009D7A77 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				5F43914523FDC161003A390F /* DelegateTask */,
 				0922756723FCF66C0062950E /* MaintenanceReport */,
 				091B7F0E23F73831009D7A77 /* LaunchScreen */,
 				091B7F1123F73831009D7A77 /* Common */,
@@ -410,6 +415,7 @@
 				0922756C23FE2ECD0062950E /* WhereStatement.swift */,
 				0922757423FE5A090062950E /* InsertStatement.swift */,
 				0922757623FE5F320062950E /* UpdateStatement.swift */,
+				096F2D0923FECA6A0021D616 /* DeleteStatement.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -451,6 +457,14 @@
 				091B7F0D23F73831009D7A77 /* Storyboard */,
 			);
 			path = iRevatureTrainingRoomMaintenanceScheduler;
+			sourceTree = "<group>";
+		};
+		5F43914523FDC161003A390F /* DelegateTask */ = {
+			isa = PBXGroup;
+			children = (
+				5F43914223FDC0BA003A390F /* DelegateTask.storyboard */,
+			);
+			path = DelegateTask;
 			sourceTree = "<group>";
 		};
 		5FB2B57623F989A9003CD345 /* Views */ = {
@@ -522,6 +536,7 @@
 			files = (
 				091B7F3A23F73831009D7A77 /* LaunchScreen.storyboard in Resources */,
 				091B7F3D23F73831009D7A77 /* Main.storyboard in Resources */,
+				5F43914323FDC0BA003A390F /* DelegateTask.storyboard in Resources */,
 				0922755C23FCBEAC0062950E /* MaintenanceReport.storyboard in Resources */,
 				091B7F4E23F73831009D7A77 /* Assets.xcassets in Resources */,
 				5FB2B57E23F993B8003CD345 /* MaintenanceCheck.storyboard in Resources */,
@@ -547,6 +562,7 @@
 				0922754F23FC7B230062950E /* DMLFunctions.swift in Sources */,
 				091B7F4523F73831009D7A77 /* SceneDelegate.swift in Sources */,
 				091B7F3B23F73831009D7A77 /* StoryboardList.swift in Sources */,
+				096F2D0A23FECA6A0021D616 /* DeleteStatement.swift in Sources */,
 				0922755023FC7B230062950E /* SQLMessages.swift in Sources */,
 				0922756423FCC3240062950E /* RevatureBaseTableViewCell.swift in Sources */,
 				0922754923FC7B230062950E /* DDLFunctions.swift in Sources */,
@@ -721,6 +737,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4R6WHCFACK;
 				INFOPLIST_FILE = iRevatureTrainingRoomMaintenanceScheduler/Application/Configuration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -739,6 +756,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4R6WHCFACK;
 				INFOPLIST_FILE = iRevatureTrainingRoomMaintenanceScheduler/Application/Configuration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (

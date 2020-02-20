@@ -12,8 +12,7 @@
 struct WhereStatement {
 
     //Variables To Use In Where Statement
-    private var table: SQLiteTable
-    private var statement: [(String, WhereValue)]
+    private var statement: [(table: SQLiteTable, columnName: String, columnData: WhereValue)]
 
     //Used to neatly store where statement data
     private struct WhereValue {
@@ -36,24 +35,23 @@ struct WhereStatement {
     }
 
     //Initialize the where statement
-    init(table: SQLiteTable) {
-        self.table = table
-        statement = [(String, WhereValue)]()
+    init() {
+        statement = [(SQLiteTable, String, WhereValue)]()
     }
 
     //Add a statement with the clauses added
-    mutating func addStatement(clause: SQLiteClause, columnName: String, expression: SQLiteExpression, columnValue: Any...) {
+    mutating func addStatement(table: SQLiteTable, clause: SQLiteClause, columnName: String, expression: SQLiteExpression, columnValue: Any...) {
         
         let values = WhereValue(clause: clause, expression: expression, columnValue: columnValue)
-        statement.append((columnName, values))
+        statement.append((table, columnName, values))
     }
 
     //Add a statement with the clauses added
     //Should only be called when it is the first expression
-    mutating func addStatement(columnName: String, expression: SQLiteExpression, columnValue: Any...) {
+    mutating func addStatement(table: SQLiteTable, columnName: String, expression: SQLiteExpression, columnValue: Any...) {
         
         let values = WhereValue(expression: expression, columnValue: columnValue)
-        statement.append((columnName, values))
+        statement.append((table, columnName, values))
     }
 }
 
@@ -66,7 +64,7 @@ extension WhereStatement: SQLiteStatement {
     //Make the Where Statement based on all the information stored within the where statement
 //===============================================================================================
     func makeStatement() -> String? {
-        if statement.count > 0 {
+        if statement.count <= 0 {
             return nil
         }
         
@@ -74,10 +72,11 @@ extension WhereStatement: SQLiteStatement {
         
         //Iterate though the Values to check at certain columns
         for (index, whereData) in statement.enumerated() {
-            let clause = whereData.1.clause
-            let expression = whereData.1.expression
-            let value = whereData.1.columnValue as! [Any]
-            let columnName = whereData.0
+            let clause = whereData.columnData.clause
+            let expression = whereData.columnData.expression
+            let value = whereData.columnData.columnValue as! [Any]
+            let table = whereData.table
+            let columnName = whereData.columnName
             
             //Apply the clause keyword
             if let clauseString = makeClauseString(clause: clause) {
@@ -87,10 +86,10 @@ extension WhereStatement: SQLiteStatement {
             }
             
             //Apply Column Name
-            whereString += "\(columnName)"
+            whereString += "\(table.getTableName()).\(columnName)"
             
             //Apply Expression
-            guard let expressionString = makeExpressionString(columnName: columnName, expression: expression, value: value) else {
+            guard let expressionString = makeExpressionString(table: table, columnName: columnName, expression: expression, value: value) else {
                 return nil
             }
             
@@ -125,7 +124,7 @@ extension WhereStatement: SQLiteStatement {
 //===============================================================================================
     //Create the expression based on the SQLite Expression Enum
 //===============================================================================================
-    private func makeExpressionString(columnName: String, expression: SQLiteExpression, value: [Any]) -> String? {
+    private func makeExpressionString(table: SQLiteTable, columnName: String, expression: SQLiteExpression, value: [Any]) -> String? {
         
         //All values will be case into their appropriate type for SQLite
         //If cast fails, nil is returned

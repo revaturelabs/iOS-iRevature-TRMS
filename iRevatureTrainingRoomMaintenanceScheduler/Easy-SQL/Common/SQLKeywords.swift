@@ -21,6 +21,8 @@ enum SQLiteKeyword: String {
     case FROM
     case DROP
     case SELECT
+    case AS
+    case ON
 }
 
 enum SQLiteExpression: String {
@@ -41,10 +43,9 @@ enum SQLiteClause: String {
 }
 
 enum SQLiteJoin: String {
-    case INNER
-    case OUTTER
-    case CROSS
-    case NONE
+    case INNER = "INNER JOIN"
+    case OUTTER = "OUTTER JOIN"
+    case CROSS = "CROSS JOIN"
 }
 
 enum SQLiteDataType: String {

@@ -52,7 +52,7 @@ extension InsertStatement: SQLiteStatement {
 
             //Add column values
             do {
-                insertValueString += try SQLUtility.castToDataType(column: column.value, value: columnValues[index])
+                insertValueString += try SQLUtility.castToDataType(column: column.columnInfo, value: columnValues[index])
             } catch {
                 return nil
             }

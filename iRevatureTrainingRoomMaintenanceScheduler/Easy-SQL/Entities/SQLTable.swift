@@ -14,18 +14,28 @@ struct Column {
 
 struct SQLiteTable {
     private var tableName: String
-    private var columnData: [String : Column]
+    private var columnData: [(columnName: String, columnInfo: Column)]
     
     init(tableName: String) {
-        columnData = [String : Column]()
+        columnData = [(columnName: String, columnInfo: Column)]()
         self.tableName = tableName
     }
     
     mutating func addColumn(columnName: String, dataType: SQLiteDataType, constraints: SQLiteConstraints?...) {
-        if columnData[columnName] == nil {
-            columnData[columnName] = Column(dataType: dataType, constraints: constraints as? [SQLiteConstraints])
-            //return true
+        let columnInfo = Column(dataType: dataType, constraints: constraints as? [SQLiteConstraints])
+        
+        for column in self.columnData {
+            if column.columnName == columnName {
+                return
+            }
         }
+        
+        self.columnData.append((columnName, columnInfo))
+        
+//        if columnData[columnName] == nil {
+//            columnData[columnName] = Column(dataType: dataType, constraints: constraints as? [SQLiteConstraints])
+//            //return true
+//        }
         
         //return false
     }
@@ -54,11 +64,17 @@ extension SQLiteTable {
     }
     
     func getColumnData(columnName: String) -> Column? {
-        return columnData[columnName]
+        for column in self.columnData {
+            if column.columnName == columnName {
+                return column.columnInfo
+            }
+        }
+        
+        return nil
     }
     
-    func getAllColumns() -> [String : Column] {
-        return columnData
+    func getAllColumns() -> [(columnName: String, columnInfo: Column)] {
+        return self.columnData
     }
     
     func getColumnsCount() -> Int {
@@ -84,15 +100,15 @@ extension SQLiteTable: SQLiteStatement {
             }
 
             //Assign column name
-            columnString += column.key
+            columnString += column.columnName
             
             //Apply the data types
-            columnString += makeDataTypeString(dataType: column.value.dataType)
+            columnString += makeDataTypeString(dataType: column.columnInfo.dataType)
 
             //Assign column constraints
-            if column.value.constraints != nil {
-                for i in 0 ..< column.value.constraints!.count {
-                    columnString += " \(column.value.constraints![i].rawValue)"
+            if column.columnInfo.constraints != nil {
+                for i in 0 ..< column.columnInfo.constraints!.count {
+                    columnString += " \(column.columnInfo.constraints![i].rawValue)"
                 }
             }
         }

@@ -30,8 +30,4 @@ struct SelectAlias {
     var asName: String?
 }
 
-struct JoinStatement {
-    
-}
-
 

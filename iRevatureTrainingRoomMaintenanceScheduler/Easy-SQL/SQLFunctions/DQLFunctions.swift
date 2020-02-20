@@ -13,7 +13,7 @@ extension DatabaseAccess {
 //===============================================================================================
     //Select Data From Table
 //===============================================================================================
-    func selectSingleTable(select: SelectStatement) throws -> [[String: Any]]? {
+    func selectSingleTable(select: SelectSingleTableStatement) throws -> [[String: Any]]? {
         
         var idString = ""
         var atString = ""

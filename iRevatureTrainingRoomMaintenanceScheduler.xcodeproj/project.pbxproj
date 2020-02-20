@@ -36,11 +36,8 @@
 		0922756023FCBF040062950E /* MaintenanceReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922755F23FCBF040062950E /* MaintenanceReportViewController.swift */; };
 		0922756423FCC3240062950E /* RevatureBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922756323FCC3240062950E /* RevatureBaseTableViewCell.swift */; };
 		0922756623FCC3480062950E /* ReportTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922756523FCC3480062950E /* ReportTableCell.swift */; };
-<<<<<<< HEAD
 		5F43914323FDC0BA003A390F /* DelegateTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F43914223FDC0BA003A390F /* DelegateTask.storyboard */; };
-=======
 		0922756B23FDBFB30062950E /* Easy_SQL_Tut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922756A23FDBFB30062950E /* Easy_SQL_Tut.swift */; };
->>>>>>> easy_sql
 		5F4A354623FCED5000CFE53F /* DelegateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A354523FCED5000CFE53F /* DelegateTaskViewController.swift */; };
 		5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */; };
 		5FB2B57323F8E78C003CD345 /* MaintenanceCheckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B57223F8E78C003CD345 /* MaintenanceCheckController.swift */; };

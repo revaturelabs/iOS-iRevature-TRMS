@@ -10,9 +10,9 @@ import Foundation
 
 class TrainerBusinessService: TrainerProtocol {
     
-    static func getAllTrainers() -> [User] {
+    static func getAllTrainers() -> [Trainer] {
         //code to get all trainers
-        return [User(id: 1, email: "a@a.a", name: "A", role: "", keepLoggedIn: false)]
+        return [Trainer(id: 1,  name: "A")]
     }
     
     static func getAllTrainerNames() -> [String] {

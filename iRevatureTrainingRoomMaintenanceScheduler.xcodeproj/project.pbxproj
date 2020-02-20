@@ -57,6 +57,7 @@
 		5FB2B58823FB56BB003CD345 /* UserInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */; };
 		5FFA061623FC30A900B04C74 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA061523FC30A900B04C74 /* DatePickerView.swift */; };
 		5FFA061823FC461D00B04C74 /* OrangeToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA061723FC461D00B04C74 /* OrangeToolbar.swift */; };
+		5FFD793D23FEF032000BD02E /* Trainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD793C23FEF032000BD02E /* Trainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProtocol.swift; sourceTree = "<group>"; };
 		5FFA061523FC30A900B04C74 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		5FFA061723FC461D00B04C74 /* OrangeToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeToolbar.swift; sourceTree = "<group>"; };
+		5FFD793C23FEF032000BD02E /* Trainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +255,7 @@
 				091B7F1E23F73831009D7A77 /* MaintenanceChart.swift */,
 				091B7F1F23F73831009D7A77 /* Task.swift */,
 				091B7F2023F73831009D7A77 /* Calendar.swift */,
+				5FFD793C23FEF032000BD02E /* Trainer.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				091B7F3C23F73831009D7A77 /* VIewControllerInstantiator.swift in Sources */,
 				5FB2B57C23F99028003CD345 /* TaskSelectionCell.swift in Sources */,
 				5FB2B58623FB566B003CD345 /* UserInfoBusinessService.swift in Sources */,
+				5FFD793D23FEF032000BD02E /* Trainer.swift in Sources */,
 				5F43914B23FDF841003A390F /* RoomProtocol.swift in Sources */,
 				5F4A354623FCED5000CFE53F /* DelegateTaskViewController.swift in Sources */,
 				0922754F23FC7B230062950E /* DMLFunctions.swift in Sources */,

@@ -10,7 +10,7 @@ import Foundation
 
 protocol TrainerProtocol {
     
-    static func getAllTrainers() -> [User]
+    static func getAllTrainers() -> [Trainer]
     
     static func getAllTrainerNames() -> [String]
     

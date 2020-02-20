@@ -7,18 +7,21 @@
 //
 
 struct SelectSingleTableStatement {
-    var table: SQLTable.Type
+    var table: SQLiteTable
     var columnNames: [String]?
     var whereAt: [String : WhereStatement]?
 }
 
-struct SelectMultipleTableStatement {
-    var tableInfo: TableSelectInfo
-    var joinAt: [JoinStatement]
+
+
+struct SelectJoinTableStatement {
+    var joinInfo: JoinSelectInfo
+    var whereAt: [String : WhereStatement]?
 }
 
-struct TableSelectInfo {
-    var table: SQLTable.Type
+struct JoinSelectInfo {
+    var joinType: SQLiteJoin
+    var table: SQLiteTable
     var ColumnNames: [SelectAlias]
 }
 
@@ -31,24 +34,12 @@ struct JoinStatement {
     
 }
 
+
+
+
 struct DeleteStatement {
-    var table: SQLTable.Type
-    var whereAt: [String : WhereStatement]?
+    var table: SQLiteTable
+    var whereAt: WhereStatement
 }
 
-struct UpdateStatement {
-    var table: SQLTable.Type
-    var set: [String : Any]
-    var whereAt: [String : WhereStatement]?
-}
 
-struct InsertStatement {
-    var table: SQLTable.Type
-    var columnValues: [Any]
-}
-
-struct WhereStatement {
-    var clause: SQLiteClause
-    var columnValue: Any
-    var expression: SQLiteExpression
-}

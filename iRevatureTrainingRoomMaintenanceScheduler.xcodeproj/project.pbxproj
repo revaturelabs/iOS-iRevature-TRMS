@@ -37,6 +37,10 @@
 		0922756423FCC3240062950E /* RevatureBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922756323FCC3240062950E /* RevatureBaseTableViewCell.swift */; };
 		0922756623FCC3480062950E /* ReportTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922756523FCC3480062950E /* ReportTableCell.swift */; };
 		0922756B23FDBFB30062950E /* Easy_SQL_Tut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922756A23FDBFB30062950E /* Easy_SQL_Tut.swift */; };
+		0922756D23FE2ECD0062950E /* WhereStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922756C23FE2ECD0062950E /* WhereStatement.swift */; };
+		0922756F23FE2F790062950E /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922756E23FE2F790062950E /* Protocols.swift */; };
+		0922757523FE5A090062950E /* InsertStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922757423FE5A090062950E /* InsertStatement.swift */; };
+		0922757723FE5F320062950E /* UpdateStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922757623FE5F320062950E /* UpdateStatement.swift */; };
 		5F4A354623FCED5000CFE53F /* DelegateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A354523FCED5000CFE53F /* DelegateTaskViewController.swift */; };
 		5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */; };
 		5FB2B57323F8E78C003CD345 /* MaintenanceCheckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B57223F8E78C003CD345 /* MaintenanceCheckController.swift */; };
@@ -84,6 +88,10 @@
 		0922756323FCC3240062950E /* RevatureBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevatureBaseTableViewCell.swift; sourceTree = "<group>"; };
 		0922756523FCC3480062950E /* ReportTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportTableCell.swift; sourceTree = "<group>"; };
 		0922756A23FDBFB30062950E /* Easy_SQL_Tut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Easy_SQL_Tut.swift; sourceTree = "<group>"; };
+		0922756C23FE2ECD0062950E /* WhereStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhereStatement.swift; sourceTree = "<group>"; };
+		0922756E23FE2F790062950E /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		0922757423FE5A090062950E /* InsertStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertStatement.swift; sourceTree = "<group>"; };
+		0922757623FE5F320062950E /* UpdateStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStatement.swift; sourceTree = "<group>"; };
 		094DF32823F34B4300D012C3 /* iRevatureTrainingRoomMaintenanceScheduler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRevatureTrainingRoomMaintenanceScheduler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F4A354523FCED5000CFE53F /* DelegateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateTaskViewController.swift; sourceTree = "<group>"; };
 		5FB2B54823F74BC8003CD345 /* RevatureOrangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevatureOrangeButton.swift; sourceTree = "<group>"; };
@@ -381,6 +389,7 @@
 			children = (
 				0922754823FC7B230062950E /* SQLKeywords.swift */,
 				0922754723FC7B230062950E /* SQLMessages.swift */,
+				0922756E23FE2F790062950E /* Protocols.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -398,6 +407,9 @@
 			children = (
 				0922754223FC7B230062950E /* SQLTable.swift */,
 				0922755923FC84B90062950E /* Statement.swift */,
+				0922756C23FE2ECD0062950E /* WhereStatement.swift */,
+				0922757423FE5A090062950E /* InsertStatement.swift */,
+				0922757623FE5F320062950E /* UpdateStatement.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -538,9 +550,12 @@
 				0922755023FC7B230062950E /* SQLMessages.swift in Sources */,
 				0922756423FCC3240062950E /* RevatureBaseTableViewCell.swift in Sources */,
 				0922754923FC7B230062950E /* DDLFunctions.swift in Sources */,
+				0922756F23FE2F790062950E /* Protocols.swift in Sources */,
 				0922754A23FC7B230062950E /* DatabaseAccess.swift in Sources */,
+				0922756D23FE2ECD0062950E /* WhereStatement.swift in Sources */,
 				0922754D23FC7B230062950E /* DQLFunctions.swift in Sources */,
 				0922755123FC7B230062950E /* SQLKeywords.swift in Sources */,
+				0922757723FE5F320062950E /* UpdateStatement.swift in Sources */,
 				0922755723FC845E0062950E /* HelperFunctions.swift in Sources */,
 				5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */,
 				091B7F3F23F73831009D7A77 /* Room.swift in Sources */,
@@ -558,6 +573,7 @@
 				091B7F4223F73831009D7A77 /* Calendar.swift in Sources */,
 				5FB2B58823FB56BB003CD345 /* UserInfoProtocol.swift in Sources */,
 				0922756623FCC3480062950E /* ReportTableCell.swift in Sources */,
+				0922757523FE5A090062950E /* InsertStatement.swift in Sources */,
 				0922755E23FCBEC80062950E /* RevatureBaseViewController.swift in Sources */,
 				0922756023FCBF040062950E /* MaintenanceReportViewController.swift in Sources */,
 				0922755A23FC84B90062950E /* Statement.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import SQLite3
 
-enum Statement {
+enum PrepareStatement {
     
     case prepare
     case prepare_v2
@@ -81,7 +81,7 @@ extension DatabaseAccess {
 //===============================================================================================
     //Make A Prepared Statement
 //===============================================================================================
-    func prepareStatement(sqlStatement: String, statementType: Statement) throws -> OpaquePointer? {
+    func prepareStatement(sqlStatement: String, statementType: PrepareStatement) throws -> OpaquePointer? {
         return try statementType.makeStatement(database: getDBPointer()!, sqlStatement: sqlStatement)
     }
     

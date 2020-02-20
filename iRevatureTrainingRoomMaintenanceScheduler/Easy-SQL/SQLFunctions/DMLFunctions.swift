@@ -39,7 +39,7 @@ extension DatabaseAccess {
     //Update Table Row
 //===============================================================================================
     func updateRow(update: UpdateStatement) throws {
-        guard update.whereAt != nil && update.table.columns.count < update.whereAt!.count else {
+        guard update.whereAt != nil && update.table.columns.count >= update.whereAt!.count else {
             throw SQLiteError.Update(message: "Where statement is not valid")
         }
         

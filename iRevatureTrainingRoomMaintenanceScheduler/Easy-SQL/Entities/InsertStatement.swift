@@ -37,6 +37,10 @@ extension InsertStatement: SQLiteStatement {
     //Make A Values Statement
 //===============================================================================================
     private func makeValueString() -> String? {
+        if (table.getColumnsCount() != getColumnValuesCount()) {
+            return nil
+        }
+        
         var insertValueString: String = "\(SQLiteKeyword.VALUES) "
 
         //Iterate through table columns

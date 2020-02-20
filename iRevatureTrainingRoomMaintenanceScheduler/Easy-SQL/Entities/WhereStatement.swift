@@ -66,6 +66,10 @@ extension WhereStatement: SQLiteStatement {
     //Make the Where Statement based on all the information stored within the where statement
 //===============================================================================================
     func makeStatement() -> String? {
+        if statement.count > 0 {
+            return nil
+        }
+        
         var whereString: String = "\(SQLiteKeyword.WHERE) "
         
         //Iterate though the Values to check at certain columns

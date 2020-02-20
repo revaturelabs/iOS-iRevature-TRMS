@@ -75,6 +75,13 @@ extension ViewController {
             print(updateStatement)
         }
             
+        //New Delete statement
+        var deleteStatement = DeleteStatement(table: wesTable)
+        deleteStatement.setWhereStatement(statement: whereStatement)
+        
+        if let deleteStatement = deleteStatement.makeStatement() {
+            print(deleteStatement)
+        }
         
         //var tableInfo = TableSelectInfo(table: WesTable.self, ColumnNames: [SelectAlias(columnName: "id", asName: <#T##String?#>)])
         

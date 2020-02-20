@@ -21,8 +21,8 @@ struct SelectStatement {
 //    }
     
     mutating func specifyColumn(table: SQLiteTable, columnName: String, asName: String) {
-        let alias = SQLUtility.getColumnReferencingTableName(table: table, columnName: asName)
-        self.columnNames[columnName] = (table, alias)
+        let newColumnName = SQLUtility.getColumnReferencingTableName(table: table, columnName: columnName)
+        self.columnNames[newColumnName] = (table, asName)
     }
     
     mutating func setJoinStatement(statement: JoinStatement) {

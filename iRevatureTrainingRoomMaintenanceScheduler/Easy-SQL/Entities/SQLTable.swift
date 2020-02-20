@@ -24,13 +24,15 @@ struct SQLiteTable {
     mutating func addColumn(columnName: String, dataType: SQLiteDataType, constraints: SQLiteConstraints?...) {
         let columnInfo = Column(dataType: dataType, constraints: constraints as? [SQLiteConstraints])
         
+        let fullColumnName = SQLUtility.getColumnReferencingTableName(table: self, columnName: columnName)
+        
         for column in self.columnData {
-            if column.columnName == columnName {
+            if column.columnName == fullColumnName {
                 return
             }
         }
         
-        self.columnData.append((columnName, columnInfo))
+        self.columnData.append((fullColumnName, columnInfo))
         
 //        if columnData[columnName] == nil {
 //            columnData[columnName] = Column(dataType: dataType, constraints: constraints as? [SQLiteConstraints])
@@ -123,6 +125,8 @@ extension SQLiteTable: SQLiteStatement {
         switch dataType {
         case .CHAR:
             return " \(dataType.rawValue)(500)"
+        case .INT, .BOOL:
+            return " \(SQLiteDataType.INT)"
         default:
             return" \(dataType.rawValue)"
         }

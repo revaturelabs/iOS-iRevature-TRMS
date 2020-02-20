@@ -10,6 +10,6 @@ import Foundation
 
 protocol DelegateTaskProtocol {
     
-    static func createNewTaskDelegation(room: String, endDate: Date, trainer: String)
+    static func createNewTaskDelegation(room: String, date: Date, trainer: String)
     
 }

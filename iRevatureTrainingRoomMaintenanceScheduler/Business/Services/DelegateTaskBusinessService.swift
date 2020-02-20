@@ -8,10 +8,15 @@
 
 import Foundation
 
-class DelegateClassTaskProtocol: DelegateTaskProtocol {
+class DelegateTaskBusinessService: DelegateTaskProtocol {
     
-    static func createNewTaskDelegation(room: String, endDate: Date, trainer: String) {
+    static func createNewTaskDelegation(room: String, date: Date, trainer: String) {
         //code create new TaskDelegation
+        
+        //test
+        print("Room: \(room)")
+        print("Date: \(date)")
+        print("Trainer: \(trainer)")
     }
     
 }

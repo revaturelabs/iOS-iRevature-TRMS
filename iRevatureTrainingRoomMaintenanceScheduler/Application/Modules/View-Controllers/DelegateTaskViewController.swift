@@ -18,12 +18,13 @@ class DelegateTaskViewController: UIViewController {
     
     var roomList = [String]()
     
-    var trainerList = ["Uday", "Nick", "Bob"]
+    var trainerList = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         roomList = RoomBusinessService.getAllRoomNames()
+        trainerList = TrainerBusinessService.getAllTrainerNames()
         
         dateSelection.dateDropDown(dateFormat: "MMM dd, yy")
         roomSelection.showDropDown(data: roomList)

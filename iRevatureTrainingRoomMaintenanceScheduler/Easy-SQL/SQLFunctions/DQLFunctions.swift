@@ -65,7 +65,7 @@ extension DatabaseAccess {
     //Select Data From Table
 //===============================================================================================
     func selectJoinTable (table: [(joinType: SQLiteJoin, String, String, SQLTable.Type)], values: [String] ) {
-        
+    
     }
     
 }

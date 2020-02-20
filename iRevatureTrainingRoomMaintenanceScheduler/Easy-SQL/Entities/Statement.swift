@@ -6,10 +6,29 @@
 //  Copyright © 2020 revature. All rights reserved.
 //
 
-struct SelectStatement {
+struct SelectSingleTableStatement {
     var table: SQLTable.Type
     var columnNames: [String]?
     var whereAt: [String : WhereStatement]?
+}
+
+struct SelectMultipleTableStatement {
+    var tableInfo: TableSelectInfo
+    var joinAt: [JoinStatement]
+}
+
+struct TableSelectInfo {
+    var table: SQLTable.Type
+    var ColumnNames: [SelectAlias]
+}
+
+struct SelectAlias {
+    var columnName: String
+    var asName: String?
+}
+
+struct JoinStatement {
+    
 }
 
 struct DeleteStatement {

@@ -26,7 +26,12 @@ class SQLUtility {
                 throw SQLiteError.DataType(message: "Value is not of type Int")
             }
             return String(intValue)
-        case .none:
+        case .BOOL:
+            guard let boolValue = value as? Bool else {
+                throw SQLiteError.DataType(message: "Value is not of type Int")
+            }
+            return boolValue ? "1" : "0"
+        default:
             throw SQLiteError.DataType(message: "Column is nil")
         }
     }

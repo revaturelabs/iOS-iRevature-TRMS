@@ -51,6 +51,7 @@ enum SQLiteJoin: String {
 enum SQLiteDataType: String {
     case INT
     case CHAR
+    case BOOL
 }
 
 enum SQLiteConstraints: String {

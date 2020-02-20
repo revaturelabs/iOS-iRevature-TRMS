@@ -86,10 +86,11 @@ extension WhereStatement: SQLiteStatement {
             }
             
             //Apply Column Name
-            whereString += "\(table.getTableName()).\(columnName)"
+            let fullColumnName = "\(table.getTableName()).\(columnName)"
+            whereString += fullColumnName
             
             //Apply Expression
-            guard let expressionString = makeExpressionString(table: table, columnName: columnName, expression: expression, value: value) else {
+            guard let expressionString = makeExpressionString(table: table, columnName: fullColumnName, expression: expression, value: value) else {
                 return nil
             }
             

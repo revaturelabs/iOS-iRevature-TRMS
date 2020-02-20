@@ -7,12 +7,29 @@
 //
 
 struct Table {
-    static var wesTable: SQLiteTable {
+    static var WesTable: SQLiteTable {
         var wesTable = SQLiteTable(tableName: "WesTable")
         wesTable.addColumn(columnName: "id", dataType: .INT, constraints: .PRIMARYKEY, .NOTNULL)
         wesTable.addColumn(columnName: "name", dataType: .CHAR, constraints: nil)
         
         return wesTable
+    }
+    
+    static var MarkTable: SQLiteTable {
+        var markTable = SQLiteTable(tableName: "MarkTable")
+        markTable.addColumn(columnName: "id", dataType: .INT, constraints: .PRIMARYKEY, .NOTNULL)
+        markTable.addColumn(columnName: "name", dataType: .CHAR, constraints: nil)
+        
+        return markTable
+    }
+    
+    static var BoolTableTest: SQLiteTable {
+        var boolTable = SQLiteTable(tableName: "BoolTableTest")
+        boolTable.addColumn(columnName: "id", dataType: .INT, constraints: .PRIMARYKEY, .NOTNULL)
+        boolTable.addColumn(columnName: "name", dataType: .CHAR, constraints: .NOTNULL)
+        boolTable.addColumn(columnName: "bool", dataType: .BOOL, constraints: .NOTNULL)
+        
+        return boolTable
     }
 }
 
@@ -48,16 +65,83 @@ extension ViewController {
 //        wesTable.addColumn(columnName: "id", dataType: .INT, constraints: .PRIMARYKEY, .NOTNULL)
 //        wesTable.addColumn(columnName: "name", dataType: .CHAR, constraints: nil)
         
-        if let statement = Table.wesTable.makeStatement() {
+        if let statement = Table.WesTable.makeStatement() {
             print(statement)
         }
         
-        var markTable = SQLiteTable(tableName: "MarkTable")
-        markTable.addColumn(columnName: "id", dataType: .INT, constraints: .PRIMARYKEY, .NOTNULL)
-        markTable.addColumn(columnName: "name", dataType: .CHAR, constraints: nil)
         
-        if let markTable = markTable.makeStatement() {
-            print(markTable)
+        if let statement = Table.MarkTable.makeStatement() {
+            print(statement)
+        }
+
+        if let statement = Table.BoolTableTest.makeStatement() {
+            print(statement)
+        }
+        
+//        do {
+//            try db?.createTable(table: Table.BoolTableTest)
+//        } catch {
+//            
+//        }
+//        
+//        do {
+//            let insertStatement = InsertStatement(table: Table.BoolTableTest, columnValues: 87, "Katelyn", true)
+//            try db?.insertRow(statement: insertStatement)
+//        } catch {
+//            
+//        }
+//        
+//        do {
+//            var updateStatement = UpdateStatement(table: Table.BoolTableTest)
+//            updateStatement.addValueChange(columnToUpdate: "bool", updatedValue: false)
+//            
+//            var whereStatement = WhereStatement()
+//            whereStatement.addStatement(table: Table.BoolTableTest, columnName: "name", expression: .EQUALS, columnValue: "Mark")
+//            
+//            updateStatement.setWhereStatement(statement: whereStatement)
+//            
+//            try db?.updateRow(statement: updateStatement)
+//        } catch {
+//            
+//        }
+        
+        do {
+            var selectStatement = SelectStatement()
+            selectStatement.specifyColumn(table: Table.BoolTableTest, columnName: "bool", asName: "BooleanValue")
+            
+            var whereStatement = WhereStatement()
+            whereStatement.addStatement(table: Table.BoolTableTest, columnName: "bool", expression: .EQUALS, columnValue: true)
+            
+            if let statement = whereStatement.makeStatement() {
+                print(statement)
+            }
+            else {
+                
+            }
+            
+            selectStatement.setWhereStatement(statement: whereStatement)
+            
+            if let statement = selectStatement.makeStatement() {
+                print(statement)
+            }
+            
+            let result = try db?.selectData(statement: selectStatement)
+            var resultString = ""
+
+            if result != nil {
+                for row in result! {
+                    for (columnName, columnValue) in row {
+                        resultString += "\(columnName): \(columnValue), "
+                    }
+                    resultString += "\n"
+                }
+
+                print(resultString)
+            }
+
+
+        } catch {
+            print("failed")
         }
         
 ////---------------------------------

@@ -23,7 +23,6 @@
 		0922754923FC7B230062950E /* DDLFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922754023FC7B220062950E /* DDLFunctions.swift */; };
 		0922754A23FC7B230062950E /* DatabaseAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922754123FC7B220062950E /* DatabaseAccess.swift */; };
 		0922754B23FC7B230062950E /* SQLTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922754223FC7B230062950E /* SQLTable.swift */; };
-		0922754C23FC7B230062950E /* StatementFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922754323FC7B230062950E /* StatementFunctions.swift */; };
 		0922754D23FC7B230062950E /* DQLFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922754423FC7B230062950E /* DQLFunctions.swift */; };
 		0922754E23FC7B230062950E /* PrepareFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922754523FC7B230062950E /* PrepareFunctions.swift */; };
 		0922754F23FC7B230062950E /* DMLFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0922754623FC7B230062950E /* DMLFunctions.swift */; };
@@ -78,7 +77,6 @@
 		0922754023FC7B220062950E /* DDLFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLFunctions.swift; sourceTree = "<group>"; };
 		0922754123FC7B220062950E /* DatabaseAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseAccess.swift; sourceTree = "<group>"; };
 		0922754223FC7B230062950E /* SQLTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLTable.swift; sourceTree = "<group>"; };
-		0922754323FC7B230062950E /* StatementFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatementFunctions.swift; sourceTree = "<group>"; };
 		0922754423FC7B230062950E /* DQLFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DQLFunctions.swift; sourceTree = "<group>"; };
 		0922754523FC7B230062950E /* PrepareFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrepareFunctions.swift; sourceTree = "<group>"; };
 		0922754623FC7B230062950E /* DMLFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DMLFunctions.swift; sourceTree = "<group>"; };
@@ -384,7 +382,6 @@
 		0922755323FC7BCC0062950E /* SQLFunctions */ = {
 			isa = PBXGroup;
 			children = (
-				0922754323FC7B230062950E /* StatementFunctions.swift */,
 				0922754523FC7B230062950E /* PrepareFunctions.swift */,
 				0922754023FC7B220062950E /* DDLFunctions.swift */,
 				0922754623FC7B230062950E /* DMLFunctions.swift */,
@@ -559,7 +556,6 @@
 				091B7F4623F73831009D7A77 /* ViewController.swift in Sources */,
 				091B7F4423F73831009D7A77 /* AppDelegate.swift in Sources */,
 				5FB2B57A23F98BFD003CD345 /* MaintenanceCheckDelegate.swift in Sources */,
-				0922754C23FC7B230062950E /* StatementFunctions.swift in Sources */,
 				0922756B23FDBFB30062950E /* Easy_SQL_Tut.swift in Sources */,
 				091B7F3C23F73831009D7A77 /* VIewControllerInstantiator.swift in Sources */,
 				5FB2B57C23F99028003CD345 /* TaskSelectionCell.swift in Sources */,

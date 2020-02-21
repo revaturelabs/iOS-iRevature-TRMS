@@ -25,12 +25,19 @@ class ViewController: UIViewController {
         if let user = UserInfoBusinessService.getUserInfo(){
             welcomeLabel.text = "Welcome back"
             emailTextField.text = user.email
+            
+            emailTextField.delegate = self
+            passwordTextField.delegate = self
         }
         
     }
     
     
     @IBAction func userLogin(_ sender: Any) {
+        self.login()
+    }
+    
+    func login(){
         
         let userEmail = emailTextField.text!
         let userPassword = passwordTextField.text!
@@ -67,4 +74,24 @@ class ViewController: UIViewController {
     
 }
 
+
+extension ViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switchTextField(textField)
+        return true
+    }
+    
+    private func switchTextField(_ textField: UITextField){
+        switch textField{
+        case self.emailTextField:
+            self.passwordTextField.becomeFirstResponder()
+        case self.passwordTextField:
+            self.passwordTextField.resignFirstResponder()
+            self.login()
+        default:
+            self.emailTextField.resignFirstResponder()
+        }
+    }
+}
 

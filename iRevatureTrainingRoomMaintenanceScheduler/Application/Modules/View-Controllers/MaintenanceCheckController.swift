@@ -14,19 +14,16 @@ class MaintenanceCheckController: UIViewController {
     @IBOutlet weak var selectorTextField: UITextField!
     @IBOutlet weak var taskTable: UITableView!
     
-    var roomList = ["NEC 107", "NEC 200", "NEC 300", "NEC 320", "NEC 338", "NEC 107", "NEC 200", "NEC 300", "NEC 320", "NEC 338"]
-    var tasks:[MaintenanceTask] = [MaintenanceTask]()
+    var roomList:[String] = []
+    var tasks:[MaintenanceTask] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setTasks()
+        tasks = MaintenanceTaskBusinessService.getAllMaintenanceTasks()
+        roomList = RoomBusinessService.getAllRoomNames()
         
-        let date = Date()
-        let format = DateFormatter()
-        format.dateFormat = "MMMM dd, yyyy"
-        let formattedDate = format.string(from: date)
-        currentDate.text = formattedDate
+        currentDate.text = Date().formatDate(by: "MMMM dd, yyyy")
 
         selectorTextField.showDropDown(data: roomList)
         
@@ -38,20 +35,19 @@ class MaintenanceCheckController: UIViewController {
     }
     
 //add dummy data for testing functionality
-    func setTasks() {
-        tasks.append(MaintenanceTask(id: 1, name: "Clean Desks", completed: false))
-        tasks.append(MaintenanceTask(id: 1, name: "Clean Whiteboards", completed: false))
-        tasks.append(MaintenanceTask(id: 1, name: "Arrange Desks", completed: false))
-        tasks.append(MaintenanceTask(id: 1, name: "Arrange Chairs", completed: false))
-        tasks.append(MaintenanceTask(id: 1, name: "Vacuum", completed: false))
-    }
+//    func setTasks() {
+//        tasks.append(MaintenanceTask(id: 1, name: "Clean Desks", completed: false))
+//        tasks.append(MaintenanceTask(id: 1, name: "Clean Whiteboards", completed: false))
+//        tasks.append(MaintenanceTask(id: 1, name: "Arrange Desks", completed: false))
+//        tasks.append(MaintenanceTask(id: 1, name: "Arrange Chairs", completed: false))
+//        tasks.append(MaintenanceTask(id: 1, name: "Vacuum", completed: false))
+//    }
     
     @IBAction func submitCheck(_ sender: Any) {
+        let room = selectorTextField.text!
         
-        for task in tasks {
-            print("\(task.name) is completed: \(task.completed)")
-        }
-    
+        MaintenanceTaskBusinessService.createMaintenanceTask(room: room, date: Date(), taskList: tasks)
+        
     }
     
 

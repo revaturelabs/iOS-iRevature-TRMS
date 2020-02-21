@@ -20,9 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = .black
         UITabBar.appearance().unselectedItemTintColor = .white
         
-        let userInfoService = UserInfoBusinessService()
-        
-        let user: User? = userInfoService.getUserInfo()
+        let user: User? = UserInfoBusinessService.getUserInfo()
         
         if user == nil || !user!.keepLoggedIn {
             

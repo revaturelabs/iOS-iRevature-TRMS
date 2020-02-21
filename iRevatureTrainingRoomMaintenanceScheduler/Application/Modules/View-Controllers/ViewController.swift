@@ -22,9 +22,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        if let user = userBusinessService.getUserInfo(){
+        if let user = UserInfoBusinessService.getUserInfo(){
             welcomeLabel.text = "Welcome back"
             emailTextField.text = user.email
+            
+            emailTextField.delegate = self
+            passwordTextField.delegate = self
         }
         
         CreateAllTables.runScript()
@@ -39,6 +42,10 @@ class ViewController: UIViewController {
     
     
     @IBAction func userLogin(_ sender: Any) {
+        self.login()
+    }
+    
+    func login(){
         
         let userEmail = emailTextField.text!
         let userPassword = passwordTextField.text!
@@ -53,7 +60,7 @@ class ViewController: UIViewController {
         
         if(email == "testuser1@revature.com" && password == "test123"){
             let userData = User(id: 0, email: email, name: email, role: "", token: "", keepLoggedIn: keepLoggedIn)
-            userBusinessService.setUserInfo(userObject: userData)
+            UserInfoBusinessService.setUserInfo(userObject: userData)
             
             let storyboard:UIStoryboard = UIStoryboard(name: "MaintenanceCheck", bundle: nil)
             let view = storyboard.instantiateInitialViewController()!
@@ -75,4 +82,24 @@ class ViewController: UIViewController {
     
 }
 
+
+extension ViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switchTextField(textField)
+        return true
+    }
+    
+    private func switchTextField(_ textField: UITextField){
+        switch textField{
+        case self.emailTextField:
+            self.passwordTextField.becomeFirstResponder()
+        case self.passwordTextField:
+            self.passwordTextField.resignFirstResponder()
+            self.login()
+        default:
+            self.emailTextField.resignFirstResponder()
+        }
+    }
+}
 

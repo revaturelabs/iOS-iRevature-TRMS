@@ -12,10 +12,13 @@ extension DatabaseAccess {
 //===============================================================================================
     //Create Table
 //===============================================================================================
-    func createTable(table: SQLTable.Type) throws {
+    func createTable(table: SQLiteTable) throws {
         
         //Create prepared statement
-        let tableStatement = SQLStatement.makeTableStatement(table: table)
+        guard let tableStatement = table.makeStatement() else {
+            throw SQLiteError.Create(message: "Unable to produce table statement")
+        }
+        
         let statement = "\(SQLiteKeyword.CREATE) \(tableStatement)"
         
         let createTableStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
@@ -36,8 +39,8 @@ extension DatabaseAccess {
 //===============================================================================================
     //Drop Table
 //===============================================================================================
-    func dropTable(table: SQLTable.Type) throws {
-        let statement = "\(SQLiteKeyword.DROP) \(SQLiteKeyword.TABLE) \(table)"
+    func dropTable(table: SQLiteTable) throws {
+        let statement = "\(SQLiteKeyword.DROP) \(SQLiteKeyword.TABLE) \(table.getTableName())"
         let dropStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
         
         defer {

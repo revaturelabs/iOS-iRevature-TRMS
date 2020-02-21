@@ -6,30 +6,28 @@
 //  Copyright © 2020 revature. All rights reserved.
 //
 
-struct SelectStatement {
-    var table: SQLTable.Type
+struct SelectSingleTableStatement {
+    var table: SQLiteTable
     var columnNames: [String]?
     var whereAt: [String : WhereStatement]?
 }
 
-struct DeleteStatement {
-    var table: SQLTable.Type
+
+
+struct SelectJoinTableStatement {
+    var joinInfo: JoinSelectInfo
     var whereAt: [String : WhereStatement]?
 }
 
-struct UpdateStatement {
-    var table: SQLTable.Type
-    var set: [String : Any]
-    var whereAt: [String : WhereStatement]?
+struct JoinSelectInfo {
+    var joinType: SQLiteJoin
+    var table: SQLiteTable
+    var ColumnNames: [SelectAlias]
 }
 
-struct InsertStatement {
-    var table: SQLTable.Type
-    var columnValues: [Any]
+struct SelectAlias {
+    var columnName: String
+    var asName: String?
 }
 
-struct WhereStatement {
-    var clause: SQLiteClause
-    var columnValue: Any
-    var expression: SQLiteExpression
-}
+

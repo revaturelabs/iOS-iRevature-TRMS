@@ -51,8 +51,10 @@ class ViewController: UIViewController {
         let keepLoggedIn = keepLoggedInSwitch.isOn
         
         if(email == "testuser1@revature.com" && password == "test123"){
-            let userData = User(id: 0, email: email, name: email, role: "", token: "", keepLoggedIn: keepLoggedIn)
-            UserInfoBusinessService.setUserInfo(userObject: userData)
+            
+            let loginapi = LoginAPI()
+            loginapi.getUserLogin(email: email, password: password, keepLoggedIn: keepLoggedIn)
+            
             
             let storyboard:UIStoryboard = UIStoryboard(name: "MaintenanceCheck", bundle: nil)
             let view = storyboard.instantiateInitialViewController()!

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -66,6 +66,12 @@
 		5FB2B58423FB32F1003CD345 /* UserDefaultDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58323FB32F1003CD345 /* UserDefaultDAO.swift */; };
 		5FB2B58623FB566B003CD345 /* UserInfoBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */; };
 		5FB2B58823FB56BB003CD345 /* UserInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */; };
+		5FC79323240073E800F0CFA9 /* UserJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC79322240073E800F0CFA9 /* UserJSON.swift */; };
+		5FC793252400746800F0CFA9 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC793242400746800F0CFA9 /* LoginAPI.swift */; };
+		5FC793282400752800F0CFA9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5FC793272400752800F0CFA9 /* Alamofire */; };
+		5FC7932A2400759F00F0CFA9 /* LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC793292400759F00F0CFA9 /* LogIn.swift */; };
+		5FC7932C2400852300F0CFA9 /* TrainerJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC7932B2400852300F0CFA9 /* TrainerJSON.swift */; };
+		5FC7932E240086A600F0CFA9 /* RoomJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC7932D240086A600F0CFA9 /* RoomJSON.swift */; };
 		5FFA061623FC30A900B04C74 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA061523FC30A900B04C74 /* DatePickerView.swift */; };
 		5FFA061823FC461D00B04C74 /* OrangeToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA061723FC461D00B04C74 /* OrangeToolbar.swift */; };
 		5FFD793D23FEF032000BD02E /* Trainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FFD793C23FEF032000BD02E /* Trainer.swift */; };
@@ -140,6 +146,11 @@
 		5FB2B58323FB32F1003CD345 /* UserDefaultDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultDAO.swift; sourceTree = "<group>"; };
 		5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoBusinessService.swift; sourceTree = "<group>"; };
 		5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProtocol.swift; sourceTree = "<group>"; };
+		5FC79322240073E800F0CFA9 /* UserJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJSON.swift; sourceTree = "<group>"; };
+		5FC793242400746800F0CFA9 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
+		5FC793292400759F00F0CFA9 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
+		5FC7932B2400852300F0CFA9 /* TrainerJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerJSON.swift; sourceTree = "<group>"; };
+		5FC7932D240086A600F0CFA9 /* RoomJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomJSON.swift; sourceTree = "<group>"; };
 		5FFA061523FC30A900B04C74 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		5FFA061723FC461D00B04C74 /* OrangeToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrangeToolbar.swift; sourceTree = "<group>"; };
 		5FFD793C23FEF032000BD02E /* Trainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trainer.swift; sourceTree = "<group>"; };
@@ -157,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FC793282400752800F0CFA9 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,6 +518,7 @@
 		094DF32A23F34B4300D012C3 /* iRevatureTrainingRoomMaintenanceScheduler */ = {
 			isa = PBXGroup;
 			children = (
+				5FC7931E2400738400F0CFA9 /* Service */,
 				0922755223FC7BBC0062950E /* Easy-SQL */,
 				091B7F3923F73831009D7A77 /* Account */,
 				091B7F2123F73831009D7A77 /* Application */,
@@ -544,6 +557,34 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		5FC7931E2400738400F0CFA9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5FC79321240073A800F0CFA9 /* Logic */,
+				5FC7931F2400738C00F0CFA9 /* Entities */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		5FC7931F2400738C00F0CFA9 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				5FC79322240073E800F0CFA9 /* UserJSON.swift */,
+				5FC7932B2400852300F0CFA9 /* TrainerJSON.swift */,
+				5FC7932D240086A600F0CFA9 /* RoomJSON.swift */,
+				5FC793292400759F00F0CFA9 /* LogIn.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		5FC79321240073A800F0CFA9 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				5FC793242400746800F0CFA9 /* LoginAPI.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -560,6 +601,9 @@
 			dependencies = (
 			);
 			name = iRevatureTrainingRoomMaintenanceScheduler;
+			packageProductDependencies = (
+				5FC793272400752800F0CFA9 /* Alamofire */,
+			);
 			productName = iRevatureTrainingRoomMaintenanceScheduler;
 			productReference = 094DF32823F34B4300D012C3 /* iRevatureTrainingRoomMaintenanceScheduler.app */;
 			productType = "com.apple.product-type.application";
@@ -588,6 +632,9 @@
 				Base,
 			);
 			mainGroup = 094DF31F23F34B4300D012C3;
+			packageReferences = (
+				5FC793262400752800F0CFA9 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 094DF32923F34B4300D012C3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -622,18 +669,16 @@
 				5F43915123FE1B45003A390F /* DateExtension.swift in Sources */,
 				091B7F4423F73831009D7A77 /* AppDelegate.swift in Sources */,
 				5FB2B57A23F98BFD003CD345 /* MaintenanceCheckDelegate.swift in Sources */,
-<<<<<<< HEAD
+				5FC79323240073E800F0CFA9 /* UserJSON.swift in Sources */,
 				0922756B23FDBFB30062950E /* Easy_SQL_Tut.swift in Sources */,
-=======
 				5FFD794323FEFBB3000BD02E /* CheckList.swift in Sources */,
-				0922754C23FC7B230062950E /* StatementFunctions.swift in Sources */,
 				5F43915523FE1FF3003A390F /* TrainerBusinessService.swift in Sources */,
->>>>>>> trainer_ui
 				091B7F3C23F73831009D7A77 /* VIewControllerInstantiator.swift in Sources */,
 				5FB2B57C23F99028003CD345 /* TaskSelectionCell.swift in Sources */,
 				5FFD794523FEFBDC000BD02E /* Status.swift in Sources */,
 				5FB2B58623FB566B003CD345 /* UserInfoBusinessService.swift in Sources */,
 				5FFD793D23FEF032000BD02E /* Trainer.swift in Sources */,
+				5FC7932A2400759F00F0CFA9 /* LogIn.swift in Sources */,
 				5FFD794F23FF78A1000BD02E /* MaintenanceReportMessageDelegate.swift in Sources */,
 				5F43914B23FDF841003A390F /* RoomProtocol.swift in Sources */,
 				5F4A354623FCED5000CFE53F /* DelegateTaskViewController.swift in Sources */,
@@ -647,30 +692,22 @@
 				0922754923FC7B230062950E /* DDLFunctions.swift in Sources */,
 				0922756F23FE2F790062950E /* Protocols.swift in Sources */,
 				0922754A23FC7B230062950E /* DatabaseAccess.swift in Sources */,
-<<<<<<< HEAD
 				0922756D23FE2ECD0062950E /* WhereStatement.swift in Sources */,
-=======
 				5F43914F23FE0A26003A390F /* MaintenanceTaskBusinessService.swift in Sources */,
 				5F43914D23FE0983003A390F /* MaintenanceTaskProtocol.swift in Sources */,
->>>>>>> trainer_ui
 				0922754D23FC7B230062950E /* DQLFunctions.swift in Sources */,
 				5FFD794123FEFABC000BD02E /* ReportBusinessService.swift in Sources */,
 				5F43914923FDF77C003A390F /* RoomBusinessService.swift in Sources */,
+				5FC793252400746800F0CFA9 /* LoginAPI.swift in Sources */,
 				0922755123FC7B230062950E /* SQLKeywords.swift in Sources */,
-<<<<<<< HEAD
 				0922757723FE5F320062950E /* UpdateStatement.swift in Sources */,
-=======
 				5F43915323FE1F4F003A390F /* TrainerProtocol.swift in Sources */,
->>>>>>> trainer_ui
 				0922755723FC845E0062950E /* HelperFunctions.swift in Sources */,
 				5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */,
 				096F2D3B23FF76550021D616 /* PersistanceConstants.swift in Sources */,
 				091B7F3F23F73831009D7A77 /* Room.swift in Sources */,
-<<<<<<< HEAD
 				096F2D3223FEE4220021D616 /* SelectStatement.swift in Sources */,
-=======
 				5FFD794723FF2FB1000BD02E /* DelegateTaskProtocol.swift in Sources */,
->>>>>>> trainer_ui
 				5FB2B58423FB32F1003CD345 /* UserDefaultDAO.swift in Sources */,
 				096F2D3423FEFB1A0021D616 /* JoinStatement.swift in Sources */,
 				5FFA061823FC461D00B04C74 /* OrangeToolbar.swift in Sources */,
@@ -688,9 +725,11 @@
 				09024DC823FF83A8007DB4C9 /* DropAllTables.swift in Sources */,
 				091B7F3E23F73831009D7A77 /* User.swift in Sources */,
 				091B7F4223F73831009D7A77 /* Calendar.swift in Sources */,
+				5FC7932E240086A600F0CFA9 /* RoomJSON.swift in Sources */,
 				5FB2B58823FB56BB003CD345 /* UserInfoProtocol.swift in Sources */,
 				0922756623FCC3480062950E /* ReportTableCell.swift in Sources */,
 				0922757523FE5A090062950E /* InsertStatement.swift in Sources */,
+				5FC7932C2400852300F0CFA9 /* TrainerJSON.swift in Sources */,
 				0922755E23FCBEC80062950E /* RevatureBaseViewController.swift in Sources */,
 				0922756023FCBF040062950E /* MaintenanceReportViewController.swift in Sources */,
 				0922755A23FC84B90062950E /* Statement.swift in Sources */,
@@ -893,6 +932,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5FC793262400752800F0CFA9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5FC793272400752800F0CFA9 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FC793262400752800F0CFA9 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 094DF32023F34B4300D012C3 /* Project object */;
 }

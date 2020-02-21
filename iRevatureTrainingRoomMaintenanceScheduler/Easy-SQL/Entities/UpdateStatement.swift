@@ -29,6 +29,10 @@ struct UpdateStatement {
 
 extension UpdateStatement: SQLiteStatement {
     func makeStatement() -> String? {
+        if table.getColumnsCount() < set.count {
+            return nil
+        }
+        
         guard let setString = makeSetSring(), let atString = whereAt?.makeStatement() else {
             return nil
         }

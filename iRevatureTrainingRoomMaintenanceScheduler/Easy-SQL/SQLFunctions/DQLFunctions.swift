@@ -42,12 +42,12 @@ extension DatabaseAccess {
                 case .CHAR:
                     let tempText = String(cString: sqlite3_column_text(selectStatement, Int32(index)))
                     queryArray[queryArray.count - 1][alias] = tempText
-                case .INT, .BOOL:
+                case .INT:
                     let tempInt = Int(sqlite3_column_int(selectStatement, Int32(index)))
                     queryArray[queryArray.count - 1][alias] = tempInt
-//                case .BOOL:
-//                    let tempBool = Int(sqlite3_column_int(selectStatement, Int32(index)))
-//                    queryArray[queryArray.count - 1][alias] = tempBool == 1 ? true : false
+                case .BOOL:
+                    let tempBool = Int(sqlite3_column_int(selectStatement, Int32(index)))
+                    queryArray[queryArray.count - 1][alias] = tempBool == 1 ? true : false
                 default:
                     break
                 }

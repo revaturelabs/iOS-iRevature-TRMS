@@ -119,7 +119,7 @@ extension ViewController {
                 
             }
             
-            selectStatement.setWhereStatement(statement: whereStatement)
+            //selectStatement.setWhereStatement(statement: whereStatement)
             
             if let statement = selectStatement.makeStatement() {
                 print(statement)

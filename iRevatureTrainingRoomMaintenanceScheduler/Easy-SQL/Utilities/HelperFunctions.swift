@@ -21,7 +21,7 @@ class SQLUtility {
                 throw SQLiteError.DataType(message: "Value is not of type String")
             }
             return "'\(stringValue)'"
-        case .INT:
+        case .INT, .INTEGER:
             guard let intValue = value as? Int else {
                 throw SQLiteError.DataType(message: "Value is not of type Int")
             }

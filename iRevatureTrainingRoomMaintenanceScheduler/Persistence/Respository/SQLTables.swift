@@ -9,15 +9,15 @@
 
 
 struct SQLTable {
-    static let tables = [SQLTable.Campus,
-                        SQLTable.Location,
-                        SQLTable.MaintenanceChart,
-                        SQLTable.MaintenanceChartTask,
-                        SQLTable.Room,
-                        SQLTable.RoomTask,
-                        SQLTable.User,
-                        SQLTable.UserRole,
-                        SQLTable.Task]
+    static let tables = [LocationTable.table,
+                         CampusTable.table,
+                         UserTable.table,
+                         UserRoleTable.table,
+                         RoomTable.table,
+                         TaskTable.table,
+                         RoomTaskTable.table,
+                         MaintenanceChartTable.table,
+                         MaintenanceChartTaskTable.table]
     
     
 //============================

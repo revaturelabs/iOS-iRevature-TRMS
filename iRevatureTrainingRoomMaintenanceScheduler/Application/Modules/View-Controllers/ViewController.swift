@@ -27,6 +27,14 @@ class ViewController: UIViewController {
             emailTextField.text = user.email
         }
         
+        CreateAllTables.runScript()
+        
+//        let filePath = DatabaseAccess.getDatabaseFilePath(name: DatabaseInfo.databaseName, pathDirectory: DatabaseInfo.databaseDirectory, domainMask: DatabaseInfo.databaseDomainMask)
+//
+//        let db = DatabaseAccess.openDatabase(path: filePath, createIfDoesNotExist: true)
+//
+//        print(LocationTable.getAllValues(database: db!)!)
+        
     }
     
     

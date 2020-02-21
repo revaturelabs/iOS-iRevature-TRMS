@@ -8,7 +8,7 @@
 
 struct JoinStatement {
     private var initialTable: SQLiteTable
-    private var joiningTables: [(joinType: SQLiteJoin, joiningTable: SQLiteTable, onPreviousColumn: String, onThisColumn: String)]
+    private var joiningTables: [(joinType: SQLiteJoin, joiningTable: SQLiteTable, onPreviousTableColumn: String, onThisTableColumn: String)]
     
     init(table1: SQLiteTable, joinType: SQLiteJoin, table2: SQLiteTable, onColumnName1: String, onColumnName2: String) {
         self.initialTable = table1
@@ -16,16 +16,16 @@ struct JoinStatement {
         let columnName1 = SQLUtility.getColumnReferencingTableName(table: table1, columnName: onColumnName1)
         let columnName2 = SQLUtility.getColumnReferencingTableName(table: table2, columnName: onColumnName2)
         
-        self.joiningTables = [(joinType: SQLiteJoin, joiningTable: SQLiteTable, onPreviousColumn: String, onThisColumn: String)]()
+        self.joiningTables = [(joinType: SQLiteJoin, joiningTable: SQLiteTable, onPreviousTableColumn: String, onThisTableColumn: String)]()
         self.joiningTables.append((joinType, table2, columnName1, columnName2))
     }
     
-    mutating func appendJoin(joinType: SQLiteJoin, table: SQLiteTable, onPreviousColumnName: String, onThisColumnName: String) {
+    mutating func appendJoin(joinType: SQLiteJoin, table: SQLiteTable, onPreviousTableColumnName: String, onThisTableColumnName: String) {
         
         let previousTable = self.joiningTables[self.joiningTables.count - 1].joiningTable
         
-        let columnName1 = SQLUtility.getColumnReferencingTableName(table: previousTable, columnName: onPreviousColumnName)
-        let columnName2 = SQLUtility.getColumnReferencingTableName(table: table, columnName: onThisColumnName)
+        let columnName1 = SQLUtility.getColumnReferencingTableName(table: previousTable, columnName: onPreviousTableColumnName)
+        let columnName2 = SQLUtility.getColumnReferencingTableName(table: table, columnName: onThisTableColumnName)
         
         self.joiningTables.append((joinType, table, columnName1, columnName2))
     }
@@ -40,7 +40,7 @@ extension JoinStatement: SQLiteStatement {
             joinString += " \(joinTable.joinType.rawValue)"
             joinString += " \(joinTable.joiningTable.getTableName())"
             joinString += " \(SQLiteKeyword.ON)"
-            joinString += " \(joinTable.onPreviousColumn) = \(joinTable.onThisColumn)"
+            joinString += " \(joinTable.onPreviousTableColumn) = \(joinTable.onThisTableColumn)"
         }
         
         return "\(SQLiteKeyword.FROM) \(joinString)"

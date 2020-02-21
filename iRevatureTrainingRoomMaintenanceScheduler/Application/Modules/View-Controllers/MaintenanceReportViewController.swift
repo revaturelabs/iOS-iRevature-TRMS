@@ -47,16 +47,12 @@ class MaintenanceReportViewController: RevatureBaseViewController {
     }
     
     @IBAction func emailReport() {
-        return
+        showEmailComposer()
     }
     
 }
 
 extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDelegate {
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 50
-//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         filteredList.removeAll()

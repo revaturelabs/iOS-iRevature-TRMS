@@ -16,29 +16,27 @@ class DelegateTaskViewController: UIViewController {
     
     
     
-    var roomList = ["NEC 107", "NEC 200", "NEC 300", "NEC 320", "NEC 338", "NEC 107", "NEC 200", "NEC 300", "NEC 320", "NEC 338"]
+    var roomList = [String]()
     
-    var trainerList = ["Uday", "Nick", "Bob"]
+    var trainerList = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        roomList = RoomBusinessService.getAllRoomNames()
+        trainerList = TrainerBusinessService.getAllTrainerNames()
+        
         dateSelection.dateDropDown(dateFormat: "MMM dd, yy")
         roomSelection.showDropDown(data: roomList)
         trainerSelection.showDropDown(data: trainerList)
-        
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func assignTask(_ sender: Any) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd, yy"
+        let date = formatter.date(from: dateSelection.text!)!
+        
+        DelegateTaskBusinessService.createNewTaskDelegation(room: roomSelection.text!, date: date, trainer: trainerSelection.text!)
     }
-    */
-
 }

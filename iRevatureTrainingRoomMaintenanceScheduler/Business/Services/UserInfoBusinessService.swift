@@ -12,7 +12,7 @@ class UserInfoBusinessService: UserInfoProtocol {
     
     
     
-    func getUserInfo() -> User? {
+    static func getUserInfo() -> User? {
         let defaults = UserDefaults.standard
         
         if let decodedUserInfo = (defaults.value(forKey: "UserSharedInfo")){
@@ -28,7 +28,7 @@ class UserInfoBusinessService: UserInfoProtocol {
         
     }
     
-    func setUserInfo(userObject: User) -> Bool {
+    static func setUserInfo(userObject: User) -> Bool {
         let defaults = UserDefaults.standard
         
         do{

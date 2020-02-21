@@ -11,6 +11,6 @@ import Foundation
 
 protocol UserInfoProtocol {
     
-    func getUserInfo() -> User?
-    func setUserInfo(userObject: User) -> Bool
+    static func getUserInfo() -> User?
+    static func setUserInfo(userObject: User) -> Bool
 }

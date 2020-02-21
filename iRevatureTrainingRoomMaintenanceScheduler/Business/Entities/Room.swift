@@ -13,6 +13,12 @@ struct Room {
     var name: String
     var campus: String
     var location: String
-    var assignedTo: String
+    var assignedTo: String  //Should this be User instead of String?
     var assignedTasks: [RoomTask]
+}
+
+
+struct RoomName: Codable {
+    var id: Int
+    var name: String
 }

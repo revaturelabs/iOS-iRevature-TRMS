@@ -16,54 +16,30 @@ class MaintenanceReportViewController: RevatureBaseViewController {
     @IBOutlet weak var roomID: UITextField!
     @IBOutlet weak var tableHeader: UIView!
     
-    let vcDateFormat = DateFormatter()
+//    let vcDateFormat = DateFormatter()
     let pickerDateFormat = DateFormatter()
     
-    var filteredList: [(roomID: String, maintenanceDate: String, isClean: Bool)] = [(roomID: String, maintenanceDate: String, isClean: Bool)]()
-    var roomList: [(roomID: String, maintenanceDate: String, isClean: Bool)] = [
-        ("NEC 200", "02-01-20", true),
-        ("NEC 200", "02-02-20", true),
-        ("NEC 200", "02-03-20", true),
-        ("NEC 200", "02-04-20", false),
-        ("NEC 200", "02-05-20", true),
-        ("NEC 200", "02-06-20", true),
-        ("NEC 200", "02-05-20", true),
-        ("NEC 200", "02-07-20", false),
+    var filteredList: [Status] = [Status]()
+    var roomList: [Status] = [Status]()
 
-        ("NEC 300", "02-01-20", true),
-        ("NEC 300", "02-02-20", false),
-        ("NEC 300", "02-03-20", true),
-        ("NEC 300", "02-04-20", true),
-        ("NEC 300", "02-05-20", true),
-        ("NEC 300", "02-06-20", true),
-        ("NEC 300", "02-05-20", true),
-        ("NEC 300", "02-07-20", true),
-
-        ("NEC 320", "02-01-20", true),
-        ("NEC 320", "02-02-20", true),
-        ("NEC 320", "02-03-20", true),
-        ("NEC 320", "02-04-20", false),
-        ("NEC 320", "02-05-20", false),
-        ("NEC 320", "02-06-20", true),
-        ("NEC 320", "02-05-20", true),
-        ("NEC 320", "02-07-20", true)
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        roomList = ReportBusinessService.getAllReportsforUser(user: User(id: 1, email: "", name: "", role: "", token: "", keepLoggedIn: true))
         
         tableHeader.layer.cornerRadius = 8
         tableHeader.layer.masksToBounds = true
         
         startDate.dateDropDown(dateFormat: "MMM dd, yy")
         endDate.dateDropDown(dateFormat: "MMM dd, yy")
-        roomID.showDropDown(data: ["NEC 200", "NEC 300", "NEC 320"])
+        roomID.showDropDown(data: RoomBusinessService.getAllRoomNames())
         
         roomID.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .allEditingEvents)
         startDate.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .allEditingEvents)
         endDate.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .allEditingEvents)
         
-        vcDateFormat.dateFormat = "MM-dd-yy"
+//        vcDateFormat.dateFormat = "MM-dd-yy"
         pickerDateFormat.dateFormat = "MMM dd, yy"
         
         reportTable.dataSource = self
@@ -71,19 +47,20 @@ class MaintenanceReportViewController: RevatureBaseViewController {
     }
     
     @IBAction func emailReport() {
-        return
+        showEmailComposer()
     }
     
 }
 
 extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         filteredList.removeAll()
         
         for room in roomList {
-            if room.roomID == roomID.text &&
-                vcDateFormat.date(from: room.maintenanceDate)! <= pickerDateFormat.date(from: endDate.text!)! &&
-                vcDateFormat.date(from: room.maintenanceDate)! >= pickerDateFormat.date(from: startDate.text!)! {
+            if room.roomName == roomID.text &&
+               room.date <= pickerDateFormat.date(from: endDate.text!)! &&
+               room.date >= pickerDateFormat.date(from: startDate.text!)! {
                 
                 filteredList.append(room)
             }
@@ -95,8 +72,8 @@ extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = reportTable.dequeueReusableCell(withIdentifier: "ReportCell", for: indexPath) as! ReportTableCell
         
-        cell.dateLbl.text = filteredList[indexPath.row].roomID
-        cell.trainerLbl.text = filteredList[indexPath.row].maintenanceDate
+        cell.dateLbl.text = filteredList[indexPath.row].roomName
+        cell.trainerLbl.text = filteredList[indexPath.row].date.formatDate(by: "MM-dd-yy")
             
         
         if filteredList[indexPath.row].isClean {

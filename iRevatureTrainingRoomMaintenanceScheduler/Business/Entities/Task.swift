@@ -14,9 +14,18 @@ struct MaintenanceTask {
     var completed: Bool
 }
 
+
 struct RoomTask {
     var id: Int
     var name: String
     var dateStart: Date
     var dateEnd: Date
+}
+
+
+struct TaskDelegation {
+    var room: String
+    var currentDate: Date
+    var endDate: Date
+    var trainer: Trainer
 }

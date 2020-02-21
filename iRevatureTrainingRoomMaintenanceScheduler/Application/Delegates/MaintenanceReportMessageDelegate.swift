@@ -47,8 +47,23 @@ extension MaintenanceReportViewController {
     }
     
     func createMessage() -> String {
-        let preRows = "<table cellpadding=\"5\" border=\"1\"><thead><th>Room</th><th>Date</th><th>Status</th></thead><tbody>"
-        let rows = filteredList.map{"<tr><td> \($0.roomName)</td><td> \($0.date.formatDate(by: "MMM dd, yyyy")) </td><td> \($0.isClean ? "clean" : "dirty")</td></tr>"}.reduce("", +)
+        let preRows = """
+            <table cellpadding="5" border="1">
+            <thead>
+                <th>Room</th>
+                <th>Date</th>
+                <th>Status</th>
+            </thead>
+            <tbody>
+        """
+        let rows = filteredList.map{"""
+            <tr>
+                <td> \($0.roomName)</td>
+                <td> \($0.date.formatDate(by: "MMM dd, yyyy")) </td>
+                <td> \($0.isClean ? "clean" : "dirty")</td>
+            </tr>
+            """
+            }.reduce("", +)
         let postRows = "</tbody></table>"
         let html = preRows + rows + postRows
         return html

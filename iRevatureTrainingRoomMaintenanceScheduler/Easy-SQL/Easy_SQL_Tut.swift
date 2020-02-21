@@ -51,6 +51,9 @@ extension ViewController {
         //db?.updateRow(statement: <#T##UpdateStatement#>)
         //db?.deleteRow(statement: <#T##DeleteStatement#>)
         
+    //Returns a 2d array of data : [Row][Column]
+        //db?.selectData(statement: <#T##SelectStatement#>)
+        
 //=================================
         //Statements
         //When making a statement, if it returns nil, the  statement has an error and was unable to be constructed
@@ -61,156 +64,159 @@ extension ViewController {
         
 //---------------------------------
         //Table creation
-//        var wesTable = SQLiteTable(tableName: "WesTable")
-//        wesTable.addColumn(columnName: "id", dataType: .INT, constraints: .PRIMARYKEY, .NOTNULL)
-//        wesTable.addColumn(columnName: "name", dataType: .CHAR, constraints: nil)
         
-        if let statement = Table.WesTable.makeStatement() {
-            print(statement)
-        }
+        //Setup
+            //Instantiate
+            //Add Columns
         
-        
-        if let statement = Table.MarkTable.makeStatement() {
-            print(statement)
-        }
+        //Parameters
+            //Init
+                //tableName (String) : Name the the table should be in the database
+            
+            //addColumn
+                //columnName (String) : Name of the column to add in table
+                //dataType (SQLiteDataType) : Specifies what the datatype it is using should be
+                //constraints (SQLiteConstraints?) : apply any number of constraints to column; Assign 'nil' if there should be none
+//---------------------------------
+        var wesTable = SQLiteTable(tableName: "WesTable")
+        wesTable.addColumn(columnName: "id", dataType: .INT, constraints: .PRIMARYKEY, .NOTNULL)
+        wesTable.addColumn(columnName: "name", dataType: .CHAR, constraints: nil)
 
-        if let statement = Table.BoolTableTest.makeStatement() {
-            print(statement)
-        }
         
-//        do {
-//            try db?.createTable(table: Table.BoolTableTest)
-//        } catch {
-//            
-//        }
-//        
-//        do {
-//            let insertStatement = InsertStatement(table: Table.BoolTableTest, columnValues: 87, "Katelyn", true)
-//            try db?.insertRow(statement: insertStatement)
-//        } catch {
-//            
-//        }
-//        
-//        do {
-//            var updateStatement = UpdateStatement(table: Table.BoolTableTest)
-//            updateStatement.addValueChange(columnToUpdate: "bool", updatedValue: false)
-//            
-//            var whereStatement = WhereStatement()
-//            whereStatement.addStatement(table: Table.BoolTableTest, columnName: "name", expression: .EQUALS, columnValue: "Mark")
-//            
-//            updateStatement.setWhereStatement(statement: whereStatement)
-//            
-//            try db?.updateRow(statement: updateStatement)
-//        } catch {
-//            
-//        }
+//---------------------------------
+        //Where statement
         
-        do {
-            var selectStatement = SelectStatement()
-            selectStatement.specifyColumn(table: Table.BoolTableTest, columnName: "bool", asName: "BooleanValue")
-            
-            var whereStatement = WhereStatement()
-            whereStatement.addStatement(table: Table.BoolTableTest, columnName: "bool", expression: .EQUALS, columnValue: true)
-            
-            if let statement = whereStatement.makeStatement() {
-                print(statement)
-            }
-            else {
-                
-            }
-            
-            //selectStatement.setWhereStatement(statement: whereStatement)
-            
-            if let statement = selectStatement.makeStatement() {
-                print(statement)
-            }
-            
-            let result = try db?.selectData(statement: selectStatement)
-            var resultString = ""
+        //Setup
+            //Instantiate
+            //Add statements
+        
+        //Parameters
+            //table (SQLiteTable) : The table reference that the 'columnName' is a part of
+            //clause (SQLiteClause) : (Optionial) only ommit on first add; determins how the statement will interact with the one added before it
+            //columnName (String) : reference to the column from the 'table'
+            //expression (SQLiteExpression) : how the 'columnValue' should compare to the other values in the table from 'columnName'
+            //columnValue (Any...) : value that will compare to the other rows
+//---------------------------------
+        var whereStatement = WhereStatement()
+        whereStatement.addStatement(table: wesTable, columnName: "name", expression: .EQUALS, columnValue: "Wes")
+        whereStatement.addStatement(table: wesTable, clause: .OR, columnName: "name", expression: .EQUALS, columnValue: "Mark")
+        whereStatement.addStatement(table: wesTable, columnName: "id", expression: .BETWEEN, columnValue: 5, 12)
 
-            if result != nil {
-                for row in result! {
-                    for (columnName, columnValue) in row {
-                        resultString += "\(columnName): \(columnValue), "
-                    }
-                    resultString += "\n"
-                }
+        
+//---------------------------------
+        //nsert statement
+        
+        //Setup
+            //Instantiate
+        
+        //Parameters
+            //Init
+                //table (SQLiteTable) : Reference to a table
+                //columnValues (Any...) : insert values that reflect the 'table' being referenced
+//---------------------------------
+        let insertStatement = InsertStatement(table: wesTable, columnValues: 53, "Katelyn")
 
-                print(resultString)
-            }
+        
+//---------------------------------
+        //Update statement
+        
+        //Setup
+            //Instantiate
+            //Add Value Changes
+            //Set Where Statement
+        
+        //Parameters
+            //Init
+                //table (SQLiteTable) : Reference for columns
+        
+            //addValueChange
+                //columnToUpdate (String) : Name of the column in the table that is to be updated
+                //updatedValue (Any) : The new value to be place in the repsective column
+        
+            //setWhereStatement
+                //statement (WhereStatement) : assign a where statement that will allow the update to occur at specific locations
+//---------------------------------
+        var updateStatement = UpdateStatement(table: wesTable)
+        updateStatement.addValueChange(columnToUpdate: "name", updatedValue: "Mark")
+        updateStatement.setWhereStatement(statement: whereStatement)
 
 
-        } catch {
-            print("failed")
-        }
+//---------------------------------
+        //Delete statement
         
-////---------------------------------
-//        //Where statement
-//        var whereStatement = WhereStatement()
-//        whereStatement.addStatement(table: Table.wesTable, columnName: "name", expression: .EQUALS, columnValue: "Wes")
-//        whereStatement.addStatement(table: markTable, clause: .OR, columnName: "name", expression: .EQUALS, columnValue: "Mark")
-//
-//        if let whereStatement = whereStatement.makeStatement() {
-//            print(whereStatement)
-//        }
-//
-////---------------------------------
-//        //nsert statement
-//        let insertStatement = InsertStatement(table: markTable, columnValues: 53, "Katelyn")
-//        if let insertStatement = insertStatement.makeStatement() {
-//            print(insertStatement)
-//        }
+        //Setup
+            //Instantiate
+        
+        //Parameters
+            //Init
+                //table (SQLiteTable) : Reference for columns
+        
+            //setWhereStatement
+                //statement (WhereStatement) : assign a where statement that will allow the delete to occur at specific locations
+//---------------------------------
+        var deleteStatement = DeleteStatement(table: wesTable)
+        deleteStatement.setWhereStatement(statement: whereStatement)
+        
+
+//---------------------------------
+        //Join statement
+        
+        //Setup
+            //Instantiate
+        
+        //Parameters
+            //Init
+                //table1 (SQLiteTable) : Reference for 'onColumnName1' and the table to be joined into
+                //joinType (SQLiteJoin) : how the two tables will combine together based on the data
+                //table2 (SQLiteTable) : Reference for 'onColumnName2'
+                //onColumnName1 (String) : column from table 1 to compare with the column from table 2
+                //onColumnName2 (String) : column from table 2 to compare with the column from table 1
+        
+            //appendJoin
+                //joinType (SQLiteJoin) : How the last most joined table will join with the new one
+                //table (SQLiteTable) : Table to join with the last one added
+                //onPreviousTableColumnName (String) : name of the column from the last added table to compare with
+                //onThisTableColumnName (String) : name of the column to compare with the last added table
+//---------------------------------
+        var joinStatement = JoinStatement(table1: wesTable, joinType: .INNER, table2: wesTable, onColumnName1: "name", onColumnName2: "name")
+        
+        joinStatement.appendJoin(joinType: .INNER, table: wesTable, onPreviousTableColumnName: "id", onThisTableColumnName: "id")
+
+        
+//---------------------------------
+        //Select statement
+        
+        //Setup
+            //Instantiate
+            //Specify Columns
+            //Add Join Statement (Optional - Requires a WhereStatement if added)
+            //Add Where Statement (Optional)
+        
+        //Parameters
+            //specifyColumn
+                //table (SQLiteTable) : Table reference to get data from
+                //columnName (String) : Column name that references the table
+                //asName (String) : Alias that will be given on return of data
+        
+            //setJoinStatement
+                //statement (JoinStatement) : assign to select from a single combined table
+        
+            //setWhereStatement
+                //statement (WhereStatement) : assign a where statement that will find data at specific locations
+//---------------------------------
+        var selectStatement = SelectStatement()
+        selectStatement.specifyColumn(table: wesTable, columnName: "name", asName: "Person")
+        selectStatement.setJoinStatement(statement: joinStatement)
+        selectStatement.setWhereStatement(statement: whereStatement)
+
+    }
+}
+
+//Iterate through a result from database select
+//Result string is not necessary, choose how to handle the data instead. Such as assigning the data to a [struct]
 //
 //        do {
-//            try db?.insertRow(statement: insertStatement)
-//        } catch {
 //
-//        }
-//
-////---------------------------------
-//        //Update statement
-//        var updateStatement = UpdateStatement(table: Table.wesTable)
-//        updateStatement.addValueChange(columnToUpdate: "name", updatedValue: "Mark")
-//        updateStatement.setWhereStatement(statement: whereStatement)
-//
-//        if let updateStatement = updateStatement.makeStatement() {
-//            print(updateStatement)
-//        }
-//
-////---------------------------------
-//        //Delete statement
-//        var deleteStatement = DeleteStatement(table: Table.wesTable)
-//        deleteStatement.setWhereStatement(statement: whereStatement)
-//
-//        if let deleteStatement = deleteStatement.makeStatement() {
-//            print(deleteStatement)
-//        }
-//
-//
-//
-//        var joinStatement = JoinStatement(table1: Table.wesTable, joinType: .INNER, table2: markTable, onColumnName1: "name", onColumnName2: "name")
-//
-//        if let joinStatement = joinStatement.makeStatement() {
-//            print(joinStatement)
-//        }
-//
-//
-////---------------------------------
-//        //Select statement
-//        var selectStatement = SelectStatement()
-//        selectStatement.specifyColumn(table: markTable, columnName: "id", asName: "number")
-//
-//        var selectWhere = WhereStatement()
-//        selectWhere.addStatement(table: Table.wesTable, columnName: "name", expression: .EQUALS, columnValue: "Katelyn")
-//
-//        selectStatement.setJoinStatement(statement: joinStatement)
-//        selectStatement.setWhereStatement(statement: selectWhere)
-//
-//        if let selectStatement = selectStatement.makeStatement() {
-//            print(selectStatement)
-//        }
-//
-//        do {
 //            let result = try db?.selectData(statement: selectStatement)
 //            var resultString = ""
 //
@@ -229,5 +235,3 @@ extension ViewController {
 //        } catch {
 //            print("failed")
 //        }
-    }
-}

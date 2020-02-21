@@ -42,7 +42,7 @@ extension DatabaseAccess {
                 case .CHAR:
                     let tempText = String(cString: sqlite3_column_text(selectStatement, Int32(index)))
                     queryArray[queryArray.count - 1][alias] = tempText
-                case .INT:
+                case .INT, .INTEGER:
                     let tempInt = Int(sqlite3_column_int(selectStatement, Int32(index)))
                     queryArray[queryArray.count - 1][alias] = tempInt
                 case .BOOL:

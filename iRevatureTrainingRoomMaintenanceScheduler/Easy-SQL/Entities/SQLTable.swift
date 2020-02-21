@@ -14,17 +14,21 @@ struct Column {
 
 struct SQLiteTable {
     private var tableName: String
+    private var columnNames: [String]
     private var columnData: [(columnName: String, columnInfo: Column)]
     
     init(tableName: String) {
-        columnData = [(columnName: String, columnInfo: Column)]()
+        self.columnData = [(columnName: String, columnInfo: Column)]()
         self.tableName = tableName
+        self.columnNames = [String]()
     }
     
     mutating func addColumn(columnName: String, dataType: SQLiteDataType, constraints: SQLiteConstraints?...) {
-        let columnInfo = Column(dataType: dataType, constraints: constraints as? [SQLiteConstraints])
         
+        let columnInfo = Column(dataType: dataType, constraints: constraints as? [SQLiteConstraints])
         let fullColumnName = SQLUtility.getColumnReferencingTableName(table: self, columnName: columnName)
+    
+        columnNames.append(columnName)
         
         for column in self.columnData {
             if column.columnName == fullColumnName {
@@ -102,7 +106,7 @@ extension SQLiteTable: SQLiteStatement {
             }
 
             //Assign column name
-            columnString += column.columnName
+            columnString += self.columnNames[index]
             
             //Apply the data types
             columnString += makeDataTypeString(dataType: column.columnInfo.dataType)
@@ -126,7 +130,9 @@ extension SQLiteTable: SQLiteStatement {
         case .CHAR:
             return " \(dataType.rawValue)(500)"
         case .INT, .BOOL:
-            return " \(SQLiteDataType.INT)"
+            return " \(SQLiteDataType.INT.rawValue)"
+        case .INTEGER:
+            return " \(SQLiteDataType.INTEGER.rawValue)"
         default:
             return" \(dataType.rawValue)"
         }

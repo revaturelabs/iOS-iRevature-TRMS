@@ -93,16 +93,22 @@ extension SelectStatement {
 
 extension SelectStatement: SQLiteStatement {
     func makeStatement() -> String? {
-        guard let atString = whereAt?.makeStatement() else {
+        
+        var joinString = ""
+        var whereString = ""
+        
+        if whereAt == nil && self.joinStatement != nil {
             return nil
         }
         
-        if joinStatement != nil {
-            guard let joinString = self.joinStatement?.makeStatement() else {
-                return nil
+        if let whereHolder = self.whereAt?.makeStatement() {
+            whereString = " " + whereHolder
+        }
+        
+        if self.joinStatement != nil {
+            if let joinHolder = self.joinStatement?.makeStatement() {
+                joinString = " " + joinHolder
             }
-            
-            return "\(SQLiteKeyword.SELECT) \(makeColumnNamesString()) \(joinString) \(atString);"
         }
         
         guard let table = columnNames.first?.value.table.getTableName() else {
@@ -110,7 +116,7 @@ extension SelectStatement: SQLiteStatement {
         }
         
         //Prepare full SQL string
-        return "\(SQLiteKeyword.SELECT) \(makeColumnNamesString()) \(SQLiteKeyword.FROM) \(table) \(atString);"
+        return "\(SQLiteKeyword.SELECT) \(makeColumnNamesString()) \(SQLiteKeyword.FROM) \(table)\(joinString)\(whereString);"
     }
     
     private func makeColumnNamesString() -> String {

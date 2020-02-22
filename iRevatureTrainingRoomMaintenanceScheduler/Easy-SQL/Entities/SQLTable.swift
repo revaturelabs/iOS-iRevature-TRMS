@@ -26,7 +26,7 @@ struct SQLiteTable {
     mutating func addColumn(columnName: String, dataType: SQLiteDataType, constraints: SQLiteConstraints?...) {
         
         let columnInfo = Column(dataType: dataType, constraints: constraints as? [SQLiteConstraints])
-        let fullColumnName = SQLUtility.getColumnReferencingTableName(table: self, columnName: columnName)
+        let fullColumnName = addTableReference(toColumnName: columnName)
     
         columnNames.append(columnName)
         
@@ -55,11 +55,17 @@ extension SQLiteTable {
         return tableName
     }
     
-    func getAllColumnNames() -> [String]? {
+    func addTableReference(toColumnName: String) -> String {
+        return "\(self.tableName).\(toColumnName)"
+    }
+    
+    func getAllColumnNames(withTableReference: Bool) -> [String]? {
+        let tableReferenceString = withTableReference ? "\(self.tableName)." : ""
+        
         var columnNames: [String] = [String]()
         
-        for (columnName, _) in columnData {
-            columnNames.append(columnName)
+        for (columnName) in self.columnNames {
+            columnNames.append(tableReferenceString + columnName)
         }
         
         if columnNames.count != 0 {
@@ -94,6 +100,10 @@ extension SQLiteTable: SQLiteStatement {
     //Make A Table Statement
 //===============================================================================================
     func makeStatement() -> String? {
+        if columnNames.isEmpty {
+            return nil
+        }
+        
         var columnString: String = "\(SQLiteKeyword.TABLE) \(tableName) "
 
         for (index, column) in getAllColumns().enumerated() {
@@ -153,8 +163,8 @@ extension SQLiteTable: SQLiteStatement {
         return ""
     }
     
-    func makeColumnNameString() -> String? {
-        guard let columnNames = getAllColumnNames() else {
+    func makeColumnNameString(withTableReference: Bool) -> String? {
+        guard let columnNames = getAllColumnNames(withTableReference: withTableReference) else {
             return nil
         }
         

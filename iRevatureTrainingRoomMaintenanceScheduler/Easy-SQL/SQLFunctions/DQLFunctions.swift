@@ -13,7 +13,7 @@ extension DatabaseAccess {
 //===============================================================================================
     //Select Data From Table
 //===============================================================================================
-    func selectData(statement: SelectStatement) throws -> [[String: Any]]? {
+    func selectData(statement: SelectStatement) throws -> [[String: Any]] {
         
         //Prepare statement
         guard let statementHolder = statement.makeStatement() else {
@@ -48,16 +48,15 @@ extension DatabaseAccess {
                 case .BOOL:
                     let tempBool = Int(sqlite3_column_int(selectStatement, Int32(index)))
                     queryArray[queryArray.count - 1][alias] = tempBool == 1 ? true : false
-                default:
-                    break
                 }
             }
         }
         
         if queryArray.count == 0 {
-            return nil
+           throw SQLiteError.Query(message: "No Values found from Query")
         }
         
         return queryArray
     }
+    
 }

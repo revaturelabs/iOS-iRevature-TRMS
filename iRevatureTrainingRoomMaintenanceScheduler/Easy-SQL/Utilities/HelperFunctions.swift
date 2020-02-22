@@ -40,7 +40,7 @@ class SQLUtility {
     //Get column name
 //===============================================================================================
     //Check to see if the value is matching the table type
-    static func getColumnReferencingTableName(table: SQLiteTable, columnName: String) -> String {
-        return "\(table.getTableName()).\(columnName)"
-    }
+//    static func getColumnReferencingTableName(table: SQLiteTable, columnName: String) -> String {
+//        return "\(table.getTableName()).\(columnName)"
+//    }
 }

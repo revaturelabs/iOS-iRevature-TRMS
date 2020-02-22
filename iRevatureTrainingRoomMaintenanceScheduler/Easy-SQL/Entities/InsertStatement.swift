@@ -26,7 +26,7 @@ struct InsertStatement {
 
 extension InsertStatement: SQLiteStatement {
     func makeStatement() -> String? {
-        guard let columnString = table.makeColumnNameString(), let valueString = makeValueString() else {
+        guard let columnString = table.makeColumnNameString(withTableReference: false), let valueString = makeValueString() else {
             return nil
         }
         

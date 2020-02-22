@@ -41,6 +41,7 @@ extension ViewController {
         
         //Open database
         let db = DatabaseAccess.openDatabase(path: filePath, createIfDoesNotExist: true)
+
         
 //=================================
         //Function calls for database currently implemented
@@ -81,7 +82,12 @@ extension ViewController {
         var wesTable = SQLiteTable(tableName: "WesTable")
         wesTable.addColumn(columnName: "id", dataType: .INT, constraints: .PRIMARYKEY, .NOTNULL)
         wesTable.addColumn(columnName: "name", dataType: .CHAR, constraints: nil)
-
+        
+        
+        var joinTable = SQLiteTable(tableName: "JoinTable")
+        joinTable.addColumn(columnName: "name", dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
+        joinTable.addColumn(columnName: "bool", dataType: .BOOL, constraints: .NOTNULL)
+        
         
 //---------------------------------
         //Where statement
@@ -100,7 +106,7 @@ extension ViewController {
         var whereStatement = WhereStatement()
         whereStatement.addStatement(table: wesTable, columnName: "name", expression: .EQUALS, columnValue: "Wes")
         whereStatement.addStatement(table: wesTable, clause: .OR, columnName: "name", expression: .EQUALS, columnValue: "Mark")
-        whereStatement.addStatement(table: wesTable, columnName: "id", expression: .BETWEEN, columnValue: 5, 12)
+        whereStatement.addStatement(table: wesTable, clause: .OR, columnName: "id", expression: .BETWEEN, columnValue: 53, 87)
 
         
 //---------------------------------
@@ -114,7 +120,7 @@ extension ViewController {
                 //table (SQLiteTable) : Reference to a table
                 //columnValues (Any...) : insert values that reflect the 'table' being referenced
 //---------------------------------
-        let insertStatement = InsertStatement(table: wesTable, columnValues: 53, "Katelyn")
+        let insertStatement = InsertStatement(table: joinTable, columnValues: "Katelyn", true)
 
         
 //---------------------------------
@@ -178,9 +184,9 @@ extension ViewController {
                 //onPreviousTableColumnName (String) : name of the column from the last added table to compare with
                 //onThisTableColumnName (String) : name of the column to compare with the last added table
 //---------------------------------
-        var joinStatement = JoinStatement(table1: wesTable, joinType: .INNER, table2: wesTable, onColumnName1: "name", onColumnName2: "name")
+        var joinStatement = JoinStatement(table1: wesTable, joinType: .INNER, table2: joinTable, onColumnName1: "name", onColumnName2: "name")
         
-        joinStatement.appendJoin(joinType: .INNER, table: wesTable, onPreviousTableColumnName: "id", onThisTableColumnName: "id")
+        //joinStatement.appendJoin(joinType: .INNER, table: wesTable, onPreviousTableColumnName: "id", onThisTableColumnName: "id")
 
         
 //---------------------------------
@@ -189,10 +195,13 @@ extension ViewController {
         //Setup
             //Instantiate
             //Specify Columns
-            //Add Join Statement (Optional - Requires a WhereStatement if added)
+            //Add Join Statement (Optional
             //Add Where Statement (Optional)
         
         //Parameters
+            //getAllColumns
+                //fromTable (SQLiteTable) : Table reference to get all rows from a single table
+        
             //specifyColumn
                 //table (SQLiteTable) : Table reference to get data from
                 //columnName (String) : Column name that references the table
@@ -206,9 +215,11 @@ extension ViewController {
 //---------------------------------
         var selectStatement = SelectStatement()
         selectStatement.specifyColumn(table: wesTable, columnName: "name", asName: "Person")
+        selectStatement.specifyColumn(table: joinTable, columnName: "name", asName: "Bool")
         selectStatement.setJoinStatement(statement: joinStatement)
         selectStatement.setWhereStatement(statement: whereStatement)
 
+        
     }
 }
 

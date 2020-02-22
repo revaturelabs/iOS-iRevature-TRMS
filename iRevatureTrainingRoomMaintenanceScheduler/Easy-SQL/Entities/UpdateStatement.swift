@@ -48,9 +48,12 @@ extension UpdateStatement: SQLiteStatement {
 
         //Iterate through the Values to set in table
         for (index, setHolder) in set.enumerated() {
+            
+            let columnNameWithReference = table.addTableReference(toColumnName: setHolder.key)
+            
             //Add set information
             do {
-                setString += "\(setHolder.key) = \(try SQLUtility.castToDataType(column: table.getColumnData(columnName: setHolder.key), value: setHolder.value))"
+                setString += "\(setHolder.key) = \(try SQLUtility.castToDataType(column: table.getColumnData(columnName: columnNameWithReference), value: setHolder.value))"
             } catch {
                 return nil
             }

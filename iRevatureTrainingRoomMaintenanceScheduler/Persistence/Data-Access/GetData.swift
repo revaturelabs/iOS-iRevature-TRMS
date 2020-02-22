@@ -10,20 +10,37 @@ import Foundation
 
 class SQLiteProcedures {
     
-    static func getAllTrainers(databaseName: String) -> [Trainer]? {
+    static func getAllTrainers(databaseName: String) -> [(trainerId: Int, trainerName: String)]? {
+        guard let db = Database.getDatabase(databaseName: databaseName) else {
+            return nil
+        }
         
         var selectStatement = SelectStatement()
         selectStatement.specifyColumn(table: UserTable.table, columnName: UserTable.ColumnName.id.rawValue, asName: "id")
         selectStatement.specifyColumn(table: UserTable.table, columnName: UserTable.ColumnName.name.rawValue, asName: "name")
         
-        guard let db = Database.getDatabase(databaseName: databaseName) else {
-            return nil
-        }
-        
         do {
             let result = try db.selectData(statement: selectStatement)
-            
-            print(result)
+            var trainerArray = [(trainerId: Int, trainerName: String)]()
+
+            for row in result {
+                var trainer = (trainerId: Int(), trainerName: String())
+
+                for (columnName, value) in row {
+                    switch columnName {
+                    case "id":
+                        trainer.trainerId = value as! Int
+                    case "name":
+                        trainer.trainerName = value as! String
+                    default:
+                        return nil
+                    }
+                }
+
+                trainerArray.append(trainer)
+            }
+
+            return trainerArray
         } catch {
             print("failed")
         }

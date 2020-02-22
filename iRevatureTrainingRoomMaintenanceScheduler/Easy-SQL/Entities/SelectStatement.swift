@@ -7,7 +7,7 @@
 //
 
 struct SelectStatement {
-    //private var table: SQLiteTable?
+    private var table: SQLiteTable?
     private var columnNames: [String : (table: SQLiteTable, alias: String)]
     private var joinStatement: JoinStatement?
     private var whereAt: WhereStatement?
@@ -16,13 +16,13 @@ struct SelectStatement {
         self.columnNames = [String: (SQLiteTable, String)]()
     }
     
-//    mutating func specifyTable(table: SQLiteTable) {
-//        self.table = table
-//    }
+    mutating func getAllColumns(fromTable: SQLiteTable) {
+        self.table = fromTable
+    }
     
     mutating func specifyColumn(table: SQLiteTable, columnName: String, asName: String) {
-        let newColumnName = SQLUtility.getColumnReferencingTableName(table: table, columnName: columnName)
-        self.columnNames[newColumnName] = (table, asName)
+        let tableReferenceColumnName = table.addTableReference(toColumnName: columnName)
+        self.columnNames[tableReferenceColumnName] = (table, asName)
     }
     
     mutating func setJoinStatement(statement: JoinStatement) {
@@ -35,6 +35,7 @@ struct SelectStatement {
     
 }
 
+//Getters
 extension SelectStatement {
     func getColumnNames() -> [String]? {
         if self.columnNames.isEmpty {
@@ -91,39 +92,45 @@ extension SelectStatement {
     }
 }
 
+//Make String
 extension SelectStatement: SQLiteStatement {
+    //Makes a full Select Statement string for use in SQL
     func makeStatement() -> String? {
         
+        var singleTableString = ""
         var joinString = ""
         var whereString = ""
         
-        if whereAt == nil && self.joinStatement != nil {
-            return nil
-        }
-        
-        if let whereHolder = self.whereAt?.makeStatement() {
-            whereString = " " + whereHolder
-        }
-        
+        //If there is a JoinStatement, add it to the SelectStatement
+        //If a JoinStatement does not exist, a table reference is required to get all columns
+        //If a Table or JoinStatement are not found, fail out
         if self.joinStatement != nil {
             if let joinHolder = self.joinStatement?.makeStatement() {
                 joinString = " " + joinHolder
             }
         }
-        
-        guard let table = columnNames.first?.value.table.getTableName() else {
+        else if let table = self.table != nil ? self.table?.getTableName() : self.columnNames.first?.value.table.getTableName() {
+            singleTableString = " \(SQLiteKeyword.FROM) \(table)"
+        }
+        else {
             return nil
         }
         
-        //Prepare full SQL string
-        return "\(SQLiteKeyword.SELECT) \(makeColumnNamesString()) \(SQLiteKeyword.FROM) \(table)\(joinString)\(whereString);"
+        //If the WhereStatement exists, add it to the SelectStatement
+        if let whereHolder = self.whereAt?.makeStatement() {
+            whereString = " " + whereHolder
+        }
+        
+        //Return the full SQL string
+        return "\(SQLiteKeyword.SELECT) \(makeColumnNamesString()) \(singleTableString)\(joinString)\(whereString);"
     }
     
+    //Makes the column section of the Select Statement to access variables from SQL databse
     private func makeColumnNamesString() -> String {
         var columnNamesString: String = ""
         
-        //Assign values to select
-        if columnNames.isEmpty {
+        //Returns All Columns (*) if column names are not specified
+        if table != nil {
             return "*"
         }
         

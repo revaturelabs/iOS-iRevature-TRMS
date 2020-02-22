@@ -17,7 +17,7 @@ struct UserTable {
         case id
         case apiID = "api_id"
         case name
-        case roleID = "user_role_id"
+        case locationID = "location_id"
     }
     
     //User Struct to return from select statement
@@ -25,20 +25,20 @@ struct UserTable {
         var id: Int
         var apiID: String
         var name: String
-        var roleID: Int
+        var locationID: Int
         
         init() {
             self.id = Int()
             self.apiID = String()
             self.name = String()
-            self.roleID = Int ()
+            self.locationID = Int()
         }
         
-        init(id: Int, name: String, apiID: String, roleID: Int) {
+        init(id: Int, apiID: String, name: String, locationID: Int) {
             self.id = id
             self.apiID = apiID
             self.name = name
-            self.roleID = roleID
+            self.locationID = locationID
         }
     }
     
@@ -48,7 +48,7 @@ struct UserTable {
         userTable.addColumn(columnName: ColumnName.id.rawValue, dataType: .INTEGER, constraints: .PRIMARYKEY, .AUTOINCREMENT, .NOTNULL)
         userTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
         userTable.addColumn(columnName: ColumnName.name.rawValue, dataType: .CHAR, constraints: .NOTNULL)
-        userTable.addColumn(columnName: ColumnName.roleID.rawValue, dataType: .INT, constraints: .NOTNULL)
+        userTable.addColumn(columnName: ColumnName.locationID.rawValue, dataType: .INT, constraints: .NOTNULL)
         
         return userTable
     }

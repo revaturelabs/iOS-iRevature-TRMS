@@ -13,7 +13,7 @@ class OrangeToolbar: UIToolbar {
     var textField:UITextField!
     
     init(textField: UITextField){
-        super.init(frame: .infinite)
+        super.init(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         
         self.textField = textField
         

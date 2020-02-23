@@ -8,19 +8,19 @@
 
 import Foundation
 
-struct APIRoomResponse {
+struct APIRoomResponse: Codable {
     var statusCode: Int
     var description: String
     var allcampus: [JSONCampus]
     var allrooms: [JSONRoom]
 }
 
-struct JSONCampus {
+struct JSONCampus: Codable {
     var id: String
     var campus: String
 }
 
-struct JSONRoom {
+struct JSONRoom: Codable {
     var id: String
     var room: String
     var capacity: Int

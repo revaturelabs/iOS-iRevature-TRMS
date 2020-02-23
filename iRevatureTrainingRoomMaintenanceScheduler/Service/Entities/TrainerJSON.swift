@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct APITrainerResponse {
+struct APITrainerResponse: Codable {
     var statusCode: Int
     var description: String
     var trainers: [JSONTrainer]
 }
 
-struct JSONTrainer {
+struct JSONTrainer: Codable {
     var id: String
     var name: String
     var emailaddress: String

@@ -53,13 +53,16 @@ class ViewController: UIViewController {
         if(email == "testuser1@revature.com" && password == "test123"){
             
             let loginapi = LoginAPI()
-            loginapi.getUserLogin(email: email, password: password, keepLoggedIn: keepLoggedIn)
+            loginapi.getUserLogin(email: email, password: password, completionHandler:  { user in
+                let userData = User(id: 0, email: email, name: email, role: user.currentSystemRole.name, token: user.loginToken, keepLoggedIn: keepLoggedIn)
+                if UserInfoBusinessService.setUserInfo(userObject: userData) {
+                    print("User preferences stored")
+                } else {
+                    print("Something went wrong")
+                }
+            })
             
-            
-            let storyboard:UIStoryboard = UIStoryboard(name: "MaintenanceCheck", bundle: nil)
-            let view = storyboard.instantiateInitialViewController()!
-            view.modalPresentationStyle = .fullScreen
-            self.present(view, animated:true, completion: nil)
+            navigateToMaintenanceCheck()
             
         } else {
             
@@ -72,6 +75,14 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         super.touchesBegan(touches , with: event)
+    }
+    
+    
+    func navigateToMaintenanceCheck(){
+        let storyboard:UIStoryboard = UIStoryboard(name: "MaintenanceCheck", bundle: nil)
+        let view = storyboard.instantiateInitialViewController()!
+        view.modalPresentationStyle = .fullScreen
+        self.present(view, animated:true, completion: nil)
     }
     
 }
@@ -90,7 +101,6 @@ extension ViewController: UITextFieldDelegate{
             self.passwordTextField.becomeFirstResponder()
         case self.passwordTextField:
             self.passwordTextField.resignFirstResponder()
-            self.login()
         default:
             self.emailTextField.resignFirstResponder()
         }

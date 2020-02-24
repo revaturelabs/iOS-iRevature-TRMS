@@ -41,8 +41,6 @@ class DatePickerView: UIDatePicker{
     }
     
     @objc func setDateThing() {
-//        let format = DateFormatter()
-//        format.dateFormat = "dd MMMM yy"
         self.pickerTextField.text = format.string(from:self.date)
     }
     

@@ -59,13 +59,18 @@ class ViewController: UIViewController {
         let keepLoggedIn = keepLoggedInSwitch.isOn
         
         if(email == "testuser1@revature.com" && password == "test123"){
-            let userData = User(id: 0, email: email, name: email, role: "", token: "", keepLoggedIn: keepLoggedIn)
-            UserInfoBusinessService.setUserInfo(userObject: userData)
             
-            let storyboard:UIStoryboard = UIStoryboard(name: "MaintenanceCheck", bundle: nil)
-            let view = storyboard.instantiateInitialViewController()!
-            view.modalPresentationStyle = .fullScreen
-            self.present(view, animated:true, completion: nil)
+            let loginapi = LoginAPI()
+            loginapi.getUserLogin(email: email, password: password, completionHandler:  { user in
+                let userData = User(id: 0, email: email, name: email, role: user.currentSystemRole.name, token: user.loginToken, keepLoggedIn: keepLoggedIn)
+                if UserInfoBusinessService.setUserInfo(userObject: userData) {
+                    print("User preferences stored")
+                } else {
+                    print("Something went wrong")
+                }
+            })
+            
+            navigateToMaintenanceCheck()
             
         } else {
             
@@ -78,6 +83,14 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         super.touchesBegan(touches , with: event)
+    }
+    
+    
+    func navigateToMaintenanceCheck(){
+        let storyboard:UIStoryboard = UIStoryboard(name: "MaintenanceCheck", bundle: nil)
+        let view = storyboard.instantiateInitialViewController()!
+        view.modalPresentationStyle = .fullScreen
+        self.present(view, animated:true, completion: nil)
     }
     
 }
@@ -96,7 +109,6 @@ extension ViewController: UITextFieldDelegate{
             self.passwordTextField.becomeFirstResponder()
         case self.passwordTextField:
             self.passwordTextField.resignFirstResponder()
-            self.login()
         default:
             self.emailTextField.resignFirstResponder()
         }

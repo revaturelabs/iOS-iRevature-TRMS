@@ -17,6 +17,7 @@ struct MaintenanceChartTable {
         case id
         case apiID = "api_id"
         case date
+        case cleaned
         case roomID = "room_id"
         case inspectedByID = "user_id"
     }
@@ -26,6 +27,7 @@ struct MaintenanceChartTable {
         var id: Int
         var apiID: String
         var date: String
+        var cleaned: Bool
         var roomID: Int
         var inspectedByID: Int
         
@@ -33,14 +35,16 @@ struct MaintenanceChartTable {
             self.id = Int()
             self.apiID = String()
             self.date = String()
+            self.cleaned = Bool()
             self.roomID = Int()
             self.inspectedByID = Int()
         }
         
-        init(id: Int, apiID: String, date: String, roomID: Int, inspectedByID: Int) {
+        init(id: Int, apiID: String, date: String, cleaned: Bool, roomID: Int, inspectedByID: Int) {
             self.id = id
             self.apiID = apiID
             self.date = date
+            self.cleaned = cleaned
             self.roomID = roomID
             self.inspectedByID = inspectedByID
         }
@@ -53,6 +57,7 @@ struct MaintenanceChartTable {
         maintenanceChartTable.addColumn(columnName: ColumnName.id.rawValue, dataType: .INTEGER, constraints: .PRIMARYKEY, .AUTOINCREMENT, .NOTNULL)
         maintenanceChartTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
         maintenanceChartTable.addColumn(columnName: ColumnName.date.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
+        maintenanceChartTable.addColumn(columnName: ColumnName.cleaned.rawValue, dataType: .BOOL, constraints: .NOTNULL)
         maintenanceChartTable.addColumn(columnName: ColumnName.roomID.rawValue, dataType: .INT, constraints: .NOTNULL)
         maintenanceChartTable.addColumn(columnName: ColumnName.inspectedByID.rawValue, dataType: .INT, constraints: nil)
         

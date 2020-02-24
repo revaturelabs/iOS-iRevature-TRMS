@@ -21,7 +21,7 @@ struct SelectStatement {
     }
     
     mutating func specifyColumn(table: SQLiteTable, columnName: String, asName: String) {
-        let tableReferenceColumnName = table.addTableReference(toColumnName: columnName)
+        let tableReferenceColumnName = table.addTableReferenceTo(columnName: columnName)
         self.columnNames[tableReferenceColumnName] = (table, asName)
     }
     

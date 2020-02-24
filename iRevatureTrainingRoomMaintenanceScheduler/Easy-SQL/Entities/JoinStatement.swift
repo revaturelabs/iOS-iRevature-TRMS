@@ -13,8 +13,8 @@ struct JoinStatement {
     init(table1: SQLiteTable, joinType: SQLiteJoin, table2: SQLiteTable, onColumnName1: String, onColumnName2: String) {
         self.initialTable = table1
   
-        let columnName1 = table1.addTableReference(toColumnName: onColumnName1)
-        let columnName2 = table2.addTableReference(toColumnName: onColumnName2)
+        let columnName1 = table1.addTableReferenceTo(columnName: onColumnName1)
+        let columnName2 = table2.addTableReferenceTo(columnName: onColumnName2)
         
         self.joiningTables = [(joinType: SQLiteJoin, joiningTable: SQLiteTable, onPreviousTableColumn: String, onThisTableColumn: String)]()
         self.joiningTables.append((joinType, table2, columnName1, columnName2))
@@ -24,8 +24,8 @@ struct JoinStatement {
         
         let previousTable = self.joiningTables[self.joiningTables.count - 1].joiningTable
         
-        let columnName1 = previousTable.addTableReference(toColumnName: onPreviousTableColumnName)
-        let columnName2 = table.addTableReference(toColumnName: onThisTableColumnName)
+        let columnName1 = previousTable.addTableReferenceTo(columnName: onPreviousTableColumnName)
+        let columnName2 = table.addTableReferenceTo(columnName: onThisTableColumnName)
         
         self.joiningTables.append((joinType, table, columnName1, columnName2))
     }

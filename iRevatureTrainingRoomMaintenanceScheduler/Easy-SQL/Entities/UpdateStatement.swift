@@ -49,7 +49,7 @@ extension UpdateStatement: SQLiteStatement {
         //Iterate through the Values to set in table
         for (index, setHolder) in set.enumerated() {
             
-            let columnNameWithReference = table.addTableReference(toColumnName: setHolder.key)
+            let columnNameWithReference = table.addTableReferenceTo(columnName: setHolder.key)
             
             //Add set information
             do {

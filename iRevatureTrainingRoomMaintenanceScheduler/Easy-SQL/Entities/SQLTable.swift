@@ -26,7 +26,7 @@ struct SQLiteTable {
     mutating func addColumn(columnName: String, dataType: SQLiteDataType, constraints: SQLiteConstraints?...) {
         
         let columnInfo = Column(dataType: dataType, constraints: constraints as? [SQLiteConstraints])
-        let fullColumnName = addTableReference(toColumnName: columnName)
+        let fullColumnName = addTableReferenceTo(columnName: columnName)
     
         columnNames.append(columnName)
         
@@ -55,8 +55,8 @@ extension SQLiteTable {
         return tableName
     }
     
-    func addTableReference(toColumnName: String) -> String {
-        return "\(self.tableName).\(toColumnName)"
+    func addTableReferenceTo(columnName: String) -> String {
+        return "\(self.tableName).\(columnName)"
     }
     
     func getAllColumnNames(withTableReference: Bool) -> [String]? {

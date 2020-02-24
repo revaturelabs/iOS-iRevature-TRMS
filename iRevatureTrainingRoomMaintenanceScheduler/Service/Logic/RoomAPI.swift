@@ -13,7 +13,7 @@ class RoomAPI: API {
     
        let roomEndpoint = "https://private-dbd7b7-security14.apiary-mock.com/coredata/room?type=training"
 
-       func getRooms(_ completionHandler: @escaping (_ trainers:[JSONRoom]) -> Void) {
+       func getRooms(_ completionHandler: @escaping (_ rooms:[JSONRoom]) -> Void) {
            
            AF.request(
                       roomEndpoint,

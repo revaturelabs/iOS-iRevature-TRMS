@@ -69,6 +69,8 @@
 		5FB2B58423FB32F1003CD345 /* UserDefaultDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58323FB32F1003CD345 /* UserDefaultDAO.swift */; };
 		5FB2B58623FB566B003CD345 /* UserInfoBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */; };
 		5FB2B58823FB56BB003CD345 /* UserInfoProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */; };
+		5FC0AC1A2404202E000BEEB6 /* TaskAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC0AC192404202E000BEEB6 /* TaskAPI.swift */; };
+		5FC0AC1C24042082000BEEB6 /* TaskJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC0AC1B24042082000BEEB6 /* TaskJSON.swift */; };
 		5FC79323240073E800F0CFA9 /* UserJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC79322240073E800F0CFA9 /* UserJSON.swift */; };
 		5FC793252400746800F0CFA9 /* LoginAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC793242400746800F0CFA9 /* LoginAPI.swift */; };
 		5FC793282400752800F0CFA9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5FC793272400752800F0CFA9 /* Alamofire */; };
@@ -152,6 +154,8 @@
 		5FB2B58323FB32F1003CD345 /* UserDefaultDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultDAO.swift; sourceTree = "<group>"; };
 		5FB2B58523FB566B003CD345 /* UserInfoBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoBusinessService.swift; sourceTree = "<group>"; };
 		5FB2B58723FB56BB003CD345 /* UserInfoProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoProtocol.swift; sourceTree = "<group>"; };
+		5FC0AC192404202E000BEEB6 /* TaskAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAPI.swift; sourceTree = "<group>"; };
+		5FC0AC1B24042082000BEEB6 /* TaskJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskJSON.swift; sourceTree = "<group>"; };
 		5FC79322240073E800F0CFA9 /* UserJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJSON.swift; sourceTree = "<group>"; };
 		5FC793242400746800F0CFA9 /* LoginAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAPI.swift; sourceTree = "<group>"; };
 		5FC793292400759F00F0CFA9 /* LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogIn.swift; sourceTree = "<group>"; };
@@ -578,6 +582,7 @@
 				5FC79322240073E800F0CFA9 /* UserJSON.swift */,
 				5FC7932B2400852300F0CFA9 /* TrainerJSON.swift */,
 				5FC7932D240086A600F0CFA9 /* RoomJSON.swift */,
+				5FC0AC1B24042082000BEEB6 /* TaskJSON.swift */,
 				5FC793292400759F00F0CFA9 /* LogIn.swift */,
 			);
 			path = Entities;
@@ -590,6 +595,7 @@
 				5FB283492401F168001ED8AA /* API.swift */,
 				5FB283452401C61B001ED8AA /* TrainerAPI.swift */,
 				5FB283472401C63E001ED8AA /* RoomAPI.swift */,
+				5FC0AC192404202E000BEEB6 /* TaskAPI.swift */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -682,6 +688,7 @@
 				0922756B23FDBFB30062950E /* Easy_SQL_Tut.swift in Sources */,
 				5FFD794323FEFBB3000BD02E /* CheckList.swift in Sources */,
 				5F43915523FE1FF3003A390F /* TrainerBusinessService.swift in Sources */,
+				5FC0AC1C24042082000BEEB6 /* TaskJSON.swift in Sources */,
 				091B7F3C23F73831009D7A77 /* VIewControllerInstantiator.swift in Sources */,
 				5FB2B57C23F99028003CD345 /* TaskSelectionCell.swift in Sources */,
 				5FFD794523FEFBDC000BD02E /* Status.swift in Sources */,
@@ -711,6 +718,7 @@
 				5FC793252400746800F0CFA9 /* LoginAPI.swift in Sources */,
 				0922755123FC7B230062950E /* SQLKeywords.swift in Sources */,
 				0922757723FE5F320062950E /* UpdateStatement.swift in Sources */,
+				5FC0AC1A2404202E000BEEB6 /* TaskAPI.swift in Sources */,
 				5F43915323FE1F4F003A390F /* TrainerProtocol.swift in Sources */,
 				0922755723FC845E0062950E /* HelperFunctions.swift in Sources */,
 				5FB283482401C63E001ED8AA /* RoomAPI.swift in Sources */,

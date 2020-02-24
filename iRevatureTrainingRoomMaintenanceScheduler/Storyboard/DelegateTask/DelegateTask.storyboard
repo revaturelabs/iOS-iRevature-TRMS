@@ -87,7 +87,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o14-Cv-7VP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Delegate" image="give" selectedImage="give" id="zby-bN-3bw"/>
+                    <tabBarItem key="tabBarItem" title="Delegate" image="delegate" selectedImage="delegate" id="zby-bN-3bw"/>
                     <connections>
                         <outlet property="dateSelection" destination="f1X-Qv-z4f" id="94z-bB-t1P"/>
                         <outlet property="roomSelection" destination="Puf-Ao-A5c" id="TyB-89-DQf"/>
@@ -100,6 +100,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="give" width="48" height="48"/>
+        <image name="delegate" width="48" height="48"/>
     </resources>
 </document>

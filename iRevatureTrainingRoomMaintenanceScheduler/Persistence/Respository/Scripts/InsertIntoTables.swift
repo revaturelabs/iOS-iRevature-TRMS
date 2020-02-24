@@ -7,7 +7,7 @@
 //
 
 
-class insertIntoTables {
+class InsertDataIntoTables {
     static let locations = ["Tampa, FL", "Reston, VA"]
     static let campuses = ["UTA", "USF"]
     static let roomNames = ["NEC 200", "NEC 300", "NEC 320", "NEC 210"]

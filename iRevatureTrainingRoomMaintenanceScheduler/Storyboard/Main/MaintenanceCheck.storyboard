@@ -133,7 +133,7 @@
         <scene sceneID="Rkh-7C-Zs6">
             <objects>
                 <viewControllerPlaceholder storyboardName="DelegateTask" id="3R8-Xv-gK9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Z9n-eY-gIv"/>
+                    <tabBarItem key="tabBarItem" title="Delegate" image="delegate" selectedImage="delegate" id="Z9n-eY-gIv"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qwf-ud-bmF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -141,7 +141,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="checkList" width="48" height="48"/>
-        <image name="report" width="48" height="48"/>
+        <image name="checkList" width="25" height="25"/>
+        <image name="delegate" width="48" height="48"/>
+        <image name="report" width="25" height="25"/>
     </resources>
 </document>

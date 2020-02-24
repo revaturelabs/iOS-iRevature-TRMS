@@ -59,6 +59,7 @@
 		09D255D424007B8600AC16FB /* GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255D324007B8600AC16FB /* GetData.swift */; };
 		09D255D62400834E00AC16FB /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255D52400834E00AC16FB /* Database.swift */; };
 		09D255D82404215900AC16FB /* Easy_SQL_Statements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255D72404215900AC16FB /* Easy_SQL_Statements.swift */; };
+		09D255DA2404369B00AC16FB /* InsertIntoTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255D92404369B00AC16FB /* InsertIntoTables.swift */; };
 		5F43914323FDC0BA003A390F /* DelegateTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F43914223FDC0BA003A390F /* DelegateTask.storyboard */; };
 		5F43914923FDF77C003A390F /* RoomBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43914823FDF77C003A390F /* RoomBusinessService.swift */; };
 		5F43914B23FDF841003A390F /* RoomProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43914A23FDF841003A390F /* RoomProtocol.swift */; };
@@ -156,6 +157,7 @@
 		09D255D324007B8600AC16FB /* GetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetData.swift; sourceTree = "<group>"; };
 		09D255D52400834E00AC16FB /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		09D255D72404215900AC16FB /* Easy_SQL_Statements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Easy_SQL_Statements.swift; sourceTree = "<group>"; };
+		09D255D92404369B00AC16FB /* InsertIntoTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertIntoTables.swift; sourceTree = "<group>"; };
 		5F43914223FDC0BA003A390F /* DelegateTask.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DelegateTask.storyboard; path = iRevatureTrainingRoomMaintenanceScheduler/Storyboard/DelegateTask/DelegateTask.storyboard; sourceTree = SOURCE_ROOT; };
 		5F43914823FDF77C003A390F /* RoomBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomBusinessService.swift; sourceTree = "<group>"; };
 		5F43914A23FDF841003A390F /* RoomProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomProtocol.swift; sourceTree = "<group>"; };
@@ -582,6 +584,7 @@
 			children = (
 				096F2D3723FF75990021D616 /* CreateAllTables.swift */,
 				09024DC723FF83A8007DB4C9 /* DropAllTables.swift */,
+				09D255D92404369B00AC16FB /* InsertIntoTables.swift */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -763,6 +766,7 @@
 				0922757723FE5F320062950E /* UpdateStatement.swift in Sources */,
 				5FC0AC1A2404202E000BEEB6 /* TaskAPI.swift in Sources */,
 				5F43915323FE1F4F003A390F /* TrainerProtocol.swift in Sources */,
+				09D255DA2404369B00AC16FB /* InsertIntoTables.swift in Sources */,
 				0922755723FC845E0062950E /* HelperFunctions.swift in Sources */,
 				5FB283482401C63E001ED8AA /* RoomAPI.swift in Sources */,
 				5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */,

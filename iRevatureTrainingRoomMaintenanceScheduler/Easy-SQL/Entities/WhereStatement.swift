@@ -175,6 +175,9 @@ extension WhereStatement: SQLiteStatement {
             }
             
             return inString
+            
+        case .ISNULL:
+            return " \(expression.rawValue) "
         }
     }
 }

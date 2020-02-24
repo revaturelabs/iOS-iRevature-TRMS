@@ -56,7 +56,7 @@ struct MaintenanceChartTable {
         
         maintenanceChartTable.addColumn(columnName: ColumnName.id.rawValue, dataType: .INTEGER, constraints: .PRIMARYKEY, .AUTOINCREMENT, .NOTNULL)
         maintenanceChartTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
-        maintenanceChartTable.addColumn(columnName: ColumnName.date.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
+        maintenanceChartTable.addColumn(columnName: ColumnName.date.rawValue, dataType: .CHAR, constraints: .NOTNULL)
         maintenanceChartTable.addColumn(columnName: ColumnName.cleaned.rawValue, dataType: .BOOL, constraints: .NOTNULL)
         maintenanceChartTable.addColumn(columnName: ColumnName.roomID.rawValue, dataType: .INT, constraints: .NOTNULL)
         maintenanceChartTable.addColumn(columnName: ColumnName.inspectedByID.rawValue, dataType: .INT, constraints: nil)

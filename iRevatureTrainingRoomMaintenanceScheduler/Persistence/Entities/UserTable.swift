@@ -52,4 +52,5 @@ struct UserTable {
         
         return userTable
     }
+    
 }

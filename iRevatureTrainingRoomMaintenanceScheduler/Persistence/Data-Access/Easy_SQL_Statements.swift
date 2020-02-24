@@ -33,22 +33,26 @@ extension RoomTaskTable {
     static func getTasksByDate(roomID: Int, date: Date) -> SelectStatement {
         let dateFormat = SQLiteDateFormat.dateFormatter
         
+        //Select Statement
         var selectStatement = SelectStatement()
         selectStatement.specifyColumn(table: table, columnName: ColumnName.id.rawValue, asName: "room_task_id")
         selectStatement.specifyColumn(table: TaskTable.table, columnName: TaskTable.ColumnName.id.rawValue, asName: "task_id")
         selectStatement.specifyColumn(table: TaskTable.table, columnName: TaskTable.ColumnName.name.rawValue, asName: "task_name")
         
+        //Join RoomTaskTable and TaskTable on RoomTask.taskID == Task.id
         let joinStatement = JoinStatement(table1: table, joinType: .INNER, table2: TaskTable.table, onColumnName1: ColumnName.taskID.rawValue, onColumnName2: TaskTable.ColumnName.id.rawValue)
         
+        //Where statement:  date < RoomTask.EndDate, date > RoomTask.StartDate, RoomTask.roomID == roomID
         var whereStatement = WhereStatement()
         whereStatement.addStatement(table: table, columnName: ColumnName.dateStart.rawValue, expression: .LESSTHAN, columnValue: dateFormat.string(from: date))
         whereStatement.addStatement(table: table, clause: .AND, columnName: ColumnName.dateEnd.rawValue, expression: .GREATERTHAN, columnValue: dateFormat.string(from: date))
+        whereStatement.addStatement(table: table, clause: .AND, columnName: ColumnName.roomID.rawValue
+            , expression: .EQUALS, columnValue: roomID)
         
         selectStatement.setJoinStatement(statement: joinStatement)
         selectStatement.setWhereStatement(statement: whereStatement)
         
-        print(selectStatement.makeStatement()!)
-        
         return selectStatement
     }
+    
 }

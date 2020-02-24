@@ -34,6 +34,7 @@ enum SQLiteExpression: String {
     case BETWEEN
     case IN
     case NOTIN = "NOT IN"
+    case ISNULL = "IS NULL"
 }
 
 enum SQLiteClause: String {

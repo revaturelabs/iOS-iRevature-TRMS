@@ -13,3 +13,11 @@ struct DatabaseInfo {
     static let databaseDirectory: FileManager.SearchPathDirectory = .documentDirectory
     static let databaseDomainMask: FileManager.SearchPathDomainMask = .userDomainMask
 }
+
+struct SQLiteDateFormat {
+    static var dateFormatter: DateFormatter {
+        let sqliteDateFormat = DateFormatter()
+        sqliteDateFormat.dateFormat = "yyyy-MM-dd"
+        return sqliteDateFormat
+    }
+}

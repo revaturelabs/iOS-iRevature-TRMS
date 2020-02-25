@@ -88,7 +88,7 @@ class InsertDataIntoTables {
         for (index, roomName) in roomNames.enumerated() {
             for k in 0...9 {
                 currentIndex += 1
-                let date = "2020-02-\(k + 1)"
+                let date = "2020-02-\(String(format: "%02d", arguments: [k + 1]))"
                 let roomID = index + 1
                 let userID = 0
                 

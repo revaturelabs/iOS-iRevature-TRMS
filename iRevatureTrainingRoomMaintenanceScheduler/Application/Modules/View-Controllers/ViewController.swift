@@ -29,7 +29,7 @@ class ViewController: UIViewController {
             emailTextField.delegate = self
             passwordTextField.delegate = self
         }
-        
+
 //        DropAllTables.runScript()
 //        CreateAllTables.runScript()
 //        InsertDataIntoTables.runScript()
@@ -41,6 +41,7 @@ class ViewController: UIViewController {
 //        let db = DatabaseAccess.openDatabase(path: filePath, createIfDoesNotExist: true)
 //
 //        print(LocationTable.getAllValues(database: db!)!)
+
         
     }
     

@@ -22,8 +22,6 @@ class MaintenanceReportViewController: RevatureBaseViewController {
     var filteredList: [Status] = [Status]()
     var roomList: [Status] = [Status]()
     
-    let dateFormat = "MMM dd, yy"
-    
     var rooms: [RoomName] = [RoomName]()
 
     
@@ -62,8 +60,10 @@ extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         filteredList.removeAll()
-        
-        var myRoom = Room(id: 1, name: "Room 200", campus: "USF", location: "Tampa", assignedTo: "Uday", assignedTasks: [])
+
+        let room = rooms.filter{$0.name == roomID.text!}
+        print(room)
+//        filteredList = ReportBusinessService.getAllReports(room: room[0], fromDate: pickerDateFormat.date(from: endDate.text!)!, toDate: pickerDateFormat.date(from: startDate.text!)!)
         
 //        for room in roomList {
 //            if room.roomName == roomID.text &&
@@ -81,7 +81,7 @@ extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDel
         let cell = reportTable.dequeueReusableCell(withIdentifier: "ReportCell", for: indexPath) as! ReportTableCell
         
         cell.dateLbl.text = filteredList[indexPath.row].roomName
-        cell.trainerLbl.text = filteredList[indexPath.row].date.formatDate(by: "MM-dd-yy")
+        cell.trainerLbl.text = filteredList[indexPath.row].date.formatDate(by: "MMM dd, yy")
             
         
         if filteredList[indexPath.row].isClean {

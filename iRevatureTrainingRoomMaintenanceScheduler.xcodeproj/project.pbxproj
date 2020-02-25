@@ -50,6 +50,9 @@
 		096F2D3823FF75990021D616 /* CreateAllTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F2D3723FF75990021D616 /* CreateAllTables.swift */; };
 		096F2D3B23FF76550021D616 /* PersistanceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F2D3A23FF76550021D616 /* PersistanceConstants.swift */; };
 		09AD92E024049B7300B09A1C /* RoomCrud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD92DF24049B7300B09A1C /* RoomCrud.swift */; };
+		09AD92E22404AAE900B09A1C /* MaintenanceChartCrud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD92E12404AAE900B09A1C /* MaintenanceChartCrud.swift */; };
+		09AD92E42404AB5200B09A1C /* RoomTaskCrud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD92E32404AB5200B09A1C /* RoomTaskCrud.swift */; };
+		09AD92E62404ABA700B09A1C /* UserCrud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD92E52404ABA700B09A1C /* UserCrud.swift */; };
 		09D255C624006B1300AC16FB /* UserRoleTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255C524006B1300AC16FB /* UserRoleTable.swift */; };
 		09D255C82400705E00AC16FB /* CampusTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255C72400705E00AC16FB /* CampusTable.swift */; };
 		09D255CA2400713000AC16FB /* RoomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255C92400713000AC16FB /* RoomTable.swift */; };
@@ -151,6 +154,9 @@
 		096F2D3723FF75990021D616 /* CreateAllTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAllTables.swift; sourceTree = "<group>"; };
 		096F2D3A23FF76550021D616 /* PersistanceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceConstants.swift; sourceTree = "<group>"; };
 		09AD92DF24049B7300B09A1C /* RoomCrud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCrud.swift; sourceTree = "<group>"; };
+		09AD92E12404AAE900B09A1C /* MaintenanceChartCrud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceChartCrud.swift; sourceTree = "<group>"; };
+		09AD92E32404AB5200B09A1C /* RoomTaskCrud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTaskCrud.swift; sourceTree = "<group>"; };
+		09AD92E52404ABA700B09A1C /* UserCrud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCrud.swift; sourceTree = "<group>"; };
 		09D255C524006B1300AC16FB /* UserRoleTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleTable.swift; sourceTree = "<group>"; };
 		09D255C72400705E00AC16FB /* CampusTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusTable.swift; sourceTree = "<group>"; };
 		09D255C92400713000AC16FB /* RoomTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTable.swift; sourceTree = "<group>"; };
@@ -472,6 +478,9 @@
 				09D255DB240456C100AC16FB /* InsertData.swift */,
 				09D255DD2404594700AC16FB /* LocationCrud.swift */,
 				09AD92DF24049B7300B09A1C /* RoomCrud.swift */,
+				09AD92E12404AAE900B09A1C /* MaintenanceChartCrud.swift */,
+				09AD92E32404AB5200B09A1C /* RoomTaskCrud.swift */,
+				09AD92E52404ABA700B09A1C /* UserCrud.swift */,
 			);
 			path = "Data-Access";
 			sourceTree = "<group>";
@@ -765,10 +774,12 @@
 				0922754A23FC7B230062950E /* DatabaseAccess.swift in Sources */,
 				0922756D23FE2ECD0062950E /* WhereStatement.swift in Sources */,
 				5F43914F23FE0A26003A390F /* MaintenanceTaskBusinessService.swift in Sources */,
+				09AD92E42404AB5200B09A1C /* RoomTaskCrud.swift in Sources */,
 				5F43914D23FE0983003A390F /* MaintenanceTaskProtocol.swift in Sources */,
 				0922754D23FC7B230062950E /* DQLFunctions.swift in Sources */,
 				5FFD794123FEFABC000BD02E /* ReportBusinessService.swift in Sources */,
 				5FB283462401C61B001ED8AA /* TrainerAPI.swift in Sources */,
+				09AD92E62404ABA700B09A1C /* UserCrud.swift in Sources */,
 				5F43914923FDF77C003A390F /* RoomBusinessService.swift in Sources */,
 				5FC793252400746800F0CFA9 /* LoginAPI.swift in Sources */,
 				0922755123FC7B230062950E /* SQLKeywords.swift in Sources */,
@@ -794,6 +805,7 @@
 				5FB2B57523F989A2003CD345 /* SelectionPickerView.swift in Sources */,
 				091B7F4023F73831009D7A77 /* MaintenanceChart.swift in Sources */,
 				09D255CA2400713000AC16FB /* RoomTable.swift in Sources */,
+				09AD92E22404AAE900B09A1C /* MaintenanceChartCrud.swift in Sources */,
 				5FFD793F23FEFA49000BD02E /* ReportProtocol.swift in Sources */,
 				091B7F4123F73831009D7A77 /* Task.swift in Sources */,
 				5FFD794923FF3123000BD02E /* DelegateTaskBusinessService.swift in Sources */,

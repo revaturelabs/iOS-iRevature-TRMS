@@ -36,15 +36,14 @@ class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
 //            chartID = idHolder
 //        }
 //
-        
-        for task in taskList {
-
-            if MaintenanceChartTaskTable.getByMaintenanceChart(maintenanceChartID: chartID) == nil {
+        if MaintenanceChartTaskTable.getByMaintenanceChart(maintenanceChartID: chartID) == nil {
+            for task in taskList {
                 MaintenanceChartTaskTable.insert(maintenanceChartID: chartID, taskID: task.id, taskCompleted: task.completed)
-            } else {
+            }
+        } else {
+            for task in taskList {
                 MaintenanceChartTaskTable.update(maintenanceChartID: chartID, taskID: task.id, completed: task.completed)
             }
-            
         }
         
         

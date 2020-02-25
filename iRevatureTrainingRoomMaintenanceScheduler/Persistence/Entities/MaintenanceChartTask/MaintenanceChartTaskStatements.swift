@@ -7,6 +7,22 @@
 //
 
 extension MaintenanceChartTaskTable {
+    static func getByMaintenanceChartIDStatement(maintenanceChartID: Int) -> SelectStatement {
+        var selectChartTask = SelectStatement()
+        selectChartTask.specifyColumn(table: table, columnName: ColumnName.id.rawValue, asName: ColumnName.id.rawValue)
+        selectChartTask.specifyColumn(table: table, columnName: ColumnName.maintenanceChartID.rawValue, asName: ColumnName.maintenanceChartID.rawValue)
+        selectChartTask.specifyColumn(table: table, columnName: ColumnName.taskID.rawValue, asName: ColumnName.taskID.rawValue)
+        selectChartTask.specifyColumn(table: table, columnName: ColumnName.completed.rawValue, asName: ColumnName.completed.rawValue)
+        
+        var whereStatement = WhereStatement()
+        whereStatement.addStatement(table: table, columnName: ColumnName.maintenanceChartID.rawValue, expression: .EQUALS, columnValue: maintenanceChartID)
+        
+        selectChartTask.setWhereStatement(statement: whereStatement)
+        
+        return selectChartTask
+    }
+    
+    
     static func insertStatement(maintencanceChartID: Int, taskID: Int, completed: Bool) -> InsertStatement {
         
         var insertChartTask = InsertStatement(table: table)

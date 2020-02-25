@@ -9,7 +9,7 @@
 //============================
     //Maintenance Chart Table
 //============================
-struct MaintenanceChartTable {
+struct MaintenanceChartTable: DatabaseTable {
     private static let tableName = "maintenance_chart"
     
     //Column name abstraction
@@ -23,7 +23,7 @@ struct MaintenanceChartTable {
     }
     
     //Room Struct to return from select statement
-    struct User {
+    struct MaintenanceChart {
         var id: Int
         var apiID: String
         var date: String

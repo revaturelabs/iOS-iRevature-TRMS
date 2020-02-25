@@ -48,20 +48,32 @@
 		096F2D3423FEFB1A0021D616 /* JoinStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F2D3323FEFB1A0021D616 /* JoinStatement.swift */; };
 		096F2D3623FF6BBA0021D616 /* SQLTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F2D3523FF6BBA0021D616 /* SQLTables.swift */; };
 		096F2D3823FF75990021D616 /* CreateAllTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F2D3723FF75990021D616 /* CreateAllTables.swift */; };
-		096F2D3B23FF76550021D616 /* PersistanceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F2D3A23FF76550021D616 /* PersistanceConstants.swift */; };
+		096F2D3B23FF76550021D616 /* PersistenceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F2D3A23FF76550021D616 /* PersistenceConstants.swift */; };
+		09AD92E024049B7300B09A1C /* RoomCrud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD92DF24049B7300B09A1C /* RoomCrud.swift */; };
+		09AD92E22404AAE900B09A1C /* MaintenanceChartCrud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD92E12404AAE900B09A1C /* MaintenanceChartCrud.swift */; };
+		09AD92E42404AB5200B09A1C /* RoomTaskCrud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD92E32404AB5200B09A1C /* RoomTaskCrud.swift */; };
+		09AD92E62404ABA700B09A1C /* UserCrud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD92E52404ABA700B09A1C /* UserCrud.swift */; };
 		09D255C624006B1300AC16FB /* UserRoleTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255C524006B1300AC16FB /* UserRoleTable.swift */; };
 		09D255C82400705E00AC16FB /* CampusTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255C72400705E00AC16FB /* CampusTable.swift */; };
 		09D255CA2400713000AC16FB /* RoomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255C92400713000AC16FB /* RoomTable.swift */; };
 		09D255CC2400745900AC16FB /* TaskTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255CB2400745900AC16FB /* TaskTable.swift */; };
 		09D255CE240074FA00AC16FB /* RoomTaskTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255CD240074FA00AC16FB /* RoomTaskTable.swift */; };
 		09D255D02400769300AC16FB /* MaintenanceChartTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255CF2400769300AC16FB /* MaintenanceChartTable.swift */; };
-		09D255D22400780100AC16FB /* MaintenanceChartTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255D12400780100AC16FB /* MaintenanceChartTask.swift */; };
-		09D255D424007B8600AC16FB /* GetData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255D324007B8600AC16FB /* GetData.swift */; };
+		09D255D22400780100AC16FB /* MaintenanceChartTaskTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255D12400780100AC16FB /* MaintenanceChartTaskTable.swift */; };
 		09D255D62400834E00AC16FB /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255D52400834E00AC16FB /* Database.swift */; };
-		09D255D82404215900AC16FB /* Easy_SQL_Statements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255D72404215900AC16FB /* Easy_SQL_Statements.swift */; };
 		09D255DA2404369B00AC16FB /* InsertIntoTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255D92404369B00AC16FB /* InsertIntoTables.swift */; };
 		09D255DC240456C100AC16FB /* InsertData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255DB240456C100AC16FB /* InsertData.swift */; };
 		09D255DE2404594700AC16FB /* LocationCrud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255DD2404594700AC16FB /* LocationCrud.swift */; };
+		09F2BE092404AF89004A6F47 /* RoomTaskStatements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE082404AF89004A6F47 /* RoomTaskStatements.swift */; };
+		09F2BE0C2404B19F004A6F47 /* TaskStatements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE0B2404B19F004A6F47 /* TaskStatements.swift */; };
+		09F2BE0E2404B212004A6F47 /* TableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE0D2404B212004A6F47 /* TableProtocol.swift */; };
+		09F2BE112404C14A004A6F47 /* LocationStatements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE102404C14A004A6F47 /* LocationStatements.swift */; };
+		09F2BE142404C16F004A6F47 /* CampusStatements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE132404C16F004A6F47 /* CampusStatements.swift */; };
+		09F2BE172404C188004A6F47 /* UserStatements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE162404C188004A6F47 /* UserStatements.swift */; };
+		09F2BE192404C196004A6F47 /* UserRoleStatements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE182404C196004A6F47 /* UserRoleStatements.swift */; };
+		09F2BE1D2404C1B6004A6F47 /* RoomStatements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE1C2404C1B6004A6F47 /* RoomStatements.swift */; };
+		09F2BE202404C20A004A6F47 /* MaintenanceChartStatements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE1F2404C20A004A6F47 /* MaintenanceChartStatements.swift */; };
+		09F2BE232404C226004A6F47 /* MaintenanceChartTaskStatements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE222404C226004A6F47 /* MaintenanceChartTaskStatements.swift */; };
 		5F43914323FDC0BA003A390F /* DelegateTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F43914223FDC0BA003A390F /* DelegateTask.storyboard */; };
 		5F43914923FDF77C003A390F /* RoomBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43914823FDF77C003A390F /* RoomBusinessService.swift */; };
 		5F43914B23FDF841003A390F /* RoomProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43914A23FDF841003A390F /* RoomProtocol.swift */; };
@@ -148,20 +160,32 @@
 		096F2D3323FEFB1A0021D616 /* JoinStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinStatement.swift; sourceTree = "<group>"; };
 		096F2D3523FF6BBA0021D616 /* SQLTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLTables.swift; sourceTree = "<group>"; };
 		096F2D3723FF75990021D616 /* CreateAllTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAllTables.swift; sourceTree = "<group>"; };
-		096F2D3A23FF76550021D616 /* PersistanceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceConstants.swift; sourceTree = "<group>"; };
+		096F2D3A23FF76550021D616 /* PersistenceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceConstants.swift; sourceTree = "<group>"; };
+		09AD92DF24049B7300B09A1C /* RoomCrud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCrud.swift; sourceTree = "<group>"; };
+		09AD92E12404AAE900B09A1C /* MaintenanceChartCrud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceChartCrud.swift; sourceTree = "<group>"; };
+		09AD92E32404AB5200B09A1C /* RoomTaskCrud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTaskCrud.swift; sourceTree = "<group>"; };
+		09AD92E52404ABA700B09A1C /* UserCrud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCrud.swift; sourceTree = "<group>"; };
 		09D255C524006B1300AC16FB /* UserRoleTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleTable.swift; sourceTree = "<group>"; };
 		09D255C72400705E00AC16FB /* CampusTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusTable.swift; sourceTree = "<group>"; };
 		09D255C92400713000AC16FB /* RoomTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTable.swift; sourceTree = "<group>"; };
 		09D255CB2400745900AC16FB /* TaskTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTable.swift; sourceTree = "<group>"; };
 		09D255CD240074FA00AC16FB /* RoomTaskTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTaskTable.swift; sourceTree = "<group>"; };
 		09D255CF2400769300AC16FB /* MaintenanceChartTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceChartTable.swift; sourceTree = "<group>"; };
-		09D255D12400780100AC16FB /* MaintenanceChartTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceChartTask.swift; sourceTree = "<group>"; };
-		09D255D324007B8600AC16FB /* GetData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetData.swift; sourceTree = "<group>"; };
+		09D255D12400780100AC16FB /* MaintenanceChartTaskTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceChartTaskTable.swift; sourceTree = "<group>"; };
 		09D255D52400834E00AC16FB /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		09D255D72404215900AC16FB /* Easy_SQL_Statements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Easy_SQL_Statements.swift; sourceTree = "<group>"; };
 		09D255D92404369B00AC16FB /* InsertIntoTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertIntoTables.swift; sourceTree = "<group>"; };
 		09D255DB240456C100AC16FB /* InsertData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsertData.swift; sourceTree = "<group>"; };
 		09D255DD2404594700AC16FB /* LocationCrud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCrud.swift; sourceTree = "<group>"; };
+		09F2BE082404AF89004A6F47 /* RoomTaskStatements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTaskStatements.swift; sourceTree = "<group>"; };
+		09F2BE0B2404B19F004A6F47 /* TaskStatements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStatements.swift; sourceTree = "<group>"; };
+		09F2BE0D2404B212004A6F47 /* TableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableProtocol.swift; sourceTree = "<group>"; };
+		09F2BE102404C14A004A6F47 /* LocationStatements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationStatements.swift; sourceTree = "<group>"; };
+		09F2BE132404C16F004A6F47 /* CampusStatements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusStatements.swift; sourceTree = "<group>"; };
+		09F2BE162404C188004A6F47 /* UserStatements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatements.swift; sourceTree = "<group>"; };
+		09F2BE182404C196004A6F47 /* UserRoleStatements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleStatements.swift; sourceTree = "<group>"; };
+		09F2BE1C2404C1B6004A6F47 /* RoomStatements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomStatements.swift; sourceTree = "<group>"; };
+		09F2BE1F2404C20A004A6F47 /* MaintenanceChartStatements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceChartStatements.swift; sourceTree = "<group>"; };
+		09F2BE222404C226004A6F47 /* MaintenanceChartTaskStatements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceChartTaskStatements.swift; sourceTree = "<group>"; };
 		5F43914223FDC0BA003A390F /* DelegateTask.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DelegateTask.storyboard; path = iRevatureTrainingRoomMaintenanceScheduler/Storyboard/DelegateTask/DelegateTask.storyboard; sourceTree = SOURCE_ROOT; };
 		5F43914823FDF77C003A390F /* RoomBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomBusinessService.swift; sourceTree = "<group>"; };
 		5F43914A23FDF841003A390F /* RoomProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomProtocol.swift; sourceTree = "<group>"; };
@@ -439,8 +463,9 @@
 		091B7F2D23F73831009D7A77 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				096F2D3A23FF76550021D616 /* PersistanceConstants.swift */,
+				096F2D3A23FF76550021D616 /* PersistenceConstants.swift */,
 				09D255D52400834E00AC16FB /* Database.swift */,
+				09F2BE0D2404B212004A6F47 /* TableProtocol.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -448,15 +473,15 @@
 		091B7F3523F73831009D7A77 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				09024DEB2400467B007DB4C9 /* LocationTable.swift */,
-				09D255C72400705E00AC16FB /* CampusTable.swift */,
-				09024DED2400677D007DB4C9 /* UserTable.swift */,
-				09D255C524006B1300AC16FB /* UserRoleTable.swift */,
-				09D255C92400713000AC16FB /* RoomTable.swift */,
-				09D255CB2400745900AC16FB /* TaskTable.swift */,
-				09D255CD240074FA00AC16FB /* RoomTaskTable.swift */,
-				09D255CF2400769300AC16FB /* MaintenanceChartTable.swift */,
-				09D255D12400780100AC16FB /* MaintenanceChartTask.swift */,
+				09F2BE072404AF70004A6F47 /* RoomTask */,
+				09F2BE212404C20E004A6F47 /* MaintenanceChartTask */,
+				09F2BE1E2404C1C4004A6F47 /* MaintenanceChart */,
+				09F2BE1B2404C1AB004A6F47 /* Room */,
+				09F2BE1A2404C19F004A6F47 /* UserRole */,
+				09F2BE152404C179004A6F47 /* User */,
+				09F2BE122404C161004A6F47 /* Campus */,
+				09F2BE0F2404C139004A6F47 /* Location */,
+				09F2BE0A2404B180004A6F47 /* Task */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -465,10 +490,12 @@
 			isa = PBXGroup;
 			children = (
 				5FB2B58323FB32F1003CD345 /* UserDefaultDAO.swift */,
-				09D255D324007B8600AC16FB /* GetData.swift */,
-				09D255D72404215900AC16FB /* Easy_SQL_Statements.swift */,
 				09D255DB240456C100AC16FB /* InsertData.swift */,
 				09D255DD2404594700AC16FB /* LocationCrud.swift */,
+				09AD92DF24049B7300B09A1C /* RoomCrud.swift */,
+				09AD92E12404AAE900B09A1C /* MaintenanceChartCrud.swift */,
+				09AD92E32404AB5200B09A1C /* RoomTaskCrud.swift */,
+				09AD92E52404ABA700B09A1C /* UserCrud.swift */,
 			);
 			path = "Data-Access";
 			sourceTree = "<group>";
@@ -593,6 +620,87 @@
 				09D255D92404369B00AC16FB /* InsertIntoTables.swift */,
 			);
 			path = Scripts;
+			sourceTree = "<group>";
+		};
+		09F2BE072404AF70004A6F47 /* RoomTask */ = {
+			isa = PBXGroup;
+			children = (
+				09D255CD240074FA00AC16FB /* RoomTaskTable.swift */,
+				09F2BE082404AF89004A6F47 /* RoomTaskStatements.swift */,
+			);
+			path = RoomTask;
+			sourceTree = "<group>";
+		};
+		09F2BE0A2404B180004A6F47 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				09D255CB2400745900AC16FB /* TaskTable.swift */,
+				09F2BE0B2404B19F004A6F47 /* TaskStatements.swift */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		09F2BE0F2404C139004A6F47 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				09024DEB2400467B007DB4C9 /* LocationTable.swift */,
+				09F2BE102404C14A004A6F47 /* LocationStatements.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		09F2BE122404C161004A6F47 /* Campus */ = {
+			isa = PBXGroup;
+			children = (
+				09D255C72400705E00AC16FB /* CampusTable.swift */,
+				09F2BE132404C16F004A6F47 /* CampusStatements.swift */,
+			);
+			path = Campus;
+			sourceTree = "<group>";
+		};
+		09F2BE152404C179004A6F47 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				09024DED2400677D007DB4C9 /* UserTable.swift */,
+				09F2BE162404C188004A6F47 /* UserStatements.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		09F2BE1A2404C19F004A6F47 /* UserRole */ = {
+			isa = PBXGroup;
+			children = (
+				09D255C524006B1300AC16FB /* UserRoleTable.swift */,
+				09F2BE182404C196004A6F47 /* UserRoleStatements.swift */,
+			);
+			path = UserRole;
+			sourceTree = "<group>";
+		};
+		09F2BE1B2404C1AB004A6F47 /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				09D255C92400713000AC16FB /* RoomTable.swift */,
+				09F2BE1C2404C1B6004A6F47 /* RoomStatements.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		09F2BE1E2404C1C4004A6F47 /* MaintenanceChart */ = {
+			isa = PBXGroup;
+			children = (
+				09D255CF2400769300AC16FB /* MaintenanceChartTable.swift */,
+				09F2BE1F2404C20A004A6F47 /* MaintenanceChartStatements.swift */,
+			);
+			path = MaintenanceChart;
+			sourceTree = "<group>";
+		};
+		09F2BE212404C20E004A6F47 /* MaintenanceChartTask */ = {
+			isa = PBXGroup;
+			children = (
+				09D255D12400780100AC16FB /* MaintenanceChartTaskTable.swift */,
+				09F2BE222404C226004A6F47 /* MaintenanceChartTaskStatements.swift */,
+			);
+			path = MaintenanceChartTask;
 			sourceTree = "<group>";
 		};
 		5F43914523FDC161003A390F /* DelegateTask */ = {
@@ -726,19 +834,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				091B7F4623F73831009D7A77 /* ViewController.swift in Sources */,
+				09F2BE172404C188004A6F47 /* UserStatements.swift in Sources */,
 				5F43915123FE1B45003A390F /* DateExtension.swift in Sources */,
+				09F2BE142404C16F004A6F47 /* CampusStatements.swift in Sources */,
 				091B7F4423F73831009D7A77 /* AppDelegate.swift in Sources */,
 				5FB2B57A23F98BFD003CD345 /* MaintenanceCheckDelegate.swift in Sources */,
 				09D255CC2400745900AC16FB /* TaskTable.swift in Sources */,
 				09D255C624006B1300AC16FB /* UserRoleTable.swift in Sources */,
+				09F2BE192404C196004A6F47 /* UserRoleStatements.swift in Sources */,
 				0922756B23FDBFB30062950E /* Easy_SQL_Tut.swift in Sources */,
-				09D255D22400780100AC16FB /* MaintenanceChartTask.swift in Sources */,
+				09D255D22400780100AC16FB /* MaintenanceChartTaskTable.swift in Sources */,
 				5FC79323240073E800F0CFA9 /* UserJSON.swift in Sources */,
 				5FFD794323FEFBB3000BD02E /* CheckList.swift in Sources */,
 				5F43915523FE1FF3003A390F /* TrainerBusinessService.swift in Sources */,
 				5FC0AC1C24042082000BEEB6 /* TaskJSON.swift in Sources */,
 				091B7F3C23F73831009D7A77 /* VIewControllerInstantiator.swift in Sources */,
-				09D255D82404215900AC16FB /* Easy_SQL_Statements.swift in Sources */,
 				5FB2B57C23F99028003CD345 /* TaskSelectionCell.swift in Sources */,
 				5FFD794523FEFBDC000BD02E /* Status.swift in Sources */,
 				5FB2B58623FB566B003CD345 /* UserInfoBusinessService.swift in Sources */,
@@ -753,43 +863,52 @@
 				091B7F3B23F73831009D7A77 /* StoryboardList.swift in Sources */,
 				096F2D0A23FECA6A0021D616 /* DeleteStatement.swift in Sources */,
 				096F2D3823FF75990021D616 /* CreateAllTables.swift in Sources */,
+				09F2BE0C2404B19F004A6F47 /* TaskStatements.swift in Sources */,
 				0922755023FC7B230062950E /* SQLMessages.swift in Sources */,
-				09D255D424007B8600AC16FB /* GetData.swift in Sources */,
 				0922756423FCC3240062950E /* RevatureBaseTableViewCell.swift in Sources */,
 				09D255CE240074FA00AC16FB /* RoomTaskTable.swift in Sources */,
 				0922754923FC7B230062950E /* DDLFunctions.swift in Sources */,
 				0922756F23FE2F790062950E /* Protocols.swift in Sources */,
 				0922754A23FC7B230062950E /* DatabaseAccess.swift in Sources */,
+				09F2BE112404C14A004A6F47 /* LocationStatements.swift in Sources */,
 				0922756D23FE2ECD0062950E /* WhereStatement.swift in Sources */,
 				5F43914F23FE0A26003A390F /* MaintenanceTaskBusinessService.swift in Sources */,
+				09AD92E42404AB5200B09A1C /* RoomTaskCrud.swift in Sources */,
 				5F43914D23FE0983003A390F /* MaintenanceTaskProtocol.swift in Sources */,
 				0922754D23FC7B230062950E /* DQLFunctions.swift in Sources */,
 				5FFD794123FEFABC000BD02E /* ReportBusinessService.swift in Sources */,
 				5FB283462401C61B001ED8AA /* TrainerAPI.swift in Sources */,
+				09AD92E62404ABA700B09A1C /* UserCrud.swift in Sources */,
 				5F43914923FDF77C003A390F /* RoomBusinessService.swift in Sources */,
 				5FC793252400746800F0CFA9 /* LoginAPI.swift in Sources */,
 				0922755123FC7B230062950E /* SQLKeywords.swift in Sources */,
 				0922757723FE5F320062950E /* UpdateStatement.swift in Sources */,
 				5FC0AC1A2404202E000BEEB6 /* TaskAPI.swift in Sources */,
+				09AD92E024049B7300B09A1C /* RoomCrud.swift in Sources */,
 				5F43915323FE1F4F003A390F /* TrainerProtocol.swift in Sources */,
 				09D255DA2404369B00AC16FB /* InsertIntoTables.swift in Sources */,
 				0922755723FC845E0062950E /* HelperFunctions.swift in Sources */,
 				5FB283482401C63E001ED8AA /* RoomAPI.swift in Sources */,
 				5FB2B54923F74BC8003CD345 /* RevatureOrangeButton.swift in Sources */,
-				096F2D3B23FF76550021D616 /* PersistanceConstants.swift in Sources */,
+				096F2D3B23FF76550021D616 /* PersistenceConstants.swift in Sources */,
 				09D255DC240456C100AC16FB /* InsertData.swift in Sources */,
 				091B7F3F23F73831009D7A77 /* Room.swift in Sources */,
 				096F2D3223FEE4220021D616 /* SelectStatement.swift in Sources */,
 				5FFD794723FF2FB1000BD02E /* DelegateTaskProtocol.swift in Sources */,
 				5FB2B58423FB32F1003CD345 /* UserDefaultDAO.swift in Sources */,
+				09F2BE092404AF89004A6F47 /* RoomTaskStatements.swift in Sources */,
 				09D255C82400705E00AC16FB /* CampusTable.swift in Sources */,
 				09024DEE2400677D007DB4C9 /* UserTable.swift in Sources */,
 				096F2D3423FEFB1A0021D616 /* JoinStatement.swift in Sources */,
+				09F2BE202404C20A004A6F47 /* MaintenanceChartStatements.swift in Sources */,
 				09D255DE2404594700AC16FB /* LocationCrud.swift in Sources */,
 				5FFA061823FC461D00B04C74 /* OrangeToolbar.swift in Sources */,
+				09F2BE0E2404B212004A6F47 /* TableProtocol.swift in Sources */,
+				09F2BE1D2404C1B6004A6F47 /* RoomStatements.swift in Sources */,
 				5FB2B57523F989A2003CD345 /* SelectionPickerView.swift in Sources */,
 				091B7F4023F73831009D7A77 /* MaintenanceChart.swift in Sources */,
 				09D255CA2400713000AC16FB /* RoomTable.swift in Sources */,
+				09AD92E22404AAE900B09A1C /* MaintenanceChartCrud.swift in Sources */,
 				5FFD793F23FEFA49000BD02E /* ReportProtocol.swift in Sources */,
 				091B7F4123F73831009D7A77 /* Task.swift in Sources */,
 				5FFD794923FF3123000BD02E /* DelegateTaskBusinessService.swift in Sources */,
@@ -797,6 +916,7 @@
 				09D255D62400834E00AC16FB /* Database.swift in Sources */,
 				0922754B23FC7B230062950E /* SQLTable.swift in Sources */,
 				5FB2B57823F98A5F003CD345 /* TextFieldExtension.swift in Sources */,
+				09F2BE232404C226004A6F47 /* MaintenanceChartTaskStatements.swift in Sources */,
 				5FFA061623FC30A900B04C74 /* DatePickerView.swift in Sources */,
 				5FB2B57323F8E78C003CD345 /* MaintenanceCheckController.swift in Sources */,
 				096F2D3623FF6BBA0021D616 /* SQLTables.swift in Sources */,

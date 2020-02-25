@@ -9,7 +9,7 @@
 //============================
     //Room Table
 //============================
-struct RoomTable {
+struct RoomTable: DatabaseTable {
     private static let tableName = "room"
     
     //Column name abstraction

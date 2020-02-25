@@ -10,7 +10,7 @@
 //============================
     //Maintenance Chart Task Table
 //============================
-struct MaintenanceChartTaskTable {
+struct MaintenanceChartTaskTable: DatabaseTable {
     private static let tableName = "maintenance_chart_task"
     
     //Column name abstraction

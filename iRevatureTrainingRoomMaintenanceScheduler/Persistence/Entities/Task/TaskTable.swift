@@ -1,5 +1,5 @@
 //
-//  CampusTable.swift
+//  TaskTable.swift
 //  iRevatureTrainingRoomMaintenanceScheduler
 //
 //  Created by Mark Hawkins on 2/21/20.
@@ -7,10 +7,10 @@
 //
 
 //============================
-    //Campus Table
+    //Task Table
 //============================
-struct CampusTable {
-    private static let tableName = "campus"
+struct TaskTable: DatabaseTable {
+    private static let tableName = "task"
     
     //Column name abstraction
     enum ColumnName: String {
@@ -19,7 +19,7 @@ struct CampusTable {
         case name
     }
     
-    //Campus Struct to return from select statement
+    //Room Struct to return from select statement
     struct User {
         var id: Int
         var apiID: String
@@ -31,7 +31,7 @@ struct CampusTable {
             self.name = String()
         }
         
-        init(id: Int, name: String, apiID: String, roleID: Int) {
+        init(id: Int, apiID: String, name: String) {
             self.id = id
             self.apiID = apiID
             self.name = name
@@ -40,12 +40,12 @@ struct CampusTable {
     
 
     static var table: SQLiteTable {
-        var campusTable = SQLiteTable(tableName: tableName)
+        var taskTable = SQLiteTable(tableName: tableName)
         
-        campusTable.addColumn(columnName: ColumnName.id.rawValue, dataType: .INTEGER, constraints: .PRIMARYKEY, .AUTOINCREMENT, .NOTNULL)
-        campusTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
-        campusTable.addColumn(columnName: ColumnName.name.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
+        taskTable.addColumn(columnName: ColumnName.id.rawValue, dataType: .INTEGER, constraints: .PRIMARYKEY, .AUTOINCREMENT, .NOTNULL)
+        taskTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
+        taskTable.addColumn(columnName: ColumnName.name.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
         
-        return campusTable
+        return taskTable
     }
 }

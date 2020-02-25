@@ -10,7 +10,7 @@ import Foundation
 
 protocol RoomProtocol {
     
-    static func getAllRooms() -> [Room]
+    static func getAllRooms() -> [RoomName]
     
     static func getRoomsByUser(user: User) -> [Room]
     

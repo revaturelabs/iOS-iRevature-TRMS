@@ -52,7 +52,7 @@ struct MaintenanceChartTaskTable: DatabaseTable {
         var maintenanceChartTaskTable = SQLiteTable(tableName: tableName)
         
         maintenanceChartTaskTable.addColumn(columnName: ColumnName.id.rawValue, dataType: .INTEGER, constraints: .PRIMARYKEY, .AUTOINCREMENT, .NOTNULL)
-        maintenanceChartTaskTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
+        maintenanceChartTaskTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL)
         maintenanceChartTaskTable.addColumn(columnName: ColumnName.completed.rawValue, dataType: .BOOL, constraints: .NOTNULL)
         maintenanceChartTaskTable.addColumn(columnName: ColumnName.maintenanceChartID.rawValue, dataType: .INT, constraints: .NOTNULL)
         maintenanceChartTaskTable.addColumn(columnName: ColumnName.taskID.rawValue, dataType: .INT, constraints: .NOTNULL)

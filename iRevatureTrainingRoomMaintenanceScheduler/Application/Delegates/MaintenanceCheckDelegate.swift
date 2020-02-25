@@ -12,11 +12,15 @@ import UIKit
 extension MaintenanceCheckController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return self.tasks.count
         
+        if let room = roomList.first(where: {$0.name == selectorTextField.text!}) {
+            self.tasks = MaintenanceTaskBusinessService.getAllMaintenanceTasksByRoom(room: room)
+        } else {
+            tasks = []
+        }
+        
+        return self.tasks.count
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         

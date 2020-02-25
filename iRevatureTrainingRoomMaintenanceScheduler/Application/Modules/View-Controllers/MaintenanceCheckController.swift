@@ -39,11 +39,13 @@ class MaintenanceCheckController: UIViewController {
 
     
     @IBAction func submitCheck(_ sender: Any) {
-        let room = selectorTextField.text!
+        guard let room = roomList.first(where: {$0.name == selectorTextField.text!}) else {
+            return
+        }
         
         MaintenanceTaskBusinessService.createMaintenanceTask(room: room, date: Date(), taskList: tasks)
         
-        Alert.showTimedAlert(title: "Success", message: "Checklist for \(room) has been submitted", view: self, closeAfter: 3)
+        Alert.showTimedAlert(title: "Success", message: "Checklist for \(room.name) has been submitted", view: self, closeAfter: 3)
         
     }
     

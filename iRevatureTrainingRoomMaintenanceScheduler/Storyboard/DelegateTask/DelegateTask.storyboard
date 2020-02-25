@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Delegate-->
+        <!--Pass On-->
         <scene sceneID="u7P-Ql-mrI">
             <objects>
                 <viewController id="R0H-h9-kha" customClass="DelegateTaskViewController" customModule="iRevatureTrainingRoomMaintenanceScheduler" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,87 +16,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delegate Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nh8-IS-aSE">
-                                <rect key="frame" x="133.5" y="74" width="147" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Switch Request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nh8-IS-aSE">
+                                <rect key="frame" x="90.5" y="74" width="233" height="26"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="irx-Cy-k6U">
-                                <rect key="frame" x="35" y="271" width="57" height="21"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trainer:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPD-jf-2wY">
-                                <rect key="frame" x="35" y="342" width="67" height="21"/>
+                                <rect key="frame" x="35" y="201" width="57" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QR3-Hv-MI7">
-                                <rect key="frame" x="35" y="200" width="51" height="21"/>
+                                <rect key="frame" x="35" y="140" width="51" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Puf-Ao-A5c">
-                                <rect key="frame" x="117" y="264.5" width="262" height="34"/>
+                                <rect key="frame" x="117" y="194.5" width="262" height="34"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f1X-Qv-z4f">
-                                <rect key="frame" x="117" y="193.5" width="262" height="34"/>
+                                <rect key="frame" x="117" y="133.5" width="262" height="34"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoj-qB-IDe" customClass="RevatureButton" customModule="iRevatureTrainingRoomMaintenanceScheduler" customModuleProvider="target">
-                                <rect key="frame" x="166.5" y="797" width="81" height="30"/>
-                                <state key="normal" title="Assign Task"/>
+                                <rect key="frame" x="152.5" y="797" width="109" height="30"/>
+                                <state key="normal" title="Submit Request"/>
                                 <connections>
                                     <action selector="assignTask:" destination="R0H-h9-kha" eventType="touchDown" id="Wul-E5-FYi"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4d-2v-3Ah">
-                                <rect key="frame" x="117" y="335.5" width="262" height="34"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="l98-E1-Jyx">
+                                <rect key="frame" x="35" y="364" width="344" height="315"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Request Reason:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PAe-1Q-VPP">
+                                <rect key="frame" x="35" y="268.5" width="344" height="21"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="o14-Cv-7VP" firstAttribute="trailing" secondItem="Puf-Ao-A5c" secondAttribute="trailing" constant="35" id="1gz-et-hCH"/>
-                            <constraint firstItem="QR3-Hv-MI7" firstAttribute="top" secondItem="nh8-IS-aSE" secondAttribute="bottom" constant="100" id="5jx-iL-67r"/>
+                            <constraint firstItem="QR3-Hv-MI7" firstAttribute="top" secondItem="nh8-IS-aSE" secondAttribute="bottom" constant="40" id="5jx-iL-67r"/>
                             <constraint firstItem="f1X-Qv-z4f" firstAttribute="centerY" secondItem="QR3-Hv-MI7" secondAttribute="centerY" id="7dN-6y-P51"/>
                             <constraint firstItem="qoj-qB-IDe" firstAttribute="centerX" secondItem="R1G-HH-wpP" secondAttribute="centerX" id="8cQ-UV-yOH"/>
+                            <constraint firstItem="o14-Cv-7VP" firstAttribute="trailing" secondItem="PAe-1Q-VPP" secondAttribute="trailing" constant="35" id="AFl-zP-h6c"/>
                             <constraint firstItem="Puf-Ao-A5c" firstAttribute="centerY" secondItem="irx-Cy-k6U" secondAttribute="centerY" id="Guh-ao-YWY"/>
                             <constraint firstItem="Puf-Ao-A5c" firstAttribute="trailing" secondItem="f1X-Qv-z4f" secondAttribute="trailing" id="Km9-JU-ooR"/>
-                            <constraint firstItem="bPD-jf-2wY" firstAttribute="top" secondItem="irx-Cy-k6U" secondAttribute="bottom" constant="50" id="NNU-DP-ecI"/>
-                            <constraint firstItem="bPD-jf-2wY" firstAttribute="leading" secondItem="o14-Cv-7VP" secondAttribute="leading" constant="35" id="SfQ-Gu-POS"/>
                             <constraint firstItem="QR3-Hv-MI7" firstAttribute="leading" secondItem="o14-Cv-7VP" secondAttribute="leading" constant="35" id="U6p-Ul-eDe"/>
                             <constraint firstItem="nh8-IS-aSE" firstAttribute="top" secondItem="o14-Cv-7VP" secondAttribute="top" constant="30" id="W3w-i7-AFW"/>
                             <constraint firstItem="Puf-Ao-A5c" firstAttribute="leading" secondItem="irx-Cy-k6U" secondAttribute="trailing" constant="25" id="a3I-2G-AIL"/>
-                            <constraint firstItem="a4d-2v-3Ah" firstAttribute="centerY" secondItem="bPD-jf-2wY" secondAttribute="centerY" id="aF2-oE-8Md"/>
-                            <constraint firstItem="a4d-2v-3Ah" firstAttribute="leading" secondItem="Puf-Ao-A5c" secondAttribute="leading" id="aqd-h0-VQ4"/>
                             <constraint firstItem="f1X-Qv-z4f" firstAttribute="leading" secondItem="Puf-Ao-A5c" secondAttribute="leading" id="dEB-QX-1he"/>
                             <constraint firstItem="nh8-IS-aSE" firstAttribute="centerX" secondItem="R1G-HH-wpP" secondAttribute="centerX" id="e8R-rR-aCl"/>
+                            <constraint firstItem="PAe-1Q-VPP" firstAttribute="top" secondItem="Puf-Ao-A5c" secondAttribute="bottom" constant="40" id="gMe-Jq-W2r"/>
+                            <constraint firstItem="PAe-1Q-VPP" firstAttribute="leading" secondItem="o14-Cv-7VP" secondAttribute="leading" constant="35" id="hRT-rc-cio"/>
                             <constraint firstItem="o14-Cv-7VP" firstAttribute="bottom" secondItem="qoj-qB-IDe" secondAttribute="bottom" constant="35" id="iiS-55-uup"/>
-                            <constraint firstItem="irx-Cy-k6U" firstAttribute="top" secondItem="QR3-Hv-MI7" secondAttribute="bottom" constant="50" id="pOH-ek-ULD"/>
-                            <constraint firstItem="a4d-2v-3Ah" firstAttribute="trailing" secondItem="Puf-Ao-A5c" secondAttribute="trailing" id="xAH-Re-VEZ"/>
+                            <constraint firstItem="irx-Cy-k6U" firstAttribute="top" secondItem="QR3-Hv-MI7" secondAttribute="bottom" constant="40" id="pOH-ek-ULD"/>
                             <constraint firstItem="irx-Cy-k6U" firstAttribute="leading" secondItem="o14-Cv-7VP" secondAttribute="leading" constant="35" id="yHP-qG-LYw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o14-Cv-7VP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Delegate" image="delegate" selectedImage="delegate" id="zby-bN-3bw"/>
+                    <tabBarItem key="tabBarItem" title="Pass On" image="delegate" selectedImage="delegate" id="zby-bN-3bw"/>
                     <connections>
                         <outlet property="dateSelection" destination="f1X-Qv-z4f" id="94z-bB-t1P"/>
+                        <outlet property="reasonTextView" destination="l98-E1-Jyx" id="9F6-qQ-TYU"/>
                         <outlet property="roomSelection" destination="Puf-Ao-A5c" id="TyB-89-DQf"/>
-                        <outlet property="trainerSelection" destination="a4d-2v-3Ah" id="daU-v0-JXJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A6U-Co-LHh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="842" y="748"/>
+            <point key="canvasLocation" x="840.57971014492762" y="747.99107142857144"/>
         </scene>
     </scenes>
     <resources>

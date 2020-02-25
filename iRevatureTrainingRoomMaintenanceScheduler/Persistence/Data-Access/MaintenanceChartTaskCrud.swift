@@ -7,12 +7,9 @@
 //
 
 extension MaintenanceChartTaskTable {
-    static func insert(maintenanceChartID: Int, tasks: [(id: Int, completed: Bool)]) -> Bool {
-        
-        for task in tasks {
-            if !Database.execute(insertStatement: MaintenanceChartTaskTable.insertStatement(maintencanceChartID: maintenanceChartID, taskID: task.id, completed: task.completed), fromDatabase: DatabaseInfo.databaseName) {
-                return false
-            }
+    static func insert(maintenanceChartID: Int, taskID: Int, taskCompleted: Bool) -> Bool {
+        if !Database.execute(insertStatement: MaintenanceChartTaskTable.insertStatement(maintencanceChartID: maintenanceChartID, taskID: taskID, completed: taskCompleted), fromDatabase: DatabaseInfo.databaseName) {
+            return false
         }
         
         return true

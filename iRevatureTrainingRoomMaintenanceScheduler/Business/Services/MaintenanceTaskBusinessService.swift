@@ -24,21 +24,27 @@ class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
             }
         }
         
+        chartID = getChartID(room: room, date: date, isCompleted: roomCompleted)
         
-        if let chart = MaintenanceChartTable.getByDate(roomID: room.id, date: date) {
-            chartID = chart.maintenanceChartID
-            MaintenanceChartTable.update(maintenanceChartID: chart.maintenanceChartID, completed: roomCompleted, inspectedByID: nil)
-        } else {
-            guard let idHolder = MaintenanceChartTable.insert(roomID: room.id, assignedUserID: 1, completed: roomCompleted) else { return false }
-            
-            chartID = idHolder
-        }
-        
+//
+//        if let chart = MaintenanceChartTable.getByDate(roomID: room.id, date: date) {
+//            chartID = chart.maintenanceChartID
+//            MaintenanceChartTable.update(maintenanceChartID: chart.maintenanceChartID, completed: roomCompleted, inspectedByID: nil)
+//        } else {
+//            guard let idHolder = MaintenanceChartTable.insert(roomID: room.id, assignedUserID: 1, completed: roomCompleted) else { return false }
+//
+//            chartID = idHolder
+//        }
+//
         
         for task in taskList {
-            if !MaintenanceChartTaskTable.update(maintenanceChartID: chartID, taskID: task.id, completed: task.completed) {
+
+            if MaintenanceChartTaskTable.getByMaintenanceChart(maintenanceChartID: chartID) == nil {
                 MaintenanceChartTaskTable.insert(maintenanceChartID: chartID, taskID: task.id, taskCompleted: task.completed)
+            } else {
+                MaintenanceChartTaskTable.update(maintenanceChartID: chartID, taskID: task.id, completed: task.completed)
             }
+            
         }
         
         
@@ -58,6 +64,19 @@ class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
             return []
         }
         return tasks.map{MaintenanceTask(id: $0.roomTaskID, name: $0.taskName, completed: false)}
+    }
+    
+    private static func getChartID(room: RoomName, date: Date, isCompleted: Bool) -> Int {
+        var id: Int
+        if let chart = MaintenanceChartTable.getByDate(roomID: room.id, date: date) {
+            id = chart.maintenanceChartID
+            MaintenanceChartTable.update(maintenanceChartID: chart.maintenanceChartID, completed: isCompleted, inspectedByID: nil)
+        } else {
+            guard let idHolder = MaintenanceChartTable.insert(roomID: room.id, assignedUserID: 1, completed: isCompleted) else { return -1 }
+            
+            id = idHolder
+        }
+        return id
     }
     
 }

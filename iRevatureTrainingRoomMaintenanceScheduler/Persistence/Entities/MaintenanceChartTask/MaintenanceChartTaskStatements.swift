@@ -6,4 +6,28 @@
 //  Copyright © 2020 revature. All rights reserved.
 //
 
-import Foundation
+extension MaintenanceChartTaskTable {
+    static func insertStatement(maintencanceChartID: Int, taskID: Int, completed: Bool) -> InsertStatement {
+        
+        var insertChartTask = InsertStatement(table: table)
+        insertChartTask.specifyValue(columnName: ColumnName.apiID.rawValue, columnValue: "")
+        insertChartTask.specifyValue(columnName: ColumnName.taskID.rawValue, columnValue: taskID)
+        insertChartTask.specifyValue(columnName: ColumnName.maintenanceChartID.rawValue, columnValue: maintencanceChartID)
+        insertChartTask.specifyValue(columnName: ColumnName.completed.rawValue, columnValue: completed)
+        
+        return insertChartTask
+    }
+    
+    static func updateStatement(maintenanceChartID: Int, taskID: Int, completed: Bool) -> UpdateStatement {
+        var updateStatement = UpdateStatement(table: table)
+        updateStatement.addValueChange(columnToUpdate: ColumnName.completed.rawValue, updatedValue: completed)
+        
+        var whereStatement = WhereStatement()
+        whereStatement.addStatement(table: table, columnName: ColumnName.maintenanceChartID.rawValue, expression: .EQUALS, columnValue: maintenanceChartID)
+        whereStatement.addStatement(table: table, clause: .AND, columnName: ColumnName.taskID.rawValue, expression: .EQUALS, columnValue: taskID)
+        
+        updateStatement.setWhereStatement(statement: whereStatement)
+        
+        return updateStatement
+    }
+}

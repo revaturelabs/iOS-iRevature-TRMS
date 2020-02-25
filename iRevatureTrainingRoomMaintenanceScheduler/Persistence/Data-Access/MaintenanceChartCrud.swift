@@ -10,6 +10,17 @@ import Foundation
 import os.log
 
 extension MaintenanceChartTable {
+    
+    static func getByDate(roomID: Int, date: Date) -> (maintenanceChartID: Int, isCleaned: Bool)? {
+        let statement = getByDateStatement(roomID: roomID, date: date)
+        
+        guard let result = Database.execute(selectStatement: statement, fromDatabase: DatabaseInfo.databaseName), let resultStruct = applyDataToStruct(result: result) else {
+            return nil
+        }
+        
+        return (maintenanceChartID: resultStruct[0].id, isCleaned: resultStruct[0].cleaned)
+    }
+    
     static func getMaintenanceChartRange(databaseName: String, roomID: Int, startDate: Date, endDate: Date) -> [(maintenanceChartID: Int, maintenanceChartDate: Date, maintenanceChartCleaned: Bool)]? {
         
         let statement = getMaintenanceChartRangeStatement(roomID: roomID, startDate: startDate, endDate: endDate)
@@ -31,6 +42,32 @@ extension MaintenanceChartTable {
 
         return maintenanceChartArray
         
+    }
+    
+    //Insert new Maintenance Chart
+    static func insert(roomID: Int, assignedUserID: Int, completed: Bool) -> Int? {
+        if getByDate(roomID: roomID, date: Date())?.maintenanceChartID != nil {
+            return nil
+        }
+        
+        if !Database.execute(insertStatement: MaintenanceChartTable.insertStatement(roomID: roomID, assignedUserID: assignedUserID, completed: completed), fromDatabase: DatabaseInfo.databaseName) {
+            return nil
+        }
+        
+        guard let chartID = getByDate(roomID: roomID, date: Date())?.maintenanceChartID else {
+            return nil
+        }
+        
+        return chartID
+    }
+    
+    //Update Maintenance Chart
+    static func update(maintenanceChartID: Int, completed: Bool?, inspectedByID: Int?) -> Bool {
+        if !Database.execute(updateStatement: updateStatement(maintenanceChartID: maintenanceChartID, completed: completed, inspectedByID: inspectedByID), fromDatabase: DatabaseInfo.databaseName) {
+            return false
+        }
+        
+        return true
     }
     
     static func applyDataToStruct(result: [[String : Any]]) -> [MaintenanceChartTable.MaintenanceChart]? {

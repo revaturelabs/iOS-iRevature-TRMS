@@ -74,6 +74,7 @@
 		09F2BE1D2404C1B6004A6F47 /* RoomStatements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE1C2404C1B6004A6F47 /* RoomStatements.swift */; };
 		09F2BE202404C20A004A6F47 /* MaintenanceChartStatements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE1F2404C20A004A6F47 /* MaintenanceChartStatements.swift */; };
 		09F2BE232404C226004A6F47 /* MaintenanceChartTaskStatements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE222404C226004A6F47 /* MaintenanceChartTaskStatements.swift */; };
+		09F2BE2524058036004A6F47 /* MaintenanceChartTaskCrud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F2BE2424058036004A6F47 /* MaintenanceChartTaskCrud.swift */; };
 		5F43914323FDC0BA003A390F /* DelegateTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F43914223FDC0BA003A390F /* DelegateTask.storyboard */; };
 		5F43914923FDF77C003A390F /* RoomBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43914823FDF77C003A390F /* RoomBusinessService.swift */; };
 		5F43914B23FDF841003A390F /* RoomProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43914A23FDF841003A390F /* RoomProtocol.swift */; };
@@ -187,6 +188,7 @@
 		09F2BE1C2404C1B6004A6F47 /* RoomStatements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomStatements.swift; sourceTree = "<group>"; };
 		09F2BE1F2404C20A004A6F47 /* MaintenanceChartStatements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceChartStatements.swift; sourceTree = "<group>"; };
 		09F2BE222404C226004A6F47 /* MaintenanceChartTaskStatements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceChartTaskStatements.swift; sourceTree = "<group>"; };
+		09F2BE2424058036004A6F47 /* MaintenanceChartTaskCrud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintenanceChartTaskCrud.swift; sourceTree = "<group>"; };
 		5F43914223FDC0BA003A390F /* DelegateTask.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = DelegateTask.storyboard; path = iRevatureTrainingRoomMaintenanceScheduler/Storyboard/DelegateTask/DelegateTask.storyboard; sourceTree = SOURCE_ROOT; };
 		5F43914823FDF77C003A390F /* RoomBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomBusinessService.swift; sourceTree = "<group>"; };
 		5F43914A23FDF841003A390F /* RoomProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomProtocol.swift; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 				09AD92E12404AAE900B09A1C /* MaintenanceChartCrud.swift */,
 				09AD92E32404AB5200B09A1C /* RoomTaskCrud.swift */,
 				09AD92E52404ABA700B09A1C /* UserCrud.swift */,
+				09F2BE2424058036004A6F47 /* MaintenanceChartTaskCrud.swift */,
 			);
 			path = "Data-Access";
 			sourceTree = "<group>";
@@ -836,6 +839,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09F2BE2524058036004A6F47 /* MaintenanceChartTaskCrud.swift in Sources */,
 				091B7F4623F73831009D7A77 /* ViewController.swift in Sources */,
 				09F2BE172404C188004A6F47 /* UserStatements.swift in Sources */,
 				5F43915123FE1B45003A390F /* DateExtension.swift in Sources */,

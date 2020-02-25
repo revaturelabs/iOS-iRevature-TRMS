@@ -10,9 +10,14 @@ import Foundation
 
 class ReportBusinessService : ReportProtocol {
     
-    static func getAllReports() -> [Status]{
+    static func getAllReports(room: Room, startDate:Date, endDate:Date) -> [Status] {
         //code to get all reports
-        return[]
+        guard let reports =  SQLiteProcedures.getMaintenanceChartRange(databaseName: DatabaseInfo.databaseName, roomID: room.id, startDate: startDate, endDate: endDate) else {
+            return []
+        }
+        
+        return reports.map{Status(roomName: room.name, date: $0.maintenanceChartDate, isClean: $0.maintenanceChartCleaned)
+        }
     }
     
     static func getAllReportsforUser(user:User) -> [Status] {

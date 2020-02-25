@@ -10,7 +10,7 @@ import Foundation
 
 protocol ReportProtocol {
     
-    static func getAllReports() -> [Status]
+    static func getAllReports(room: Room, startDate: Date, endDate: Date) -> [Status]
     
     static func getAllReportsforUser(user:User) -> [Status]
     

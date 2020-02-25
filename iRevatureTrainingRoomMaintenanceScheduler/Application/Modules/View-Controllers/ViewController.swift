@@ -30,7 +30,10 @@ class ViewController: UIViewController {
             passwordTextField.delegate = self
         }
         
-
+        DropAllTables.runScript()
+        CreateAllTables.runScript()
+        InsertDataIntoTables.runScript()
+        
 //        CreateAllTables.runScript()
         
 //        let filePath = DatabaseAccess.getDatabaseFilePath(name: DatabaseInfo.databaseName, pathDirectory: DatabaseInfo.databaseDirectory, domainMask: DatabaseInfo.databaseDomainMask)

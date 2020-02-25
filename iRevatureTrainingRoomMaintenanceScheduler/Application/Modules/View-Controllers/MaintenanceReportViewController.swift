@@ -21,6 +21,8 @@ class MaintenanceReportViewController: RevatureBaseViewController {
     
     var filteredList: [Status] = [Status]()
     var roomList: [Status] = [Status]()
+    
+    let dateFormat = "MMM dd, yy"
 
     
     override func viewDidLoad() {
@@ -57,14 +59,20 @@ extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         filteredList.removeAll()
         
-        for room in roomList {
-            if room.roomName == roomID.text &&
-               room.date <= pickerDateFormat.date(from: endDate.text!)! &&
-               room.date >= pickerDateFormat.date(from: startDate.text!)! {
-                
-                filteredList.append(room)
-            }
-        }
+        var myRoom = Room(id: 1, name: "Room 200", campus: "USF", location: "Tampa", assignedTo: "Uday", assignedTasks: [])
+        
+        var rooms = ReportBusinessService.getAllReports(room: myRoom, startDate: startDate.text!.toDate(from: dateFormat), endDate: endDate.text!.toDate(from: dateFormat))
+        
+//        for room in roomList {
+//            if room.roomName == roomID.text &&
+//               room.date <= pickerDateFormat.date(from: endDate.text!)! &&
+//               room.date >= pickerDateFormat.date(from: startDate.text!)! {
+//
+//                filteredList.append(room)
+//            }
+//        }
+        
+        filteredList = rooms
         
         return filteredList.count
     }

@@ -10,9 +10,11 @@ extension MaintenanceChartTaskTable {
     
     static func getByMaintenanceChart(maintenanceChartID: Int) -> [MaintenanceChartTask]? {
         guard let result = Database.execute(selectStatement: getByMaintenanceChartIDStatement(maintenanceChartID: maintenanceChartID), fromDatabase: DatabaseInfo.databaseName), let resultStruct = applyDataToStruct(result: result) else {
+            print("failed in guard")
             return nil
         }
         
+        print("result struct \(resultStruct)")
         return resultStruct
     }
     
@@ -48,6 +50,8 @@ extension MaintenanceChartTaskTable {
                     maintenanceChartTask.id = value as! Int
                 case ColumnName.apiID.rawValue:
                     maintenanceChartTask.apiID = ""
+                case ColumnName.taskID.rawValue:
+                    maintenanceChartTask.taskID = value as! Int
                 case ColumnName.maintenanceChartID.rawValue:
                     maintenanceChartTask.maintenanceChartID = value as! Int
                 case ColumnName.completed.rawValue:

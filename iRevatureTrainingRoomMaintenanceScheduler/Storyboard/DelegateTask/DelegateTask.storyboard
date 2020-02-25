@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Delegate-->
+        <!--Pass On-->
         <scene sceneID="u7P-Ql-mrI">
             <objects>
                 <viewController id="R0H-h9-kha" customClass="DelegateTaskViewController" customModule="iRevatureTrainingRoomMaintenanceScheduler" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delegate Task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nh8-IS-aSE">
-                                <rect key="frame" x="133.5" y="74" width="147" height="26"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Switch Request" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nh8-IS-aSE">
+                                <rect key="frame" x="90.5" y="74" width="233" height="26"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,8 +51,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoj-qB-IDe" customClass="RevatureButton" customModule="iRevatureTrainingRoomMaintenanceScheduler" customModuleProvider="target">
-                                <rect key="frame" x="166.5" y="797" width="81" height="30"/>
-                                <state key="normal" title="Assign Task"/>
+                                <rect key="frame" x="152.5" y="797" width="109" height="30"/>
+                                <state key="normal" title="Submit Request"/>
                                 <connections>
                                     <action selector="assignTask:" destination="R0H-h9-kha" eventType="touchDown" id="Wul-E5-FYi"/>
                                 </connections>
@@ -87,7 +87,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o14-Cv-7VP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Delegate" image="delegate" selectedImage="delegate" id="zby-bN-3bw"/>
+                    <tabBarItem key="tabBarItem" title="Pass On" image="delegate" selectedImage="delegate" id="zby-bN-3bw"/>
                     <connections>
                         <outlet property="dateSelection" destination="f1X-Qv-z4f" id="94z-bB-t1P"/>
                         <outlet property="roomSelection" destination="Puf-Ao-A5c" id="TyB-89-DQf"/>

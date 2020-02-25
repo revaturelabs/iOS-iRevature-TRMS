@@ -1,5 +1,5 @@
 //
-//  TaskTable.swift
+//  CampusTable.swift
 //  iRevatureTrainingRoomMaintenanceScheduler
 //
 //  Created by Mark Hawkins on 2/21/20.
@@ -7,10 +7,10 @@
 //
 
 //============================
-    //Task Table
+    //Campus Table
 //============================
-struct TaskTable {
-    private static let tableName = "task"
+struct CampusTable: DatabaseTable {
+    private static let tableName = "campus"
     
     //Column name abstraction
     enum ColumnName: String {
@@ -19,7 +19,7 @@ struct TaskTable {
         case name
     }
     
-    //Room Struct to return from select statement
+    //Campus Struct to return from select statement
     struct User {
         var id: Int
         var apiID: String
@@ -31,7 +31,7 @@ struct TaskTable {
             self.name = String()
         }
         
-        init(id: Int, apiID: String, name: String) {
+        init(id: Int, name: String, apiID: String, roleID: Int) {
             self.id = id
             self.apiID = apiID
             self.name = name
@@ -40,12 +40,12 @@ struct TaskTable {
     
 
     static var table: SQLiteTable {
-        var taskTable = SQLiteTable(tableName: tableName)
+        var campusTable = SQLiteTable(tableName: tableName)
         
-        taskTable.addColumn(columnName: ColumnName.id.rawValue, dataType: .INTEGER, constraints: .PRIMARYKEY, .AUTOINCREMENT, .NOTNULL)
-        taskTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
-        taskTable.addColumn(columnName: ColumnName.name.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
+        campusTable.addColumn(columnName: ColumnName.id.rawValue, dataType: .INTEGER, constraints: .PRIMARYKEY, .AUTOINCREMENT, .NOTNULL)
+        campusTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
+        campusTable.addColumn(columnName: ColumnName.name.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
         
-        return taskTable
+        return campusTable
     }
 }

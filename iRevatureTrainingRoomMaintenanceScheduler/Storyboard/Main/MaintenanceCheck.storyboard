@@ -92,6 +92,7 @@
                     <connections>
                         <outlet property="currentDate" destination="TQJ-MD-DKh" id="75S-Hg-lGX"/>
                         <outlet property="selectorTextField" destination="I0t-Kn-T07" id="efd-vb-I9D"/>
+                        <outlet property="submitButton" destination="eNe-WR-8qi" id="yNK-iu-75f"/>
                         <outlet property="taskTable" destination="o94-w0-GaP" id="jo4-1e-ZIR"/>
                     </connections>
                 </viewController>

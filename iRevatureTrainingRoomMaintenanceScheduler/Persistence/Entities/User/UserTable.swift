@@ -9,7 +9,7 @@
 //============================
     //User Table
 //============================
-struct UserTable {
+struct UserTable: DatabaseTable {
     private static let tableName = "user"
     
     //Column name abstraction

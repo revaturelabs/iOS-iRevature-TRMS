@@ -9,7 +9,7 @@
 //============================
     //Location Table
 //============================
-struct LocationTable {
+struct LocationTable: DatabaseTable {
     private static let tableName = "location"
     
     //Column name abstraction

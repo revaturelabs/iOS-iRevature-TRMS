@@ -55,7 +55,7 @@ struct RoomTable: DatabaseTable {
         var roomTable = SQLiteTable(tableName: tableName)
         
         roomTable.addColumn(columnName: ColumnName.id.rawValue, dataType: .INTEGER, constraints: .PRIMARYKEY, .AUTOINCREMENT, .NOTNULL)
-        roomTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
+        roomTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL)
         roomTable.addColumn(columnName: ColumnName.name.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
         roomTable.addColumn(columnName: ColumnName.location.rawValue, dataType: .INT, constraints: .NOTNULL)
         roomTable.addColumn(columnName: ColumnName.campus.rawValue, dataType: .INT, constraints: .NOTNULL)

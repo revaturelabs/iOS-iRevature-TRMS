@@ -33,8 +33,11 @@ extension MaintenanceChartTaskTable {
     }
     
     static func applyDataToStruct(result: [[String : Any]]) -> [MaintenanceChartTask]? {
+        if result.isEmpty {
+            return nil
+        }
         
-        var maintenanceChartTaskArray = result.isEmpty ? nil : [MaintenanceChartTask]()
+        var maintenanceChartTaskArray = [MaintenanceChartTask]()
         
         for row in result {
             var maintenanceChartTask = MaintenanceChartTask()
@@ -54,9 +57,7 @@ extension MaintenanceChartTaskTable {
                 }
             }
             
-            if maintenanceChartTaskArray != nil {
-                maintenanceChartTaskArray!.append(maintenanceChartTask)
-            }
+            maintenanceChartTaskArray.append(maintenanceChartTask)
         }
 
         return maintenanceChartTaskArray

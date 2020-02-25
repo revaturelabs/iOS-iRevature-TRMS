@@ -23,7 +23,7 @@ struct MaintenanceChartTaskTable: DatabaseTable {
     }
     
     //Room Struct to return from select statement
-    struct User {
+    struct MaintenanceChartTask {
         var id: Int
         var apiID: String
         var completed: Bool

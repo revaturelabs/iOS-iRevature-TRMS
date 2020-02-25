@@ -9,9 +9,19 @@
 extension UserTable {
     static func getAllStatement() -> SelectStatement {
         var selectStatement = SelectStatement()
-        selectStatement.specifyColumn(table: UserTable.table, columnName: UserTable.ColumnName.id.rawValue, asName: "id")
-        selectStatement.specifyColumn(table: UserTable.table, columnName: UserTable.ColumnName.name.rawValue, asName: "name")
+        selectStatement.specifyColumn(table: table, columnName: ColumnName.id.rawValue, asName: ColumnName.id.rawValue)
+        selectStatement.specifyColumn(table: table, columnName: ColumnName.apiID.rawValue, asName: ColumnName.apiID.rawValue)
+        selectStatement.specifyColumn(table: table, columnName: ColumnName.name.rawValue, asName: ColumnName.name.rawValue)
         
         return selectStatement
+    }
+    
+    static func insertStatement(userApiID: Int, userName: String, userLocation: Int) -> InsertStatement {
+        var insertStatement = InsertStatement(table: table)
+        insertStatement.specifyValue(columnName: ColumnName.apiID.rawValue, columnValue: userApiID)
+        insertStatement.specifyValue(columnName: ColumnName.name.rawValue, columnValue: userName)
+        insertStatement.specifyValue(columnName: ColumnName.locationID.rawValue, columnValue: userLocation)
+        
+        return insertStatement
     }
 }

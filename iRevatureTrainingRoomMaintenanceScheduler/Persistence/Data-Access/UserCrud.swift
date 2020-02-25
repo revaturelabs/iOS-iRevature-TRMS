@@ -7,44 +7,51 @@
 //
 
 import Foundation
+import os.log
 
 extension UserTable {
     static func getAll(databaseName: String) -> [(trainerId: Int, trainerName: String)]? {
-        guard let db = Database.getDatabase(databaseName: databaseName) else {
+        
+        guard let result = Database.execute(selectStatement: getAllStatement(), fromDatabase: DatabaseInfo.databaseName), let resultStruct = applyDataToStruct(result: result) else {
             return nil
         }
         
-        var selectStatement = SelectStatement()
-        selectStatement.specifyColumn(table: UserTable.table, columnName: UserTable.ColumnName.id.rawValue, asName: "id")
-        selectStatement.specifyColumn(table: UserTable.table, columnName: UserTable.ColumnName.name.rawValue, asName: "name")
+        var trainerArray = [(trainerId: Int, trainerName: String)]()
         
-        do {
-            let result = try db.selectData(statement: selectStatement)
-            var trainerArray = [(trainerId: Int, trainerName: String)]()
+        for data in resultStruct {
+            trainerArray.append((trainerId: data.id, trainerName: data.name))
+        }
 
-            for row in result {
-                var trainer = (trainerId: Int(), trainerName: String())
+        return trainerArray
+        
+    }
+    
+    static func applyDataToStruct(result: [[String : Any]]) -> [UserTable.User]? {
+        var userArray = result.isEmpty ? nil : [UserTable.User]()
+        
+        for row in result {
+            var user = UserTable.User()
 
-                for (columnName, value) in row {
-                    switch columnName {
-                    case "id":
-                        trainer.trainerId = value as! Int
-                    case "name":
-                        trainer.trainerName = value as! String
-                    default:
-                        return nil
-                    }
+            for (columnName, value) in row {
+                switch columnName {
+                case ColumnName.id.rawValue:
+                    user.id = value as! Int
+                case ColumnName.apiID.rawValue:
+                    user.apiID = value as! String
+                case ColumnName.name.rawValue:
+                    user.name = value as! String
+                case ColumnName.locationID.rawValue:
+                    user.locationID = value as! Int
+                default:
+                    return nil
                 }
-
-                trainerArray.append(trainer)
             }
 
-            return trainerArray
-        } catch {
-            
+            if userArray != nil {
+                userArray!.append(user)
+            }
         }
-        
-        return nil
-        
+
+        return userArray
     }
 }

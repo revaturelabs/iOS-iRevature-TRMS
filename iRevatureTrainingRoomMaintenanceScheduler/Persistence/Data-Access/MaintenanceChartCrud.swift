@@ -7,51 +7,63 @@
 //
 
 import Foundation
+import os.log
 
 extension MaintenanceChartTable {
     static func getMaintenanceChartRange(databaseName: String, roomID: Int, startDate: Date, endDate: Date) -> [(maintenanceChartID: Int, maintenanceChartDate: Date, maintenanceChartCleaned: Bool)]? {
-        guard let db = Database.getDatabase(databaseName: databaseName) else {
+        
+        let statement = getMaintenanceChartRangeStatement(roomID: roomID, startDate: startDate, endDate: endDate)
+        
+        guard let result = Database.execute(selectStatement: statement, fromDatabase: DatabaseInfo.databaseName), let resultStruct = applyDataToStruct(result: result) else {
             return nil
         }
         
-        let selectStatement = MaintenanceChartTable.getMaintenanceChartRangeStatement(roomID: roomID, startDate: startDate, endDate: endDate)
+        var maintenanceChartArray = [(maintenanceChartID: Int, maintenanceChartDate: Date, maintenanceChartCleaned: Bool)]()
         
-        do {
-            let result = try db.selectData(statement: selectStatement)
-            var maintenanceChartArray = [(maintenanceChartID: Int, maintenanceChartDate: Date, maintenanceChartCleaned: Bool)]()
-
-            for row in result {
-                var maintenanceChart = (maintenanceChartID: Int(), maintenanceChartDate: Date(), maintenanceChartCleaned: Bool())
-
-                for (columnName, value) in row {
-                    switch columnName {
-                    case "id":
-                        maintenanceChart.maintenanceChartID = value as! Int
-                    case "date":
-                        let dateString = value as! String
-                        
-                        guard let chartDate = SQLiteDateFormat.dateFormatter.date(from: dateString) else {
-                            print("failed in date")
-                            return nil
-                        }
-                        
-                        maintenanceChart.maintenanceChartDate = chartDate
-                    case "cleaned":
-                        maintenanceChart.maintenanceChartCleaned = value as! Bool
-                    default:
-                        return nil
-                    }
-                }
-
-                maintenanceChartArray.append(maintenanceChart)
+        //Apply struct to tuple for use else where
+        for data in resultStruct {
+            guard let date = SQLiteDateFormat.dateFormatter.date(from: data.date) else {
+                return nil
             }
-
-            return maintenanceChartArray
-        } catch {
-            print(error)
+            
+            maintenanceChartArray.append((maintenanceChartID: data.id, maintenanceChartDate: date, maintenanceChartCleaned: data.cleaned))
         }
+
+        return maintenanceChartArray
         
-        return nil
+    }
+    
+    static func applyDataToStruct(result: [[String : Any]]) -> [MaintenanceChartTable.MaintenanceChart]? {
         
+        var maintenanceChartArray = result.isEmpty ? nil : [MaintenanceChartTable.MaintenanceChart]()
+        
+        for row in result {
+            var maintenanceChart = MaintenanceChartTable.MaintenanceChart()
+
+            for (columnName, value) in row {
+                switch columnName {
+                case ColumnName.id.rawValue:
+                    maintenanceChart.id = value as! Int
+                case ColumnName.apiID.rawValue:
+                    maintenanceChart.apiID = value as! String
+                case ColumnName.date.rawValue:
+                    maintenanceChart.date = value as! String
+                case ColumnName.cleaned.rawValue:
+                    maintenanceChart.cleaned = value as! Bool
+                case ColumnName.roomID.rawValue:
+                    maintenanceChart.roomID = value as! Int
+                case ColumnName.inspectedByID.rawValue:
+                    maintenanceChart.inspectedByID = value as! Int
+                default:
+                    return nil
+                }
+            }
+            
+            if maintenanceChartArray != nil {
+                maintenanceChartArray!.append(maintenanceChart)
+            }
+        }
+
+        return maintenanceChartArray
     }
 }

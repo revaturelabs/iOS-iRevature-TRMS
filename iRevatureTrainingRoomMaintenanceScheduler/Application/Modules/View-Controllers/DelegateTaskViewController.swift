@@ -26,6 +26,10 @@ class DelegateTaskViewController: UIViewController {
         
         dateSelection.dateDropDown(dateFormat: "MMM dd, yy")
         roomSelection.showDropDown(data: roomList.map{$0.name})
+        
+        reasonTextView.layer.borderWidth = 1
+        reasonTextView.layer.borderColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0).cgColor
+        reasonTextView.layer.cornerRadius = 5.0
     
     }
     

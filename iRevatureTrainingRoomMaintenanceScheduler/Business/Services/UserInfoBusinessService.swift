@@ -11,7 +11,6 @@ import Foundation
 class UserInfoBusinessService: UserInfoProtocol {
     
     
-    
     static func getUserInfo() -> User? {
         let defaults = UserDefaults.standard
         
@@ -27,6 +26,7 @@ class UserInfoBusinessService: UserInfoProtocol {
         }
         
     }
+    
     
     static func setUserInfo(userObject: User) -> Bool {
         let defaults = UserDefaults.standard

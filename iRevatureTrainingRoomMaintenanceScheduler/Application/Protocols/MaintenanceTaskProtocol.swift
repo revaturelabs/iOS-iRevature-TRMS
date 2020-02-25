@@ -14,5 +14,5 @@ protocol MaintenanceTaskProtocol {
     
     static func getAllMaintenanceTasks() -> [MaintenanceTask]
     
-    static func getAllMaintenanceTasksByRoom(room: String) -> [MaintenanceTask]
+    static func getAllMaintenanceTasksByRoom(room: RoomName) -> [MaintenanceTask]
 }

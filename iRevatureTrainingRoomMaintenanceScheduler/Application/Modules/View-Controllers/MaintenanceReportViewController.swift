@@ -20,7 +20,6 @@ class MaintenanceReportViewController: RevatureBaseViewController {
     let pickerDateFormat = DateFormatter()
     
     var filteredList: [Status] = [Status]()
-//    var roomList: [Status] = [Status]()
     
     var rooms: [RoomName] = [RoomName]()
 
@@ -29,8 +28,7 @@ class MaintenanceReportViewController: RevatureBaseViewController {
         super.viewDidLoad()
         
         rooms = RoomBusinessService.getAllRooms()
-        
-//        roomList = ReportBusinessService.getAllReportsforUser(user: User(id: 1, email: "", name: "", role: "", token: "", keepLoggedIn: true))
+
         
         tableHeader.layer.cornerRadius = 8
         tableHeader.layer.masksToBounds = true

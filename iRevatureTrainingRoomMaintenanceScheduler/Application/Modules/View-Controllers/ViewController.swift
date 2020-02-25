@@ -29,10 +29,10 @@ class ViewController: UIViewController {
             emailTextField.delegate = self
             passwordTextField.delegate = self
         }
-
-        DropAllTables.runScript()
-        CreateAllTables.runScript()
-        InsertDataIntoTables.runScript()
+        
+//        DropAllTables.runScript()
+//        CreateAllTables.runScript()
+//        InsertDataIntoTables.runScript()
         
 //        CreateAllTables.runScript()
         

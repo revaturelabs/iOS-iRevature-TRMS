@@ -34,6 +34,7 @@ extension MaintenanceReportViewController {
     func showEmailComposer(){
         guard MFMailComposeViewController.canSendMail() else {
             //alert
+            Alert.showAlert(title: "No email", message: "Please set up email on your device", view: self, acceptButton: "Okay")
             return
         }
         

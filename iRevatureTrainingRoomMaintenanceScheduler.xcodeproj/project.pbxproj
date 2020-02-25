@@ -473,6 +473,7 @@
 		091B7F3523F73831009D7A77 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				09F2BE072404AF70004A6F47 /* RoomTask */,
 				09F2BE212404C20E004A6F47 /* MaintenanceChartTask */,
 				09F2BE1E2404C1C4004A6F47 /* MaintenanceChart */,
 				09F2BE1B2404C1AB004A6F47 /* Room */,
@@ -481,7 +482,6 @@
 				09F2BE122404C161004A6F47 /* Campus */,
 				09F2BE0F2404C139004A6F47 /* Location */,
 				09F2BE0A2404B180004A6F47 /* Task */,
-				09F2BE072404AF70004A6F47 /* RoomTask */,
 			);
 			path = Entities;
 			sourceTree = "<group>";

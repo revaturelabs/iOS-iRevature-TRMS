@@ -25,13 +25,14 @@ extension RoomTaskTable {
 
                 for (columnName, value) in row {
                     switch columnName {
-                    case "room_task_id":
+                    case RoomTable.ColumnName.id.rawValue:
                         roomTask.roomTaskID = value as! Int
-                    case "task_id":
+                    case TaskTable.ColumnName.id.rawValue:
                         roomTask.taskID = value as! Int
-                    case "task_name":
+                    case TaskTable.ColumnName.name.rawValue:
                         roomTask.taskName = value as! String
                     default:
+                        print("fail 2")
                         return nil
                     }
                 }
@@ -43,7 +44,7 @@ extension RoomTaskTable {
         } catch {
             
         }
-        
+        print("fail 3")
         return nil
         
     }

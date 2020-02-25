@@ -9,9 +9,6 @@
 import Foundation
 
 class RoomBusinessService: RoomProtocol {
-
-    //dummy task to build rooms
-    static let task = [RoomTask(id: 1, name: "Clean Room", dateStart: Date(timeIntervalSinceNow: -100000), dateEnd: Date(timeIntervalSinceNow: 100000))]
     
     static func getAllRooms() -> [RoomName] {
 
@@ -23,11 +20,7 @@ class RoomBusinessService: RoomProtocol {
     
     static func getRoomsByUser(user: User) -> [Room] {
         //code to get all rooms assigned to a user
-        
-        //dummy rooms
-        let rooms = [Room(id:1, name: "Room", campus: "USF", location: "USF", assignedTo: "Uday", assignedTasks: task)]
-        
-        return rooms
+        return []
     }
     
     static func getAllRoomNames() -> [String] {

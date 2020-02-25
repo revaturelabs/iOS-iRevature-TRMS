@@ -21,17 +21,7 @@ class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
     
     static func getAllMaintenanceTasks() -> [MaintenanceTask] {
         //code to get array of MaintenanceTasks
-
-        //dummy data
-        let tasks = [
-            MaintenanceTask(id: 1, name: "Clean Desks", completed: false),
-            MaintenanceTask(id: 1, name: "Clean Whiteboards", completed: false),
-            MaintenanceTask(id: 1, name: "Arrange Desks", completed: false),
-            MaintenanceTask(id: 1, name: "Arrange Chairs", completed: false),
-            MaintenanceTask(id: 1, name: "Vacuum", completed: false)
-        ]
-        
-        return tasks
+        return []
     }
     
     static func getAllMaintenanceTasksByRoom(room: RoomName) -> [MaintenanceTask] {

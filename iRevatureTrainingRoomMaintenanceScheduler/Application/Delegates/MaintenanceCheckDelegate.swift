@@ -25,6 +25,7 @@ extension MaintenanceCheckController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskSelectionCell", for: indexPath) as! TaskSelectionCell
+        
         let task = tasks[indexPath.row]
                
         cell.label.text = task.name

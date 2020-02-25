@@ -46,9 +46,7 @@ extension MaintenanceChartTable {
     
     //Insert new Maintenance Chart
     static func insert(roomID: Int, assignedUserID: Int, completed: Bool) -> Int? {
-        if getByDate(roomID: roomID, date: Date())?.maintenanceChartID != nil {
-            return nil
-        }
+
         
         if !Database.execute(insertStatement: MaintenanceChartTable.insertStatement(roomID: roomID, assignedUserID: assignedUserID, completed: completed), fromDatabase: DatabaseInfo.databaseName) {
             return nil

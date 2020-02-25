@@ -20,7 +20,7 @@ class MaintenanceReportViewController: RevatureBaseViewController {
     let pickerDateFormat = DateFormatter()
     
     var filteredList: [Status] = [Status]()
-    var roomList: [Status] = [Status]()
+//    var roomList: [Status] = [Status]()
     
     var rooms: [RoomName] = [RoomName]()
 
@@ -30,7 +30,7 @@ class MaintenanceReportViewController: RevatureBaseViewController {
         
         rooms = RoomBusinessService.getAllRooms()
         
-        roomList = ReportBusinessService.getAllReportsforUser(user: User(id: 1, email: "", name: "", role: "", token: "", keepLoggedIn: true))
+//        roomList = ReportBusinessService.getAllReportsforUser(user: User(id: 1, email: "", name: "", role: "", token: "", keepLoggedIn: true))
         
         tableHeader.layer.cornerRadius = 8
         tableHeader.layer.masksToBounds = true
@@ -59,20 +59,13 @@ class MaintenanceReportViewController: RevatureBaseViewController {
 extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        filteredList.removeAll()
-
-        let room = rooms.filter{$0.name == roomID.text!}
-        print(room)
-//        filteredList = ReportBusinessService.getAllReports(room: room[0], fromDate: pickerDateFormat.date(from: endDate.text!)!, toDate: pickerDateFormat.date(from: startDate.text!)!)
         
-//        for room in roomList {
-//            if room.roomName == roomID.text &&
-//               room.date <= pickerDateFormat.date(from: endDate.text!)! &&
-//               room.date >= pickerDateFormat.date(from: startDate.text!)! {
-//
-//                filteredList.append(room)
-//            }
-//        }
+        let fromDate = pickerDateFormat.date(from: startDate.text!)!
+        let toDate = pickerDateFormat.date(from: endDate.text!)!
+        
+        if let selectedRoom = rooms.first(where: {$0.name == roomID.text!}) {
+            filteredList = ReportBusinessService.getAllReports(room: selectedRoom, fromDate: fromDate, toDate: toDate)
+        }
         
         return filteredList.count
     }

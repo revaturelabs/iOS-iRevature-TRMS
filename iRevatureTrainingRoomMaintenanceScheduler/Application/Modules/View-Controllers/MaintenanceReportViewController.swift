@@ -20,20 +20,24 @@ class MaintenanceReportViewController: RevatureBaseViewController {
     let pickerDateFormat = DateFormatter()
     
     var filteredList: [Status] = [Status]()
-    var roomList: [Status] = [Status]()
+//    var roomList: [Status] = [Status]()
+    
+    var rooms: [RoomName] = [RoomName]()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        roomList = ReportBusinessService.getAllReportsforUser(user: User(id: 1, email: "", name: "", role: "", token: "", keepLoggedIn: true))
+        rooms = RoomBusinessService.getAllRooms()
+        
+//        roomList = ReportBusinessService.getAllReportsforUser(user: User(id: 1, email: "", name: "", role: "", token: "", keepLoggedIn: true))
         
         tableHeader.layer.cornerRadius = 8
         tableHeader.layer.masksToBounds = true
         
         startDate.dateDropDown(dateFormat: "MMM dd, yy")
         endDate.dateDropDown(dateFormat: "MMM dd, yy")
-        roomID.showDropDown(data: RoomBusinessService.getAllRoomNames())
+        roomID.showDropDown(data: rooms.map{$0.name})
         
         roomID.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .allEditingEvents)
         startDate.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .allEditingEvents)
@@ -55,15 +59,12 @@ class MaintenanceReportViewController: RevatureBaseViewController {
 extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        filteredList.removeAll()
         
-        for room in roomList {
-            if room.roomName == roomID.text &&
-               room.date <= pickerDateFormat.date(from: endDate.text!)! &&
-               room.date >= pickerDateFormat.date(from: startDate.text!)! {
-                
-                filteredList.append(room)
-            }
+        let fromDate = pickerDateFormat.date(from: startDate.text!)!
+        let toDate = pickerDateFormat.date(from: endDate.text!)!
+        
+        if let selectedRoom = rooms.first(where: {$0.name == roomID.text!}) {
+            filteredList = ReportBusinessService.getAllReports(room: selectedRoom, fromDate: fromDate, toDate: toDate)
         }
         
         return filteredList.count
@@ -73,7 +74,7 @@ extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDel
         let cell = reportTable.dequeueReusableCell(withIdentifier: "ReportCell", for: indexPath) as! ReportTableCell
         
         cell.dateLbl.text = filteredList[indexPath.row].roomName
-        cell.trainerLbl.text = filteredList[indexPath.row].date.formatDate(by: "MM-dd-yy")
+        cell.trainerLbl.text = filteredList[indexPath.row].date.formatDate(by: "MMM dd, yy")
             
         
         if filteredList[indexPath.row].isClean {

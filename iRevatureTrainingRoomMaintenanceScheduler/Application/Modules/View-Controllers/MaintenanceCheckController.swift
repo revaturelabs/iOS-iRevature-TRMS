@@ -21,7 +21,7 @@ class MaintenanceCheckController: UIViewController {
         super.viewDidLoad()
         
         tasks = MaintenanceTaskBusinessService.getAllMaintenanceTasks()
-        roomList = RoomBusinessService.getAllRoomNames()
+        roomList = RoomBusinessService.getAllRooms().map{$0.name}
         
         currentDate.text = Date().formatDate(by: "MMMM dd, yyyy")
 

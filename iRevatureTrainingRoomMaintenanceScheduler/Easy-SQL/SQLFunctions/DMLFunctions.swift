@@ -57,15 +57,13 @@ extension DatabaseAccess {
     //Delete Row From Table
 //===============================================================================================
     func deleteRow(statement: DeleteStatement) throws {
+        
         //Prepare the SQL statement
-        guard let whereStatement = statement.makeStatement() else {
+        guard let statement = statement.makeStatement() else {
             throw SQLiteError.Delete(message: "Unable to prepare Delete statement")
         }
 
-        let statement = "\(SQLiteKeyword.DELETE) \(SQLiteKeyword.FROM) \(statement.table.getTableName()) \(whereStatement);"
         let deleteStatement = try prepareStatement(sqlStatement: statement, statementType: .prepare_v2)
-
-        print(statement)
 
         //Call after function to destroy statement
         defer {

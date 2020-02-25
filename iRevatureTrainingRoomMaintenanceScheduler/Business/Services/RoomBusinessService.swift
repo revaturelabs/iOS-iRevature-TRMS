@@ -13,17 +13,12 @@ class RoomBusinessService: RoomProtocol {
     //dummy task to build rooms
     static let task = [RoomTask(id: 1, name: "Clean Room", dateStart: Date(timeIntervalSinceNow: -100000), dateEnd: Date(timeIntervalSinceNow: 100000))]
     
-    static func getAllRooms() -> [Room] {
-        //code to get all rooms from persistence layer
-        
-        //dummy rooms
-        var rooms = [Room]()
-        for i in 1...10 {
-            let room = Room(id: i, name: "Room \(i)", campus: "USF", location: "USF", assignedTo: "Uday", assignedTasks: task)
-            rooms.append(room)
-        }
+    static func getAllRooms() -> [RoomName] {
 
-        return rooms
+        guard let rooms = RoomTable.getAll(databaseName: DatabaseInfo.databaseName) else {
+            return [RoomName(id: 0, name: "No rooms available")]
+        }
+        return rooms.map{RoomName(id: $0.roomID, name: $0.roomName)}
     }
     
     static func getRoomsByUser(user: User) -> [Room] {
@@ -37,11 +32,7 @@ class RoomBusinessService: RoomProtocol {
     
     static func getAllRoomNames() -> [String] {
         let allRooms = getAllRooms()
-        var roomNames = [String]()
-        for room in allRooms {
-            roomNames.append(room.name)
-        }
-        return roomNames
+        return allRooms.map{$0.name}
     }
     
 }

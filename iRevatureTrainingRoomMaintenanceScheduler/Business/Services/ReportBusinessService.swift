@@ -10,10 +10,14 @@ import Foundation
 
 class ReportBusinessService : ReportProtocol {
     
-    static func getAllReports() -> [Status]{
+    static func getAllReports(room: RoomName, fromDate:Date, toDate:Date) -> [Status] {
         //code to get all reports
-        return[]
+        guard let reports = MaintenanceChartTable.getMaintenanceChartRange(databaseName: DatabaseInfo.databaseName, roomID: room.id, startDate: fromDate, endDate: toDate) else {
+            return []
+        }
+        return reports.map{Status(roomName: room.name, date: $0.maintenanceChartDate, isClean: $0.maintenanceChartCleaned)}
     }
+    
     
     static func getAllReportsforUser(user:User) -> [Status] {
         //code to get reports for given Trainer

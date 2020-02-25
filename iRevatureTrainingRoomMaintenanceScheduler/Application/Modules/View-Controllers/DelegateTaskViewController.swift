@@ -18,17 +18,18 @@ class DelegateTaskViewController: UIViewController {
     
     var roomList = [RoomName]()
     
-    var trainerList = [String]()
+    var trainerList = [Trainer]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         roomList = RoomBusinessService.getAllRooms()
-        trainerList = TrainerBusinessService.getAllTrainerNames()
+        trainerList = TrainerBusinessService.getAllTrainers()
         
         dateSelection.dateDropDown(dateFormat: "MMM dd, yy")
         roomSelection.showDropDown(data: roomList.map{$0.name})
-        trainerSelection.showDropDown(data: trainerList)
+        trainerSelection.showDropDown(data: trainerList.count == 0 ? ["No trainers available"] : trainerList.map{$0.name})
+        
 
     }
     

@@ -10,20 +10,28 @@ import Foundation
 import os.log
 
 extension UserTable {
-    static func getAll(databaseName: String) -> [(trainerId: Int, trainerName: String)]? {
+    static func getAll(databaseName: String) -> [(trainerId: Int, trainerApiID: String, trainerName: String)]? {
         
         guard let result = Database.execute(selectStatement: getAllStatement(), fromDatabase: DatabaseInfo.databaseName), let resultStruct = applyDataToStruct(result: result) else {
             return nil
         }
         
-        var trainerArray = [(trainerId: Int, trainerName: String)]()
+        var trainerArray = [(trainerId: Int, trainerApiID: String, trainerName: String)]()
         
         for data in resultStruct {
-            trainerArray.append((trainerId: data.id, trainerName: data.name))
+            trainerArray.append((trainerId: data.id, trainerApiID: data.apiID, trainerName: data.name))
         }
 
         return trainerArray
         
+    }
+    
+    static func insert(userApiID: Int, userName: String, userLocation: Int) -> Bool {
+        if !Database.execute(insertStatement: insertStatement(userApiID: userApiID, userName: userName, userLocation: userLocation), fromDatabase: DatabaseInfo.databaseName) {
+            return false
+        }
+        
+        return true
     }
     
     static func applyDataToStruct(result: [[String : Any]]) -> [UserTable.User]? {

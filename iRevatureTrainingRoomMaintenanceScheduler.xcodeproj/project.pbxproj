@@ -49,6 +49,7 @@
 		096F2D3623FF6BBA0021D616 /* SQLTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F2D3523FF6BBA0021D616 /* SQLTables.swift */; };
 		096F2D3823FF75990021D616 /* CreateAllTables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F2D3723FF75990021D616 /* CreateAllTables.swift */; };
 		096F2D3B23FF76550021D616 /* PersistanceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096F2D3A23FF76550021D616 /* PersistanceConstants.swift */; };
+		09AD92E024049B7300B09A1C /* RoomCrud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AD92DF24049B7300B09A1C /* RoomCrud.swift */; };
 		09D255C624006B1300AC16FB /* UserRoleTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255C524006B1300AC16FB /* UserRoleTable.swift */; };
 		09D255C82400705E00AC16FB /* CampusTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255C72400705E00AC16FB /* CampusTable.swift */; };
 		09D255CA2400713000AC16FB /* RoomTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D255C92400713000AC16FB /* RoomTable.swift */; };
@@ -149,6 +150,7 @@
 		096F2D3523FF6BBA0021D616 /* SQLTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLTables.swift; sourceTree = "<group>"; };
 		096F2D3723FF75990021D616 /* CreateAllTables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAllTables.swift; sourceTree = "<group>"; };
 		096F2D3A23FF76550021D616 /* PersistanceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceConstants.swift; sourceTree = "<group>"; };
+		09AD92DF24049B7300B09A1C /* RoomCrud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomCrud.swift; sourceTree = "<group>"; };
 		09D255C524006B1300AC16FB /* UserRoleTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRoleTable.swift; sourceTree = "<group>"; };
 		09D255C72400705E00AC16FB /* CampusTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusTable.swift; sourceTree = "<group>"; };
 		09D255C92400713000AC16FB /* RoomTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTable.swift; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				09D255D72404215900AC16FB /* Easy_SQL_Statements.swift */,
 				09D255DB240456C100AC16FB /* InsertData.swift */,
 				09D255DD2404594700AC16FB /* LocationCrud.swift */,
+				09AD92DF24049B7300B09A1C /* RoomCrud.swift */,
 			);
 			path = "Data-Access";
 			sourceTree = "<group>";
@@ -771,6 +774,7 @@
 				0922755123FC7B230062950E /* SQLKeywords.swift in Sources */,
 				0922757723FE5F320062950E /* UpdateStatement.swift in Sources */,
 				5FC0AC1A2404202E000BEEB6 /* TaskAPI.swift in Sources */,
+				09AD92E024049B7300B09A1C /* RoomCrud.swift in Sources */,
 				5F43915323FE1F4F003A390F /* TrainerProtocol.swift in Sources */,
 				09D255DA2404369B00AC16FB /* InsertIntoTables.swift in Sources */,
 				0922755723FC845E0062950E /* HelperFunctions.swift in Sources */,

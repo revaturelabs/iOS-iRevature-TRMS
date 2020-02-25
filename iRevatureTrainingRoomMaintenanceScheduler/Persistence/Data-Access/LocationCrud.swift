@@ -13,8 +13,8 @@ extension LocationTable {
         }
         
         var selectStatement = SelectStatement()
-        selectStatement.specifyColumn(table: LocationTable.table, columnName: UserTable.ColumnName.id.rawValue, asName: "id")
-        selectStatement.specifyColumn(table: LocationTable.table, columnName: UserTable.ColumnName.name.rawValue, asName: "name")
+        selectStatement.specifyColumn(table: LocationTable.table, columnName: LocationTable.ColumnName.id.rawValue, asName: "id")
+        selectStatement.specifyColumn(table: LocationTable.table, columnName: LocationTable.ColumnName.name.rawValue, asName: "name")
         
         do {
             let result = try db.selectData(statement: selectStatement)

@@ -23,10 +23,14 @@ class MaintenanceReportViewController: RevatureBaseViewController {
     var roomList: [Status] = [Status]()
     
     let dateFormat = "MMM dd, yy"
+    
+    var rooms: [RoomName] = [RoomName]()
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        rooms = RoomBusinessService.getAllRooms()
         
         roomList = ReportBusinessService.getAllReportsforUser(user: User(id: 1, email: "", name: "", role: "", token: "", keepLoggedIn: true))
         
@@ -35,7 +39,7 @@ class MaintenanceReportViewController: RevatureBaseViewController {
         
         startDate.dateDropDown(dateFormat: "MMM dd, yy")
         endDate.dateDropDown(dateFormat: "MMM dd, yy")
-        roomID.showDropDown(data: RoomBusinessService.getAllRoomNames())
+        roomID.showDropDown(data: rooms.map{$0.name})
         
         roomID.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .allEditingEvents)
         startDate.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .allEditingEvents)
@@ -61,8 +65,6 @@ extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDel
         
         var myRoom = Room(id: 1, name: "Room 200", campus: "USF", location: "Tampa", assignedTo: "Uday", assignedTasks: [])
         
-        var rooms = ReportBusinessService.getAllReports(room: myRoom, startDate: startDate.text!.toDate(from: dateFormat), endDate: endDate.text!.toDate(from: dateFormat))
-        
 //        for room in roomList {
 //            if room.roomName == roomID.text &&
 //               room.date <= pickerDateFormat.date(from: endDate.text!)! &&
@@ -71,8 +73,6 @@ extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDel
 //                filteredList.append(room)
 //            }
 //        }
-        
-        filteredList = rooms
         
         return filteredList.count
     }

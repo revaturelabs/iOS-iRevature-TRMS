@@ -30,9 +30,9 @@ class ViewController: UIViewController {
             passwordTextField.delegate = self
         }
         
-        DropAllTables.runScript()
-        CreateAllTables.runScript()
-        InsertDataIntoTables.runScript()
+//        DropAllTables.runScript()
+//        CreateAllTables.runScript()
+//        InsertDataIntoTables.runScript()
         
 //        CreateAllTables.runScript()
         

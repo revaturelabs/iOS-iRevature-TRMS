@@ -13,6 +13,7 @@ class MaintenanceCheckController: UIViewController {
     @IBOutlet weak var currentDate: UILabel!
     @IBOutlet weak var selectorTextField: UITextField!
     @IBOutlet weak var taskTable: UITableView!
+    @IBOutlet weak var submitButton: RevatureButton!
     
     var roomList:[RoomName] = []
     var tasks:[MaintenanceTask] = []
@@ -23,6 +24,8 @@ class MaintenanceCheckController: UIViewController {
         roomList = RoomBusinessService.getAllRooms()
         
         currentDate.text = Date().formatDate(by: "MMMM dd, yyyy")
+        
+        submitButton.isEnabled = false
 
         selectorTextField.showDropDown(data: ["Select room"] + roomList.map{$0.name})
         selectorTextField.addTarget(self, action: #selector(selectionChange(_:)), for: .allEditingEvents)
@@ -40,10 +43,18 @@ class MaintenanceCheckController: UIViewController {
         
         MaintenanceTaskBusinessService.createMaintenanceTask(room: room, date: Date(), taskList: tasks)
         
+        Alert.showTimedAlert(title: "Success", message: "Checklist for \(room) has been submitted", view: self, closeAfter: 3)
+        
     }
+    
     
     @objc func selectionChange(_ textField: UITextField) {
         taskTable.reloadData()
+        if selectorTextField.text! != "Select room" {
+            submitButton.isEnabled = true
+        } else {
+            submitButton.isEnabled = false
+        }
     }
 }
 

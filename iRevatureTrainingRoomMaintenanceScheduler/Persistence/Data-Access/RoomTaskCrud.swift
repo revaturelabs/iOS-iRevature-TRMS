@@ -32,7 +32,6 @@ extension RoomTaskTable {
                     case TaskTable.ColumnName.name.rawValue:
                         roomTask.taskName = value as! String
                     default:
-                        print("fail 2")
                         return nil
                     }
                 }

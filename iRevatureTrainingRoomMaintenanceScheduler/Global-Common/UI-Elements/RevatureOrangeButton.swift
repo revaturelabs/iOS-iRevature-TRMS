@@ -28,4 +28,14 @@ class RevatureButton: UIButton {
         widthAnchor.constraint(equalToConstant: 288).isActive = true
         heightAnchor.constraint(equalToConstant: 44).isActive = true
     }
+    
+    override var isEnabled: Bool {
+        didSet {
+            if !self.isEnabled {
+                self.alpha = 0.5
+            } else {
+                self.alpha = 1
+            }
+        }
+    }
 }

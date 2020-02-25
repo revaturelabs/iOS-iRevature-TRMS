@@ -14,18 +14,18 @@ class MaintenanceCheckController: UIViewController {
     @IBOutlet weak var selectorTextField: UITextField!
     @IBOutlet weak var taskTable: UITableView!
     
-    var roomList:[String] = []
+    var roomList:[RoomName] = []
     var tasks:[MaintenanceTask] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tasks = MaintenanceTaskBusinessService.getAllMaintenanceTasks()
-        roomList = RoomBusinessService.getAllRoomNames()
+        roomList = RoomBusinessService.getAllRooms()
         
         currentDate.text = Date().formatDate(by: "MMMM dd, yyyy")
 
-        selectorTextField.showDropDown(data: roomList)
+        selectorTextField.showDropDown(data: ["Select room"] + roomList.map{$0.name})
+        selectorTextField.addTarget(self, action: #selector(selectionChange(_:)), for: .allEditingEvents)
         
         self.taskTable.register(TaskSelectionCell.self, forCellReuseIdentifier: "TaskSelectionCell")
         self.taskTable.separatorStyle = UITableViewCell.SeparatorStyle.none
@@ -42,5 +42,9 @@ class MaintenanceCheckController: UIViewController {
         
     }
     
-
+    @objc func selectionChange(_ textField: UITextField) {
+        taskTable.reloadData()
+    }
 }
+
+

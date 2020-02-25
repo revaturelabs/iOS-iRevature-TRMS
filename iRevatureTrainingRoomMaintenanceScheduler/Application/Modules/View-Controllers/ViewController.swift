@@ -30,6 +30,18 @@ class ViewController: UIViewController {
             passwordTextField.delegate = self
         }
         
+//        DropAllTables.runScript()
+//        CreateAllTables.runScript()
+//        InsertDataIntoTables.runScript()
+        
+//        CreateAllTables.runScript()
+        
+//        let filePath = DatabaseAccess.getDatabaseFilePath(name: DatabaseInfo.databaseName, pathDirectory: DatabaseInfo.databaseDirectory, domainMask: DatabaseInfo.databaseDomainMask)
+//
+//        let db = DatabaseAccess.openDatabase(path: filePath, createIfDoesNotExist: true)
+//
+//        print(LocationTable.getAllValues(database: db!)!)
+
         
     }
     
@@ -38,8 +50,8 @@ class ViewController: UIViewController {
         self.login()
     }
     
+    
     func login(){
-        
         let userEmail = emailTextField.text!
         let userPassword = passwordTextField.text!
         validateUser(email: userEmail, password: userPassword)
@@ -54,6 +66,7 @@ class ViewController: UIViewController {
         if(email == "testuser1@revature.com" && password == "test123"){
             
             let loginapi = LoginAPI()
+            
             loginapi.getUserLogin(email: email, password: password, completionHandler:  { user in
                 let userData = User(id: 0, email: email, name: email, role: user.currentSystemRole.name, token: user.loginToken, keepLoggedIn: keepLoggedIn)
                 if UserInfoBusinessService.setUserInfo(userObject: userData) {

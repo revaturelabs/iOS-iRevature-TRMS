@@ -21,22 +21,14 @@ class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
     
     static func getAllMaintenanceTasks() -> [MaintenanceTask] {
         //code to get array of MaintenanceTasks
-        
-        //dummy data
-        let tasks = [
-            MaintenanceTask(id: 1, name: "Clean Desks", completed: false),
-            MaintenanceTask(id: 1, name: "Clean Whiteboards", completed: false),
-            MaintenanceTask(id: 1, name: "Arrange Desks", completed: false),
-            MaintenanceTask(id: 1, name: "Arrange Chairs", completed: false),
-            MaintenanceTask(id: 1, name: "Vacuum", completed: false)
-        ]
-        
-        return tasks
+        return []
     }
     
-    static func getAllMaintenanceTasksByRoom(room: String) -> [MaintenanceTask] {
-        //code to get all maintenance tasks for a room
-        return []
+    static func getAllMaintenanceTasksByRoom(room: RoomName) -> [MaintenanceTask] {
+        guard let tasks = RoomTaskTable.getRoomTasksByDate(databaseName: DatabaseInfo.databaseName, roomID: room.id, date: Date()) else {
+            return []
+        }
+        return tasks.map{MaintenanceTask(id: $0.roomTaskID, name: $0.taskName, completed: false)}
     }
     
 }

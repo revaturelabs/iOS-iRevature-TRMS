@@ -12,12 +12,15 @@ class TrainerBusinessService: TrainerProtocol {
     
     static func getAllTrainers() -> [Trainer] {
         //code to get all trainers
-        return [Trainer(id: 1,  name: "A")]
+        guard let trainerDB = UserTable.getAll(databaseName: DatabaseInfo.databaseName) else {
+            return [Trainer(id: 0, name: "No Trainers Available")]
+        }
+        return trainerDB.map{Trainer(id: $0.trainerId, name: $0.trainerName)}
     }
     
     static func getAllTrainerNames() -> [String] {
-        //code to get trainer names
-        return ["Uday", "Nick", "Mayur"]
+        let trainers = getAllTrainers()
+        return trainers.map{$0.name}
     }
     
     

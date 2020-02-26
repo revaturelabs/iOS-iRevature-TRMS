@@ -13,8 +13,8 @@ extension RoomTaskTable {
         let dateFormat = SQLiteDateFormat.dateFormatter
         
         var selectStatement = SelectStatement()
-        addSelectColumns(toStatement: &selectStatement, withColumnNames: .id)
-        TaskTable.addSelectColumns(toStatement: &selectStatement, withColumnNames: .id, .name)
+        addSelectColumns(toStatement: &selectStatement, withColumnNames: .id, .taskID)
+        TaskTable.addSelectColumns(toStatement: &selectStatement, withColumnNames: .name)
         
         //Join RoomTaskTable and TaskTable on RoomTask.taskID == Task.id
         let joinStatement = JoinStatement(table1: table, joinType: .INNER, table2: TaskTable.table, onColumnName1: ColumnName.taskID.rawValue, onColumnName2: TaskTable.ColumnName.id.rawValue)

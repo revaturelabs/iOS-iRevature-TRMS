@@ -20,7 +20,7 @@ class MaintenanceCheckController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         roomList = RoomBusinessService.getAllRooms()
         
         currentDate.text = Date().formatDate(by: "MMMM dd, yyyy")
@@ -43,9 +43,12 @@ class MaintenanceCheckController: UIViewController {
             return
         }
         
-        MaintenanceTaskBusinessService.createMaintenanceTask(room: room, date: Date(), taskList: tasks)
+        if MaintenanceTaskBusinessService.createMaintenanceTask(room: room, date: Date(), taskList: tasks) {
         
-        Alert.showTimedAlert(title: "Success", message: "Checklist for \(room.name) has been submitted", view: self, closeAfter: 3)
+            Alert.showTimedAlert(title: "Success", message: "Checklist for \(room.name) has been submitted", view: self, closeAfter: 1)
+        } else {
+            Alert.showAlert(title: "Error", message: "Unable to submit checklist", view: self, acceptButton: "Okay")
+        }
         
     }
     

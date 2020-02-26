@@ -68,7 +68,7 @@ class ViewController: UIViewController {
             let loginapi = LoginAPI()
             
             loginapi.getUserLogin(email: email, password: password, completionHandler:  { user in
-                let userData = User(id: 0, email: email, name: email, role: user.currentSystemRole.name, token: user.loginToken, keepLoggedIn: keepLoggedIn)
+                let userData = User(id: 0, empID: user.emp_id, email: email, name: email, role: user.currentSystemRole.name, token: user.loginToken, keepLoggedIn: keepLoggedIn)
                 if UserInfoBusinessService.setUserInfo(userObject: userData) {
                     print("User preferences stored")
                 } else {
@@ -100,6 +100,7 @@ class ViewController: UIViewController {
     }
     
 }
+
 
 
 extension ViewController: UITextFieldDelegate{

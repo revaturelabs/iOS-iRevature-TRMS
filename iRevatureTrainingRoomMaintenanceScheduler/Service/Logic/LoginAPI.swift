@@ -11,7 +11,7 @@ import Alamofire
 
 class LoginAPI {
     
-    let loginEndpoint: String = "https://private-dbd7b7-security14.apiary-mock.com/security/login"
+    let loginEndpoint: String = "https://private-dbd7b7-security14.apiary-mock.com/security/login/info"
     
     
     func getUserLogin(email: String, password: String, completionHandler: @escaping (UserJSON) -> Void) {

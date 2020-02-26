@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class ViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var failMessage: UILabel!
     @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var userName: UILabel!
     
     let userBusinessService = UserInfoBusinessService()
     let queue = DispatchQueue(label: "TRMS.setuserdefaults")
@@ -22,35 +24,31 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        // Set login screen with userdetails if they exist
         if let user = UserInfoBusinessService.getUserInfo(){
             welcomeLabel.text = "Welcome back"
+            userName.text = user.name
             emailTextField.text = user.email
-            
-            emailTextField.delegate = self
-            passwordTextField.delegate = self
         }
         
+        //set delegate for text fields
+            emailTextField.delegate = self
+            passwordTextField.delegate = self
+        
+        //run to populate db with data
 //        DropAllTables.runScript()
-//        CreateAllTables.runScript()
-//        InsertDataIntoTables.runScript()
-        
-//        CreateAllTables.runScript()
-        
-//        let filePath = DatabaseAccess.getDatabaseFilePath(name: DatabaseInfo.databaseName, pathDirectory: DatabaseInfo.databaseDirectory, domainMask: DatabaseInfo.databaseDomainMask)
-//
-//        let db = DatabaseAccess.openDatabase(path: filePath, createIfDoesNotExist: true)
-//
-//        print(LocationTable.getAllValues(database: db!)!)
+        CreateAllTables.runScript()
+        InsertDataIntoTables.runScript()
 
-        
     }
     
     
+    //handle user interaction with login button
     @IBAction func userLogin(_ sender: Any) {
         self.login()
     }
     
-    
+    // login user
     func login(){
         let userEmail = emailTextField.text!
         let userPassword = passwordTextField.text!
@@ -58,47 +56,53 @@ class ViewController: UIViewController {
     }
     
     
-    
+    //validate user information
     func validateUser(email: String, password: String) {
         
         let keepLoggedIn = keepLoggedInSwitch.isOn
         
+        //check if user name and password are correct
         if(email == "testuser1@revature.com" && password == "test123"){
             
+            //get user information from api and set to business services
             let loginapi = LoginAPI()
             
+            //set function in queue
             self.queue.async{
                 loginapi.getUserLogin(email: email, password: password, completionHandler:  { user in
                     let userData = User(id: 0, empID: user.emp_id, email: email, name: email, role: user.currentSystemRole.name, token: user.loginToken, keepLoggedIn: keepLoggedIn)
                     if UserInfoBusinessService.setUserInfo(userObject: userData) {
-                        print("User preferences stored")
+                        os_log("User defaults stored")
                     } else {
-                        print("Something went wrong")
+                        os_log("Unable to store user defaults")
                     }
                 })
             }
             
+            //leave login and navigate to app
             navigateToMaintenanceCheck()
             
+            //complete user set up after previous queue item completes
             self.queue.async{
                 self.setManagerEmail()
             }
 
             
         } else {
-            
+            //provide failure message to user if login credentials are not correct
             failMessage.text = "Invalid login details provided. Please try again"
             
         }
         
     }
     
+    //close keyboard if user touches outside of text fields
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         super.touchesBegan(touches , with: event)
     }
     
-    
+    //function to open maintenance check story boards
     func navigateToMaintenanceCheck(){
         let storyboard:UIStoryboard = UIStoryboard(name: "MaintenanceCheck", bundle: nil)
         let view = storyboard.instantiateInitialViewController()!
@@ -106,15 +110,17 @@ class ViewController: UIViewController {
         self.present(view, animated:true, completion: nil)
     }
     
-    
+    //add additional information to userdefaults based off trainer api
     func setManagerEmail(){
         var user = UserInfoBusinessService.getUserInfo()
+        //make call to trainer api endpoint
         let trainerapi = TrainerAPI()
         trainerapi.getTrainers { (trainers) in
             let current = trainers.first(where: {$0.id == user?.empID})
             user?.managerEmail = current?.manager_email
+            user?.name = current!.name
             if UserInfoBusinessService.setUserInfo(userObject: user!) {
-                print("Update User")
+                os_log("User updated")
             }
         }
 
@@ -123,14 +129,15 @@ class ViewController: UIViewController {
 }
 
 
-
+//set up functionality to allow keyboard navigation
 extension ViewController: UITextFieldDelegate{
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switchTextField(textField)
         return true
     }
     
+    //check what textfield is active, switch field or close keyboard accordingly
     private func switchTextField(_ textField: UITextField){
         switch textField{
         case self.emailTextField:

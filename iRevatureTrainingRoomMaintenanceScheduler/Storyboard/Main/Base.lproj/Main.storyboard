@@ -97,21 +97,31 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ThU-H8-nPY">
+                                <rect key="frame" x="25" y="250.5" width="364" height="30"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="23"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="ThU-H8-nPY" firstAttribute="top" secondItem="sXN-f2-8xF" secondAttribute="bottom" constant="10" id="65s-RZ-fvW"/>
                             <constraint firstItem="y3P-Pe-dD7" firstAttribute="top" secondItem="2pk-ky-mtP" secondAttribute="bottom" constant="20" id="6J4-4d-dVu"/>
                             <constraint firstItem="sXN-f2-8xF" firstAttribute="top" secondItem="LdD-Rp-E0g" secondAttribute="bottom" constant="60" id="7oQ-sh-qIF"/>
                             <constraint firstItem="2pk-ky-mtP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9UE-Pg-zT6"/>
+                            <constraint firstItem="ThU-H8-nPY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="BRs-S3-Eql"/>
                             <constraint firstItem="y3P-Pe-dD7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="73" id="GgE-7H-tl2"/>
                             <constraint firstItem="LdD-Rp-E0g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gwf-dD-dxp"/>
                             <constraint firstItem="FnB-5E-3tI" firstAttribute="top" secondItem="y3P-Pe-dD7" secondAttribute="bottom" constant="40" id="HRl-c4-Aff"/>
                             <constraint firstItem="sXN-f2-8xF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="QwZ-vO-cez"/>
                             <constraint firstItem="pLJ-T8-QHy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Vdz-oz-kBD"/>
                             <constraint firstItem="pLJ-T8-QHy" firstAttribute="top" secondItem="FnB-5E-3tI" secondAttribute="bottom" constant="20" id="WNW-w7-dji"/>
+                            <constraint firstItem="2pk-ky-mtP" firstAttribute="top" secondItem="ThU-H8-nPY" secondAttribute="bottom" constant="20" id="YZy-Kn-NgE"/>
                             <constraint firstItem="FnB-5E-3tI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YtR-Ys-Uln"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pLJ-T8-QHy" secondAttribute="trailing" constant="20" id="Zg4-sL-hr6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sXN-f2-8xF" secondAttribute="trailing" constant="20" id="fEr-E0-KkZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ThU-H8-nPY" secondAttribute="trailing" constant="25" id="q2A-uD-2fo"/>
                             <constraint firstItem="2pk-ky-mtP" firstAttribute="top" secondItem="sXN-f2-8xF" secondAttribute="bottom" constant="60" id="ssa-tS-ldZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="y3P-Pe-dD7" secondAttribute="trailing" constant="20" id="tdw-pF-9cC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2pk-ky-mtP" secondAttribute="trailing" constant="20" id="yIH-zL-zy3"/>
@@ -124,6 +134,7 @@
                         <outlet property="failMessage" destination="pLJ-T8-QHy" id="WQy-Py-stA"/>
                         <outlet property="keepLoggedInSwitch" destination="PvX-2h-JNJ" id="zLG-76-IEz"/>
                         <outlet property="passwordTextField" destination="NgT-Ef-CzJ" id="ZOW-ZU-CPn"/>
+                        <outlet property="userName" destination="ThU-H8-nPY" id="F2f-sl-OSC"/>
                         <outlet property="welcomeLabel" destination="sXN-f2-8xF" id="ZKV-Ry-uJ2"/>
                     </connections>
                 </viewController>

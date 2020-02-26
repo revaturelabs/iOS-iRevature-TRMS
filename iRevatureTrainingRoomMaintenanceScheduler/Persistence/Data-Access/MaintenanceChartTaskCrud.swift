@@ -8,13 +8,19 @@
 
 extension MaintenanceChartTaskTable {
     
-    static func getByMaintenanceChart(maintenanceChartID: Int) -> [MaintenanceChartTask]? {
-        guard let result = Database.execute(selectStatement: getByMaintenanceChartIDStatement(maintenanceChartID: maintenanceChartID), fromDatabase: DatabaseInfo.databaseName), let resultStruct = applyDataToStruct(result: result) else {
-            print("failed in guard")
+    static func getByID(maintenanceChartID: Int, taskID: Int) -> MaintenanceChartTask? {
+        guard let result = Database.execute(selectStatement: getByIDStatement(maintenanceChartID: maintenanceChartID, taskID: taskID), fromDatabase: DatabaseInfo.databaseName), let resultStruct = applyDataToStruct(result: result) else {
             return nil
         }
         
-        print("result struct \(resultStruct)")
+        return resultStruct[0]
+    }
+    
+    static func getByMaintenanceChart(maintenanceChartID: Int) -> [MaintenanceChartTask]? {
+        guard let result = Database.execute(selectStatement: getByMaintenanceChartIDStatement(maintenanceChartID: maintenanceChartID), fromDatabase: DatabaseInfo.databaseName), let resultStruct = applyDataToStruct(result: result) else {
+            return nil
+        }
+        
         return resultStruct
     }
     
@@ -28,6 +34,14 @@ extension MaintenanceChartTaskTable {
     
     static func update(maintenanceChartID: Int, taskID: Int, completed: Bool) -> Bool {
         if !Database.execute(updateStatement: updateStatement(maintenanceChartID: maintenanceChartID, taskID: taskID, completed: completed), fromDatabase: DatabaseInfo.databaseName) {
+            return false
+        }
+        
+        return true
+    }
+    
+    static func remove(maintenanceChartID: Int, taskID: Int) -> Bool {
+        if !Database.execute(deleteStatement: deleteStatement(maintenanceChartID: maintenanceChartID, taskID: taskID), fromDatabase: DatabaseInfo.databaseName) {
             return false
         }
         

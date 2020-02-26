@@ -35,20 +35,13 @@ class ViewController: UIViewController {
             emailTextField.delegate = self
             passwordTextField.delegate = self
         
+        //run to populate db with data
 //        DropAllTables.runScript()
-//        CreateAllTables.runScript()
-//        InsertDataIntoTables.runScript()
-        
-//        CreateAllTables.runScript()
-        
-//        let filePath = DatabaseAccess.getDatabaseFilePath(name: DatabaseInfo.databaseName, pathDirectory: DatabaseInfo.databaseDirectory, domainMask: DatabaseInfo.databaseDomainMask)
-//
-//        let db = DatabaseAccess.openDatabase(path: filePath, createIfDoesNotExist: true)
-//
-//        print(LocationTable.getAllValues(database: db!)!)
+        CreateAllTables.runScript()
+        InsertDataIntoTables.runScript()
 
-        
     }
+    
     
     //handle user interaction with login button
     @IBAction func userLogin(_ sender: Any) {

@@ -34,9 +34,6 @@ class DelegateTaskViewController: UIViewController {
     }
     
     @IBAction func assignTask(_ sender: Any) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM dd, yy"
-//        let date = formatter.date(from: dateSelection.text!)!
-        
+        self.composeEmail()
     }
 }

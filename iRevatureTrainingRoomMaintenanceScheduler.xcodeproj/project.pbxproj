@@ -85,6 +85,7 @@
 		5F43915523FE1FF3003A390F /* TrainerBusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F43915423FE1FF3003A390F /* TrainerBusinessService.swift */; };
 		5F4A354623FCED5000CFE53F /* DelegateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4A354523FCED5000CFE53F /* DelegateTaskViewController.swift */; };
 		5F80CDA024056B3F00467647 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F80CD9F24056B3F00467647 /* Alert.swift */; };
+		5F80CDA22405F34700467647 /* DelegateTaskMessageDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F80CDA12405F34700467647 /* DelegateTaskMessageDelegate.swift */; };
 		5FB283462401C61B001ED8AA /* TrainerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB283452401C61B001ED8AA /* TrainerAPI.swift */; };
 		5FB283482401C63E001ED8AA /* RoomAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB283472401C63E001ED8AA /* RoomAPI.swift */; };
 		5FB2834A2401F168001ED8AA /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB283492401F168001ED8AA /* API.swift */; };
@@ -199,6 +200,7 @@
 		5F43915423FE1FF3003A390F /* TrainerBusinessService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerBusinessService.swift; sourceTree = "<group>"; };
 		5F4A354523FCED5000CFE53F /* DelegateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateTaskViewController.swift; sourceTree = "<group>"; };
 		5F80CD9F24056B3F00467647 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		5F80CDA12405F34700467647 /* DelegateTaskMessageDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateTaskMessageDelegate.swift; sourceTree = "<group>"; };
 		5FB283452401C61B001ED8AA /* TrainerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerAPI.swift; sourceTree = "<group>"; };
 		5FB283472401C63E001ED8AA /* RoomAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAPI.swift; sourceTree = "<group>"; };
 		5FB283492401F168001ED8AA /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 				091B7F2623F73831009D7A77 /* SceneDelegate.swift */,
 				5FB2B57923F98BFD003CD345 /* MaintenanceCheckDelegate.swift */,
 				5FFD794E23FF78A1000BD02E /* MaintenanceReportMessageDelegate.swift */,
+				5F80CDA12405F34700467647 /* DelegateTaskMessageDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -914,6 +917,7 @@
 				09F2BE0E2404B212004A6F47 /* TableProtocol.swift in Sources */,
 				09F2BE1D2404C1B6004A6F47 /* RoomStatements.swift in Sources */,
 				5FB2B57523F989A2003CD345 /* SelectionPickerView.swift in Sources */,
+				5F80CDA22405F34700467647 /* DelegateTaskMessageDelegate.swift in Sources */,
 				091B7F4023F73831009D7A77 /* MaintenanceChart.swift in Sources */,
 				09D255CA2400713000AC16FB /* RoomTable.swift in Sources */,
 				09AD92E22404AAE900B09A1C /* MaintenanceChartCrud.swift in Sources */,

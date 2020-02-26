@@ -40,6 +40,14 @@ extension MaintenanceChartTaskTable {
         return true
     }
     
+    static func remove(maintenanceChartID: Int, taskID: Int) -> Bool {
+        if !Database.execute(deleteStatement: deleteStatement(maintenanceChartID: maintenanceChartID, taskID: taskID), fromDatabase: DatabaseInfo.databaseName) {
+            return false
+        }
+        
+        return true
+    }
+    
     static func applyDataToStruct(result: [[String : Any]]) -> [MaintenanceChartTask]? {
         if result.isEmpty {
             return nil

@@ -62,4 +62,16 @@ extension MaintenanceChartTaskTable {
         
         return updateStatement
     }
+    
+    static func deleteStatement(maintenanceChartID: Int, taskID: Int) -> DeleteStatement {
+        var deleteTask = DeleteStatement(table: table)
+        
+        var whereStatement = WhereStatement()
+        whereStatement.addStatement(table: table, columnName: ColumnName.maintenanceChartID.rawValue, expression: .EQUALS, columnValue: maintenanceChartID)
+        whereStatement.addStatement(table: table, columnName: ColumnName.taskID.rawValue, expression: .EQUALS, columnValue: taskID)
+        
+        deleteTask.setWhereStatement(statement: whereStatement)
+        
+        return deleteTask
+    }
 }

@@ -43,7 +43,7 @@ extension RoomTaskTable {
         } catch {
             
         }
-        print("fail 3")
+        
         return nil
         
     }

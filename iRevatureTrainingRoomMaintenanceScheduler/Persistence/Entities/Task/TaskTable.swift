@@ -20,7 +20,7 @@ struct TaskTable: DatabaseTable {
     }
     
     //Room Struct to return from select statement
-    struct User {
+    struct Task {
         var id: Int
         var apiID: String
         var name: String

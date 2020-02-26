@@ -29,3 +29,12 @@ struct TaskDelegation {
     var endDate: Date
     var trainer: Trainer
 }
+
+
+struct TodayTask {
+    var id: Int
+    var name: String
+    var room: RoomName
+    var chartId: Int
+    var completed: Bool
+}

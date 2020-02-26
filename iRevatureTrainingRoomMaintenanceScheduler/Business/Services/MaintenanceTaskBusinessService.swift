@@ -10,32 +10,11 @@ import Foundation
 
 class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
     
-    static func createMaintenanceTask(room: RoomName, date: Date, taskList: [MaintenanceTask]) -> Bool {
-        
-        
-        var chartID: Int
-        var roomCompleted = true
-        
+    static func createMaintenanceTask(room: RoomName, date: Date, taskList: [TodayTask]) -> Bool {
         
         for task in taskList {
-            if !task.completed {
-                roomCompleted = false
-                break
-            }
+            MaintenanceChartTaskTable.update(maintenanceChartID: task.chartId, taskID: task.id, completed: task.completed)
         }
-        
-        chartID = getChartID(room: room, date: date, isCompleted: roomCompleted)
-        
-        if MaintenanceChartTaskTable.getByMaintenanceChart(maintenanceChartID: chartID) == nil {
-            for task in taskList {
-                MaintenanceChartTaskTable.insert(maintenanceChartID: chartID, taskID: task.id, taskCompleted: task.completed)
-            }
-        } else {
-            for task in taskList {
-                MaintenanceChartTaskTable.update(maintenanceChartID: chartID, taskID: task.id, completed: task.completed)
-            }
-        }
-        
         
         return true
     }
@@ -48,11 +27,42 @@ class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
     
     
     static func getAllMaintenanceTasksByRoom(room: RoomName) -> [MaintenanceTask] {
-        //get maintechartid by room, then get maintenance tasks
-        guard let tasks = RoomTaskTable.getRoomTasksByDate(databaseName: DatabaseInfo.databaseName, roomID: room.id, date: Date()) else {
+        guard let roomTasks = RoomTaskTable.getRoomTasksByDate(databaseName: DatabaseInfo.databaseName, roomID: room.id, date: Date()) else {
             return []
         }
-        return tasks.map{MaintenanceTask(id: $0.roomTaskID, name: $0.taskName, completed: false)}
+        return roomTasks.map{MaintenanceTask(id: $0.roomTaskID, name: $0.taskName, completed: false)}
+    }
+    
+    
+    static func getAllTasksForDay() -> [TodayTask] {
+        var allTasks = [TodayTask]()
+        
+        let rooms = RoomBusinessService.getAllRooms()
+        
+        for room in rooms {
+            
+            let chartID = self.getChartID(room: room, date: Date(), isCompleted: false)
+            
+            if let roomTasks = RoomTaskTable.getRoomTasksByDate(databaseName: DatabaseInfo.databaseName, roomID: room.id, date: Date()) {
+
+                if let chartTasks = MaintenanceChartTaskTable.getByMaintenanceChart(maintenanceChartID: chartID) {
+                    for task in chartTasks {
+                        let taskItem = TaskTable.getByID(taskID: task.taskID)
+                        allTasks.append(TodayTask(id: task.taskID, name: taskItem!.name, room: room, chartId: task.maintenanceChartID, completed: task.completed))
+                    }
+                } else {
+                    for task in roomTasks {
+                        MaintenanceChartTaskTable.insert(maintenanceChartID: chartID, taskID: task.roomTaskID, taskCompleted: false)
+                        allTasks.append(TodayTask(id: task.taskID, name: task.taskName, room: room, chartId: chartID, completed: false))
+                    }
+                }
+                
+                
+            }
+   
+        }
+
+        return allTasks
     }
     
     

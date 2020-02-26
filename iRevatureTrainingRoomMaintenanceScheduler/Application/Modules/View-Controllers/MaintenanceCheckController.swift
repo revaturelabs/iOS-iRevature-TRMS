@@ -16,12 +16,15 @@ class MaintenanceCheckController: UIViewController {
     @IBOutlet weak var submitButton: RevatureButton!
     
     var roomList:[RoomName] = []
-    var tasks:[MaintenanceTask] = []
+    var tasks:[TodayTask] = []
+    var tasksForRoom:[TodayTask] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         roomList = RoomBusinessService.getAllRooms()
+        
+        tasks = MaintenanceTaskBusinessService.getAllTasksForDay()
         
         currentDate.text = Date().formatDate(by: "MMMM dd, yyyy")
         
@@ -43,12 +46,14 @@ class MaintenanceCheckController: UIViewController {
             return
         }
         
-        if MaintenanceTaskBusinessService.createMaintenanceTask(room: room, date: Date(), taskList: tasks) {
+        if MaintenanceTaskBusinessService.createMaintenanceTask(room: room, date: Date(), taskList: tasksForRoom) {
         
             Alert.showTimedAlert(title: "Success", message: "Checklist for \(room.name) has been submitted", view: self, closeAfter: 1)
         } else {
             Alert.showAlert(title: "Error", message: "Unable to submit checklist", view: self, acceptButton: "Okay")
         }
+        
+        tasks = MaintenanceTaskBusinessService.getAllTasksForDay()
         
     }
     
@@ -61,6 +66,16 @@ class MaintenanceCheckController: UIViewController {
             submitButton.isEnabled = false
         }
     }
+    
+//    func updateTasks() {
+//        for task in tasksForRoom {
+//            for i in 0...tasks.count-1 {
+//                if task.chartId == tasks[i].chartId && task.id == tasks[i].id {
+//                    tasks[i].completed = task.completed
+//                }
+//            }
+//        }
+//    }
 }
 
 

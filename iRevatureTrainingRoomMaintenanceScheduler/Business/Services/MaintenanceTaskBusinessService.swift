@@ -26,16 +26,6 @@ class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
         
         chartID = getChartID(room: room, date: date, isCompleted: roomCompleted)
         
-//
-//        if let chart = MaintenanceChartTable.getByDate(roomID: room.id, date: date) {
-//            chartID = chart.maintenanceChartID
-//            MaintenanceChartTable.update(maintenanceChartID: chart.maintenanceChartID, completed: roomCompleted, inspectedByID: nil)
-//        } else {
-//            guard let idHolder = MaintenanceChartTable.insert(roomID: room.id, assignedUserID: 1, completed: roomCompleted) else { return false }
-//
-//            chartID = idHolder
-//        }
-//
         if MaintenanceChartTaskTable.getByMaintenanceChart(maintenanceChartID: chartID) == nil {
             for task in taskList {
                 MaintenanceChartTaskTable.insert(maintenanceChartID: chartID, taskID: task.id, taskCompleted: task.completed)
@@ -64,6 +54,7 @@ class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
         }
         return tasks.map{MaintenanceTask(id: $0.roomTaskID, name: $0.taskName, completed: false)}
     }
+    
     
     private static func getChartID(room: RoomName, date: Date, isCompleted: Bool) -> Int {
         var id: Int

@@ -16,7 +16,7 @@ extension MaintenanceCheckController: UITableViewDataSource {
         if let room = roomList.first(where: {$0.name == selectorTextField.text!}) {
             self.tasks = MaintenanceTaskBusinessService.getAllMaintenanceTasksByRoom(room: room)
         } else {
-            tasks = []
+            self.tasks = []
         }
         
         return self.tasks.count

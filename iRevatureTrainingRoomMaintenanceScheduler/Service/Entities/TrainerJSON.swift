@@ -20,5 +20,6 @@ struct JSONTrainer: Codable {
     var emailaddress: String
     var primarylocation: String
     var profilepicture: String
+    var manager_email: String
     var skills: [String]
 }

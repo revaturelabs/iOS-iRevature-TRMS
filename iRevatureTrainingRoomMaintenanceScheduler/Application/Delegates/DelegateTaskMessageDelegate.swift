@@ -1,15 +1,16 @@
 //
-//  MaintenanceReportMessageDelegate.swift
+//  DelegateTaskMessageDelegate.swift
 //  iRevatureTrainingRoomMaintenanceScheduler
 //
-//  Created by Kyle Keck on 2/20/20.
+//  Created by Kyle Keck on 2/25/20.
 //  Copyright © 2020 revature. All rights reserved.
 //
 
 import Foundation
 import MessageUI
 
-extension MaintenanceReportViewController: MFMailComposeViewControllerDelegate {
+
+extension DelegateTaskViewController: MFMailComposeViewControllerDelegate {
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         
@@ -29,11 +30,12 @@ extension MaintenanceReportViewController: MFMailComposeViewControllerDelegate {
     
 }
 
-extension MaintenanceReportViewController {
-   
+extension DelegateTaskViewController {
     
-    func showEmailComposer(){
-        let managerEmail = UserInfoBusinessService.getManagerEmail()
+    
+    func composeEmail(){
+        let managerEmail:String = UserInfoBusinessService.getManagerEmail()
+
         
         guard MFMailComposeViewController.canSendMail() else {
             //alert
@@ -44,34 +46,27 @@ extension MaintenanceReportViewController {
         let composer = MFMailComposeViewController()
         composer.mailComposeDelegate = self
         composer.setToRecipients([managerEmail])
-        composer.setSubject("Training Room Report")
-        composer.setMessageBody(createMessage(), isHTML: true)
+        composer.setSubject("Training Room Check List Switch Request")
+        composer.setMessageBody(createMessage(), isHTML: false)
         
         present(composer, animated:true)
         
     }
     
     func createMessage() -> String {
-        let preRows = """
-            <table cellpadding="5" border="1">
-            <thead>
-                <th>Room</th>
-                <th>Date</th>
-                <th>Status</th>
-            </thead>
-            <tbody>
+        
+        let trainingRoom = roomSelection.text!
+        let date = dateSelection.text!
+        let text = reasonTextView.text!
+        
+        let message = """
+        Please schedule a trainer to complete the following check list:
+        
+        Date:       \(date)
+        Room:       \(trainingRoom)
+        Reason:     \(text)
         """
-        let rows = filteredList.map{"""
-            <tr>
-                <td> \($0.roomName)</td>
-                <td> \($0.date.formatDate(by: "MMM dd, yyyy")) </td>
-                <td> \($0.isClean ? "clean" : "dirty")</td>
-            </tr>
-            """
-            }.reduce("", +)
-        let postRows = "</tbody></table>"
-        let html = preRows + rows + postRows
-        return html
+        
+        return message
     }
-    
 }

@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var welcomeLabel: UILabel!
     
     let userBusinessService = UserInfoBusinessService()
-
+    let queue = DispatchQueue(label: "TRMS.setuserdefaults")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,16 +67,23 @@ class ViewController: UIViewController {
             
             let loginapi = LoginAPI()
             
-            loginapi.getUserLogin(email: email, password: password, completionHandler:  { user in
-                let userData = User(id: 0, email: email, name: email, role: user.currentSystemRole.name, token: user.loginToken, keepLoggedIn: keepLoggedIn)
-                if UserInfoBusinessService.setUserInfo(userObject: userData) {
-                    print("User preferences stored")
-                } else {
-                    print("Something went wrong")
-                }
-            })
+            self.queue.async{
+                loginapi.getUserLogin(email: email, password: password, completionHandler:  { user in
+                    let userData = User(id: 0, empID: user.emp_id, email: email, name: email, role: user.currentSystemRole.name, token: user.loginToken, keepLoggedIn: keepLoggedIn)
+                    if UserInfoBusinessService.setUserInfo(userObject: userData) {
+                        print("User preferences stored")
+                    } else {
+                        print("Something went wrong")
+                    }
+                })
+            }
             
             navigateToMaintenanceCheck()
+            
+            self.queue.async{
+                self.setManagerEmail()
+            }
+
             
         } else {
             
@@ -99,7 +106,22 @@ class ViewController: UIViewController {
         self.present(view, animated:true, completion: nil)
     }
     
+    
+    func setManagerEmail(){
+        var user = UserInfoBusinessService.getUserInfo()
+        let trainerapi = TrainerAPI()
+        trainerapi.getTrainers { (trainers) in
+            let current = trainers.first(where: {$0.id == user?.empID})
+            user?.managerEmail = current?.manager_email
+            if UserInfoBusinessService.setUserInfo(userObject: user!) {
+                print("Update User")
+            }
+        }
+
+    }
+    
 }
+
 
 
 extension ViewController: UITextFieldDelegate{

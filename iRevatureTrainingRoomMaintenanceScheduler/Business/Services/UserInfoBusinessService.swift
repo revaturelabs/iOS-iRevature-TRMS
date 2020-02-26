@@ -41,5 +41,15 @@ class UserInfoBusinessService: UserInfoProtocol {
             return false
         }
     }
+    
+    static func getManagerEmail() -> String {
+        var email:String = ""
+        if let currentUser = getUserInfo(){
+            if let managerEmail = currentUser.managerEmail {
+                email = managerEmail
+            }
+        }
+        return email
+    }
 
 }

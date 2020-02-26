@@ -17,13 +17,12 @@ class API {
 
     
     init(){
-        guard let token = user?.token else {return}
-        
-        self.token = token
-        
-        self.header = [
-            "Authorization": "Bearer \(token))"
-        ]
+        if let token = user?.token {
+            self.token = token
+            self.header = [
+                "Authorization": "Bearer \(token))"
+            ]
+        }
     }
     
 }

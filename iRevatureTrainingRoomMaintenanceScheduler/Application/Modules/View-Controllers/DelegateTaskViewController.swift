@@ -14,11 +14,8 @@ class DelegateTaskViewController: UIViewController {
     @IBOutlet weak var roomSelection: UITextField!
     @IBOutlet weak var reasonTextView: UITextView!
     
-    
-    
     var roomList = [RoomName]()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,10 +30,14 @@ class DelegateTaskViewController: UIViewController {
     
     }
     
+    
     @IBAction func assignTask(_ sender: Any) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MMM dd, yy"
-//        let date = formatter.date(from: dateSelection.text!)!
-        
+        self.composeEmail()
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches , with: event)
     }
 }

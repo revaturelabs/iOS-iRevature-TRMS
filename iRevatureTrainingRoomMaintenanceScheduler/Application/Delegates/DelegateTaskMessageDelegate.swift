@@ -32,7 +32,11 @@ extension DelegateTaskViewController: MFMailComposeViewControllerDelegate {
 
 extension DelegateTaskViewController {
     
+    
     func composeEmail(){
+        let managerEmail:String = UserInfoBusinessService.getManagerEmail()
+
+        
         guard MFMailComposeViewController.canSendMail() else {
             //alert
             Alert.showAlert(title: "No email", message: "Please set up email on your device", view: self, acceptButton: "Okay")
@@ -41,7 +45,8 @@ extension DelegateTaskViewController {
         
         let composer = MFMailComposeViewController()
         composer.mailComposeDelegate = self
-        composer.setSubject("Request to pass on training room maintenance check")
+        composer.setToRecipients([managerEmail])
+        composer.setSubject("Training Room Check List Switch Request")
         composer.setMessageBody(createMessage(), isHTML: false)
         
         present(composer, animated:true)
@@ -55,10 +60,11 @@ extension DelegateTaskViewController {
         let text = reasonTextView.text!
         
         let message = """
-            Please assign the following to another trainer:
-            Room: \(trainingRoom)
-            Date: \(date)
-            Reason: \(text)
+        Please schedule a trainer to complete the following check list:
+        
+        Date:       \(date)
+        Room:       \(trainingRoom)
+        Reason:     \(text)
         """
         
         return message

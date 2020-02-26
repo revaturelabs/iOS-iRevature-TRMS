@@ -30,8 +30,11 @@ extension MaintenanceReportViewController: MFMailComposeViewControllerDelegate {
 }
 
 extension MaintenanceReportViewController {
+   
     
     func showEmailComposer(){
+        let managerEmail = UserInfoBusinessService.getManagerEmail()
+        
         guard MFMailComposeViewController.canSendMail() else {
             //alert
             Alert.showAlert(title: "No email", message: "Please set up email on your device", view: self, acceptButton: "Okay")
@@ -40,6 +43,7 @@ extension MaintenanceReportViewController {
         
         let composer = MFMailComposeViewController()
         composer.mailComposeDelegate = self
+        composer.setToRecipients([managerEmail])
         composer.setSubject("Training Room Report")
         composer.setMessageBody(createMessage(), isHTML: true)
         

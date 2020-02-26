@@ -13,20 +13,22 @@ extension MaintenanceCheckController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let room = roomList.first(where: {$0.name == selectorTextField.text!}) {
-            self.tasks = MaintenanceTaskBusinessService.getAllMaintenanceTasksByRoom(room: room)
-        } else {
-            self.tasks = []
-        }
+        tasksForRoom = tasks.filter{$0.room.name == selectorTextField.text!}
         
-        return self.tasks.count
+//        if let room = roomList.first(where: {$0.name == selectorTextField.text!}) {
+//            self.tasks = MaintenanceTaskBusinessService.getAllMaintenanceTasksByRoom(room: room)
+//        } else {
+//            self.tasks = []
+//        }
+        
+        return self.tasksForRoom.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskSelectionCell", for: indexPath) as! TaskSelectionCell
         
-        let task = tasks[indexPath.row]
+        let task = tasksForRoom[indexPath.row]
                
         cell.label.text = task.name
 
@@ -53,15 +55,15 @@ extension MaintenanceCheckController: UITableViewDelegate {
         
         let cell = tableView.cellForRow(at: indexPath) as! TaskSelectionCell
         
-        tasks[indexPath.row].completed = !tasks[indexPath.row].completed
+        tasksForRoom[indexPath.row].completed = !tasksForRoom[indexPath.row].completed
         
 //        cell.check.isOn = tasks[indexPath.row].completed
-        cell.check.setOn(tasks[indexPath.row].completed, animated: true)
+        cell.check.setOn(tasksForRoom[indexPath.row].completed, animated: true)
     }
     
     
     @objc func toggle(_ sender: UISwitch) {
-        tasks[sender.tag].completed = sender.isOn
+        tasksForRoom[sender.tag].completed = sender.isOn
     }
     
 }

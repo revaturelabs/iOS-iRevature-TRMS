@@ -40,11 +40,13 @@ class MaintenanceTaskBusinessService: MaintenanceTaskProtocol {
     }
     
     
-    static func getAllMaintenanceTasksByRoom(room: RoomName) -> [MaintenanceTask] {
-        guard let roomTasks = RoomTaskTable.getRoomTasksByDate(databaseName: DatabaseInfo.databaseName, roomID: room.id, date: Date()) else {
-            return []
+    static func getAllMaintenanceTasksByRoom(room: RoomName, date: Date) -> [TodayTask] {
+        if let chart = MaintenanceChartTable.getByDate(roomID: room.id, date: date) {
+            if let chartTasks = MaintenanceChartTaskTable.getByMaintenanceChart(maintenanceChartID: chart.maintenanceChartID) {
+                return chartTasks.map{TodayTask(id: $0.taskID, name: TaskTable.getByID(taskID: $0.taskID)!.name, room: room, chartId: chart.maintenanceChartID, completed: $0.completed)}
+            }
         }
-        return roomTasks.map{MaintenanceTask(id: $0.roomTaskID, name: $0.taskName, completed: false)}
+        return []
     }
     
     

@@ -11,12 +11,19 @@ import Alamofire
 
 class TaskAPI: API {
     
-    let roomEndpoint = "https://private-dbd7b7-security14.apiary-mock.com/coredata/maintenance/tasks"
-
-    func getTasks(_ completionHandler: @escaping (_ tasks:[JSONTask]) -> Void) {
+    var endpoint = "https://private-dbd7b7-security14.apiary-mock.com/coredata/maintenance/tasks"
+    
+    //function to get tasks can take nil for all task or a roomID string for tasks for room
+    func getTasks(_ roomID: String?, _ completionHandler: @escaping (_ tasks:[JSONTask]) -> Void) {
+        
+        //change endpoint if roomID string is provided
+        if roomID != nil {
+            let url = "https://private-dbd7b7-security14.apiary-mock.com/coredata/maintenance/room/tasks/"
+            endpoint = url + roomID!
+        }
         
         AF.request(
-                   roomEndpoint,
+                   endpoint,
                    headers: header
         ).validate().responseDecodable(of: APITaskResponse.self){
             (response) in

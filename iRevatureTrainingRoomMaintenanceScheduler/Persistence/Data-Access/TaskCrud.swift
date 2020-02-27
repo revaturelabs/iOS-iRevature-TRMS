@@ -31,7 +31,7 @@ extension TaskTable {
         return true
     }
     
-    static func drop() {
+    static func drop() -> Bool {
         if !Database.execute(tableToDrop: TaskTable.table, fromDatabase: DatabaseInfo.databaseName) {
             return false
         }

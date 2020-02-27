@@ -91,13 +91,13 @@ class Database {
 //================================
     //Run Drop Statement
 //================================
-    static func execute(tableToDrop: SQLTable, fromDatabase databaseName: String) -> Bool {
+    static func execute(tableToDrop: SQLiteTable, fromDatabase databaseName: String) -> Bool {
         guard let db = getDatabase(databaseName: databaseName) else {
             return false
         }
         
         do {
-            try db.dropTable(table: table)
+            try db.dropTable(table: tableToDrop)
             //print("Dropped Table: \(table.getTableName())")
             return true
         } catch {

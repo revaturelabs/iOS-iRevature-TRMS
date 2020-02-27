@@ -26,7 +26,7 @@ extension UserTable {
         
     }
     
-    static func insert(userApiID: Int, userName: String, userLocation: Int) -> Bool {
+    static func insert(userApiID: String, userName: String, userLocation: Int) -> Bool {
         if !Database.execute(insertStatement: insertStatement(userApiID: userApiID, userName: userName, userLocation: userLocation), fromDatabase: DatabaseInfo.databaseName) {
             return false
         }

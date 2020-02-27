@@ -15,13 +15,27 @@ class InsertDataIntoTables {
     
     
     static func runScript() {
-        insertTasks()
-        insertCampuses()
         insertLocations()
+        insertCampuses()
+        insertUsers()
+        insertTasks()
         insertRooms()
         insertMainenanceCharts()
         insertRoomTasks()
         
+    }
+    
+    private static func insertUsers() {
+        TrainerAPI().getTrainers({users in
+            
+            for user in users {
+                
+                guard let locationID = LocationTable.getByName(databaseName: DatabaseInfo.databaseName, locationName: user.primarylocation)?.locationID else { return }
+                
+                Database.execute(insertStatement: UserTable.insertStatement(userApiID: user.id, userName: user.name, userLocation: locationID), fromDatabase: DatabaseInfo.databaseName)
+            }
+            
+        })
     }
     
     private static func insertTasks() {
@@ -71,17 +85,32 @@ class InsertDataIntoTables {
     }
     
     private static func insertRooms() {
-        let db = Database.getDatabase(databaseName: DatabaseInfo.databaseName)
-
-        for (index, roomName) in roomNames.enumerated() {
-            let insertStatement = InsertStatement(table: RoomTable.table, columnValues: index + 1, "\(index + 1)", roomName, 1, 2, 0)
-           
-            do {
-                try db?.insertRow(statement: insertStatement)
-            } catch {
-                print("Insert of \(roomName) room failed")
-            }
-        }
+        
+//        RoomAPI().getRooms({ rooms in
+//            for room in rooms {
+//                //apiID
+//                room.id
+//                //Room Name
+//                room.room
+//                //room trainer
+//                room.trainer_name
+//                
+//                Database.execute(insertStatement: , fromDatabase: <#T##String#>)
+//            }
+//            
+//        })
+//        
+//        
+//        
+//        for (index, roomName) in roomNames.enumerated() {
+//            let insertStatement = InsertStatement(table: RoomTable.table, columnValues: index + 1, "\(index + 1)", roomName, 1, 2, 0)
+//           
+//            do {
+//                try db?.insertRow(statement: insertStatement)
+//            } catch {
+//                print("Insert of \(roomName) room failed")
+//            }
+//        }
     }
     
     private static func insertMainenanceCharts() {

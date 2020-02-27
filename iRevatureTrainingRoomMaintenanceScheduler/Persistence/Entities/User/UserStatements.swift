@@ -16,7 +16,7 @@ extension UserTable {
         return selectStatement
     }
     
-    static func insertStatement(userApiID: Int, userName: String, userLocation: Int) -> InsertStatement {
+    static func insertStatement(userApiID: String, userName: String, userLocation: Int) -> InsertStatement {
         var insertStatement = InsertStatement(table: table)
         insertStatement.specifyValue(columnName: ColumnName.apiID.rawValue, columnValue: userApiID)
         insertStatement.specifyValue(columnName: ColumnName.name.rawValue, columnValue: userName)

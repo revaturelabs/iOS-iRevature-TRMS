@@ -88,4 +88,12 @@ extension RoomTable {
         
         return nil
     }
+    
+    static func insert(roomApiID: String, roomName: String, roomLocationID: Int, roomCampusID: Int, roomUserID: Int) -> Bool {
+        if !Database.execute(insertStatement: insertStatement(roomApiID: roomApiID, roomName: roomName, roomLocationID: roomLocationID, campusID: roomCampusID, userID: roomUserID), fromDatabase: DatabaseInfo.databaseName) {
+            return false
+        }
+        
+        return true
+    }
 }

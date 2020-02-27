@@ -96,6 +96,11 @@ extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDel
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
 }
 
 extension MaintenanceReportViewController {

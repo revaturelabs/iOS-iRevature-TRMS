@@ -11,7 +11,7 @@ import Alamofire
 
 class RoomAPI: API {
     
-       let roomEndpoint = "https://private-dbd7b7-security14.apiary-mock.com/coredata/room?type=training"
+       let roomEndpoint = "https://private-dbd7b7-security14.apiary-mock.com/coredata/batch/room"
 
        func getRooms(_ completionHandler: @escaping (_ rooms:[JSONRoom]) -> Void) {
            

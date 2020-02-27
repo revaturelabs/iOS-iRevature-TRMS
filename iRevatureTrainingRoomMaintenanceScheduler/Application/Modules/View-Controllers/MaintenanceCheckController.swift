@@ -66,16 +66,6 @@ class MaintenanceCheckController: UIViewController {
             submitButton.isEnabled = false
         }
     }
-    
-//    func updateTasks() {
-//        for task in tasksForRoom {
-//            for i in 0...tasks.count-1 {
-//                if task.chartId == tasks[i].chartId && task.id == tasks[i].id {
-//                    tasks[i].completed = task.completed
-//                }
-//            }
-//        }
-//    }
 }
 
 

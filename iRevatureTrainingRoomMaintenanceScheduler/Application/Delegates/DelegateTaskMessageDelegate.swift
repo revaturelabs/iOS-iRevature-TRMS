@@ -8,23 +8,24 @@
 
 import Foundation
 import MessageUI
+import os.log
 
 
 extension DelegateTaskViewController: MFMailComposeViewControllerDelegate {
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        
+        //log user actions for email
         switch result {
         case .sent:
-            print("sent")
+            os_log("Email sent")
         case .saved:
-            print("saved")
+            os_log("Email saved")
         case .cancelled:
-            print("cancelled")
+            os_log("Email cancelled")
         case.failed:
-            print("failed")
+            os_log("Email failed")
         }
-        
+        //close email, return to previous screen
         controller.dismiss(animated:true)
     }
     
@@ -35,10 +36,9 @@ extension DelegateTaskViewController {
     
     func composeEmail(){
         let managerEmail:String = UserInfoBusinessService.getManagerEmail()
-
         
+        //check if device has email or alert user to set up email
         guard MFMailComposeViewController.canSendMail() else {
-            //alert
             Alert.showAlert(title: "No email", message: "Please set up email on your device", view: self, acceptButton: "Okay")
             return
         }
@@ -53,6 +53,7 @@ extension DelegateTaskViewController {
         
     }
     
+    //function to create email body using user input
     func createMessage() -> String {
         
         let trainingRoom = roomSelection.text!

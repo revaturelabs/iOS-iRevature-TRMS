@@ -8,22 +8,23 @@
 
 import Foundation
 import MessageUI
+import os.log
 
 extension MaintenanceReportViewController: MFMailComposeViewControllerDelegate {
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        
+        //log user actions for email
         switch result {
         case .sent:
-            print("sent")
+            os_log("Email sent")
         case .saved:
-            print("saved")
+            os_log("Email saved")
         case .cancelled:
-            print("cancelled")
+            os_log("Email cancelled")
         case.failed:
-            print("failed")
+            os_log("Email failed")
         }
-        
+        //close email, return to previous screen
         controller.dismiss(animated:true)
     }
     
@@ -33,10 +34,10 @@ extension MaintenanceReportViewController {
    
     
     func showEmailComposer(){
+        //get the email for current user's manager
         let managerEmail = UserInfoBusinessService.getManagerEmail()
-        
+        //check if user had email set up, show alert if not set up
         guard MFMailComposeViewController.canSendMail() else {
-            //alert
             Alert.showAlert(title: "No email", message: "Please set up email on your device", view: self, acceptButton: "Okay")
             return
         }
@@ -51,6 +52,7 @@ extension MaintenanceReportViewController {
         
     }
     
+    //function to create an HTML table using the status of a room
     func createMessage() -> String {
         let preRows = """
             <table cellpadding="5" border="1">

@@ -25,9 +25,9 @@ extension RoomTaskTable {
 
                 for (columnName, value) in row {
                     switch columnName {
-                    case RoomTable.ColumnName.id.rawValue:
+                    case RoomTaskTable.ColumnName.id.rawValue:
                         roomTask.roomTaskID = value as! Int
-                    case TaskTable.ColumnName.id.rawValue:
+                    case RoomTaskTable.ColumnName.taskID.rawValue:
                         roomTask.taskID = value as! Int
                     case TaskTable.ColumnName.name.rawValue:
                         roomTask.taskName = value as! String

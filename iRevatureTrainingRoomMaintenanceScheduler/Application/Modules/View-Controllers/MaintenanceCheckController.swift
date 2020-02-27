@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class MaintenanceCheckController: UIViewController {
     
@@ -38,6 +39,10 @@ class MaintenanceCheckController: UIViewController {
         
         taskTable.dataSource = self
         taskTable.delegate = self
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+5) {
+            self.setManagerEmail()
+        }
     }
 
     
@@ -65,6 +70,22 @@ class MaintenanceCheckController: UIViewController {
         } else {
             submitButton.isEnabled = false
         }
+    }
+    
+    
+    func setManagerEmail(){
+        var user = UserInfoBusinessService.getUserInfo()
+        //make call to trainer api endpoint
+        let trainerapi = TrainerAPI()
+        trainerapi.getTrainers { (trainers) in
+            let current = trainers.first(where: {$0.id == user?.empID})
+            user?.managerEmail = current?.manager_email
+            user?.name = current!.name
+            if UserInfoBusinessService.setUserInfo(userObject: user!) {
+                os_log("User updated")
+            }
+        }
+
     }
 }
 

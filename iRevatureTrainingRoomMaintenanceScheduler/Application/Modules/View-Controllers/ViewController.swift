@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var userName: UILabel!
     
     let userBusinessService = UserInfoBusinessService()
-    let queue = DispatchQueue(label: "TRMS.setuserdefaults")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +38,12 @@ class ViewController: UIViewController {
         DropAllTables.runScript()
         CreateAllTables.runScript()
         InsertDataIntoTables.runScript()
+        
+        LocationAPI().getLocation{(locations) in
+            for location in locations{
+                print(location)
+            }
+        }
 
     }
     
@@ -67,8 +72,6 @@ class ViewController: UIViewController {
             //get user information from api and set to business services
             let loginapi = LoginAPI()
             
-            //set function in queue
-            self.queue.async{
                 loginapi.getUserLogin(email: email, password: password, completionHandler:  { user in
                     let userData = User(id: 0, empID: user.emp_id, email: email, name: email, role: user.currentSystemRole.name, token: user.loginToken, keepLoggedIn: keepLoggedIn)
                     if UserInfoBusinessService.setUserInfo(userObject: userData) {
@@ -77,15 +80,9 @@ class ViewController: UIViewController {
                         os_log("Unable to store user defaults")
                     }
                 })
-            }
             
             //leave login and navigate to app
             navigateToMaintenanceCheck()
-            
-            //complete user set up after previous queue item completes
-            self.queue.async{
-                self.setManagerEmail()
-            }
 
             
         } else {
@@ -108,22 +105,6 @@ class ViewController: UIViewController {
         let view = storyboard.instantiateInitialViewController()!
         view.modalPresentationStyle = .fullScreen
         self.present(view, animated:true, completion: nil)
-    }
-    
-    //add additional information to userdefaults based off trainer api
-    func setManagerEmail(){
-        var user = UserInfoBusinessService.getUserInfo()
-        //make call to trainer api endpoint
-        let trainerapi = TrainerAPI()
-        trainerapi.getTrainers { (trainers) in
-            let current = trainers.first(where: {$0.id == user?.empID})
-            user?.managerEmail = current?.manager_email
-            user?.name = current!.name
-            if UserInfoBusinessService.setUserInfo(userObject: user!) {
-                os_log("User updated")
-            }
-        }
-
     }
     
 }

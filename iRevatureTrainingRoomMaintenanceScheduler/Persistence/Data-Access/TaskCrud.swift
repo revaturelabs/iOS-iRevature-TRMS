@@ -31,6 +31,14 @@ extension TaskTable {
         return true
     }
     
+    static func drop() {
+        if !Database.execute(tableToDrop: TaskTable.table, fromDatabase: DatabaseInfo.databaseName) {
+            return false
+        }
+        
+        return true
+    }
+    
     static func applyDataToStruct(result: [[String : Any]]) -> [Task]? {
         if result.isEmpty {
             return nil

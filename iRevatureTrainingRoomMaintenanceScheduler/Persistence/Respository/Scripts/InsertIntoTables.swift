@@ -27,15 +27,19 @@ class InsertDataIntoTables {
     private static func insertTasks() {
         let db = Database.getDatabase(databaseName: DatabaseInfo.databaseName)
         
-        for (index, taskName) in taskNames.enumerated() {
-            let insertStatement = InsertStatement(table: TaskTable.table, columnValues: index + 1, "\(index + 1)", taskName)
+        TaskAPI().getTasks(nil, { tasks in
             
-            do {
-                try db?.insertRow(statement: insertStatement)
-            } catch {
-                print("Insert of \(taskName) task failed")
+            for task in tasks {
+                let insertStatement = TaskTable.insertStatement(taskApiID: task.id, taskName: task.name)
+                
+                do {
+                    try db?.insertRow(statement: insertStatement)
+                } catch {
+                    print("Insert of \(task.name) task failed")
+                }
             }
-        }
+            
+        })
     }
     
     private static func insertLocations() {

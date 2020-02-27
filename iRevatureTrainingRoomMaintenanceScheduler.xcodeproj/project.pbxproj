@@ -1092,6 +1092,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iRevatureTrainingRoomMaintenanceScheduler/iRevatureTrainingRoomMaintenanceScheduler.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4R6WHCFACK;
 				INFOPLIST_FILE = iRevatureTrainingRoomMaintenanceScheduler/Application/Configuration/Info.plist;
@@ -1111,6 +1112,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = iRevatureTrainingRoomMaintenanceScheduler/iRevatureTrainingRoomMaintenanceScheduler.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4R6WHCFACK;
 				INFOPLIST_FILE = iRevatureTrainingRoomMaintenanceScheduler/Application/Configuration/Info.plist;

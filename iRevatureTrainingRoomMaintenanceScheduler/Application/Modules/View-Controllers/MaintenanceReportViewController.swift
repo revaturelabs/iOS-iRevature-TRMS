@@ -98,7 +98,26 @@ extension MaintenanceReportViewController: UITableViewDataSource, UITableViewDel
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var tasks = [TodayTask]()
+        var message:String = ""
         
+        let currentCell = tableView.cellForRow(at: indexPath) as! ReportTableCell
+        let taskDate = pickerDateFormat.date(from: currentCell.trainerLbl.text!)!
+        
+        if let thisRoom = rooms.first(where: {$0.name == currentCell.dateLbl.text!}) {
+            tasks = MaintenanceTaskBusinessService.getAllMaintenanceTasksByRoom(room: thisRoom, date: taskDate)
+        }
+        
+        for task in tasks {
+            let complete:String = task.completed ? "✓" : "×"
+            message += "\(complete) \(task.name)\n"
+        }
+        
+        if message == "" {
+            message = "No details available"
+        }
+        
+        Alert.showAlert(title: currentCell.dateLbl.text!, message: message, view: self, acceptButton: "Done")
     }
     
 }

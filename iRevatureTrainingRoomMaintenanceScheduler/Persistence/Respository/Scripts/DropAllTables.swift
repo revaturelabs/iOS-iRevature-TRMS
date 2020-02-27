@@ -17,10 +17,7 @@ class DropAllTables {
         
         
         if let db = db {
-            for table in SQLTable.tables {
-                if table == SQLTable.MaintenanceChart || table == SQLTable.MaintenanceChartTask {
-                    continue
-                }
+            for table in SQLTable.dropTables {
                 
                 dropTable(database: db, table: table)
             }

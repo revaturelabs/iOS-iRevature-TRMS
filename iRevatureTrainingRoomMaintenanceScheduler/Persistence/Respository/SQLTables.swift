@@ -19,6 +19,13 @@ struct SQLTable {
                          MaintenanceChartTable.table,
                          MaintenanceChartTaskTable.table]
     
+    static let dropTables = [LocationTable.table,
+                            CampusTable.table,
+                            UserTable.table,
+                            UserRoleTable.table,
+                            RoomTable.table,
+                            TaskTable.table,
+                            RoomTaskTable.table]
     
 //============================
     //Location Table

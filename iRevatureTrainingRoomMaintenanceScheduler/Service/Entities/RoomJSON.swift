@@ -26,5 +26,8 @@ struct JSONRoom: Codable {
     var capacity: Int
     var batch_name: String
     var trainer_name: String
+    var trainer_id: String
+    var campus_id: String
+    var location_id: String
     var status: Int
 }

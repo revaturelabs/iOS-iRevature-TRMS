@@ -45,6 +45,12 @@ extension LocationTable {
         return nil
     }
     
+    static func getByApiID (locationApiID: String) -> Location? {
+        guard let result = Database.execute(selectStatement: getByApiIDStatement(locationApiID: locationApiID), fromDatabase: DatabaseInfo.databaseName), let resultStruct = applyDataToStruct(result: result) else { return nil }
+        
+        return resultStruct[0]
+    }
+    
     static func getByName(databaseName: String, locationName: String) -> (locationID: Int, locationName: String)? {
         guard let db = Database.getDatabase(databaseName: databaseName) else {
             return nil
@@ -103,5 +109,34 @@ extension LocationTable {
         }
         
         return true
+    }
+    
+    static func applyDataToStruct(result: [[String : Any]]) -> [Location]? {
+        if result.isEmpty {
+            return nil
+        }
+        
+        var locationArray = [Location]()
+        
+        for row in result {
+            var location = Location()
+
+            for (columnName, value) in row {
+                switch columnName {
+                case ColumnName.id.rawValue:
+                    location.id = value as! Int
+                case ColumnName.apiID.rawValue:
+                    location.apiID = value as! String
+                case ColumnName.name.rawValue:
+                    location.name = value as! String
+                default:
+                    return nil
+                }
+            }
+            
+            locationArray.append(location)
+        }
+
+        return locationArray
     }
 }

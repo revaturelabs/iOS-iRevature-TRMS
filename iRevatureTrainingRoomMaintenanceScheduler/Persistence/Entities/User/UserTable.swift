@@ -46,7 +46,7 @@ struct UserTable: DatabaseTable {
         var userTable = SQLiteTable(tableName: tableName)
         
         userTable.addColumn(columnName: ColumnName.id.rawValue, dataType: .INTEGER, constraints: .PRIMARYKEY, .AUTOINCREMENT, .NOTNULL)
-        userTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL)
+        userTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
         userTable.addColumn(columnName: ColumnName.name.rawValue, dataType: .CHAR, constraints: .NOTNULL)
         userTable.addColumn(columnName: ColumnName.locationID.rawValue, dataType: .INT, constraints: .NOTNULL)
         

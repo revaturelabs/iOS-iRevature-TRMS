@@ -14,4 +14,16 @@ extension LocationTable {
         
         return selectStatement
     }
+    
+    static func getByApiIDStatement(locationApiID: String) -> SelectStatement {
+        var selectLocation = SelectStatement()
+        addSelectColumns(toStatement: &selectLocation, withColumnNames: .id, .apiID, .name)
+        
+        var whereStatement = WhereStatement()
+        whereStatement.addStatement(table: table, columnName: ColumnName.apiID.rawValue, expression: .EQUALS, columnValue: locationApiID.trimmingCharacters(in: .whitespacesAndNewlines))
+        
+        selectLocation.setWhereStatement(statement: whereStatement)
+        
+        return selectLocation
+    }
 }

@@ -26,6 +26,12 @@ extension UserTable {
         
     }
     
+    static func getByApiID(userApiID: String) -> User? {
+        guard let result = Database.execute(selectStatement: getByApiIDStatement(userApiID: userApiID), fromDatabase: DatabaseInfo.databaseName), let resultStruct = applyDataToStruct(result: result) else { return nil }
+        
+        return resultStruct[0]
+    }
+    
     static func insert(userApiID: String, userName: String, userLocation: Int) -> Bool {
         if !Database.execute(insertStatement: insertStatement(userApiID: userApiID, userName: userName, userLocation: userLocation), fromDatabase: DatabaseInfo.databaseName) {
             return false
@@ -34,11 +40,11 @@ extension UserTable {
         return true
     }
     
-    static func applyDataToStruct(result: [[String : Any]]) -> [UserTable.User]? {
+    static func applyDataToStruct(result: [[String : Any]]) -> [User]? {
         var userArray = result.isEmpty ? nil : [UserTable.User]()
         
         for row in result {
-            var user = UserTable.User()
+            var user = User()
 
             for (columnName, value) in row {
                 switch columnName {

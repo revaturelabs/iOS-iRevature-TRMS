@@ -24,4 +24,16 @@ extension UserTable {
         
         return insertStatement
     }
+    
+    static func getByApiIDStatement(userApiID: String) -> SelectStatement {
+        var selectUser = SelectStatement()
+        addSelectColumns(toStatement: &selectUser, withColumnNames: .id, .apiID, .name, .locationID)
+        
+        var whereStatement = WhereStatement()
+        whereStatement.addStatement(table: table, columnName: ColumnName.apiID.rawValue, expression: .EQUALS, columnValue: userApiID.trimmingCharacters(in: .whitespacesAndNewlines))
+        
+        selectUser.setWhereStatement(statement: whereStatement)
+        
+        return selectUser
+    }
 }

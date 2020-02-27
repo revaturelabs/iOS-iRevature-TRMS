@@ -9,6 +9,18 @@
 import Foundation
 
 extension RoomTaskTable {
+    static func getTaskByRoomStatement(roomID: Int) -> SelectStatement {
+        var selectRoomTasks = SelectStatement()
+        addSelectColumns(toStatement: &selectRoomTasks, withColumnNames: .id, .apiID, .roomID, .taskID)
+        
+        var whereStatement = WhereStatement()
+        whereStatement.addStatement(table: table, columnName: ColumnName.roomID.rawValue, expression: .EQUALS, columnValue: roomID)
+        
+        selectRoomTasks.setWhereStatement(statement: whereStatement)
+        
+        return selectRoomTasks
+    }
+    
     static func getTasksByDate(roomID: Int, date: Date) -> SelectStatement {
         let dateFormat = SQLiteDateFormat.dateFormatter
         

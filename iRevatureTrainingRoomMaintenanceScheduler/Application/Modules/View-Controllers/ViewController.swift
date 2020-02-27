@@ -35,16 +35,9 @@ class ViewController: UIViewController {
             passwordTextField.delegate = self
         
         //run to populate db with data
-//        DropAllTables.runScript()
+        DropAllTables.runScript()
         CreateAllTables.runScript()
         InsertDataIntoTables.runScript()
-        
-        LocationAPI().getLocation{(locations) in
-            for location in locations{
-                print(location)
-            }
-        }
-
     }
     
     

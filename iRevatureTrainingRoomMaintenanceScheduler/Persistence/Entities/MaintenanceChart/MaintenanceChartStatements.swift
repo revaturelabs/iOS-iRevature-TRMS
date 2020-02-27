@@ -42,8 +42,8 @@ extension MaintenanceChartTable {
         return selectStatement
     }
     
-    static func insertStatement(roomID: Int, assignedUserID: Int, completed: Bool) -> InsertStatement {
-        let dateString = SQLiteDateFormat.dateFormatter.string(from: Date())
+    static func insertStatement(roomID: Int, date: Date, assignedUserID: Int, completed: Bool) -> InsertStatement {
+        let dateString = SQLiteDateFormat.dateFormatter.string(from: date)
         
         var chartInsert = InsertStatement(table: table)
         chartInsert.specifyValue(columnName: ColumnName.apiID.rawValue, columnValue: dateString)

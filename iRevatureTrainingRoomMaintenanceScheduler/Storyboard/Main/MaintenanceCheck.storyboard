@@ -23,12 +23,6 @@
                                     <action selector="submitCheck:" destination="UIh-9u-zRX" eventType="touchDown" id="2Fk-Ck-X8z"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="February 20, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQJ-MD-DKh">
-                                <rect key="frame" x="117" y="96" width="147.5" height="21"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I0t-Kn-T07">
                                 <rect key="frame" x="117" y="135.5" width="223" height="34"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
@@ -62,11 +56,17 @@
                                 <rect key="frame" x="0.0" y="239" width="375" height="264"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yfF-dJ-3Xk">
+                                <rect key="frame" x="117" y="89.5" width="223" height="34"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ngJ-Q6-2R6" firstAttribute="leading" secondItem="Mo3-X2-rlN" secondAttribute="leading" constant="35" id="0KU-ly-5fI"/>
                             <constraint firstItem="Mo3-X2-rlN" firstAttribute="trailing" secondItem="I0t-Kn-T07" secondAttribute="trailing" constant="35" id="12z-h4-ZPc"/>
+                            <constraint firstItem="I0t-Kn-T07" firstAttribute="trailing" secondItem="yfF-dJ-3Xk" secondAttribute="trailing" id="7Pn-Xa-SjH"/>
                             <constraint firstItem="I0t-Kn-T07" firstAttribute="leading" secondItem="Roh-Pu-bzz" secondAttribute="trailing" constant="25" id="A0M-6e-zWW"/>
                             <constraint firstItem="Jwb-r6-uL1" firstAttribute="top" secondItem="Mo3-X2-rlN" secondAttribute="top" constant="30" id="E4U-7i-AgC"/>
                             <constraint firstItem="Roh-Pu-bzz" firstAttribute="leading" secondItem="Mo3-X2-rlN" secondAttribute="leading" constant="35" id="EeB-8O-iKo"/>
@@ -79,10 +79,10 @@
                             <constraint firstItem="eNe-WR-8qi" firstAttribute="centerX" secondItem="YQw-kS-mDt" secondAttribute="centerX" id="R4p-Uh-LEW"/>
                             <constraint firstItem="Roh-Pu-bzz" firstAttribute="top" secondItem="ngJ-Q6-2R6" secondAttribute="bottom" constant="25" id="b1e-aZ-DSh"/>
                             <constraint firstItem="77O-ts-wOy" firstAttribute="top" secondItem="Roh-Pu-bzz" secondAttribute="bottom" constant="40" id="gvN-KC-K2p"/>
+                            <constraint firstItem="I0t-Kn-T07" firstAttribute="leading" secondItem="yfF-dJ-3Xk" secondAttribute="leading" id="jpK-eQ-V1r"/>
                             <constraint firstItem="o94-w0-GaP" firstAttribute="top" secondItem="77O-ts-wOy" secondAttribute="bottom" constant="15" id="lle-uI-XLV"/>
-                            <constraint firstItem="TQJ-MD-DKh" firstAttribute="leading" secondItem="I0t-Kn-T07" secondAttribute="leading" id="mhS-0d-AgJ"/>
                             <constraint firstItem="Jwb-r6-uL1" firstAttribute="centerX" secondItem="YQw-kS-mDt" secondAttribute="centerX" id="nCE-jL-MTV"/>
-                            <constraint firstItem="TQJ-MD-DKh" firstAttribute="centerY" secondItem="ngJ-Q6-2R6" secondAttribute="centerY" id="p3a-io-F8Z"/>
+                            <constraint firstItem="yfF-dJ-3Xk" firstAttribute="centerY" secondItem="ngJ-Q6-2R6" secondAttribute="centerY" id="pqc-7M-hU7"/>
                             <constraint firstItem="o94-w0-GaP" firstAttribute="leading" secondItem="Mo3-X2-rlN" secondAttribute="leading" id="rrz-G3-SAs"/>
                             <constraint firstItem="Mo3-X2-rlN" firstAttribute="trailing" secondItem="77O-ts-wOy" secondAttribute="trailing" constant="35" id="vFK-tN-cWY"/>
                         </constraints>
@@ -90,7 +90,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Tasks" image="checkList" selectedImage="checkList" id="K6I-0d-DJm"/>
                     <connections>
-                        <outlet property="currentDate" destination="TQJ-MD-DKh" id="75S-Hg-lGX"/>
+                        <outlet property="dateSelector" destination="yfF-dJ-3Xk" id="b9l-yQ-ceo"/>
                         <outlet property="selectorTextField" destination="I0t-Kn-T07" id="efd-vb-I9D"/>
                         <outlet property="submitButton" destination="eNe-WR-8qi" id="yNK-iu-75f"/>
                         <outlet property="taskTable" destination="o94-w0-GaP" id="jo4-1e-ZIR"/>

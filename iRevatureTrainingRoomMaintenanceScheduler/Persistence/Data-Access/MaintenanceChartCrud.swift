@@ -45,14 +45,14 @@ extension MaintenanceChartTable {
     }
     
     //Insert new Maintenance Chart
-    static func insert(roomID: Int, assignedUserID: Int, completed: Bool) -> Int? {
+    static func insert(roomID: Int, date: Date, assignedUserID: Int, completed: Bool) -> Int? {
 
         
-        if !Database.execute(insertStatement: MaintenanceChartTable.insertStatement(roomID: roomID, assignedUserID: assignedUserID, completed: completed), fromDatabase: DatabaseInfo.databaseName) {
+        if !Database.execute(insertStatement: MaintenanceChartTable.insertStatement(roomID: roomID, date: date, assignedUserID: assignedUserID, completed: completed), fromDatabase: DatabaseInfo.databaseName) {
             return nil
         }
         
-        guard let chartID = getByDate(roomID: roomID, date: Date())?.maintenanceChartID else {
+        guard let chartID = getByDate(roomID: roomID, date: date)?.maintenanceChartID else {
             return nil
         }
         

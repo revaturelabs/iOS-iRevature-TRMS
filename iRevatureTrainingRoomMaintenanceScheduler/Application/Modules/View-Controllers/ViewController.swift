@@ -38,13 +38,6 @@ class ViewController: UIViewController {
         DropAllTables.runScript()
         CreateAllTables.runScript()
         InsertDataIntoTables.runScript()
-        
-        LocationAPI().getLocation{(locations) in
-            for location in locations{
-                print(location)
-            }
-        }
-
     }
     
     

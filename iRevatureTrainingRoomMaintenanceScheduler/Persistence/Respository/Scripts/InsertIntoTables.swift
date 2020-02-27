@@ -8,120 +8,158 @@
 
 
 class InsertDataIntoTables {
-    static let locations = ["Tampa, FL", "Reston, VA"]
-    static let campuses = ["UTA", "USF"]
-    static let roomNames = ["NEC 200", "NEC 300", "NEC 320", "NEC 210"]
-    static let taskNames = ["Arrange Desks", "Wipe Desks", "Clean Desks", "Clean Whiteboards", "Arrange Chairs"]
-    
     
     static func runScript() {
-        insertTasks()
-        insertCampuses()
-        insertLocations()
-        insertRooms()
-        insertMainenanceCharts()
-        insertRoomTasks()
+        insertAll()
         
+    }
+    
+    private static func insertUsers() {
+        TrainerAPI().getTrainers({users in
+            
+            for user in users {
+                let locationID = LocationTable.getByName(databaseName: DatabaseInfo.databaseName, locationName: user.primarylocation)?.locationID ?? 0
+                
+                Database.execute(insertStatement: UserTable.insertStatement(userApiID: user.id, userName: user.name, userLocation: locationID), fromDatabase: DatabaseInfo.databaseName)
+            }
+            
+        })
     }
     
     private static func insertTasks() {
         let db = Database.getDatabase(databaseName: DatabaseInfo.databaseName)
         
-        for (index, taskName) in taskNames.enumerated() {
-            let insertStatement = InsertStatement(table: TaskTable.table, columnValues: index + 1, "\(index + 1)", taskName)
+        TaskAPI().getTasks(nil, { tasks in
             
-            do {
-                try db?.insertRow(statement: insertStatement)
-            } catch {
-                print("Insert of \(taskName) task failed")
-            }
-        }
-    }
-    
-    private static func insertLocations() {
-        let db = Database.getDatabase(databaseName: DatabaseInfo.databaseName)
-        
-        for (index, location) in locations.enumerated() {
-            let insertStatement = InsertStatement(table: LocationTable.table, columnValues: index + 1, "\(index + 1)", location)
-            
-            do {
-                try db?.insertRow(statement: insertStatement)
-            } catch {
-                print("Insert of \(location) location failed")
-            }
-        }
-    }
-    
-    private static func insertCampuses() {
-        let db = Database.getDatabase(databaseName: DatabaseInfo.databaseName)
-
-        for (index, campus) in campuses.enumerated() {
-        let insertStatement = InsertStatement(table: CampusTable.table, columnValues: index + 1, "\(index + 1)", campus)
-
-        do {
-                try db?.insertRow(statement: insertStatement)
-            } catch {
-                print("Insert of \(campus) location failed")
-            }
-        }
-    }
-    
-    private static func insertRooms() {
-        let db = Database.getDatabase(databaseName: DatabaseInfo.databaseName)
-
-        for (index, roomName) in roomNames.enumerated() {
-            let insertStatement = InsertStatement(table: RoomTable.table, columnValues: index + 1, "\(index + 1)", roomName, 1, 2, 0)
-           
-            do {
-                try db?.insertRow(statement: insertStatement)
-            } catch {
-                print("Insert of \(roomName) room failed")
-            }
-        }
-    }
-    
-    private static func insertMainenanceCharts() {
-        let db = Database.getDatabase(databaseName: DatabaseInfo.databaseName)
-
-        var currentIndex = 0
-        
-        for (index, roomName) in roomNames.enumerated() {
-            for k in 0...9 {
-                currentIndex += 1
-                let date = "2020-02-\(String(format: "%02d", arguments: [k + 1]))"
-                let roomID = index + 1
-                let userID = 0
+            for task in tasks {
+                let insertStatement = TaskTable.insertStatement(taskApiID: task.id, taskName: task.name)
                 
-                let insertStatement = InsertStatement(table: MaintenanceChartTable.table, columnValues: currentIndex, "\(currentIndex)", date, Bool.random(), roomID, userID)
-               
                 do {
                     try db?.insertRow(statement: insertStatement)
                 } catch {
-                    print("Insert of \(roomName) Maintenance Chart failed")
+                    print("Insert of \(task.name) task failed")
                 }
             }
-        }
+            
+        })
     }
+    
+    private static func insertLocations() {
+        LocationAPI().getLocation({ locations in
+            for location in locations {
+                LocationTable.insert(databaseName: DatabaseInfo.databaseName, apiID: location.id, locationName: location.state)
+                
+            }
+        })
+    }
+    
+    private static func insertRooms() {
+        
+        RoomAPI().getRooms({ rooms in
+            for campus in rooms.allcampus {
+                CampusTable.insert(campusApiID: campus.id, campusName: campus.campus)
+            }
+            
+            for room in rooms.allrooms {
+                let campusID = CampusTable.getByApiID(campusApiID: room.campus_id)?.id ?? 0
+                let locationID = LocationTable.getByApiID(locationApiID: room.location_id)?.id ?? 0
+                let userID = UserTable.getByApiID(userApiID: room.trainer_id)?.id ?? 0
+                
+                RoomTable.insert(roomApiID: room.id, roomName: room.room, roomLocationID: locationID, roomCampusID: campusID, roomUserID: userID)
+            }
+        })
+    }
+    
+//    private static func insertMainenanceCharts() {
+//        let db = Database.getDatabase(databaseName: DatabaseInfo.databaseName)
+//
+//        guard let rooms = RoomTable.getAll(databaseName: DatabaseInfo.databaseName) else { return }
+//        var currentIndex = 0
+//        
+//        for (index, roomName) in roomNames.enumerated() {
+//            for k in 0...9 {
+//                currentIndex += 1
+//                let date = "2020-02-\(String(format: "%02d", arguments: [k + 1]))"
+//                let roomID = index + 1
+//                let userID = 0
+//                
+//                let insertStatement = InsertStatement(table: MaintenanceChartTable.table, columnValues: currentIndex, "\(currentIndex)", date, Bool.random(), roomID, userID)
+//               
+//                do {
+//                    try db?.insertRow(statement: insertStatement)
+//                } catch {
+//                    print("Insert of \(roomName) Maintenance Chart failed")
+//                }
+//            }
+//        }
+//    }
     
     private static func insertRoomTasks() {
         let db = Database.getDatabase(databaseName: DatabaseInfo.databaseName)
 
-        var currentIndex = 0
+        //var currentIndex = 0
         
-        for (index, roomName) in roomNames.enumerated() {
-            for (k, _) in taskNames.enumerated() {
-                currentIndex += 1
-                let roomID = index + 1
-                let taskID = k + 1
+        guard let rooms = RoomTable.getAll(databaseName: DatabaseInfo.databaseName) else { return }
+        guard let tasks = TaskTable.getAll() else { return }
+        
+        for room in rooms {
+            for task in tasks {
                 
-                let insertStatement = InsertStatement(table: RoomTaskTable.table, columnValues: currentIndex, "\(currentIndex)", "2020-02-01", "2020-02-28", roomID, taskID)
-               
+                
+                
+                let insertStatement = RoomTaskTable.insertStatement(roomTaskApiID: "", dateStart: "2020-01-01", dateEnd: "2020-12-30", roomID: room.roomID, roomTaskID: task.id)
+                
                 do {
                     try db?.insertRow(statement: insertStatement)
                 } catch {
-                    print("Insert of \(roomName) Tasks failed")
+                    print("Insert of \(room.roomName) Tasks failed")
                 }
             }
         }
+    }
+    
+    static func insertAll() {
+        LocationAPI().getLocation({ locations in
+            for location in locations {
+                LocationTable.insert(databaseName: DatabaseInfo.databaseName, apiID: location.id, locationName: location.state)
+            }
+            
+            RoomAPI().getRooms({ rooms in
+                for campus in rooms.allcampus {
+                    CampusTable.insert(campusApiID: campus.id, campusName: campus.campus)
+                }
+                
+                TrainerAPI().getTrainers({users in
+                    
+                    for user in users {
+                        let locationID = LocationTable.getByName(databaseName: DatabaseInfo.databaseName, locationName: user.primarylocation)?.locationID ?? 0
+                        
+                        UserTable.insert(userApiID: user.id, userName: user.name, userLocation: locationID)
+                    }
+                    
+                    for room in rooms.allrooms {
+                        let campusID = CampusTable.getByApiID(campusApiID: room.campus_id)?.id ?? 0
+                        let locationID = LocationTable.getByApiID(locationApiID: room.location_id)?.id ?? 0
+                        let userID = UserTable.getByApiID(userApiID: room.trainer_id)?.id ?? 0
+                        
+                        RoomTable.insert(roomApiID: room.id, roomName: room.room, roomLocationID: locationID, roomCampusID: campusID, roomUserID: userID)
+                    }
+                    
+                    TaskAPI().getTasks(nil, { tasks in
+                        
+                        for task in tasks {
+                            TaskTable.insert(taskApiID: task.id, taskName: task.name)
+                        }
+
+                        insertRoomTasks()
+                    })
+                    
+                })
+                
+
+            })
+        
+        })
+        
     }
 }

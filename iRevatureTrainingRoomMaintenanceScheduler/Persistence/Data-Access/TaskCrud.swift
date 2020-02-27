@@ -7,6 +7,12 @@
 //
 
 extension TaskTable {
+    static func getAll() -> [Task]? {
+        guard let result = Database.execute(selectStatement: getAllStatement(), fromDatabase: DatabaseInfo.databaseName), let resultStruct = applyDataToStruct(result: result) else { return nil }
+        
+        return resultStruct
+    }
+    
     static func getByID(taskID: Int) -> Task? {
         guard let result = Database.execute(selectStatement: getByIDStatement(taskID: taskID), fromDatabase: DatabaseInfo.databaseName), let resultStruct = applyDataToStruct(result: result) else {
             return nil
@@ -25,6 +31,14 @@ extension TaskTable {
     
     static func insert(taskApiID: String, taskName: String) -> Bool {
         if !Database.execute(insertStatement: insertStatement(taskApiID: taskApiID, taskName: taskName), fromDatabase: DatabaseInfo.databaseName) {
+            return false
+        }
+        
+        return true
+    }
+    
+    static func drop() -> Bool {
+        if !Database.execute(tableToDrop: TaskTable.table, fromDatabase: DatabaseInfo.databaseName) {
             return false
         }
         

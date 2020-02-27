@@ -18,6 +18,10 @@ class DropAllTables {
         
         if let db = db {
             for table in SQLTable.tables {
+                if table == SQLTable.MaintenanceChart || table == SQLTable.MaintenanceChartTask {
+                    continue
+                }
+                
                 dropTable(database: db, table: table)
             }
             

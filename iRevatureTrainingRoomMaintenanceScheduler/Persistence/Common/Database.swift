@@ -87,4 +87,23 @@ class Database {
         }
         
     }
+    
+//================================
+    //Run Drop Statement
+//================================
+    static func execute(tableToDrop: SQLiteTable, fromDatabase databaseName: String) -> Bool {
+        guard let db = getDatabase(databaseName: databaseName) else {
+            return false
+        }
+        
+        do {
+            try db.dropTable(table: tableToDrop)
+            //print("Dropped Table: \(table.getTableName())")
+            return true
+        } catch {
+            //print("Failed to drop \(table.getTableName())")
+            return false
+        }
+        
+    }
 }

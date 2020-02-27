@@ -31,4 +31,15 @@ extension RoomTaskTable {
         
         return selectStatement
     }
+    
+    static func insertStatement(roomTaskApiID: String, dateStart: String, dateEnd: String, roomID: Int, roomTaskID: Int) -> InsertStatement {
+        var insertRoomTask = InsertStatement(table: table)
+        insertRoomTask.specifyValue(columnName: ColumnName.apiID.rawValue, columnValue: roomTaskApiID)
+        insertRoomTask.specifyValue(columnName: ColumnName.dateStart.rawValue, columnValue: dateStart)
+        insertRoomTask.specifyValue(columnName: ColumnName.dateEnd.rawValue, columnValue: dateEnd)
+        insertRoomTask.specifyValue(columnName: ColumnName.roomID.rawValue, columnValue: roomID)
+        insertRoomTask.specifyValue(columnName: ColumnName.taskID.rawValue, columnValue: roomTaskID)
+        
+        return insertRoomTask
+    }
 }

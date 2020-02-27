@@ -7,6 +7,13 @@
 //
 
 extension TaskTable {
+    static func getAllStatement() -> SelectStatement {
+        var selectAll = SelectStatement()
+        addSelectColumns(toStatement: &selectAll, withColumnNames: .id, .apiID, .name)
+        
+        return selectAll
+    }
+    
     static func getByIDStatement(taskID: Int) -> SelectStatement {
         var selectTask = SelectStatement()
         addSelectColumns(toStatement: &selectTask, withColumnNames: .id, .apiID, .name)

@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  UserRole.swift
 //  iRevatureTrainingRoomMaintenanceScheduler
 //
 //  Created by Mark Hawkins on 2/21/20.
@@ -9,36 +9,32 @@
 //============================
     //User Table
 //============================
-struct UserTable: DatabaseTable {
-    private static let tableName = "user"
+struct UserRoleTable: DatabaseTable {
+    private static let tableName = "user_role"
     
     //Column name abstraction
     enum ColumnName: String {
         case id
         case apiID = "api_id"
         case name
-        case locationID = "location_id"
     }
     
-    //User Struct to return from select statement
-    struct User {
+    //UserRole Struct to return from select statement
+    struct UserRole {
         var id: Int
         var apiID: String
-        var name: String
-        var locationID: Int
+        var role: Int
         
         init() {
             self.id = Int()
             self.apiID = String()
-            self.name = String()
-            self.locationID = Int()
+            self.role = Int ()
         }
         
-        init(id: Int, apiID: String, name: String, locationID: Int) {
+        init(id: Int, name: String, apiID: String, role: Int) {
             self.id = id
             self.apiID = apiID
-            self.name = name
-            self.locationID = locationID
+            self.role = role
         }
     }
     
@@ -46,11 +42,9 @@ struct UserTable: DatabaseTable {
         var userTable = SQLiteTable(tableName: tableName)
         
         userTable.addColumn(columnName: ColumnName.id.rawValue, dataType: .INTEGER, constraints: .PRIMARYKEY, .AUTOINCREMENT, .NOTNULL)
-        userTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL, .UNIQUE)
-        userTable.addColumn(columnName: ColumnName.name.rawValue, dataType: .CHAR, constraints: .NOTNULL)
-        userTable.addColumn(columnName: ColumnName.locationID.rawValue, dataType: .INT, constraints: .NOTNULL)
+        userTable.addColumn(columnName: ColumnName.apiID.rawValue, dataType: .CHAR, constraints: .NOTNULL)
+        userTable.addColumn(columnName: ColumnName.name.rawValue, dataType: .INT, constraints: .NOTNULL, .UNIQUE)
         
         return userTable
     }
-    
 }
